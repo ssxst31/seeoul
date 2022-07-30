@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Row, Col, Pagination, Carousel } from "antd";
 import { useRouter } from "next/router";
 
-import data from "./api/data.json";
-import CulturalEventCard from "./CulturalEventCard";
+import data from "pages/api/data.json";
+import CulturalEventCard from "components/CulturalEventCard";
 
 export default function Main() {
   const router = useRouter();
