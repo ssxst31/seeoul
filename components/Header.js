@@ -1,6 +1,13 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 export default function Header() {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/`);
+  };
+
   return (
     <div
       style={{
@@ -12,7 +19,9 @@ export default function Header() {
         padding: "0 20px",
       }}
     >
-      <p style={{ fontSize: 40, color: "#0096FF" }}>내일 전시</p>
+      <p style={{ fontSize: 40, color: "#0096FF" }} onClick={handleClick}>
+        내일 전시
+      </p>
     </div>
   );
 }
