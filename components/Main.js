@@ -22,7 +22,8 @@ export default function Main() {
   if (!totalCulturalEvent) {
     return <>d</>;
   }
-  const ewq = Math.floor(Math.random() * totalCulturalEvent.length);
+
+  const randomNumber = Math.floor(Math.random() * totalCulturalEvent.length);
 
   function changePagination(activePage) {
     return router.push(`?page=${activePage}`);
@@ -32,7 +33,7 @@ export default function Main() {
     <div style={{ paddingTop: 80, width: "100%" }}>
       <span style={{ fontSize: "24px" }}>추천 전시</span>
       <Carousel autoplay slidesToShow={3}>
-        {totalCulturalEvent.slice(ewq, ewq + 5).map((c) => (
+        {totalCulturalEvent.slice(randomNumber, randomNumber + 5).map((c) => (
           <div>
             <img
               src={c.main_img}
