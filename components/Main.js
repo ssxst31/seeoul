@@ -7,17 +7,17 @@ import CulturalEventCard from "components/CulturalEventCard";
 
 export default function Main() {
   const router = useRouter();
+  const { query } = router;
+  const DEFAULT_PAGE = query.page ?? 1;
   const [totalCulturalEvent, setTotalCulturalEvent] = useState(null);
 
   const [limit, setLimit] = useState(20);
 
-  const offset = (router.query.page - 1) * limit;
+  const offset = (DEFAULT_PAGE - 1) * limit;
 
   useEffect(() => {
     setTotalCulturalEvent(data.DATA);
   }, []);
-
-  console.log(totalCulturalEvent);
 
   if (!totalCulturalEvent) {
     return <>d</>;
@@ -53,7 +53,7 @@ export default function Main() {
       </Row>
       <div style={{ height: "20px" }} />
       <Pagination
-        current={Number(router.query.page)}
+        current={Number(DEFAULT_PAGE)}
         total={Math.ceil(totalCulturalEvent.length / 20)}
         onChange={(e) => changePagination(e)}
         showSizeChanger={false}
