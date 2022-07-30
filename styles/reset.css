@@ -1,0 +1,41 @@
+body {
+  font-family: 'Noto Sans KR', 'Malgun Gothic', '맑은 고딕', helvetica, 'Apple SD Gothic Neo', helvetica, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  overflow-x: auto;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+img {
+  object-fit: cover;
+  vertical-align: top;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  outline: unset;
+  cursor: pointer;
+}
+
+a,
+button,
+.cursor-p,
+.logo {
+  cursor: pointer;
+}

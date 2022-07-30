@@ -1,0 +1,8 @@
+.ant-carousel .slick-dots li{
+  background-color: #5800FF; 
+}
+
+.ant-pagination {
+  max-width: 440px;
+  margin: 0 auto;
+}
