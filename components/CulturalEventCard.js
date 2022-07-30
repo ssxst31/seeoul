@@ -1,12 +1,13 @@
 import React from "react";
 import Link from "next/link";
+
 import { Card } from "antd";
 
 export default function CulturalEventCard({ culturalEvent }) {
   const { org_link, main_img, title, use_fee, place, date } = culturalEvent;
 
   return (
-    <Link href={org_link}>
+    <Link href={org_link ?? ``}>
       <a target="_blank">
         <Card
           style={{ width: 240 }}

@@ -8,19 +8,20 @@ import CulturalEventCard from "components/CulturalEventCard";
 export default function Main() {
   const router = useRouter();
   const { query } = router;
-  const DEFAULT_PAGE = query.page ?? 1;
+
   const [totalCulturalEvent, setTotalCulturalEvent] = useState(null);
 
-  const [limit, setLimit] = useState(20);
+  const DEFAULT_PAGE = query.page ?? 1;
+  const DEFAULT_LIMIT = 20;
 
-  const offset = (DEFAULT_PAGE - 1) * limit;
+  const offset = (DEFAULT_PAGE - 1) * DEFAULT_LIMIT;
 
   useEffect(() => {
     setTotalCulturalEvent(data.DATA);
   }, []);
 
   if (!totalCulturalEvent) {
-    return <>d</>;
+    return <div />;
   }
 
   const randomNumber = Math.floor(Math.random() * totalCulturalEvent.length);
@@ -45,18 +46,21 @@ export default function Main() {
       <div style={{ height: 40, width: "100%" }} />
       <span style={{ fontSize: "24px" }}>Now 전시</span>
       <Row justify="center" gutter={[16, 8]}>
-        {totalCulturalEvent.slice(offset, offset + limit).map((c, index) => (
-          <Col key={index} span={200}>
-            <CulturalEventCard culturalEvent={c} />
-          </Col>
-        ))}
+        {totalCulturalEvent
+          .slice(offset, offset + DEFAULT_LIMIT)
+          .map((c, index) => (
+            <Col key={index} span={200}>
+              <CulturalEventCard culturalEvent={c} />
+            </Col>
+          ))}
       </Row>
       <div style={{ height: "20px" }} />
       <Pagination
         current={Number(DEFAULT_PAGE)}
-        total={Math.ceil(totalCulturalEvent.length / 20)}
+        total={totalCulturalEvent.length}
         onChange={(e) => changePagination(e)}
         showSizeChanger={false}
+        defaultPageSize={DEFAULT_LIMIT}
       />
       <div style={{ height: "20px" }} />
     </div>
