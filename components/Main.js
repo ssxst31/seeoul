@@ -128,7 +128,6 @@ export default function Main() {
               width: 120,
             }}
             onChange={handleProvinceChange}
-            labelInValue={1}
           >
             {provinceData.map((province) => (
               <Option key={province}>{province}</Option>
