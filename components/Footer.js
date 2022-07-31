@@ -10,6 +10,7 @@ export default function Footer() {
         padding: "40px 0",
       }}
     >
+      <p>출처 - 서울특별시, 서울문화포털(culture.seoul.go.kr)</p>
       <p>
         This site[내일전시] is designed to share information about Seoul
         cultural event.
