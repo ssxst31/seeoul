@@ -135,6 +135,7 @@ export default function Main() {
           </Select>
         </div>
       </div>
+      <div style={{ height: 16, width: "100%" }} />
       <Row justify="center" gutter={[8, 8]}>
         {(searchData ?? totalCulturalEvent)
           .slice(offset, offset + DEFAULT_LIMIT)
