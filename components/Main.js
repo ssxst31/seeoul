@@ -88,7 +88,7 @@ export default function Main() {
       <span style={{ fontSize: "24px" }}>추천 {filter}</span>
       <Carousel autoplay slidesToShow={isMobile ? 1 : 3}>
         {totalCulturalEvent.slice(randomNumber, randomNumber + 5).map((c) => (
-          <div>
+          <div key={c.id}>
             <img
               onClick={() => {
                 handleClick(c.id);
