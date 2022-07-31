@@ -6,10 +6,12 @@
   display: flex;
   justify-content: space-between
 }
+
 .mainLayout{
-  padding-top: 80;
+  padding-top: 80px;
   width: 100%;
 }
+
 @media screen and (max-width: 763px) {
   .mobile {
     display: block;

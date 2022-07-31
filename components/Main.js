@@ -139,7 +139,7 @@ export default function Main() {
         {(searchData ?? totalCulturalEvent)
           .slice(offset, offset + DEFAULT_LIMIT)
           .map((c) => (
-            <Col key={c.id}>
+            <Col key={c.id} span={isMobile ? 10 : 6}>
               <CulturalEventCard culturalEvent={c} />
             </Col>
           ))}

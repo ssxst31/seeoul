@@ -23,10 +23,12 @@ export default function CulturalEventCard({ culturalEvent }) {
   return (
     <Card
       className={s.pointer}
-      style={{ width: 240, position: "relative" }}
+      style={{ width: "100%", position: "relative" }}
       cover={<img alt={title} src={main_img} onClick={handleClick} />}
     >
-      <p style={{ fontWeight: 700 }}>{title}</p>
+      <p style={{ fontWeight: 700 }}>
+        {title.length > 25 ? `${title.substr(0, 25)}...` : title}
+      </p>
       <p>기간 : {date}</p>
       <div
         style={{
@@ -37,7 +39,6 @@ export default function CulturalEventCard({ culturalEvent }) {
           color: "#fc4c4c",
           backgroundColor: "white",
           width: 50,
-
           textAlign: "center",
         }}
       >
