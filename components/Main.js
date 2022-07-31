@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col, Pagination, Carousel, Select } from "antd";
 import { useRouter } from "next/router";
+import { isMobile } from "react-device-detect";
 
 import data from "pages/api/data.json";
 import CulturalEventCard from "components/CulturalEventCard";
@@ -65,7 +66,7 @@ export default function Main() {
   return (
     <div style={{ paddingTop: 80, width: "100%" }}>
       <span style={{ fontSize: "24px" }}>추천 {filter}</span>
-      <Carousel autoplay slidesToShow={3}>
+      <Carousel autoplay slidesToShow={isMobile ? 1 : 3}>
         {totalCulturalEvent.slice(randomNumber, randomNumber + 5).map((c) => (
           <div
             onClick={() => {
@@ -104,9 +105,9 @@ export default function Main() {
           </Select>
         </div>
       </div>
-      <Row justify="center" gutter={[16, 8]}>
+      <Row justify="center" gutter={[8, 8]}>
         {totalCulturalEvent.slice(offset, offset + DEFAULT_LIMIT).map((c) => (
-          <Col key={c.id} span={200}>
+          <Col key={c.id}>
             <CulturalEventCard culturalEvent={c} />
           </Col>
         ))}
