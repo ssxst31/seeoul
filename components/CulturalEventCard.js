@@ -3,13 +3,13 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Card } from "antd";
 
-export default function CulturalEventCard({ culturalEvent, index }) {
+export default function CulturalEventCard({ culturalEvent }) {
   const router = useRouter();
 
-  const { main_img, title, use_fee, place, date } = culturalEvent;
+  const { main_img, title, date, id } = culturalEvent;
 
   const handleClick = () => {
-    router.push(`/detail/${index}`);
+    router.push(`/detail/${id}`);
   };
 
   return (

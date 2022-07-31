@@ -20,7 +20,12 @@ export default function Main() {
   const offset = (DEFAULT_PAGE - 1) * DEFAULT_LIMIT;
 
   useEffect(() => {
-    const ewq = data.DATA.filter((el) => el.codename === filter);
+    const addedData = data.DATA.map((el, index) => {
+      return { ...el, id: index };
+    });
+
+    const ewq = addedData.filter((el) => el.codename === filter);
+
     setTotalCulturalEvent(ewq);
     router.push(`/`);
   }, [filter]);
@@ -53,12 +58,20 @@ export default function Main() {
     setFilter(v);
   };
 
+  const handleClick = (id) => {
+    router.push(`/detail/${id}`);
+  };
+
   return (
     <div style={{ paddingTop: 80, width: "100%" }}>
       <span style={{ fontSize: "24px" }}>추천 {filter}</span>
       <Carousel autoplay slidesToShow={3}>
         {totalCulturalEvent.slice(randomNumber, randomNumber + 5).map((c) => (
-          <div>
+          <div
+            onClick={() => {
+              handleClick(c.id);
+            }}
+          >
             <img
               src={c.main_img}
               style={{ borderRadius: 8, margin: "0 auto" }}
@@ -82,13 +95,11 @@ export default function Main() {
         </Select>
       </div>
       <Row justify="center" gutter={[16, 8]}>
-        {totalCulturalEvent
-          .slice(offset, offset + DEFAULT_LIMIT)
-          .map((c, index) => (
-            <Col key={index} span={200}>
-              <CulturalEventCard culturalEvent={c} index={index} />
-            </Col>
-          ))}
+        {totalCulturalEvent.slice(offset, offset + DEFAULT_LIMIT).map((c) => (
+          <Col key={c.id} span={200}>
+            <CulturalEventCard culturalEvent={c} />
+          </Col>
+        ))}
       </Row>
       <div style={{ height: "20px" }} />
       <Pagination
