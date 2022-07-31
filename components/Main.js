@@ -75,6 +75,7 @@ export default function Main() {
             <img
               src={c.main_img}
               style={{ borderRadius: 8, margin: "0 auto" }}
+              alt={c.title}
             />
           </div>
         ))}

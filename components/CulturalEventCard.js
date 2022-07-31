@@ -15,7 +15,7 @@ export default function CulturalEventCard({ culturalEvent }) {
   return (
     <Card
       style={{ width: 240 }}
-      cover={<img alt="example" src={main_img} onClick={handleClick} />}
+      cover={<img alt={title} src={main_img} onClick={handleClick} />}
     >
       <p style={{ fontWeight: 700 }}>{title}</p>
       <p>기간 : {date}</p>

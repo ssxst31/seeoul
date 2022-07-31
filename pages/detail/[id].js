@@ -33,7 +33,7 @@ const Detail = () => {
                 overflow: "hidden",
               }}
             >
-              <img src={main_img} style={{ objectFit: "cover" }} />
+              <img alt={title} src={main_img} style={{ objectFit: "cover" }} />
             </div>
             <div>
               <div>
