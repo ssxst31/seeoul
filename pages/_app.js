@@ -29,6 +29,10 @@ function MyApp({ Component, pageProps }) {
           name="google-site-verification"
           content="uF5xvolIVD9TIzGeXD9vVLNvnwHNg_Ksi--3WgmZpiI"
         />
+        <meta
+          name="naver-site-verification"
+          content="5b5b59ee6b2ffa4da4adfa1467e7b6321410a63b"
+        />
       </Head>
       <Component {...pageProps} />
     </>
