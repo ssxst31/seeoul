@@ -25,6 +25,10 @@ function MyApp({ Component, pageProps }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7947339856088209"
           crossorigin="anonymous"
         ></script>
+        <meta
+          name="google-site-verification"
+          content="uF5xvolIVD9TIzGeXD9vVLNvnwHNg_Ksi--3WgmZpiI"
+        />
       </Head>
       <Component {...pageProps} />
     </>
