@@ -83,17 +83,26 @@ export default function Main() {
       <div style={{ height: 40, width: "100%" }} />
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <span style={{ fontSize: "24px" }}>Now {filter}</span>
-        <Select
-          defaultValue={provinceData[0]}
-          style={{
-            width: 120,
-          }}
-          onChange={handleProvinceChange}
-        >
-          {provinceData.map((province) => (
-            <Option key={province}>{province}</Option>
-          ))}
-        </Select>
+        <div>
+          <span>
+            총
+            <span style={{ color: "#0096FF" }}>
+              {totalCulturalEvent.length}
+            </span>
+            개
+          </span>
+          <Select
+            defaultValue={provinceData[0]}
+            style={{
+              width: 120,
+            }}
+            onChange={handleProvinceChange}
+          >
+            {provinceData.map((province) => (
+              <Option key={province}>{province}</Option>
+            ))}
+          </Select>
+        </div>
       </div>
       <Row justify="center" gutter={[16, 8]}>
         {totalCulturalEvent.slice(offset, offset + DEFAULT_LIMIT).map((c) => (
