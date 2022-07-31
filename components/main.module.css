@@ -1,0 +1,21 @@
+.pointer:hover {
+  cursor: pointer;
+}
+
+.mobile { 
+  display: flex;
+  justify-content: space-between
+}
+.mainLayout{
+  padding-top: 80;
+  width: 100%;
+}
+@media screen and (max-width: 763px) {
+  .mobile {
+    display: block;
+  }
+  
+  .mainLayout{
+    padding: 0 16px;
+  }
+}

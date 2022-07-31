@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Card } from "antd";
 
+import s from "components/main.module.css";
+
 export default function CulturalEventCard({ culturalEvent }) {
   const router = useRouter();
 
@@ -14,6 +16,7 @@ export default function CulturalEventCard({ culturalEvent }) {
 
   return (
     <Card
+      className={s.pointer}
       style={{ width: 240 }}
       cover={<img alt={title} src={main_img} onClick={handleClick} />}
     >
