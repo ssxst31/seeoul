@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Script from "next/script";
 
 import "../styles/globals.css";
 import "../styles/reset.css";
@@ -48,9 +49,10 @@ function MyApp({ Component, pageProps }) {
         />
         <script
           type="text/javascript"
-          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=035efa5d385b322c6ad156a471745c81&libraries=services"
-        ></script>
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=035efa5d385b322c6ad156a471745c81&libraries=services&autload=false"
+        />
       </Head>
+
       <Component {...pageProps} />
     </>
   );

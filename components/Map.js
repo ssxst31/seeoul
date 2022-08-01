@@ -2,12 +2,9 @@ import React, { useEffect, useState } from "react";
 
 import s from "components/main.module.css";
 
-if (typeof window !== undefined) {
-  const { kakao } = window;
-}
-
 const Map = ({ searchPlace }) => {
   // 검색결과 배열에 담아줌
+  const { kakao } = window;
   const [Places, setPlaces] = useState([]);
 
   useEffect(() => {

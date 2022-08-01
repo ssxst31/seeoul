@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 
 import data from "pages/api/data.json";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import Map from "components/Map";
+const ComponentsWithNoSSR = dynamic(
+  () => import("components/Map"), // Component로 사용할 항목을 import합니다.
+  { ssr: false }, // ssr옵션을 false로 설정해줍니다.
+);
 
 const Detail = () => {
   const router = useRouter();
@@ -70,7 +75,7 @@ const Detail = () => {
               </div>
             </div>
           </div>
-          <Map searchPlace={culturalEvent.place} />
+          <ComponentsWithNoSSR searchPlace={culturalEvent.place} />
         </div>
       </div>
       <Footer />
