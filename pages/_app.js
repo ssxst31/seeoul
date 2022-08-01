@@ -46,6 +46,10 @@ function MyApp({ Component, pageProps }) {
           name="naver-site-verification"
           content="5b5b59ee6b2ffa4da4adfa1467e7b6321410a63b"
         />
+        <script
+          type="text/javascript"
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=035efa5d385b322c6ad156a471745c81&libraries=services"
+        ></script>
       </Head>
       <Component {...pageProps} />
     </>

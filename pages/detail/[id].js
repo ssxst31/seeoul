@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import data from "pages/api/data.json";
 import Header from "components/Header";
 import Footer from "components/Footer";
+import Map from "components/Map";
 
 const Detail = () => {
   const router = useRouter();
@@ -67,9 +68,9 @@ const Detail = () => {
                 </span>
                 <span style={{ fontSize: 16 }}>{use_fee}</span>
               </div>
-              바로가기
             </div>
           </div>
+          <Map searchPlace={culturalEvent.place} />
         </div>
       </div>
       <Footer />
