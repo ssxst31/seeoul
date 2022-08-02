@@ -96,7 +96,7 @@ const Detail = () => {
               </div>
             </div>
           </div>
-          <ComponentsWithNoSSR searchPlace={culturalEvent.place} />
+          <ComponentsWithNoSSR searchPlace={place.split(" ")[0]} />
         </div>
       </div>
 

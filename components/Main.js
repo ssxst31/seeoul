@@ -19,7 +19,7 @@ export default function Main() {
 
   const DEFAULT_PAGE = query.page ?? 1;
   const DEFAULT_LIMIT = 20;
-  console.log(1);
+
   const offset = (DEFAULT_PAGE - 1) * DEFAULT_LIMIT;
 
   const addedData = data.DATA.map((el, index) => {
