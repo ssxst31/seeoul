@@ -57,19 +57,11 @@ const Detail = () => {
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <div className={s.mainLayout}>
           <div className={s.mobile}>
-            <div
-              style={{
-                position: "relative",
-                height: "100%",
-                overflow: "hidden",
-              }}
-            >
-              <img
-                alt={title}
-                src={main_img}
-                style={{ objectFit: "contain" }}
-              />
-            </div>
+            <img
+              alt={title}
+              src={main_img.slice(0, -1)}
+              style={{ objectFit: "contain", width: "100%", maxWidth: 500 }}
+            />
             <div>
               <div>
                 <span style={{ fontSize: 24, fontWeight: 700 }}>{title}</span>
