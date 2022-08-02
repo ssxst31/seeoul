@@ -64,7 +64,7 @@ const Map = ({ searchPlace }) => {
           height: "300px",
         }}
       ></div>
-      <div id="result-list" style={{ height: 500, overflow: "scroll" }}>
+      <div id="result-list" style={{ height: 200, overflowY: "scroll" }}>
         {Places.map(
           (item, i) =>
             i < 3 && (
