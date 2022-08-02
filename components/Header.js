@@ -15,7 +15,7 @@ export default function Header() {
         height: 60,
         width: "100%",
         backgroundColor: "#fff",
-        zIndex: 1,
+        zIndex: 2,
         padding: "0 20px",
       }}
     >

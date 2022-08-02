@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
+import { isMobile } from "react-device-detect";
 
 import data from "pages/api/data.json";
 import Header from "components/Header";
 import Footer from "components/Footer";
-import Map from "components/Map";
+import s from "./detail.module.css";
+
 const ComponentsWithNoSSR = dynamic(
   () => import("components/Map"), // Component로 사용할 항목을 import합니다.
   { ssr: false }, // ssr옵션을 false로 설정해줍니다.
@@ -20,6 +22,29 @@ const Detail = () => {
     setCulturalEvent(data.DATA[id]);
   }, []);
 
+  useEffect(() => {
+    let ins = document.createElement("ins");
+    let scr = document.createElement("script");
+
+    ins.className = "kakao_ad_area";
+    ins.style = isMobile ? "display:none;" : "display:none; width:100%;";
+    scr.async = "true";
+    scr.type = "text/javascript";
+    scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+    isMobile
+      ? ins.setAttribute("data-ad-width", "300")
+      : ins.setAttribute("data-ad-width", "728");
+    isMobile
+      ? ins.setAttribute("data-ad-height", "250")
+      : ins.setAttribute("data-ad-height", "90");
+    isMobile
+      ? ins.setAttribute("data-ad-unit", "DAN-ncR6s1pAyuAZtN0w")
+      : ins.setAttribute("data-ad-unit", "DAN-5fCtQtQI3q57O0n8");
+
+    document.querySelector(".adfit")?.appendChild(ins);
+    document.querySelector(".adfit")?.appendChild(scr);
+  });
+
   if (!culturalEvent) {
     return <div />;
   }
@@ -30,8 +55,8 @@ const Detail = () => {
     <>
       <Header />
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-        <div style={{ paddingTop: 120, width: "100%" }}>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div className={s.mainLayout}>
+          <div className={s.mobile}>
             <div
               style={{
                 position: "relative",
@@ -39,7 +64,11 @@ const Detail = () => {
                 overflow: "hidden",
               }}
             >
-              <img alt={title} src={main_img} style={{ objectFit: "cover" }} />
+              <img
+                alt={title}
+                src={main_img}
+                style={{ objectFit: "contain" }}
+              />
             </div>
             <div>
               <div>
@@ -78,6 +107,9 @@ const Detail = () => {
           <ComponentsWithNoSSR searchPlace={culturalEvent.place} />
         </div>
       </div>
+
+      <div className="adfit" style={{ maxWidth: "1280px", margin: "0 auto" }} />
+
       <Footer />
     </>
   );
