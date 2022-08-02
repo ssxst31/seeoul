@@ -136,15 +136,17 @@ export default function Main() {
         </div>
       </div>
       <div style={{ height: 16, width: "100%" }} />
-      <Row justify="center" gutter={[8, 8]}>
-        {(searchData ?? totalCulturalEvent)
-          .slice(offset, offset + DEFAULT_LIMIT)
-          .map((c) => (
-            <Col key={c.id} span={isMobile ? 10 : 6}>
-              <CulturalEventCard culturalEvent={c} />
-            </Col>
-          ))}
-      </Row>
+      <article>
+        <Row justify="center" gutter={[8, 8]}>
+          {(searchData ?? totalCulturalEvent)
+            .slice(offset, offset + DEFAULT_LIMIT)
+            .map((c) => (
+              <Col key={c.id} span={isMobile ? 10 : 6}>
+                <CulturalEventCard culturalEvent={c} />
+              </Col>
+            ))}
+        </Row>
+      </article>
       <div style={{ height: "20px" }} />
       <div style={{ textAlign: "center" }}>
         <Pagination

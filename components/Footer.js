@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div
+    <footer
       style={{
         width: "100%",
         textAlign: "center",
@@ -16,6 +16,6 @@ export default function Footer() {
         cultural event.
       </p>
       <p>ⓒ 내일전시 2020 All Rights Reserved.</p>
-    </div>
+    </footer>
   );
 }

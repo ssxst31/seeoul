@@ -9,7 +9,7 @@ export default function Header() {
   };
 
   return (
-    <div
+    <header
       style={{
         position: "fixed",
         height: 60,
@@ -22,6 +22,6 @@ export default function Header() {
       <p style={{ fontSize: 40, color: "#0096FF" }} onClick={handleClick}>
         내일 전시
       </p>
-    </div>
+    </header>
   );
 }
