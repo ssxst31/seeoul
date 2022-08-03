@@ -50,7 +50,7 @@ const Detail = () => {
   }
 
   const { main_img, title, date, use_trgt, use_fee, place } = culturalEvent;
-  console.log(culturalEvent);
+
   return (
     <>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>

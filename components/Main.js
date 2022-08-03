@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Row, Col, Pagination, Carousel, Select, Input } from "antd";
 import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
+import ContentLoader from "react-content-loader";
 
 import data from "pages/api/data.json";
 import CulturalEventCard from "components/CulturalEventCard";
@@ -35,10 +36,21 @@ export default function Main() {
   }, [filter]);
 
   if (!totalCulturalEvent) {
-    return <div />;
+    return (
+      <ContentLoader
+        speed={1}
+        width="100%"
+        height="100%"
+        viewBox="0 0 300 800"
+        backgroundColor="#5b8acd"
+        foregroundColor="#ecebeb"
+      >
+        <rect x="0" y="0" rx="2" ry="2" width="400" height="400" />
+      </ContentLoader>
+    );
   }
 
-  const randomNumber = Math.floor(Math.random() * totalCulturalEvent.length);
+  const randomNumber = Math.floor(Math.random() * totalCulturalEvent?.length);
 
   function changePagination(activePage) {
     return router.push(`?page=${activePage}`);
