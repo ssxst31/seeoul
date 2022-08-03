@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { isMobile } from "react-device-detect";
 
 import s from "components/main.module.css";
 
@@ -61,31 +62,9 @@ const Map = ({ searchPlace }) => {
         id="myMap"
         style={{
           width: "100%",
-          height: "300px",
+          height: isMobile ? "300px" : "500px",
         }}
       ></div>
-      <div id="result-list" style={{ height: 200, overflowY: "scroll" }}>
-        {Places.map(
-          (item, i) =>
-            i < 3 && (
-              <div key={i} style={{ marginTop: "20px" }}>
-                <span>{i + 1}</span>
-                <div>
-                  <h5>{item.place_name}</h5>
-                  {item.road_address_name ? (
-                    <div>
-                      <span>{item.road_address_name}</span>
-                      <span>{item.address_name}</span>
-                    </div>
-                  ) : (
-                    <span>{item.address_name}</span>
-                  )}
-                  <span>{item.phone}</span>
-                </div>
-              </div>
-            ),
-        )}
-      </div>
     </div>
   );
 };

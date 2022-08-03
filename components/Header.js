@@ -1,13 +1,9 @@
 import React from "react";
-import { useRouter } from "next/router";
+import Link from "next/link";
+
+import s from "components/main.module.css";
 
 export default function Header() {
-  const router = useRouter();
-
-  const handleClick = () => {
-    router.push(`/`);
-  };
-
   return (
     <header
       style={{
@@ -16,12 +12,14 @@ export default function Header() {
         width: "100%",
         backgroundColor: "#fff",
         zIndex: 2,
-        padding: "0 20px",
       }}
+      className={s.header}
     >
-      <p style={{ fontSize: 40, color: "#0096FF" }} onClick={handleClick}>
-        내일 전시
-      </p>
+      <Link href="/">
+        <a style={{ fontSize: 40, color: "#0096FF" }} className={s.pointer}>
+          내일 전시
+        </a>
+      </Link>
     </header>
   );
 }

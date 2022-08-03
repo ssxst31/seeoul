@@ -94,8 +94,13 @@ export default function Main() {
                 handleClick(c.id);
               }}
               className={s.pointer}
-              src={c.main_img}
-              style={{ borderRadius: 8, margin: "0 auto" }}
+              src={isMobile ? c.main_img.slice(0, -1) : c.main_img}
+              style={{
+                borderRadius: 8,
+                margin: "0 auto",
+                maxHeight: 500,
+                position: "relative",
+              }}
               alt={c.title}
             />
           </div>
@@ -113,13 +118,20 @@ export default function Main() {
         >
           <span style={{ fontSize: "24px" }}>Now {filter}</span>
           <div style={{ fontSize: 16 }}>
-            총<span style={{ color: "#0096FF" }}>{searchData?.length}</span>개
+            총&nbsp;
+            <span style={{ color: "#0096FF" }}>{searchData?.length}</span>
+            &nbsp;개
           </div>
         </div>
-        <div style={{ display: "flex" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: isMobile && "space-between",
+          }}
+        >
           <Search
             placeholder="검색어를 입력해주세요."
-            style={{ width: 200, margin: "0 10px" }}
+            style={{ width: 200, margin: isMobile ? "" : "0 10px" }}
             onSearch={handleSubmit}
           />
           <Select

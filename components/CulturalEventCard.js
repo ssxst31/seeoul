@@ -23,7 +23,7 @@ export default function CulturalEventCard({ culturalEvent }) {
   return (
     <Card
       className={s.pointer}
-      style={{ width: "100%", position: "relative" }}
+      style={{ width: "100%", position: "relative", height: "100%" }}
       cover={<img alt={title} src={main_img} onClick={handleClick} />}
     >
       <p style={{ fontWeight: 700 }}>

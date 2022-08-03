@@ -7,8 +7,8 @@ import Footer from "components/Footer";
 export default function HomepageLayout() {
   return (
     <div>
-      <Header />
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+        <Header />
         <Main />
       </div>
       <Footer />

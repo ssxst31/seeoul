@@ -50,11 +50,11 @@ const Detail = () => {
   }
 
   const { main_img, title, date, use_trgt, use_fee, place } = culturalEvent;
-
+  console.log(culturalEvent);
   return (
     <>
-      <Header />
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+        <Header />
         <div className={s.mainLayout}>
           <div className={s.mobile}>
             <img
@@ -64,38 +64,65 @@ const Detail = () => {
             />
             <div>
               <div>
-                <span style={{ fontSize: 24, fontWeight: 700 }}>{title}</span>
+                <span style={{ fontSize: isMobile ? 24 : 32, fontWeight: 700 }}>
+                  {title}
+                </span>
               </div>
-              <div style={{ height: 8, width: "100%" }} />
+              <div style={{ height: 16, width: "100%" }} />
               <div>
-                <span style={{ fontSize: 16, color: "grey", fontWeight: 500 }}>
+                <span
+                  style={{
+                    fontSize: isMobile ? 16 : 20,
+                    color: "grey",
+                    fontWeight: 500,
+                  }}
+                >
                   장소 :
                 </span>
-                <span style={{ fontSize: 16 }}>{place}</span>
+                <span style={{ fontSize: isMobile ? 16 : 20 }}>{place}</span>
               </div>
-              <div style={{ height: 8, width: "100%" }} />
+              <div style={{ height: 16, width: "100%" }} />
               <div>
-                <span style={{ fontSize: 16, color: "grey", fontWeight: 500 }}>
+                <span
+                  style={{
+                    fontSize: isMobile ? 16 : 20,
+                    color: "grey",
+                    fontWeight: 500,
+                  }}
+                >
                   기간 :
                 </span>
-                <span style={{ fontSize: 16 }}>{date}</span>
+                <span style={{ fontSize: isMobile ? 16 : 20 }}>{date}</span>
               </div>
-              <div style={{ height: 8, width: "100%" }} />
+              <div style={{ height: 16, width: "100%" }} />
               <div>
-                <span style={{ fontSize: 16, color: "grey", fontWeight: 500 }}>
+                <span
+                  style={{
+                    fontSize: isMobile ? 16 : 20,
+                    color: "grey",
+                    fontWeight: 500,
+                  }}
+                >
                   대상 :
                 </span>
-                <span style={{ fontSize: 16 }}>{use_trgt}</span>
+                <span style={{ fontSize: isMobile ? 16 : 20 }}>{use_trgt}</span>
               </div>
               <div style={{ height: 8, width: "100%" }} />
               <div>
-                <span style={{ fontSize: 16, color: "grey", fontWeight: 500 }}>
+                <span
+                  style={{
+                    fontSize: isMobile ? 16 : 20,
+                    color: "grey",
+                    fontWeight: 500,
+                  }}
+                >
                   요금 :
                 </span>
-                <span style={{ fontSize: 16 }}>{use_fee}</span>
+                <span style={{ fontSize: isMobile ? 16 : 20 }}>{use_fee}</span>
               </div>
             </div>
           </div>
+          <div style={{ height: 60, weight: "100%" }} />
           <ComponentsWithNoSSR searchPlace={place.split(" ")[0]} />
         </div>
       </div>
