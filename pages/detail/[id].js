@@ -20,7 +20,7 @@ const Detail = () => {
 
   useEffect(() => {
     setCulturalEvent(data.DATA[id]);
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     let ins = document.createElement("ins");
