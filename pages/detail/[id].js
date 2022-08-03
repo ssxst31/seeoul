@@ -99,9 +99,9 @@ const Detail = () => {
           <ComponentsWithNoSSR searchPlace={place.split(" ")[0]} />
         </div>
       </div>
-
-      <div className="adfit" style={{ maxWidth: "1280px", margin: "0 auto" }} />
-
+      <div style={{ maxWidth: isMobile ? "300px" : "728px", margin: "0 auto" }}>
+        <div className="adfit" />
+      </div>
       <Footer />
     </>
   );
