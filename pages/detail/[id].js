@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import { isMobile } from "react-device-detect";
+import { DiscussionEmbed } from "disqus-react";
 
 import data from "pages/api/data.json";
 import Header from "components/Header";
@@ -126,6 +127,20 @@ const Detail = () => {
           <ComponentsWithNoSSR searchPlace={place.split(" ")[0]} />
         </div>
       </div>
+      <DiscussionEmbed
+        shortname="seeoul"
+        config={{
+          url: "https://seeoul.netlify.app/",
+          identifier: 321,
+          title: title,
+          language: "ko",
+        }}
+        style={{
+          maxWidth: isMobile ? "300px" : "1250px",
+          margin: "0 auto",
+          width: "100%",
+        }}
+      />
       <div style={{ maxWidth: isMobile ? "300px" : "728px", margin: "0 auto" }}>
         <div className="adfit" />
       </div>

@@ -35,6 +35,29 @@ export default function Main() {
     router.push(`/`);
   }, [filter]);
 
+  useEffect(() => {
+    let ins = document.createElement("ins");
+    let scr = document.createElement("script");
+
+    ins.className = "kakao_ad_area";
+    ins.style = isMobile ? "display:none;" : "display:none; width:100%;";
+    scr.async = "true";
+    scr.type = "text/javascript";
+    scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+    isMobile
+      ? ins.setAttribute("data-ad-width", "300")
+      : ins.setAttribute("data-ad-width", "728");
+    isMobile
+      ? ins.setAttribute("data-ad-height", "250")
+      : ins.setAttribute("data-ad-height", "90");
+    isMobile
+      ? ins.setAttribute("data-ad-unit", "DAN-NrbIqcNVQklTs9ND")
+      : ins.setAttribute("data-ad-unit", "DAN-zwtZjOswNyJO6kQA");
+
+    document.querySelector(".adfit")?.appendChild(ins);
+    document.querySelector(".adfit")?.appendChild(scr);
+  });
+
   if (!totalCulturalEvent) {
     return (
       <ContentLoader
@@ -180,6 +203,9 @@ export default function Main() {
           showSizeChanger={false}
           defaultPageSize={DEFAULT_LIMIT}
         />
+      </div>
+      <div style={{ maxWidth: isMobile ? "300px" : "728px", margin: "0 auto" }}>
+        <div className="adfit" />
       </div>
       <div style={{ height: "20px" }} />
     </div>

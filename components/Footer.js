@@ -15,7 +15,7 @@ export default function Footer() {
         This site[내일전시] is designed to share information about Seoul
         cultural event.
       </p>
-      <p>ⓒ 내일전시 2020 All Rights Reserved.</p>
+      <p>ⓒ 내일전시 2022 All Rights Reserved.</p>
     </footer>
   );
 }
