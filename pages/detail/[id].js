@@ -14,6 +14,11 @@ const ComponentsWithNoSSR = dynamic(
   { ssr: false }, // ssr옵션을 false로 설정해줍니다.
 );
 
+const Ad = dynamic(
+  () => import("components/ad"), // Component로 사용할 항목을 import합니다.
+  { ssr: false }, // ssr옵션을 false로 설정해줍니다.
+);
+
 const Detail = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -142,7 +147,7 @@ const Detail = () => {
         }}
       />
       <div style={{ maxWidth: isMobile ? "300px" : "728px", margin: "0 auto" }}>
-        <div className="adfit" />
+        <Ad unit={isMobile ? "DAN-ncR6s1pAyuAZtN0w" : "DAN-5fCtQtQI3q57O0n8"} />
       </div>
       <Footer />
     </>

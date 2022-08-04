@@ -3,10 +3,16 @@ import { Row, Col, Pagination, Carousel, Select, Input } from "antd";
 import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import ContentLoader from "react-content-loader";
+import dynamic from "next/dynamic";
 
 import data from "pages/api/data.json";
 import CulturalEventCard from "components/CulturalEventCard";
 import s from "components/main.module.css";
+
+const Ad = dynamic(
+  () => import("./ad"), // Component로 사용할 항목을 import합니다.
+  { ssr: false }, // ssr옵션을 false로 설정해줍니다.
+);
 
 const { Option } = Select;
 
@@ -34,29 +40,6 @@ export default function Main() {
     setSearchData(ewq);
     router.push(`/`);
   }, [filter]);
-
-  useEffect(() => {
-    let ins = document.createElement("ins");
-    let scr = document.createElement("script");
-
-    ins.className = "kakao_ad_area";
-    ins.style = isMobile ? "display:none;" : "display:none; width:100%;";
-    scr.async = "true";
-    scr.type = "text/javascript";
-    scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
-    isMobile
-      ? ins.setAttribute("data-ad-width", "300")
-      : ins.setAttribute("data-ad-width", "728");
-    isMobile
-      ? ins.setAttribute("data-ad-height", "250")
-      : ins.setAttribute("data-ad-height", "90");
-    isMobile
-      ? ins.setAttribute("data-ad-unit", "DAN-NrbIqcNVQklTs9ND")
-      : ins.setAttribute("data-ad-unit", "DAN-zwtZjOswNyJO6kQA");
-
-    document.querySelector(".adfit")?.appendChild(ins);
-    document.querySelector(".adfit")?.appendChild(scr);
-  });
 
   if (!totalCulturalEvent) {
     return (
@@ -205,7 +188,7 @@ export default function Main() {
         />
       </div>
       <div style={{ maxWidth: isMobile ? "300px" : "728px", margin: "0 auto" }}>
-        <div className="adfit" />
+        <Ad unit={isMobile ? "DAN-NrbIqcNVQklTs9ND" : "DAN-zwtZjOswNyJO6kQA"} />
       </div>
       <div style={{ height: "20px" }} />
     </div>
