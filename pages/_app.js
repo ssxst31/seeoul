@@ -51,6 +51,7 @@ function MyApp({ Component, pageProps }) {
           type="text/javascript"
           src="//dapi.kakao.com/v2/maps/sdk.js?appkey=035efa5d385b322c6ad156a471745c81&libraries=services&autload=false"
         />
+        <script type="module" src="src/main.js" />
       </Head>
 
       <Component {...pageProps} />
