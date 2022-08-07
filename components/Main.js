@@ -42,18 +42,7 @@ export default function Main() {
   }, [filter]);
 
   if (!totalCulturalEvent) {
-    return (
-      <ContentLoader
-        speed={1}
-        width="100%"
-        height="100%"
-        viewBox="0 0 300 800"
-        backgroundColor="#5b8acd"
-        foregroundColor="#ecebeb"
-      >
-        <rect x="0" y="0" rx="2" ry="2" width="400" height="400" />
-      </ContentLoader>
-    );
+    return 2;
   }
 
   const randomNumber = Math.floor(Math.random() * totalCulturalEvent?.length);
