@@ -9,7 +9,7 @@ const formatted = (sitemap) => prettier.format(sitemap, { parser: "html" });
 
 // public/sitemap 내부의 모든 .gz 파일을 불러와 참조하도록 합니다.
 (async () => {
-  const pages = await globby(["../public/sitemap/*.gz"]);
+  const pages = await globby(["../public/*.gz"]);
 
   const sitemapIndex = `
     ${pages
