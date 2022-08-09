@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://seeoul.netlify.app/sitemap-common.xml.gz</loc>
-    <lastmod>2022-08-07T14:31:32.172Z</lastmod>
+    <loc>https://seeoul.netlify.app/sitemap-blogs.xml.gz</loc>
+    <lastmod>2022-08-09T18:38:52.835Z</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://seeoul.netlify.app/sitemap-posts.xml.gz</loc>
-    <lastmod>2022-08-07T14:31:32.172Z</lastmod>
+    <loc>https://seeoul.netlify.app/sitemap-common.xml.gz</loc>
+    <lastmod>2022-08-09T18:38:52.835Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://seeoul.netlify.app/sitemap-details.xml.gz</loc>
+    <lastmod>2022-08-09T18:38:52.835Z</lastmod>
   </sitemap>
 </sitemapindex>

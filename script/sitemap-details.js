@@ -1,27 +1,26 @@
 import fs from "fs";
-import fetch from "node-fetch";
+
 import prettier from "prettier";
 const getDate = new Date().toISOString();
 
-const fetchUrl = "https://jsonplaceholder.typicode.com/posts";
 const YOUR_AWESOME_DOMAIN = "https://seeoul.netlify.app";
 
 const formatted = (sitemap) => prettier.format(sitemap, { parser: "html" });
 
 (async () => {
-  const fetchPosts = await fetch(fetchUrl)
-    .then((res) => res.json())
-    .catch((err) => console.log(err));
+  const jsonFile = fs.readFileSync("./data.json", "utf8");
+  const jsonData = JSON.parse(jsonFile);
+  const fruits = jsonData.DATA;
 
   const postList = [];
-  fetchPosts.forEach((post) => postList.push(post.id));
+  fruits.forEach((post, index) => postList.push(index));
 
   const postListSitemap = `
     ${postList
       .map((id) => {
         return `
           <url>
-            <loc>${`${YOUR_AWESOME_DOMAIN}/post/${id}`}</loc>
+            <loc>${`${YOUR_AWESOME_DOMAIN}/detail/${id}`}</loc>
             <lastmod>${getDate}</lastmod>
           </url>`;
       })
@@ -42,7 +41,7 @@ const formatted = (sitemap) => prettier.format(sitemap, { parser: "html" });
   const formattedSitemap = [formatted(generatedSitemap)];
 
   fs.writeFileSync(
-    "../public/sitemap-posts.xml",
+    "../public/sitemap-details.xml",
     formattedSitemap.toString(),
     "utf8",
   );

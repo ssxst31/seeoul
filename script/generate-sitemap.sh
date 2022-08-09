@@ -21,7 +21,8 @@ echo "정적 sitemap 생성 완료!"
 
 #동적 sitemap 생성
 echo "동적 sitemap 조회 및 생성중.."
-node ./sitemap-posts.js
+node ./sitemap-blogs.js
+node ./sitemap-details.js
 echo "동적 sitemap 생성 완료!"
 
 # sitemap 압축 및 병합
