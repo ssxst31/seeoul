@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -16,6 +17,11 @@ export default function Footer() {
         cultural event.
       </p>
       <p>ⓒ 내일전시 2022 All Rights Reserved.</p>
+      <Link href="/blog" as={`/blog`}>
+        <a>
+          <button>임시 블로그</button>
+        </a>
+      </Link>
     </footer>
   );
 }
