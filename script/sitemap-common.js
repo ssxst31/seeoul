@@ -15,6 +15,8 @@ const formatted = (sitemap) => prettier.format(sitemap, { parser: "html" });
     // include
     "../pages/**/*.js",
     "../pages/*.js",
+    // exclude
+    "!../pages/_*.js",
   ]);
 
   const pagesSitemap = `
