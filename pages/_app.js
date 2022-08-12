@@ -11,6 +11,10 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>내일전시</title>
+        <meta name="NaverBot" content="All" />
+        <meta name="NaverBot" content="index,follow" />
+        <meta name="Yeti" content="All" />
+        <meta name="Yeti" content="index,follow" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="author" content="ssxst31"></meta>
         <meta
