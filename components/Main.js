@@ -176,6 +176,7 @@ export default function Main() {
           defaultPageSize={DEFAULT_LIMIT}
         />
       </div>
+      <div style={{ height: "20px" }} />
       <div style={{ maxWidth: isMobile ? "300px" : "728px", margin: "0 auto" }}>
         <Ad unit={isMobile ? "DAN-NrbIqcNVQklTs9ND" : "DAN-zwtZjOswNyJO6kQA"} />
       </div>

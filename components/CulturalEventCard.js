@@ -18,7 +18,7 @@ export default function CulturalEventCard({ culturalEvent }) {
   const setDate = new Date(date.slice(ewq, 100));
   const now = new Date();
   const distance = setDate.getTime() - now.getTime();
-  const day = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const day = Math.floor(distance / (1000 * 60 * 60 * 24)) + 1;
 
   return (
     <Card
