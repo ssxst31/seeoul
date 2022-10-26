@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 import { isMobile } from "react-device-detect";
 import { DiscussionEmbed } from "disqus-react";
 
-import data from "pages/api/data.json";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import s from "./detail.module.css";
@@ -21,12 +20,24 @@ const Ad = dynamic(
 
 const Detail = () => {
   const router = useRouter();
-  const { id } = router.query;
+
+  const { title } = router.query;
   const [culturalEvent, setCulturalEvent] = useState(null);
 
+  const ewq = async () => {
+    const res = await fetch(
+      `http://openapi.seoul.go.kr:8088/73466d785563686c36364b58464c46/json/culturalEventInfo/1/2/ /${decodeURI(
+        title,
+      )}`,
+    );
+    const data = await res.json();
+    console.log(data);
+    setCulturalEvent(data?.culturalEventInfo?.row);
+  };
+
   useEffect(() => {
-    setCulturalEvent(data.DATA[id]);
-  }, [id]);
+    ewq();
+  }, [title]);
 
   useEffect(() => {
     let ins = document.createElement("ins");
@@ -55,7 +66,7 @@ const Detail = () => {
     return <div />;
   }
 
-  const { main_img, title, date, use_trgt, use_fee, place } = culturalEvent;
+  const { main_img, TITLE, date, use_trgt, use_fee, place } = culturalEvent;
 
   return (
     <>
@@ -64,14 +75,14 @@ const Detail = () => {
         <div className={s.mainLayout}>
           <div className={s.mobile}>
             <img
-              alt={title}
+              alt={TITLE}
               src={main_img.slice(0, -1)}
               style={{ objectFit: "contain", width: "100%", maxWidth: 500 }}
             />
             <div>
               <div>
                 <span style={{ fontSize: isMobile ? 24 : 32, fontWeight: 700 }}>
-                  {title}
+                  {TITLE}
                 </span>
               </div>
               <div style={{ height: 16, width: "100%" }} />
@@ -137,7 +148,7 @@ const Detail = () => {
         config={{
           url: "https://seeoul.netlify.app/",
           identifier: 321,
-          title: title,
+          title: TITLE,
           language: "ko",
         }}
         style={{

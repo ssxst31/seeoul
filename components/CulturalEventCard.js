@@ -8,14 +8,14 @@ import s from "components/main.module.css";
 export default function CulturalEventCard({ culturalEvent }) {
   const router = useRouter();
 
-  const { main_img, title, date, id } = culturalEvent;
+  const { MAIN_IMG, TITLE, DATE, id } = culturalEvent;
 
   const handleClick = () => {
-    router.push(`/detail/${id}`);
+    router.push(`/detail/${TITLE}`);
   };
 
-  const ewq = date.indexOf("~") + 1;
-  const setDate = new Date(date.slice(ewq, 100));
+  const ewq = DATE.indexOf("~") + 1;
+  const setDate = new Date(DATE.slice(ewq, 100));
   const now = new Date();
   const distance = setDate.getTime() - now.getTime();
   const day = Math.floor(distance / (1000 * 60 * 60 * 24)) + 1;
@@ -24,12 +24,12 @@ export default function CulturalEventCard({ culturalEvent }) {
     <Card
       className={s.pointer}
       style={{ width: "100%", position: "relative", height: "100%" }}
-      cover={<img alt={title} src={main_img} onClick={handleClick} />}
+      cover={<img alt={TITLE} src={MAIN_IMG} onClick={handleClick} />}
     >
       <p style={{ fontWeight: 700 }}>
-        {title.length > 25 ? `${title.substr(0, 25)}...` : title}
+        {TITLE.length > 25 ? `${TITLE.substr(0, 25)}...` : TITLE}
       </p>
-      <p>기간 : {date}</p>
+      <p>기간 : {DATE}</p>
       <div
         style={{
           position: "absolute",
