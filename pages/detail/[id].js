@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import { isMobile } from "react-device-detect";
 import { DiscussionEmbed } from "disqus-react";
+import axios from "axios";
 
-import data from "pages/api/data.json";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import s from "./detail.module.css";
@@ -25,7 +25,12 @@ const Detail = () => {
   const [culturalEvent, setCulturalEvent] = useState(null);
 
   useEffect(() => {
-    setCulturalEvent(data.DATA[id]);
+    axios({
+      method: "get",
+      url: `http://localhost:5000/detail/${id}`,
+    }).then(function (res) {
+      setCulturalEvent(res.data[0]);
+    });
   }, [id]);
 
   useEffect(() => {
@@ -55,7 +60,7 @@ const Detail = () => {
     return <div />;
   }
 
-  const { main_img, title, date, use_trgt, use_fee, place } = culturalEvent;
+  const { mainImg, title, date, use_trgt, use_fee, place } = culturalEvent;
 
   return (
     <>
@@ -65,7 +70,7 @@ const Detail = () => {
           <div className={s.mobile}>
             <img
               alt={title}
-              src={main_img.slice(0, -1)}
+              src={mainImg}
               style={{ objectFit: "contain", width: "100%", maxWidth: 500 }}
             />
             <div>

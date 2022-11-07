@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Row, Col, Pagination, Carousel, Select, Input } from "antd";
 import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
-import ContentLoader from "react-content-loader";
 import dynamic from "next/dynamic";
 
-import data from "pages/api/data.json";
+import useFetchCulturalEvent from "hook/useFetchCulturalEvent";
+import useRandomCulturalEvent from "hook/useRandomCulturalEvent";
 import CulturalEventCard from "components/CulturalEventCard";
 import s from "components/main.module.css";
 
@@ -19,54 +19,25 @@ const { Option } = Select;
 export default function Main() {
   const router = useRouter();
   const { query } = router;
+  const page = query.page ?? 1;
   const { Search } = Input;
-  const [totalCulturalEvent, setTotalCulturalEvent] = useState(null);
-  const [filter, setFilter] = useState("전시/미술");
-  const [searchData, setSearchData] = useState(null);
-
-  const DEFAULT_PAGE = query.page ?? 1;
-  const DEFAULT_LIMIT = 20;
-
-  const offset = (DEFAULT_PAGE - 1) * DEFAULT_LIMIT;
-
-  const addedData = data.DATA.map((el, index) => {
-    return { ...el, id: index };
+  const [sort, setSort] = useState("전체");
+  const { totalCulturalEvent, totalCount } = useFetchCulturalEvent({
+    page,
+    sort,
   });
 
-  useEffect(() => {
-    const ewq = addedData.filter((el) => el.codename === filter);
+  const random = useRandomCulturalEvent();
 
-    setTotalCulturalEvent(ewq);
-    setSearchData(ewq);
-    router.push(`/`);
-  }, [filter]);
+  const DEFAULT_LIMIT = 20;
 
-  if (!totalCulturalEvent) {
-    return 2;
+  if (!totalCulturalEvent || !random) {
+    return <></>;
   }
-
-  const randomNumber = Math.floor(Math.random() * totalCulturalEvent?.length);
 
   function changePagination(activePage) {
     return router.push(`?page=${activePage}`);
   }
-
-  const handleSubmit = (searchText) => {
-    if (!searchText) {
-      setSearchData(addedData.filter((el) => el.codename === filter));
-      return;
-    }
-
-    const searchFilteredStreams = totalCulturalEvent.filter((el) => {
-      const { title } = el;
-
-      if (title && title.includes(searchText)) return true;
-      return false;
-    });
-
-    setSearchData(searchFilteredStreams);
-    router.push(`/`);
-  };
 
   const provinceData = [
     "전시/미술",
@@ -83,25 +54,21 @@ export default function Main() {
   ];
 
   const handleProvinceChange = (v) => {
-    setFilter(v);
-  };
-
-  const handleClick = (id) => {
-    router.push(`/detail/${id}`);
+    setSort(v);
   };
 
   return (
     <div className={s.mainLayout}>
-      <span style={{ fontSize: "24px" }}>추천 {filter}</span>
+      <span style={{ fontSize: "24px" }}>추천 </span>
       <Carousel autoplay slidesToShow={isMobile ? 1 : 3}>
-        {totalCulturalEvent.slice(randomNumber, randomNumber + 5).map((c) => (
+        {random.map((c) => (
           <div key={c.id}>
             <img
               onClick={() => {
                 handleClick(c.id);
               }}
               className={s.pointer}
-              src={isMobile ? c.main_img.slice(0, -1) : c.main_img}
+              src={isMobile ? c.mainImg.slice(0, -1) : c.mainImg}
               style={{
                 borderRadius: 8,
                 margin: "0 auto",
@@ -123,10 +90,10 @@ export default function Main() {
             width: "100%",
           }}
         >
-          <span style={{ fontSize: "24px" }}>Now {filter}</span>
+          <span style={{ fontSize: "24px" }}>Now {sort}</span>
           <div style={{ fontSize: 16 }}>
             총&nbsp;
-            <span style={{ color: "#0096FF" }}>{searchData?.length}</span>
+            <span style={{ color: "#0096FF" }}>{totalCount}</span>
             &nbsp;개
           </div>
         </div>
@@ -139,10 +106,9 @@ export default function Main() {
           <Search
             placeholder="검색어를 입력해주세요."
             style={{ width: 200, margin: isMobile ? "" : "0 10px" }}
-            onSearch={handleSubmit}
           />
           <Select
-            defaultValue={provinceData[0]}
+            defaultValue={"전체"}
             style={{
               width: 120,
             }}
@@ -157,20 +123,20 @@ export default function Main() {
       <div style={{ height: 16, width: "100%" }} />
       <article>
         <Row justify="center" gutter={[8, 8]}>
-          {(searchData ?? totalCulturalEvent)
-            .slice(offset, offset + DEFAULT_LIMIT)
-            .map((c) => (
+          <Row justify="center" gutter={[8, 8]}>
+            {totalCulturalEvent.map((c) => (
               <Col key={c.id} span={isMobile ? 10 : 6}>
                 <CulturalEventCard culturalEvent={c} />
               </Col>
             ))}
+          </Row>
         </Row>
       </article>
       <div style={{ height: "20px" }} />
       <div style={{ textAlign: "center" }}>
         <Pagination
-          current={Number(DEFAULT_PAGE)}
-          total={searchData?.length}
+          current={Number(page)}
+          total={totalCount}
           onChange={(e) => changePagination(e)}
           showSizeChanger={false}
           defaultPageSize={DEFAULT_LIMIT}
