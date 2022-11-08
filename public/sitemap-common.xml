@@ -6,21 +6,26 @@
 >
   <url>
     <loc>https://seeoul.netlify.app/blog</loc>
-    <lastmod>2022-08-11T11:11:56.864Z</lastmod>
+    <lastmod>2022-11-08T13:13:02.799Z</lastmod>
   </url>
 
   <url>
     <loc>https://seeoul.netlify.app/</loc>
-    <lastmod>2022-08-11T11:11:56.864Z</lastmod>
+    <lastmod>2022-11-08T13:13:02.799Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://seeoul.netlify.app/api</loc>
+    <lastmod>2022-11-08T13:13:02.799Z</lastmod>
   </url>
 
   <url>
     <loc>https://seeoul.netlify.app/blog/[id]</loc>
-    <lastmod>2022-08-11T11:11:56.864Z</lastmod>
+    <lastmod>2022-11-08T13:13:02.799Z</lastmod>
   </url>
 
   <url>
     <loc>https://seeoul.netlify.app/detail/[id]</loc>
-    <lastmod>2022-08-11T11:11:56.864Z</lastmod>
+    <lastmod>2022-11-08T13:13:02.799Z</lastmod>
   </url>
 </urlset>
