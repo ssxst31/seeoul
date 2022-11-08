@@ -1,27 +1,41 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import React from "react";
 
-import blogData from "pages/api/blog.json";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import Link from "next/link";
+import fsPromises from "fs/promises";
+import path from "path";
 
-const Blog = () => {
-  const [data, setData] = useState(null);
-  const router = useRouter();
-  const { id } = router.query;
-  console.log(blogData);
-  useEffect(() => {
-    setData(blogData[id - 1]);
-  }, [id]);
+export async function getStaticPaths() {
+  const filePath = path.join(process.cwd(), "pages/api/blog.json");
+  const jsonData = await fsPromises.readFile(filePath);
+  const objectData = JSON.parse(jsonData);
+  const paths = objectData.posts.map((post, index) => ({
+    params: { id: index.toString() },
+  }));
 
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const filePath = path.join(process.cwd(), "pages/api/blog.json");
+  const jsonData = await fsPromises.readFile(filePath);
+  const objectData = JSON.parse(jsonData);
+
+  const post = objectData.posts[params.id - 1];
+  return {
+    props: { post },
+  };
+}
+
+const Blog = ({ post }) => {
   return (
     <>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <Header />
         <div style={{ padding: "80px 16px 0 16px", textAlign: "center" }}>
-          <h1>{data?.title}</h1>
-          {data?.content.map((el) => (
+          <h1>{post.title}</h1>
+          {post.content.map((el) => (
             <p style={{ fontSize: 16, color: "#000000" }}>{el}</p>
           ))}
           <Link href="/blog" as={`/blog`}>

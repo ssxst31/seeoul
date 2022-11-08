@@ -14,7 +14,7 @@ export default function Blog() {
         <Header />
         <div style={{ padding: "80px 16px 0 16px", textAlign: "center" }}>
           <ul style={{ cursor: "pointer" }}>
-            {blog.map((el) => (
+            {blog.posts.map((el) => (
               <Link href="/blog/[id]" as={`/blog/${el.id}`}>
                 <a>
                   <li
