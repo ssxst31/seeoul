@@ -27,7 +27,7 @@ const Detail = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `https://all-exhibition-ssxst31.koyeb.app/${id}`,
+      url: `https://all-exhibition-ssxst31.koyeb.app/detail/${1}`,
     }).then(function (res) {
       setCulturalEvent(res.data[0]);
     });
