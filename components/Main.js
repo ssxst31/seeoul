@@ -57,6 +57,10 @@ export default function Main() {
     setSort(v);
   };
 
+  const handleClick = (id) => {
+    router.push(`/detail/${id}`);
+  };
+
   return (
     <div className={s.mainLayout}>
       <span style={{ fontSize: "24px" }}>추천 </span>
