@@ -15,3 +15,8 @@ export async function fetchRandomCulturalEvent() {
   const resp = await axios.get(`/random`);
   return resp.data;
 }
+
+export async function fetchDetailCulturalEvent({ id }) {
+  const resp = await axios.get(`/detail/${id}`);
+  return resp.data;
+}

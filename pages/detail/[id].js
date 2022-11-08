@@ -1,13 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import React, { useEffect } from "react";
+
 import dynamic from "next/dynamic";
 import { isMobile } from "react-device-detect";
 import { DiscussionEmbed } from "disqus-react";
-import axios from "axios";
 
+import { fetchDetailCulturalEvent } from "pages/api/index";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import s from "./detail.module.css";
+
+export const getServerSideProps = async ({ params }) => {
+  const id = params.id;
+
+  const data = await fetchDetailCulturalEvent({ id });
+
+  return {
+    props: {
+      culturalEvent: data[0],
+    },
+  };
+};
 
 const ComponentsWithNoSSR = dynamic(
   () => import("components/Map"), // Component로 사용할 항목을 import합니다.
@@ -19,20 +31,7 @@ const Ad = dynamic(
   { ssr: false }, // ssr옵션을 false로 설정해줍니다.
 );
 
-const Detail = () => {
-  const router = useRouter();
-  const { id } = router.query;
-  const [culturalEvent, setCulturalEvent] = useState(null);
-
-  useEffect(() => {
-    axios({
-      method: "get",
-      url: `https://all-exhibition-ssxst31.koyeb.app/detail/${1}`,
-    }).then(function (res) {
-      setCulturalEvent(res.data[0]);
-    });
-  }, [id]);
-
+const Detail = ({ culturalEvent }) => {
   useEffect(() => {
     let ins = document.createElement("ins");
     let scr = document.createElement("script");
