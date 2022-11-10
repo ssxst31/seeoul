@@ -6,7 +6,6 @@ import prettier from "prettier";
 const getDate = new Date().toISOString();
 const CODEIT_DOMAIN = "https://seeoul.netlify.app";
 
-//
 const formatted = (sitemap) => prettier.format(sitemap, { parser: "html" });
 
 (async () => {
