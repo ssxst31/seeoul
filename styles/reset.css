@@ -1,5 +1,5 @@
 body {
-  font-family: 'Noto Sans KR', 'Malgun Gothic', '맑은 고딕', helvetica, 'Apple SD Gothic Neo', helvetica, sans-serif;
+  
   font-weight: 400;
   letter-spacing: -0.045em;
   overflow-x: auto;
@@ -9,6 +9,7 @@ body {
 ::before,
 ::after {
   box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 img {

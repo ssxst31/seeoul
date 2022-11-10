@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Row, Col, Pagination, Carousel, Select, Input } from "antd";
+import { Pagination, Select, Input } from "antd";
 import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import dynamic from "next/dynamic";
 
 import useFetchCulturalEvent from "hook/useFetchCulturalEvent";
-import useRandomCulturalEvent from "hook/useRandomCulturalEvent";
-import CulturalEventCard from "components/CulturalEventCard";
 import s from "components/main.module.css";
+import MainCarousel from "components/MainCarousel";
+import MainArticle from "components/MainArticle";
 
 const Ad = dynamic(
   () => import("./ad"), // Component로 사용할 항목을 import합니다.
@@ -27,13 +27,7 @@ export default function Main() {
     sort,
   });
 
-  const random = useRandomCulturalEvent();
-
   const DEFAULT_LIMIT = 20;
-
-  if (!totalCulturalEvent || !random) {
-    return <></>;
-  }
 
   function changePagination(activePage) {
     return router.push(`?page=${activePage}`);
@@ -57,33 +51,10 @@ export default function Main() {
     setSort(v);
   };
 
-  const handleClick = (id) => {
-    router.push(`/detail/${id}`);
-  };
-
   return (
     <div className={s.mainLayout}>
-      <span style={{ fontSize: "24px" }}>추천 </span>
-      <Carousel autoplay slidesToShow={isMobile ? 1 : 3}>
-        {random.map((c) => (
-          <div key={c.id}>
-            <img
-              onClick={() => {
-                handleClick(c.id);
-              }}
-              className={s.pointer}
-              src={isMobile ? c.mainImg.slice(0, -1) : c.mainImg}
-              style={{
-                borderRadius: 8,
-                margin: "0 auto",
-                maxHeight: 500,
-                position: "relative",
-              }}
-              alt={c.title}
-            />
-          </div>
-        ))}
-      </Carousel>
+      <span style={{ fontSize: "24px" }}>추천 예술</span>
+      <MainCarousel />
       <div style={{ height: 40, width: "100%" }} />
       <div className={s.mobile}>
         <div
@@ -125,17 +96,7 @@ export default function Main() {
         </div>
       </div>
       <div style={{ height: 16, width: "100%" }} />
-      <article>
-        <Row justify="center" gutter={[8, 8]}>
-          <Row justify="center" gutter={[8, 8]}>
-            {totalCulturalEvent.map((c) => (
-              <Col key={c.id} span={isMobile ? 10 : 6}>
-                <CulturalEventCard culturalEvent={c} />
-              </Col>
-            ))}
-          </Row>
-        </Row>
-      </article>
+      <MainArticle totalCulturalEvent={totalCulturalEvent} />
       <div style={{ height: "20px" }} />
       <div style={{ textAlign: "center" }}>
         <Pagination
