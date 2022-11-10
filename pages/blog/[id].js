@@ -5,12 +5,10 @@ import Footer from "components/Footer";
 import Link from "next/link";
 import fsPromises from "fs/promises";
 import path from "path";
+import blog from "pages/api/blog.json";
 
 export async function getStaticPaths() {
-  const filePath = path.join(process.cwd(), "pages/api/blog.json");
-  const jsonData = await fsPromises.readFile(filePath);
-  const objectData = JSON.parse(jsonData);
-  const paths = objectData.posts.map((post, index) => ({
+  const paths = blog.posts.map((post, index) => ({
     params: { id: index.toString() },
   }));
 
