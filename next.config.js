@@ -7,7 +7,13 @@ const nextConfig = {
     defaultLocale: "ko",
   },
   images: {
-    domains: ["culture.seoul.go.kr", "localhost", "seoul.go.kr", "*"],
+    domains: [
+      "culture.seoul.go.kr",
+      "localhost",
+      "seoul.go.kr",
+      "*",
+      "scontent-gmp1-1.cdninstagram.com",
+    ],
   },
 };
 
