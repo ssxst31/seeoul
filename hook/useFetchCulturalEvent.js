@@ -1,21 +1,24 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import useSWR from "swr";
 
 import { fetchCulturalEvent } from "pages/api/index";
 
 export default function useFetchCulturalEvent({ page = 1, sort }) {
-  const [totalCulturalEvent, setTotalCulturalEvent] = useState(null);
-  const [totalCount, setTotalCount] = useState(null);
+  const { data } = useSWR(
+    {
+      url: `/get`,
+      params: { page, sort },
+    },
+    async ({ params }) => {
+      const response = await fetchCulturalEvent(params);
 
-  async function loadCulturalEvent() {
-    const result = await fetchCulturalEvent({ page, sort });
+      return response;
+    },
+    { revalidateIfStale: false },
+  );
 
-    setTotalCount(result.totalCount);
-    setTotalCulturalEvent(result.data);
-  }
-
-  useEffect(() => {
-    loadCulturalEvent();
-  }, [page, sort]);
+  const totalCulturalEvent = data?.data ?? null;
+  const totalCount = data?.totalCount ?? null;
 
   return { totalCulturalEvent, totalCount };
 }
