@@ -21,6 +21,7 @@ export const getServerSideProps = async () => {
 };
 
 const Popular = ({ instagramFeed }) => {
+  console.log(instagramFeed);
   if (!instagramFeed) {
     return <></>;
   }
@@ -35,7 +36,7 @@ const Popular = ({ instagramFeed }) => {
               <Col key={index} span={isMobile ? 10 : 6}>
                 <Link href={i.permalink} passHref>
                   <a target="_blank" rel="noopener noreferrer">
-                    <Image src={i.media_url} height={500} width={500} />
+                    <img src={i.media_url} height={500} width={500} />
                   </a>
                 </Link>
               </Col>
