@@ -1,15 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>https://seeoul.netlify.app/sitemap-blogs.xml.gz</loc>
-    <lastmod>2022-11-08T13:13:03.693Z</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://seeoul.netlify.app/sitemap-common.xml.gz</loc>
-    <lastmod>2022-11-08T13:13:03.693Z</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://seeoul.netlify.app/sitemap-details.xml.gz</loc>
-    <lastmod>2022-11-08T13:13:03.693Z</lastmod>
-  </sitemap>
-</sitemapindex>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://seeoul.netlify.app/</loc>
+  <lastmod>2022-11-10T01:27:56+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://seeoul.netlify.app/blog</loc>
+  <lastmod>2022-11-10T01:27:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://seeoul.netlify.app/blog/1</loc>
+  <lastmod>2022-11-10T01:27:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://seeoul.netlify.app/blog/2</loc>
+  <lastmod>2022-11-10T01:27:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://seeoul.netlify.app/blog/3</loc>
+  <lastmod>2022-11-10T01:27:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://seeoul.netlify.app/blog/4</loc>
+  <lastmod>2022-11-10T01:27:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://seeoul.netlify.app/blog/5</loc>
+  <lastmod>2022-11-10T01:27:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://seeoul.netlify.app/blog/6</loc>
+  <lastmod>2022-11-10T01:27:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://seeoul.netlify.app/blog/7</loc>
+  <lastmod>2022-11-10T01:27:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://seeoul.netlify.app/blog/8</loc>
+  <lastmod>2022-11-10T01:27:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://seeoul.netlify.app/blog/9</loc>
+  <lastmod>2022-11-10T01:27:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://seeoul.netlify.app/blog/10</loc>
+  <lastmod>2022-11-10T01:27:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
