@@ -1,21 +1,30 @@
 import React from "react";
-
 import Link from "next/link";
-import useFetchInstagramFeed from "hook/useFetchInstagramFeed";
 import { Row, Col } from "antd";
 import { isMobile } from "react-device-detect";
+import Image from "next/image";
+
 import Header from "components/Header";
 import Footer from "components/Footer";
 import s from "./popular.module.css";
-import Image from "next/image";
 
-const Popular = () => {
-  const instagramFeed = useFetchInstagramFeed();
+import { fetchInstagramFeed } from "pages/api/index";
 
-  console.log(instagramFeed);
+export const getServerSideProps = async () => {
+  const data = await fetchInstagramFeed();
+
+  return {
+    props: {
+      instagramFeed: data.data,
+    },
+  };
+};
+
+const Popular = ({ instagramFeed }) => {
   if (!instagramFeed) {
     return <></>;
   }
+
   return (
     <>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
