@@ -9,7 +9,7 @@ import blog from "pages/api/blog.json";
 
 export async function getStaticPaths() {
   const paths = blog.posts.map((post, index) => ({
-    params: { id: index.toString() },
+    params: { id: (index + 1).toString() },
   }));
 
   return { paths, fallback: false };
