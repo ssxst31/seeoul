@@ -5,3 +5,6 @@
 #reactions__container {
   display: none !important;
 }
+.ant-col-6 {
+  max-width: none;
+}

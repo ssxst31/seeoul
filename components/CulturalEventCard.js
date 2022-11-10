@@ -38,8 +38,8 @@ export default function CulturalEventCard({ culturalEvent }) {
           <div
             style={{
               position: "absolute",
-              right: 0,
-              top: 0,
+              right: -1,
+              top: -1,
               fontWeight: 700,
               color: "#fc4c4c",
               backgroundColor: "white",
