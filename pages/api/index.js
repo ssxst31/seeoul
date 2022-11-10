@@ -20,3 +20,10 @@ export async function fetchDetailCulturalEvent({ id }) {
   const resp = await axios.get(`/detail/${id}`);
   return resp.data;
 }
+
+export async function fetchInstagramFeed() {
+  const resp = await axios.get(
+    `https://graph.instagram.com/me/media?fields=caption,id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=IGQVJWMEVEZA3VjeXdQZAUVYV0NTSmxfaDh6bEk1dW5TTldNdFgzd3oyeTBlY1FOU3lnbHVQOUVqbmRMeXFhSWpTZAXFSX1cydGM2Y1QwMi1Kank5dXUyUzJaWW9DVktwbVE1b0hkdmNvSWRyX2U1MENiRgZDZD`,
+  );
+  return resp.data;
+}
