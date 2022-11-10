@@ -6,6 +6,9 @@ const nextConfig = {
     locales: ["ko"],
     defaultLocale: "ko",
   },
+  images: {
+    domains: ["culture.seoul.go.kr", "localhost", "seoul.go.kr", "*"],
+  },
 };
 
 module.exports = nextConfig;
