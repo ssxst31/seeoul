@@ -22,9 +22,6 @@ export default function Main() {
             <a>
               <Image
                 src={isMobile ? c.mainImg.slice(0, -1) : c.mainImg}
-                onClick={() => {
-                  handleClick(c.id);
-                }}
                 height={300}
                 width={330}
                 alt={c.title}
