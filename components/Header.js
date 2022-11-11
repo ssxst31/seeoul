@@ -13,10 +13,12 @@ export default function Header() {
         backgroundColor: "#fff",
         zIndex: 2,
         lineHeight: "80px",
+        boxShadow: "0 2px 5px 0 rgb(0 0 0 / 12%)",
+        left: 0,
       }}
       className={s.header}
     >
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", maxWidth: "1280px", margin: "0 auto" }}>
         <a
           style={{ fontSize: 40, color: "#0096FF", marginRight: 50 }}
           className={s.pointer}
@@ -25,8 +27,14 @@ export default function Header() {
           내일 전시
         </a>
         <Link href="/popular">
-          <a style={{ fontSize: 18, color: "black" }} className={s.pointer}>
-            인기 전시회
+          <a style={{ fontSize: 18, color: "black" }}>
+            <div>
+              인기 전시회
+              <img
+                src="/new.png"
+                style={{ width: 20, height: 20, position: "relative", top: 15 }}
+              />
+            </div>
           </a>
         </Link>
       </div>
