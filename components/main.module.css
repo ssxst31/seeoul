@@ -2,6 +2,15 @@
   cursor: pointer;
 }
 
+.pointer:hover img {
+  transform: scale(1.1);
+  transition: all 0.2s;
+}
+
+.pointer img {
+  transition: all 0.2s linear;
+}
+
 .mobile { 
   display: flex;
   justify-content: space-between
