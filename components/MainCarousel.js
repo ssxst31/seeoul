@@ -25,6 +25,7 @@ export default function Main() {
                 height={300}
                 width={330}
                 alt={c.title}
+                loading="eager"
               />
             </a>
           </Link>
