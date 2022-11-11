@@ -59,7 +59,7 @@ const Detail = ({ culturalEvent }) => {
     return <div />;
   }
 
-  const { mainImg, title, date, use_trgt, use_fee, place } = culturalEvent;
+  const { mainImg, title, date, useTrgt, useFee, place } = culturalEvent;
 
   return (
     <>
@@ -115,7 +115,7 @@ const Detail = ({ culturalEvent }) => {
                 >
                   대상 :
                 </span>
-                <span style={{ fontSize: isMobile ? 16 : 20 }}>{use_trgt}</span>
+                <span style={{ fontSize: isMobile ? 16 : 20 }}>{useTrgt}</span>
               </div>
               <div style={{ height: 8, width: "100%" }} />
               <div>
@@ -128,7 +128,7 @@ const Detail = ({ culturalEvent }) => {
                 >
                   요금 :
                 </span>
-                <span style={{ fontSize: isMobile ? 16 : 20 }}>{use_fee}</span>
+                <span style={{ fontSize: isMobile ? 16 : 20 }}>{useFee}</span>
               </div>
             </div>
           </div>
