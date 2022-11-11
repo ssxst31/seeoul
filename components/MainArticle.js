@@ -1,6 +1,5 @@
 import React from "react";
 import { Row, Col } from "antd";
-import { isMobile } from "react-device-detect";
 
 import CulturalEventCard from "components/CulturalEventCard";
 

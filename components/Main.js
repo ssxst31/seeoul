@@ -22,9 +22,11 @@ export default function Main() {
   const page = query.page ?? 1;
   const { Search } = Input;
   const [sort, setSort] = useState("전체");
+  const [search, setSearch] = useState("");
   const { totalCulturalEvent, totalCount } = useFetchCulturalEvent({
     page,
     sort,
+    search,
   });
 
   const DEFAULT_LIMIT = 20;
@@ -49,6 +51,10 @@ export default function Main() {
 
   const handleProvinceChange = (v) => {
     setSort(v);
+  };
+
+  const handleSubmit = (text) => {
+    setSearch(text);
   };
 
   return (
@@ -81,6 +87,7 @@ export default function Main() {
           <Search
             placeholder="검색어를 입력해주세요."
             style={{ width: 200, margin: isMobile ? "" : "0 10px" }}
+            onSearch={handleSubmit}
           />
           <Select
             defaultValue={"전체"}
