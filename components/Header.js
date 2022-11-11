@@ -8,23 +8,38 @@ export default function Header() {
     <header
       style={{
         position: "fixed",
-        height: 80,
+        height: 64,
         width: "100%",
         backgroundColor: "#fff",
         zIndex: 2,
-        lineHeight: "80px",
+        lineHeight: "64px",
         boxShadow: "0 2px 5px 0 rgb(0 0 0 / 12%)",
         left: 0,
       }}
       className={s.header}
     >
       <div style={{ display: "flex", maxWidth: "1280px", margin: "0 auto" }}>
-        <a style={{ fontSize: 40, color: "#5553FF", marginRight: 50 }} href="/">
+        <a
+          style={{
+            fontSize: 32,
+            color: "#5553FF",
+            marginRight: 50,
+            display: "flex",
+            alignContent: "center",
+          }}
+          href="/"
+        >
           <img
             src="/logo.png"
-            style={{ width: 50, height: 50, position: "relative", top: 15 }}
+            style={{
+              width: 40,
+              height: 40,
+              position: "relative",
+              top: 10,
+              marginRight: 12,
+            }}
           />
-          내일 전시
+          <div>내일 전시</div>
         </a>
         <Link href="/popular">
           <a style={{ fontSize: 18, color: "black" }}>
@@ -32,7 +47,13 @@ export default function Header() {
               인기 전시회
               <img
                 src="/new.png"
-                style={{ width: 20, height: 20, position: "relative", top: 15 }}
+                style={{
+                  width: 16,
+                  height: 16,
+                  position: "relative",
+                  top: 15,
+                  left: -5,
+                }}
               />
             </div>
           </a>
