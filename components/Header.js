@@ -17,14 +17,13 @@ export default function Header() {
       className={s.header}
     >
       <div style={{ display: "flex" }}>
-        <Link href="/">
-          <a
-            style={{ fontSize: 40, color: "#0096FF", marginRight: 50 }}
-            className={s.pointer}
-          >
-            내일 전시
-          </a>
-        </Link>
+        <a
+          style={{ fontSize: 40, color: "#0096FF", marginRight: 50 }}
+          className={s.pointer}
+          href="/"
+        >
+          내일 전시
+        </a>
         <Link href="/popular">
           <a style={{ fontSize: 18, color: "black" }} className={s.pointer}>
             인기 전시회
