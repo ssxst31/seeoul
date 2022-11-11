@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import Script from "next/script";
-import * as gtag from "lib/gtag";
+import Router, { useRouter } from "next/router";
+import NProgress from "nprogress";
 
+import * as gtag from "lib/gtag";
 import "../styles/globals.css";
 import "../styles/reset.css";
 import "../styles/override.css";
+import "nprogress/nprogress.css";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -20,6 +21,21 @@ function MyApp({ Component, pageProps }) {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events]);
+
+  Router.onRouteChangeStart = (url, { shallow } = { shallow: false }) => {
+    if (shallow) return;
+    NProgress.start();
+  };
+
+  Router.onRouteChangeComplete = (url, { shallow } = { shallow: false }) => {
+    if (shallow) return;
+    NProgress.done();
+  };
+
+  Router.onRouteChangeError = (err, url, { shallow } = { shallow: false }) => {
+    if (shallow) return;
+    NProgress.done();
+  };
 
   return (
     <>
