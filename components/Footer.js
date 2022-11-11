@@ -13,6 +13,9 @@ export default function Footer() {
     >
       <p>출처 - 서울특별시, 서울문화포털(culture.seoul.go.kr)</p>
       <p>
+        <a href="https://icons8.com">icons8</a>에서 아이콘 제공
+      </p>
+      <p>
         This site[내일전시] is designed to share information about Seoul
         cultural event.
       </p>

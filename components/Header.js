@@ -19,11 +19,11 @@ export default function Header() {
       className={s.header}
     >
       <div style={{ display: "flex", maxWidth: "1280px", margin: "0 auto" }}>
-        <a
-          style={{ fontSize: 40, color: "#0096FF", marginRight: 50 }}
-          className={s.pointer}
-          href="/"
-        >
+        <a style={{ fontSize: 40, color: "#5553FF", marginRight: 50 }} href="/">
+          <img
+            src="/logo.png"
+            style={{ width: 50, height: 50, position: "relative", top: 15 }}
+          />
           내일 전시
         </a>
         <Link href="/popular">
