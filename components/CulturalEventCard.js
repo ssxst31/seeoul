@@ -29,7 +29,7 @@ export default function CulturalEventCard({ culturalEvent }) {
             height: "100%",
             boxShadow: "2px 4px 12px rgb(0 0 0 / 8%)",
           }}
-          cover={<Image src={mainImg} height={500} width={500} />}
+          cover={<Image src={mainImg} height={500} width={500} alt={title} />}
         >
           <p style={{ fontWeight: 700, fontSize: 20 }}>
             {title.length > 33 ? `${title.substr(0, 33)}...` : title}
