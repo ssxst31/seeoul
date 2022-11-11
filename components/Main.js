@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Pagination, Select, Input } from "antd";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { isMobile } from "react-device-detect";
 import dynamic from "next/dynamic";
 
@@ -31,10 +32,6 @@ export default function Main() {
 
   const DEFAULT_LIMIT = 20;
 
-  function changePagination(activePage) {
-    return router.push(`?page=${activePage}`);
-  }
-
   const provinceData = [
     "전체",
     "전시/미술",
@@ -57,6 +54,10 @@ export default function Main() {
   const handleSubmit = (text) => {
     setSearch(text);
   };
+
+  function itemRender(current, type, originalElement) {
+    return <Link href={`/?page=${current}`}>{originalElement}</Link>;
+  }
 
   return (
     <div className={s.mainLayout}>
@@ -116,9 +117,9 @@ export default function Main() {
         <Pagination
           current={Number(page)}
           total={totalCount}
-          onChange={(e) => changePagination(e)}
           showSizeChanger={false}
           defaultPageSize={DEFAULT_LIMIT}
+          itemRender={itemRender}
         />
       </div>
       <div style={{ height: "20px" }} />
