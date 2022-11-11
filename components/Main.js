@@ -36,6 +36,7 @@ export default function Main() {
   }
 
   const provinceData = [
+    "전체",
     "전시/미술",
     "클래식",
     "콘서트",
@@ -59,7 +60,9 @@ export default function Main() {
 
   return (
     <div className={s.mainLayout}>
-      <span style={{ fontSize: "24px" }}>추천 예술</span>
+      <span style={{ fontSize: "24px", fontWeight: 700 }}>
+        전시회를 생각 중이라면 👀
+      </span>
       <MainCarousel />
       <div style={{ height: 40, width: "100%" }} />
       <div className={s.mobile}>
@@ -71,10 +74,14 @@ export default function Main() {
             width: "100%",
           }}
         >
-          <span style={{ fontSize: "24px" }}>Now {sort}</span>
+          <span style={{ fontSize: "24px", fontWeight: 700 }}>
+            여기서 바로 {sort === "전체" && ""} 골라보세요! 🫧
+          </span>
           <div style={{ fontSize: 16 }}>
             총&nbsp;
-            <span style={{ color: "#0096FF" }}>{totalCount}</span>
+            <span style={{ color: "#BD26FF", fontWeight: 700 }}>
+              {totalCount}
+            </span>
             &nbsp;개
           </div>
         </div>

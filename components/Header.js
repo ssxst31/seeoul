@@ -38,6 +38,7 @@ export default function Header() {
               top: 10,
               marginRight: 12,
             }}
+            alt="logo"
           />
           <div>내일 전시</div>
         </a>
@@ -54,6 +55,7 @@ export default function Header() {
                   top: 15,
                   left: -5,
                 }}
+                alt="new"
               />
             </div>
           </a>

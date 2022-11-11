@@ -23,7 +23,9 @@
 
 
 @media screen and (max-width: 763px) {
-  
+  .mobile { 
+    flex-direction: column;
+  } 
   
   .mainLayout{
     padding: 80px 16px 0 16px;
