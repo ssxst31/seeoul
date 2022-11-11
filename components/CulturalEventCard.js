@@ -27,7 +27,7 @@ export default function CulturalEventCard({ culturalEvent }) {
             width: "290px",
             position: "relative",
             height: "100%",
-            boxShadow: "3px 3px 3px lightgrey",
+            boxShadow: "2px 4px 12px rgb(0 0 0 / 8%)",
           }}
           cover={<Image src={mainImg} height={500} width={500} />}
         >
