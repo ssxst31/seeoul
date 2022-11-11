@@ -13,7 +13,7 @@ export default function Main({ totalCulturalEvent }) {
     <article>
       <Row justify="center" gutter={[32, 32]}>
         {totalCulturalEvent.map((c) => (
-          <Col key={c.id} span={isMobile ? 10 : 6}>
+          <Col key={c.id}>
             <CulturalEventCard culturalEvent={c} />
           </Col>
         ))}

@@ -14,9 +14,7 @@
 
 
 @media screen and (max-width: 763px) {
-  .mobile {
-    display: block;
-  }
+  
   
   .mainLayout{
     padding: 80px 16px 0 16px;
