@@ -9,8 +9,8 @@ import s from "components/main.module.css";
 import MainCarousel from "components/MainCarousel";
 import MainArticle from "components/MainArticle";
 
-const Ad = dynamic(
-  () => import("./ad"), // Component로 사용할 항목을 import합니다.
+const KakaoAdFit = dynamic(
+  () => import("./KakaoAdFit"), // Component로 사용할 항목을 import합니다.
   { ssr: false }, // ssr옵션을 false로 설정해줍니다.
 );
 
@@ -109,7 +109,9 @@ export default function Main() {
       </div>
       <div style={{ height: "20px" }} />
       <div style={{ maxWidth: isMobile ? "300px" : "728px", margin: "0 auto" }}>
-        <Ad unit={isMobile ? "DAN-NrbIqcNVQklTs9ND" : "DAN-zwtZjOswNyJO6kQA"} />
+        <KakaoAdFit
+          unit={isMobile ? "DAN-NrbIqcNVQklTs9ND" : "DAN-zwtZjOswNyJO6kQA"}
+        />
       </div>
       <div style={{ height: "20px" }} />
     </div>

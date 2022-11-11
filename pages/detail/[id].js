@@ -26,8 +26,8 @@ const ComponentsWithNoSSR = dynamic(
   { ssr: false }, // ssr옵션을 false로 설정해줍니다.
 );
 
-const Ad = dynamic(
-  () => import("components/ad"), // Component로 사용할 항목을 import합니다.
+const KakaoAdFit = dynamic(
+  () => import("components/KakaoAdFit"), // Component로 사용할 항목을 import합니다.
   { ssr: false }, // ssr옵션을 false로 설정해줍니다.
 );
 
@@ -151,7 +151,9 @@ const Detail = ({ culturalEvent }) => {
         }}
       />
       <div style={{ maxWidth: isMobile ? "300px" : "728px", margin: "0 auto" }}>
-        <Ad unit={isMobile ? "DAN-ncR6s1pAyuAZtN0w" : "DAN-5fCtQtQI3q57O0n8"} />
+        <KakaoAdFit
+          unit={isMobile ? "DAN-ncR6s1pAyuAZtN0w" : "DAN-5fCtQtQI3q57O0n8"}
+        />
       </div>
       <Footer />
     </>

@@ -1,8 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { isMobile } from "react-device-detect";
 
-const Ad = ({ unit }) => {
+const KakaoAdFit = ({ unit }) => {
+  const adRef = useRef(false);
+
   useEffect(() => {
+    if (adRef.current) {
+      return;
+    }
+
     let ins = document.createElement("ins");
     let scr = document.createElement("script");
 
@@ -19,11 +25,13 @@ const Ad = ({ unit }) => {
       : ins.setAttribute("data-ad-height", "90");
     ins.setAttribute("data-ad-unit", unit);
 
-    document.querySelector(".adfit").appendChild(ins);
-    document.querySelector(".adfit").appendChild(scr);
+    document.querySelector(".adfit")?.appendChild(ins);
+    document.querySelector(".adfit")?.appendChild(scr);
+
+    adRef.current = true;
   }, []);
 
   return <div className="adfit" />;
 };
 
-export default Ad;
+export default React.memo(KakaoAdFit);
