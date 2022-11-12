@@ -11,7 +11,7 @@ export default function Header() {
         height: 64,
         width: "100%",
         backgroundColor: "#fff",
-        zIndex: 2,
+        zIndex: 16,
         lineHeight: "64px",
         boxShadow: "0 2px 5px 0 rgb(0 0 0 / 12%)",
         left: 0,
