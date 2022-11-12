@@ -18,7 +18,14 @@ export default function Header() {
       }}
       className={s.header}
     >
-      <div style={{ display: "flex", maxWidth: "1280px", margin: "0 auto" }}>
+      <div
+        style={{
+          display: "flex",
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "0 30px",
+        }}
+      >
         <a
           style={{
             fontSize: 32,
@@ -43,9 +50,14 @@ export default function Header() {
           <div>내일 전시</div>
         </a>
         <Link href="/popular">
-          <a style={{ fontSize: 18, color: "black" }}>
+          <a>
             <div>
-              인기 전시회
+              <span
+                style={{ color: "#222222", fontSize: 15 }}
+                className={s.bold}
+              >
+                인기 전시회
+              </span>
               <img
                 src="/new.png"
                 style={{

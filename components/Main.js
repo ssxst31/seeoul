@@ -83,7 +83,7 @@ export default function Main() {
             <span style={{ color: "#BD26FF", fontWeight: 700 }}>
               {totalCount}
             </span>
-            &nbsp;개
+            &nbsp;건
           </div>
         </div>
         <div

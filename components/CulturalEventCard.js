@@ -24,7 +24,7 @@ export default function CulturalEventCard({ culturalEvent }) {
         <Card
           className={s.pointer}
           style={{
-            width: "290px",
+            width: "280px",
             position: "relative",
             height: "100%",
             boxShadow: "2px 4px 12px rgb(0 0 0 / 8%)",
