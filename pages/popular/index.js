@@ -31,12 +31,12 @@ const Popular = ({ instagramFeed }) => {
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <Header />
         <div className={s.mainLayout}>
-          <Row justify="center" gutter={[32, 32]}>
+          <Row justify="center" gutter={[24, 24]}>
             {instagramFeed.map((i, index) => (
-              <Col key={index} span={isMobile ? 10 : 6}>
+              <Col key={index}>
                 <Link href={i.permalink} passHref>
                   <a target="_blank" rel="noopener noreferrer">
-                    <img src={i.media_url} height={500} width={500} />
+                    <img src={i.media_url} height={390} width={390} />
                   </a>
                 </Link>
               </Col>
