@@ -5,8 +5,8 @@ import { isMobile } from "react-device-detect";
 import { DiscussionEmbed } from "disqus-react";
 
 import { fetchDetailCulturalEvent } from "pages/api/index";
-import Header from "components/Header";
-import Footer from "components/Footer";
+import Header from "layouts/Header";
+import Footer from "layouts/Footer";
 import s from "./detail.module.css";
 
 export const getServerSideProps = async ({ params }) => {

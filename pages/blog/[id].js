@@ -1,7 +1,7 @@
 import React from "react";
 
-import Header from "components/Header";
-import Footer from "components/Footer";
+import Header from "layouts/Header";
+import Footer from "layouts/Footer";
 import Link from "next/link";
 import fsPromises from "fs/promises";
 import path from "path";
