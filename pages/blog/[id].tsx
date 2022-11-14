@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const filePath = path.join(process.cwd(), "pages/api/blog.json");
-  const jsonData = await fsPromises.readFile(filePath);
+  const jsonData = (await fsPromises.readFile(filePath)) as any;
   const objectData = JSON.parse(jsonData);
 
   const post = objectData.posts[params.id - 1];

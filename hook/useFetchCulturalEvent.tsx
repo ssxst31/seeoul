@@ -3,7 +3,17 @@ import useSWR from "swr";
 
 import { fetchCulturalEvent } from "pages/api/index";
 
-export default function useFetchCulturalEvent({ page = 1, sort, search }) {
+interface FetchCulturalEventProps {
+  page: number;
+  sort: string;
+  search: string;
+}
+
+export default function useFetchCulturalEvent({
+  page = 1,
+  sort,
+  search,
+}: FetchCulturalEventProps) {
   const [dsa, setDsa] = useState(null);
 
   const { data } = useSWR(

@@ -5,7 +5,7 @@ import s from "components/main.module.css";
 
 const Map = ({ searchPlace }) => {
   // 검색결과 배열에 담아줌
-  const { kakao } = window;
+  const { kakao } = window as any;
   const [Places, setPlaces] = useState([]);
 
   useEffect(() => {

@@ -20,7 +20,7 @@ const { Option } = Select;
 export default function Main() {
   const router = useRouter();
   const { query } = router;
-  const page = query.page ?? 1;
+  const page = Number(query.page ?? 1);
   const { Search } = Input;
   const [sort, setSort] = useState("전체");
   const [search, setSearch] = useState("");

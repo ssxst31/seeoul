@@ -9,8 +9,8 @@ const KakaoAdFit = ({ unit }) => {
       return;
     }
 
-    let ins = document.createElement("ins");
-    let scr = document.createElement("script");
+    let ins = document.createElement("ins") as any;
+    let scr = document.createElement("script") as any;
 
     ins.className = "kakao_ad_area";
     ins.style = "display:none; width:100%;";

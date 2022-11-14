@@ -3,13 +3,14 @@ import Head from "next/head";
 import Router, { useRouter } from "next/router";
 import NProgress from "nprogress";
 
+import type { AppProps } from "next/app";
 import * as gtag from "lib/gtag";
 import "../styles/globals.css";
 import "../styles/reset.css";
 import "../styles/override.css";
 import "nprogress/nprogress.css";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
@@ -22,17 +23,26 @@ function MyApp({ Component, pageProps }) {
     };
   }, [router.events]);
 
-  Router.onRouteChangeStart = (url, { shallow } = { shallow: false }) => {
+  let typedRouter = Router as any;
+
+  typedRouter.onRouteChangeStart = (url, { shallow } = { shallow: false }) => {
     if (shallow) return;
     NProgress.start();
   };
 
-  Router.onRouteChangeComplete = (url, { shallow } = { shallow: false }) => {
+  typedRouter.onRouteChangeComplete = (
+    url,
+    { shallow } = { shallow: false },
+  ) => {
     if (shallow) return;
     NProgress.done();
   };
 
-  Router.onRouteChangeError = (err, url, { shallow } = { shallow: false }) => {
+  typedRouter.onRouteChangeError = (
+    err,
+    url,
+    { shallow } = { shallow: false },
+  ) => {
     if (shallow) return;
     NProgress.done();
   };
@@ -58,7 +68,7 @@ function MyApp({ Component, pageProps }) {
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7947339856088209"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
         <meta property="og:type" content="website"></meta>
         <meta property="og:title" content="내일전시"></meta>

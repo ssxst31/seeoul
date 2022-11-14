@@ -1,8 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { Row, Col } from "antd";
-import { isMobile } from "react-device-detect";
-import Image from "next/image";
 
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";

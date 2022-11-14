@@ -1,13 +1,11 @@
 import React from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
+
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 import blog from "pages/api/blog.json";
 
 export default function Blog() {
-  const router = useRouter();
-
   return (
     <div>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>

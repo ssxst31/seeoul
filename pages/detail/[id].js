@@ -132,7 +132,7 @@ const Detail = ({ culturalEvent }) => {
               </div>
             </div>
           </div>
-          <div style={{ height: 60, weight: "100%" }} />
+          <div style={{ width: "100%", height: 60 }} />
           <ComponentsWithNoSSR searchPlace={place.split(" ")[0]} />
         </div>
       </div>
@@ -140,7 +140,7 @@ const Detail = ({ culturalEvent }) => {
         shortname="seeoul"
         config={{
           url: "https://seeoul.netlify.app/",
-          identifier: 321,
+          identifier: "1",
           title: title,
           language: "ko",
         }}
