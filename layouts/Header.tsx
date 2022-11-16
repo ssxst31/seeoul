@@ -100,19 +100,19 @@ export default function Header() {
             className={s.rea}
           >
             {tabs.map((t) => (
-              <div
-                style={{
-                  fontSize: 14,
-                  marginRight: 20,
-                  fontWeight: router.query.tab === t.sort ? 700 : 500,
-                  color: router.query.tab === t.sort && "#000000",
-                }}
-                onClick={() => {
-                  router.push(`/?tab=${t.sort}`);
-                }}
-              >
-                {t.title}
-              </div>
+              <Link href={`/?tab=${t.sort}`}>
+                <a
+                  style={{
+                    fontSize: 14,
+                    marginRight: 20,
+                    fontWeight: router.query.tab === t.sort ? 700 : 500,
+                    color: "#000000",
+                    cursor: "pointer",
+                  }}
+                >
+                  {t.title}
+                </a>
+              </Link>
             ))}
           </div>
         </div>
