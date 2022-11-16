@@ -19,7 +19,6 @@ export const getServerSideProps = async () => {
 };
 
 const Popular = ({ instagramFeed }) => {
-  console.log(instagramFeed);
   if (!instagramFeed) {
     return <></>;
   }

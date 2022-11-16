@@ -4,6 +4,7 @@
 
 .rea{
   max-width: 1280px;
+  padding: 0 30px;
 }
 
 .dsa::-webkit-scrollbar{
@@ -30,9 +31,9 @@
   }
   .rea{
     max-width: none;
-    width:794px
+    width:766px;
+    padding: 0 16px;
   } 
-
   
   .mobile{
     display: block

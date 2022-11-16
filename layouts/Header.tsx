@@ -1,26 +1,25 @@
 import React from "react";
 import Link from "next/link";
-import { useSetRecoilState } from "recoil";
+import { useRouter } from "next/router";
 
-import { filterTypeState } from "store/header";
 import Slider from "components/Slider";
 import s from "layouts/layout.module.css";
 
 export default function Header() {
-  const setFilterType = useSetRecoilState<string>(filterTypeState);
+  const router = useRouter();
 
-  const provinceData = [
-    "전시/미술",
-    "클래식",
-    "콘서트",
-    "축제-문화/예술",
-    "축제-전통/역사",
-    "국악",
-    "문화교양/강좌",
-    "뮤지컬/오페라",
-    "무용",
-    "연극",
-    "기타",
+  const tabs = [
+    { tabIndex: 0, title: "전체", sort: "total" },
+    { tabIndex: 0, title: "전시/미술", sort: "exhibition" },
+    { tabIndex: 0, title: "클래식", sort: "classic" },
+    { tabIndex: 0, title: "콘서트", sort: "concert" },
+    { tabIndex: 0, title: "축제-문화/예술", sort: "festival" },
+    { tabIndex: 0, title: "국악", sort: "music" },
+    { tabIndex: 0, title: "문화교양/강좌", sort: "culture" },
+    { tabIndex: 0, title: "뮤지컬/오페라", sort: "opera" },
+    { tabIndex: 0, title: "무용", sort: "dancing" },
+    { tabIndex: 0, title: "연극", sort: "theater" },
+    { tabIndex: 0, title: "기타", sort: "etc" },
   ];
 
   return (
@@ -87,35 +86,37 @@ export default function Header() {
         </div>
         <Slider />
       </div>
-      <div
-        style={{ borderTop: "1px #f5f5f5 solid", overflowX: "scroll" }}
-        className={s.dsa}
-      >
+      {router.pathname === "/" && (
         <div
-          style={{
-            display: "flex",
-            margin: "0 auto",
-            padding: "0 30px",
-            lineHeight: "40px",
-          }}
-          className={s.rea}
+          style={{ borderTop: "1px #f5f5f5 solid", overflowX: "scroll" }}
+          className={s.dsa}
         >
-          {provinceData.map((el) => (
-            <div
-              style={{
-                fontSize: 14,
-                marginRight: 20,
-                fontWeight: 500,
-              }}
-              onClick={() => {
-                setFilterType(el);
-              }}
-            >
-              {el}
-            </div>
-          ))}
+          <div
+            style={{
+              display: "flex",
+              margin: "0 auto",
+              lineHeight: "40px",
+            }}
+            className={s.rea}
+          >
+            {tabs.map((t) => (
+              <div
+                style={{
+                  fontSize: 14,
+                  marginRight: 20,
+                  fontWeight: router.query.tab === t.sort ? 700 : 500,
+                  color: router.query.tab === t.sort && "#000000",
+                }}
+                onClick={() => {
+                  router.push(`/?tab=${t.sort}`);
+                }}
+              >
+                {t.title}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }
