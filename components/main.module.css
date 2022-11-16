@@ -27,6 +27,7 @@
 .kakaoAdFitContainer {
   max-width: 728px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 .myMap{
   height: 500px;  
