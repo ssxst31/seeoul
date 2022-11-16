@@ -62,8 +62,8 @@ const Map = ({ searchPlace }) => {
         id="myMap"
         style={{
           width: "100%",
-          height: isMobile ? "300px" : "500px",
         }}
+        className={s.myMap}
       ></div>
     </div>
   );

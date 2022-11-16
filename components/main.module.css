@@ -24,6 +24,13 @@
 .bold:hover {
   font-weight: 700;
 }
+.kakaoAdFitContainer {
+  max-width: 728px;
+  margin: 0 auto;
+}
+.myMap{
+  height: 500px;  
+}
 
 @media screen and (max-width: 763px) {
   .mobile { 
@@ -36,5 +43,12 @@
 
   .header{
     padding: 0 16px;
+  }
+
+  .kakaoAdFitContainer {
+    max-width: 300px;
+  }
+  .myMap{
+    height: 300px;  
   }
 }

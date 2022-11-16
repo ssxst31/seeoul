@@ -71,12 +71,11 @@ export default function Main() {
         <div
           style={{
             display: "flex",
-            justifyContent: isMobile && "space-between",
           }}
         >
           <Search
             placeholder="검색어를 입력해주세요."
-            style={{ width: 200, margin: isMobile ? "" : "0 10px" }}
+            style={{ width: 200, margin: "0 10px" }}
             onSearch={handleSubmit}
           />
         </div>
@@ -94,7 +93,7 @@ export default function Main() {
         />
       </div>
       <div style={{ height: "20px" }} />
-      <div style={{ maxWidth: isMobile ? "300px" : "728px", margin: "0 auto" }}>
+      <div className={s.kakaoAdFitContainer}>
         <KakaoAdFit
           unit={isMobile ? "DAN-NrbIqcNVQklTs9ND" : "DAN-zwtZjOswNyJO6kQA"}
         />
