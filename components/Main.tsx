@@ -87,17 +87,16 @@ export default function Main() {
       <MainCarousel />
       <div style={{ height: 40, width: "100%" }} />
       <div className={s.mobile}>
+        <span style={{ fontSize: "24px", fontWeight: 700 }}>
+          여기서 바로 {sort === "전체" && ""} 골라보세요! 🫧
+        </span>
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
             alignItems: "center",
-            width: "100%",
           }}
+          className={s.searchContainer}
         >
-          <span style={{ fontSize: "24px", fontWeight: 700 }}>
-            여기서 바로 {sort === "전체" && ""} 골라보세요! 🫧
-          </span>
           <div style={{ fontSize: 16 }}>
             총&nbsp;
             <span style={{ color: "#BD26FF", fontWeight: 700 }}>
@@ -105,16 +104,11 @@ export default function Main() {
             </span>
             &nbsp;건
           </div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-          }}
-        >
           <Search
             placeholder="검색어를 입력해주세요."
-            style={{ width: 200, margin: "0 10px" }}
+            style={{ width: 200 }}
             onSearch={handleSubmit}
+            className={s.search}
           />
         </div>
       </div>

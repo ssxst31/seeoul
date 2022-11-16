@@ -32,6 +32,10 @@
 .myMap{
   height: 500px;  
 }
+.search{
+margin-left: 10px;
+}
+
 
 @media screen and (max-width: 763px) {
   .mobile { 
@@ -49,7 +53,15 @@
   .kakaoAdFitContainer {
     max-width: 300px;
   }
+
   .myMap{
     height: 300px;  
+  }
+
+  .search{
+    margin-left: 0;
+  }
+  .searchContainer{
+    justify-content: space-between;
   }
 }
