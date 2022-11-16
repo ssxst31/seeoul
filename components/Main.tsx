@@ -1,28 +1,29 @@
 import React, { useState } from "react";
-import { Pagination, Select, Input } from "antd";
+import { Pagination, Input } from "antd";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { isMobile } from "react-device-detect";
 import dynamic from "next/dynamic";
+import { useRecoilValue } from "recoil";
+import { isMobile } from "react-device-detect";
 
 import useFetchCulturalEvent from "hook/useFetchCulturalEvent";
 import s from "components/main.module.css";
 import MainCarousel from "components/MainCarousel";
 import MainArticle from "components/MainArticle";
+import { filterTypeState } from "store/header";
 
 const KakaoAdFit = dynamic(
   () => import("./KakaoAdFit"), // Component로 사용할 항목을 import합니다.
   { ssr: false }, // ssr옵션을 false로 설정해줍니다.
 );
 
-const { Option } = Select;
-
 export default function Main() {
   const router = useRouter();
   const { query } = router;
   const page = Number(query.page ?? 1);
   const { Search } = Input;
-  const [sort, setSort] = useState("전체");
+  const sort = useRecoilValue<string>(filterTypeState);
+
   const [search, setSearch] = useState("");
   const { totalCulturalEvent, totalCount } = useFetchCulturalEvent({
     page,
@@ -31,25 +32,6 @@ export default function Main() {
   });
 
   const DEFAULT_LIMIT = 20;
-
-  const provinceData = [
-    "전체",
-    "전시/미술",
-    "클래식",
-    "콘서트",
-    "축제-문화/예술",
-    "축제-전통/역사",
-    "국악",
-    "문화교양/강좌",
-    "뮤지컬/오페라",
-    "무용",
-    "연극",
-    "기타",
-  ];
-
-  const handleProvinceChange = (v) => {
-    setSort(v);
-  };
 
   const handleSubmit = (text) => {
     setSearch(text);
@@ -97,17 +79,6 @@ export default function Main() {
             style={{ width: 200, margin: isMobile ? "" : "0 10px" }}
             onSearch={handleSubmit}
           />
-          <Select
-            defaultValue={"전체"}
-            style={{
-              width: 120,
-            }}
-            onChange={handleProvinceChange}
-          >
-            {provinceData.map((province) => (
-              <Option key={province}>{province}</Option>
-            ))}
-          </Select>
         </div>
       </div>
       <div style={{ height: 16, width: "100%" }} />

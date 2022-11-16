@@ -1,34 +1,43 @@
 import React from "react";
 import Link from "next/link";
+import { useSetRecoilState } from "recoil";
 
-import s from "components/main.module.css";
+import { filterTypeState } from "store/header";
 import Slider from "components/Slider";
+import s from "layouts/layout.module.css";
 
 export default function Header() {
+  const setFilterType = useSetRecoilState<string>(filterTypeState);
+
+  const provinceData = [
+    "전시/미술",
+    "클래식",
+    "콘서트",
+    "축제-문화/예술",
+    "축제-전통/역사",
+    "국악",
+    "문화교양/강좌",
+    "뮤지컬/오페라",
+    "무용",
+    "연극",
+    "기타",
+  ];
+
   return (
     <header
       style={{
         position: "fixed",
-        height: 64,
         width: "100%",
         backgroundColor: "#fff",
         zIndex: 16,
-        lineHeight: "64px",
-        boxShadow: "0 2px 5px 0 rgb(0 0 0 / 12%)",
+
         left: 0,
+        borderBottom: "1px #f5f5f5 solid",
       }}
       className={s.header}
     >
-      <div
-        style={{
-          display: "flex",
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "0 30px",
-          justifyContent: "space-between",
-        }}
-      >
-        <div style={{ display: "flex" }}>
+      <div className={s.headerMain}>
+        <div className={s.mobile}>
           <a
             style={{
               fontSize: 32,
@@ -50,7 +59,7 @@ export default function Header() {
               }}
               alt="logo"
             />
-            <div>내일 전시</div>
+            <div style={{ fontSize: 26 }}>내일 전시</div>
           </a>
           <Link href="/popular">
             <a>
@@ -77,6 +86,35 @@ export default function Header() {
           </Link>
         </div>
         <Slider />
+      </div>
+      <div
+        style={{ borderTop: "1px #f5f5f5 solid", overflowX: "scroll" }}
+        className={s.dsa}
+      >
+        <div
+          style={{
+            display: "flex",
+            margin: "0 auto",
+            padding: "0 30px",
+            lineHeight: "40px",
+          }}
+          className={s.rea}
+        >
+          {provinceData.map((el) => (
+            <div
+              style={{
+                fontSize: 14,
+                marginRight: 20,
+                fontWeight: 500,
+              }}
+              onClick={() => {
+                setFilterType(el);
+              }}
+            >
+              {el}
+            </div>
+          ))}
+        </div>
       </div>
     </header>
   );

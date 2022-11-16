@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Head from "next/head";
 import Router, { useRouter } from "next/router";
 import NProgress from "nprogress";
+import { RecoilRoot } from "recoil";
 
 import type { AppProps } from "next/app";
 import * as gtag from "lib/gtag";
@@ -97,8 +98,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <script type="module" src="src/main.js" />
       </Head>
-
-      <Component {...pageProps} />
+      <RecoilRoot>
+        <Component {...pageProps} />
+      </RecoilRoot>
     </>
   );
 }
