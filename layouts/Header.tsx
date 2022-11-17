@@ -106,7 +106,7 @@ export default function Header() {
                     fontSize: 14,
                     marginRight: 20,
                     fontWeight: router.query.tab === t.sort ? 700 : 500,
-                    color: "#000000",
+                    color: router.query.tab === t.sort ? "#000000" : "#333333",
                     cursor: "pointer",
                   }}
                 >
