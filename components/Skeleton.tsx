@@ -7,7 +7,7 @@ export default function Skeleton({ row = 3 }) {
     <div
       style={{
         margin: "0 auto",
-        width: 1100,
+        width: "100%",
         display: "flex",
         justifyContent: "space-between",
       }}
