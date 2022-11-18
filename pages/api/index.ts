@@ -34,3 +34,8 @@ export async function fetchInstagramFeed() {
   );
   return resp.data;
 }
+
+export async function fetchInstagramReview({ sort }) {
+  const resp = await axios.get(`/instaget?option=${sort}`);
+  return resp.data;
+}
