@@ -3,7 +3,6 @@ import { Pagination, Input } from "antd";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { useRecoilValue } from "recoil";
 import { isMobile } from "react-device-detect";
 
 import useFetchCulturalEvent from "hook/useFetchCulturalEvent";
