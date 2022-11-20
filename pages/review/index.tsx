@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
@@ -29,10 +30,14 @@ const Review = () => {
             {totalInstagramReview.map((a) => {
               if (a.children) {
                 return (
-                  <img src={a.children[0].media_url} width={200} height={200} />
+                  <Image
+                    src={a.children[0].media_url}
+                    width={200}
+                    height={200}
+                  />
                 );
               }
-              return <img src={a.mediaUrl} width={200} height={200} />;
+              return <Image src={a.mediaUrl} width={200} height={200} />;
             })}
           </div>
         </div>

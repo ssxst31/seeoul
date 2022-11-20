@@ -13,6 +13,8 @@ const nextConfig = {
       "seoul.go.kr",
       "*",
       "scontent-gmp1-1.cdninstagram.com",
+      "scontent-ssn1-1.cdninstagram.com",
+      "video-ssn1-1.cdninstagram.com",
     ],
   },
 };
