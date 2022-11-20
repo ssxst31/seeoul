@@ -32,6 +32,7 @@ export default function Slider() {
         style={{
           transform: `translateY(${-count * 64}px)`,
           transition: "all ease 2s 0s",
+          textAlign: "center",
         }}
       >
         {slides.map((el) => (
