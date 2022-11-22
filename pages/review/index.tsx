@@ -14,10 +14,6 @@ const Review = () => {
   const sort = (tab ?? "exhibition") as string;
   const { totalInstagramReview } = useInstagramReview({ sort });
 
-  if (!totalInstagramReview) {
-    return <></>;
-  }
-
   return (
     <>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
@@ -27,7 +23,7 @@ const Review = () => {
             인스타그램 후기 😎
           </span>
           <div>
-            {totalInstagramReview.map((a) => {
+            {totalInstagramReview?.map((a) => {
               if (a.children) {
                 return (
                   <img src={a.children[0].media_url} width={200} height={200} />
