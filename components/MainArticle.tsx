@@ -3,7 +3,7 @@ import { Row, Col } from "antd";
 
 import CulturalEventCard from "components/CulturalEventCard";
 
-export default function Main({ totalCulturalEvent }) {
+export default function MainArticle({ totalCulturalEvent }) {
   if (!totalCulturalEvent) {
     return <></>;
   }

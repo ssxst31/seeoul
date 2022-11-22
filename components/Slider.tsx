@@ -4,7 +4,8 @@ import Link from "next/link";
 import useInterval from "hook/useInterval";
 
 export default function Slider() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number>(0);
+
   useInterval(() => {
     if (count < 3) {
       setCount((count) => count + 1);

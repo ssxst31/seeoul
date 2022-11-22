@@ -18,11 +18,11 @@ const KakaoAdFit = dynamic(
 export default function Main() {
   const router = useRouter();
   const { query } = router;
-  const page = Number(query.page ?? 1);
-  const tab = query.tab ?? "total";
+  const page = Number(query.page ?? 1) as number;
+  const tab = (query.tab ?? "total") as string;
   const { Search } = Input;
 
-  const filterSort = (sort) => {
+  const filterSort = (sort: string) => {
     if (sort === "total") {
       return "전체";
     }
@@ -61,7 +61,7 @@ export default function Main() {
 
   const sort = filterSort((query.tab as string) ?? "total");
 
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<string>("");
   const { totalCulturalEvent, totalCount } = useFetchCulturalEvent({
     page,
     sort,
@@ -70,7 +70,7 @@ export default function Main() {
 
   const DEFAULT_LIMIT = 20;
 
-  const handleSubmit = (text) => {
+  const handleSubmit = (text: string) => {
     setSearch(text);
   };
 

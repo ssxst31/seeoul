@@ -9,29 +9,29 @@ export default function Header() {
   const router = useRouter();
 
   const tabs = [
-    { tabIndex: 0, title: "전체", sort: "total" },
-    { tabIndex: 0, title: "전시/미술", sort: "exhibition" },
-    { tabIndex: 0, title: "클래식", sort: "classic" },
-    { tabIndex: 0, title: "콘서트", sort: "concert" },
-    { tabIndex: 0, title: "축제-문화/예술", sort: "festival" },
-    { tabIndex: 0, title: "국악", sort: "music" },
-    { tabIndex: 0, title: "문화교양/강좌", sort: "culture" },
-    { tabIndex: 0, title: "뮤지컬/오페라", sort: "opera" },
-    { tabIndex: 0, title: "무용", sort: "dancing" },
-    { tabIndex: 0, title: "연극", sort: "theater" },
-    { tabIndex: 0, title: "기타", sort: "etc" },
+    { title: "전체", sort: "total" },
+    { title: "전시/미술", sort: "exhibition" },
+    { title: "클래식", sort: "classic" },
+    { title: "콘서트", sort: "concert" },
+    { title: "축제-문화/예술", sort: "festival" },
+    { title: "국악", sort: "music" },
+    { title: "문화교양/강좌", sort: "culture" },
+    { title: "뮤지컬/오페라", sort: "opera" },
+    { title: "무용", sort: "dancing" },
+    { title: "연극", sort: "theater" },
+    { title: "기타", sort: "etc" },
   ];
 
   const tabs2 = [
     { tabIndex: 0, title: "전시/미술", sort: "exhibition" },
-    { tabIndex: 1, title: "클래식", sort: "classic" },
-    { tabIndex: 2, title: "콘서트", sort: "concert" },
-    { tabIndex: 3, title: "축제-문화/예술", sort: "festival" },
-    { tabIndex: 4, title: "국악", sort: "music" },
-    { tabIndex: 5, title: "문화교양/강좌", sort: "culture" },
-    { tabIndex: 6, title: "뮤지컬/오페라", sort: "opera" },
-    { tabIndex: 7, title: "무용", sort: "dancing" },
-    { tabIndex: 8, title: "연극", sort: "theater" },
+    { title: "클래식", sort: "classic" },
+    { title: "콘서트", sort: "concert" },
+    { title: "축제-문화/예술", sort: "festival" },
+    { title: "국악", sort: "music" },
+    { title: "문화교양/강좌", sort: "culture" },
+    { title: "뮤지컬/오페라", sort: "opera" },
+    { title: "무용", sort: "dancing" },
+    { title: "연극", sort: "theater" },
   ];
 
   return (
@@ -135,8 +135,8 @@ export default function Header() {
             }}
             className={s.rea}
           >
-            {tabs.map((t) => (
-              <Link href={`/?tab=${t.sort}`}>
+            {tabs.map((t, index) => (
+              <Link href={`/?tab=${t.sort}`} key={index}>
                 <a
                   style={{
                     fontSize: 14,
@@ -166,8 +166,8 @@ export default function Header() {
             }}
             className={s.rea}
           >
-            {tabs2.map((t) => (
-              <Link href={`review/?tab=${t.sort}`}>
+            {tabs2.map((t, index) => (
+              <Link key={index} href={`review/?tab=${t.sort}`}>
                 <a
                   style={{
                     fontSize: 14,

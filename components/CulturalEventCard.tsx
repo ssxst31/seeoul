@@ -14,10 +14,6 @@ export default function CulturalEventCard({ culturalEvent }) {
   const distance = setDate.getTime() - now.getTime();
   const day = Math.floor(distance / (1000 * 60 * 60 * 24)) + 1;
 
-  const myLoader = ({ src, width, quality }) => {
-    return `https://avatars.githubusercontent.com/u/10178994?s=280&v=4`;
-  };
-
   return (
     <Link href={`/detail/${id}`} passHref>
       <a>
