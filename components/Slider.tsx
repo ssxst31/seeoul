@@ -36,8 +36,8 @@ export default function Slider() {
           textAlign: "center",
         }}
       >
-        {slides.map((el) => (
-          <Link href={el.link} passHref>
+        {slides.map((el, index) => (
+          <Link href={el.link} key={index} passHref>
             <a target="_blank" rel="noopener noreferrer">
               <div style={{ fontSize: 17, fontWeight: 700, color: "#000000" }}>
                 {el.title}
