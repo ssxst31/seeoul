@@ -30,11 +30,7 @@ const Review = () => {
             {totalInstagramReview.map((a) => {
               if (a.children) {
                 return (
-                  <Image
-                    src={a.children[0].media_url}
-                    width={200}
-                    height={200}
-                  />
+                  <img src={a.children[0].media_url} width={200} height={200} />
                 );
               }
               return <Image src={a.mediaUrl} width={200} height={200} />;
