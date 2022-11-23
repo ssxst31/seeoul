@@ -14,7 +14,7 @@ export default function useFetchCulturalEvent({
   sort,
   search,
 }: FetchCulturalEventProps) {
-  const [dsa, setDsa] = useState(null);
+  const [insteadData, setInsteadData] = useState(null);
 
   const { data } = useSWR(
     {
@@ -25,14 +25,14 @@ export default function useFetchCulturalEvent({
     async ({ params }) => {
       const response = await fetchCulturalEvent(params);
 
-      setDsa(response.data);
+      setInsteadData(response.data);
 
       return response;
     },
     { revalidateIfStale: false },
   );
 
-  const totalCulturalEvent = data?.data ?? dsa;
+  const totalCulturalEvent = data?.data ?? insteadData;
   const totalCount = data?.totalCount ?? null;
 
   return { totalCulturalEvent, totalCount };
