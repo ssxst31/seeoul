@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
-    const handleRouteChange = (url) => {
+    const handleRouteChange = (url: string) => {
       gtag.pageview(url);
     };
     router.events.on("routeChangeComplete", handleRouteChange);
@@ -26,24 +26,17 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   let typedRouter = Router as any;
 
-  typedRouter.onRouteChangeStart = (url, { shallow } = { shallow: false }) => {
+  typedRouter.onRouteChangeStart = ({ shallow } = { shallow: false }) => {
     if (shallow) return;
     NProgress.start();
   };
 
-  typedRouter.onRouteChangeComplete = (
-    url,
-    { shallow } = { shallow: false },
-  ) => {
+  typedRouter.onRouteChangeComplete = ({ shallow } = { shallow: false }) => {
     if (shallow) return;
     NProgress.done();
   };
 
-  typedRouter.onRouteChangeError = (
-    err,
-    url,
-    { shallow } = { shallow: false },
-  ) => {
+  typedRouter.onRouteChangeError = ({ shallow } = { shallow: false }) => {
     if (shallow) return;
     NProgress.done();
   };
