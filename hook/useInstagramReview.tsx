@@ -1,16 +1,27 @@
 import React, { useState } from "react";
-import useSWR from "swr";
+import useSWR, { SWRResponse } from "swr";
 
 import { fetchInstagramReview } from "pages/api/index";
 
 interface FetchCulturalEventProps {
   sort: string;
 }
+interface InstagramReview {
+  children: null | string;
+  id: number;
+  mediaType: string;
+  mediaUrl: null | string;
+  type: string;
+}
+
+interface Data {
+  data: InstagramReview[];
+}
 
 export default function useInstagramReview({ sort }: FetchCulturalEventProps) {
-  const [dsa, setDsa] = useState(null);
+  const [dummyData, setDummyData] = useState<InstagramReview[] | null>(null);
 
-  const { data } = useSWR(
+  const { data }: SWRResponse<Data, any> = useSWR(
     {
       url: `/get`,
       params: { sort },
@@ -19,7 +30,7 @@ export default function useInstagramReview({ sort }: FetchCulturalEventProps) {
     async ({ params }) => {
       const response = await fetchInstagramReview(params);
 
-      setDsa(response.data);
+      setDummyData(response.data);
 
       return response;
     },
@@ -32,7 +43,7 @@ export default function useInstagramReview({ sort }: FetchCulturalEventProps) {
         return { ...a, children: JSON.parse(a.children) };
       }
       return a;
-    }) ?? dsa;
+    }) ?? dummyData;
 
   return { totalInstagramReview };
 }
