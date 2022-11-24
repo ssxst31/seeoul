@@ -1,7 +1,11 @@
-export function range(start, end, increment) {
+export function range(
+  start: number,
+  end?: number,
+  increment?: number,
+): number[] {
   const isEndDef = typeof end !== "undefined";
 
-  end = isEndDef ? end : start;
+  end = end ? end : start;
 
   start = isEndDef ? start : 0;
 
