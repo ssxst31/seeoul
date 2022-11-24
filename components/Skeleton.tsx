@@ -2,7 +2,11 @@ import React from "react";
 import ContentLoader from "react-content-loader";
 import { range } from "utils/array";
 
-export default function Skeleton({ row = 3 }) {
+interface SkeletonProps {
+  row?: number;
+}
+
+export default function Skeleton({ row = 3 }: SkeletonProps) {
   return (
     <div
       style={{

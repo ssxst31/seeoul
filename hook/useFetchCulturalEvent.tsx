@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useSWR from "swr";
 
 import { fetchCulturalEvent } from "pages/api/index";
+import { CulturalEvent } from "type";
 
 interface FetchCulturalEventProps {
   page: number;
@@ -13,7 +14,10 @@ export default function useFetchCulturalEvent({
   page = 1,
   sort,
   search,
-}: FetchCulturalEventProps) {
+}: FetchCulturalEventProps): {
+  totalCulturalEvent: CulturalEvent[];
+  totalCount: any;
+} {
   const [insteadData, setInsteadData] = useState(null);
 
   const { data } = useSWR(

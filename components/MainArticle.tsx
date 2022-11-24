@@ -2,8 +2,13 @@ import React from "react";
 import { Row, Col } from "antd";
 
 import CulturalEventCard from "components/CulturalEventCard";
+import { CulturalEvent } from "type";
 
-export default function MainArticle({ totalCulturalEvent }) {
+interface MainArticleProps {
+  totalCulturalEvent: CulturalEvent[];
+}
+
+export default function MainArticle({ totalCulturalEvent }: MainArticleProps) {
   if (!totalCulturalEvent) {
     return <></>;
   }
@@ -11,9 +16,9 @@ export default function MainArticle({ totalCulturalEvent }) {
   return (
     <article>
       <Row justify="center" gutter={[32, 32]}>
-        {totalCulturalEvent.map((c) => (
-          <Col key={c.id}>
-            <CulturalEventCard culturalEvent={c} />
+        {totalCulturalEvent.map((culturalEvent) => (
+          <Col key={culturalEvent.id}>
+            <CulturalEventCard culturalEvent={culturalEvent} />
           </Col>
         ))}
       </Row>

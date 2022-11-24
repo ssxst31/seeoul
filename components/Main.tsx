@@ -74,7 +74,7 @@ export default function Main() {
     setSearch(text);
   };
 
-  function itemRender(current, type, originalElement) {
+  function itemRender(current: Number, type: any, originalElement: any) {
     return <Link href={`?tab=${tab}&page=${current}`}>{originalElement}</Link>;
   }
 

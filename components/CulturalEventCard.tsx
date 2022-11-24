@@ -3,9 +3,16 @@ import { Card } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 
+import { CulturalEvent } from "type";
 import s from "components/main.module.css";
 
-export default function CulturalEventCard({ culturalEvent }) {
+interface CulturalEventCardProps {
+  culturalEvent: CulturalEvent;
+}
+
+export default function CulturalEventCard({
+  culturalEvent,
+}: CulturalEventCardProps) {
   const { mainImg, title, date, id } = culturalEvent;
 
   const ewq = date.indexOf("~") + 1;
