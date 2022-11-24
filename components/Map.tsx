@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 
 import s from "components/main.module.css";
 
-const Map = ({ searchPlace }) => {
+interface MapProps {
+  searchPlace: string;
+}
+
+const Map = ({ searchPlace }: MapProps) => {
   // 검색결과 배열에 담아줌
   const { kakao } = window as any;
   const [Places, setPlaces] = useState([]);
@@ -21,7 +25,7 @@ const Map = ({ searchPlace }) => {
 
     ps.keywordSearch(searchPlace, placesSearchCB);
 
-    function placesSearchCB(data, status) {
+    function placesSearchCB(data: any, status: any) {
       if (status === kakao.maps.services.Status.OK) {
         let bounds = new kakao.maps.LatLngBounds();
 
@@ -38,7 +42,7 @@ const Map = ({ searchPlace }) => {
 
     // 검색결과 목록 하단에 페이지 번호 표시
 
-    function displayMarker(place) {
+    function displayMarker(place: any) {
       let marker = new kakao.maps.Marker({
         map: map,
         position: new kakao.maps.LatLng(place.y, place.x),
