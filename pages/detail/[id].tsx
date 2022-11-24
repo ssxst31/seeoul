@@ -1,17 +1,19 @@
 import React, { useEffect } from "react";
-
+import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 import { isMobile } from "react-device-detect";
 import { DiscussionEmbed } from "disqus-react";
 
 import { fetchDetailCulturalEvent } from "pages/api/index";
+import { CulturalEvent } from "type";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 import s from "./detail.module.css";
 
-export const getServerSideProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps<{
+  culturalEvent: CulturalEvent;
+}> = async ({ params }: any) => {
   const id = params.id;
-
   const data = await fetchDetailCulturalEvent({ id });
 
   return {
@@ -30,11 +32,14 @@ const KakaoAdFit = dynamic(
   () => import("components/KakaoAdFit"), // Component로 사용할 항목을 import합니다.
   { ssr: false }, // ssr옵션을 false로 설정해줍니다.
 );
+interface DetailProps {
+  culturalEvent: CulturalEvent;
+}
 
-const Detail = ({ culturalEvent }) => {
+const Detail = ({ culturalEvent }: DetailProps) => {
   useEffect(() => {
-    let ins = document.createElement("ins");
-    let scr = document.createElement("script");
+    let ins = document.createElement("ins") as any;
+    let scr = document.createElement("script") as any;
 
     ins.className = "kakao_ad_area";
     ins.style = isMobile ? "display:none;" : "display:none; width:100%;";
@@ -149,20 +154,23 @@ const Detail = ({ culturalEvent }) => {
           <ComponentsWithNoSSR searchPlace={place.split(" ")[0]} />
         </div>
       </div>
-      <DiscussionEmbed
-        shortname="seeoul"
-        config={{
-          url: "https://seeoul.netlify.app/",
-          identifier: "1",
-          title: title,
-          language: "ko",
-        }}
+      <div
         style={{
           maxWidth: isMobile ? "300px" : "1250px",
           margin: "0 auto",
           width: "100%",
         }}
-      />
+      >
+        <DiscussionEmbed
+          shortname="seeoul"
+          config={{
+            url: "https://seeoul.netlify.app/",
+            identifier: "1",
+            title: title,
+            language: "ko",
+          }}
+        />
+      </div>
       <div style={{ maxWidth: isMobile ? "300px" : "728px", margin: "0 auto" }}>
         <KakaoAdFit
           unit={isMobile ? "DAN-ncR6s1pAyuAZtN0w" : "DAN-5fCtQtQI3q57O0n8"}
