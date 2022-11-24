@@ -19,3 +19,13 @@ export interface CulturalEvent {
   useFee: string;
   useTrgt: string;
 }
+
+export interface InstagramFeed {
+  caption: string;
+  id: string;
+  media_type: string;
+  media_url: string;
+  permalink: string;
+  timestamp: string;
+  username: string;
+}

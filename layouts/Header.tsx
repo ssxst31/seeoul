@@ -8,7 +8,7 @@ import s from "layouts/layout.module.css";
 export default function Header() {
   const router = useRouter();
 
-  const tabs = [
+  const TABS = [
     { title: "전체", sort: "total" },
     { title: "전시/미술", sort: "exhibition" },
     { title: "클래식", sort: "classic" },
@@ -22,8 +22,8 @@ export default function Header() {
     { title: "기타", sort: "etc" },
   ];
 
-  const tabs2 = [
-    { tabIndex: 0, title: "전시/미술", sort: "exhibition" },
+  const TABS2 = [
+    { title: "전시/미술", sort: "exhibition" },
     { title: "클래식", sort: "classic" },
     { title: "콘서트", sort: "concert" },
     { title: "축제-문화/예술", sort: "festival" },
@@ -135,7 +135,7 @@ export default function Header() {
             }}
             className={s.rea}
           >
-            {tabs.map((t, index) => (
+            {TABS.map((t, index) => (
               <Link href={`/?tab=${t.sort}`} key={index}>
                 <a
                   style={{
@@ -166,7 +166,7 @@ export default function Header() {
             }}
             className={s.rea}
           >
-            {tabs2.map((t, index) => (
+            {TABS2.map((t, index) => (
               <Link key={index} href={`review/?tab=${t.sort}`}>
                 <a
                   style={{

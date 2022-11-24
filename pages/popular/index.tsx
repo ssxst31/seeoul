@@ -5,8 +5,13 @@ import { Row, Col } from "antd";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 import s from "./popular.module.css";
+import { InstagramFeed } from "type";
 
 import { fetchInstagramFeed } from "pages/api/index";
+
+interface PopularProps {
+  instagramFeed: InstagramFeed[];
+}
 
 export const getServerSideProps = async () => {
   const data = await fetchInstagramFeed();
@@ -18,7 +23,7 @@ export const getServerSideProps = async () => {
   };
 };
 
-const Popular = ({ instagramFeed }) => {
+const Popular = ({ instagramFeed }: PopularProps) => {
   if (!instagramFeed) {
     return <></>;
   }

@@ -6,9 +6,9 @@ import { RecoilRoot } from "recoil";
 
 import type { AppProps } from "next/app";
 import * as gtag from "lib/gtag";
-import "../styles/globals.css";
-import "../styles/reset.css";
-import "../styles/override.css";
+import "styles/globals.css";
+import "styles/reset.css";
+import "styles/override.css";
 import "nprogress/nprogress.css";
 
 function MyApp({ Component, pageProps }: AppProps) {

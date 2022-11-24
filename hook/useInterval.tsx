@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
-interface IUseInterval {
-  (callback: () => void, interval: number): void;
-}
-
-export default function useInterval(callback, interval) {
+export default function useInterval(
+  callback: () => void,
+  interval: number,
+): void {
   const savedCallback = useRef<(() => void) | null>(null);
 
   useEffect(() => {
