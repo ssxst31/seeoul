@@ -4,8 +4,16 @@
     "es6": true,
     "node": true
   },
-  "parser": "@babel/eslint-parser",
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "prettier"
+  ],
   "extends": [
+    "plugin:@typescript-eslint/recommended",
     "eslint:recommended",
     "plugin:react/recommended",
     "airbnb",
@@ -26,7 +34,6 @@
     "sourceType": "module",
     "parserOptions": { "requireConfigFile" : "false" }
   },
-  "plugins": ["react", "react-hooks", "prettier"],
   "rules": {
     "react/react-in-jsx-scope": 0,
     "react/prefer-stateless-function": 0,

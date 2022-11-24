@@ -1,6 +1,7 @@
 {
   "name": "all-exhibition",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "클라이언트 서버입니다.",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -41,10 +42,13 @@
     "@storybook/testing-library": "^0.0.13",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.3.0",
     "eslint": "^8.20.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-next": "12.2.3",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-babel": "^5.3.1",
