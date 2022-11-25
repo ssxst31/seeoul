@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import { fetchRandomCulturalEvent } from "pages/api/index";
 import { CulturalEvent } from "type";
 
-export default function useRandomCulturalEvent(): CulturalEvent[] {
-  const [randomCulturalEvent, setRandomCulturalEvent] =
-    useState<CulturalEvent[]>(null);
+export default function useRandomCulturalEvent(): CulturalEvent[] | null {
+  const [randomCulturalEvent, setRandomCulturalEvent] = useState<CulturalEvent[] | null>(null);
 
   async function loadCulturalEvent() {
     const result = await fetchRandomCulturalEvent();
