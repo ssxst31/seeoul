@@ -2,18 +2,12 @@ import axios from "axios";
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_APP_HOST_NAME;
 
-export async function fetchCulturalEvent({ page, sort, search }) {
+export async function fetchCulturalEvent({ page, sort, search }: { page: number; sort: string; search?: string }) {
   if (search) {
-    const resp = await axios.get(
-      `/get?offset=${(page - 1) * 20}&limit=20&search=${search}`,
-    );
+    const resp = await axios.get(`/get?offset=${(page - 1) * 20}&limit=20&search=${search}`);
     return resp.data;
   } else {
-    const resp = await axios.get(
-      `/get?offset=${(page - 1) * 20}&limit=20&option=${
-        sort === "전체" ? "all" : sort
-      }`,
-    );
+    const resp = await axios.get(`/get?offset=${(page - 1) * 20}&limit=20&option=${sort === "전체" ? "all" : sort}`);
     return resp.data;
   }
 }
@@ -23,7 +17,7 @@ export async function fetchRandomCulturalEvent() {
   return resp.data;
 }
 
-export async function fetchDetailCulturalEvent({ id }) {
+export async function fetchDetailCulturalEvent({ id }: { id: number }) {
   const resp = await axios.get(`/detail/${id}`);
   return resp.data;
 }
@@ -35,7 +29,7 @@ export async function fetchInstagramFeed() {
   return resp.data;
 }
 
-export async function fetchInstagramReview({ sort }) {
+export async function fetchInstagramReview({ sort }: { sort: string }) {
   const resp = await axios.get(`/instaget?option=${sort}`);
   return resp.data;
 }

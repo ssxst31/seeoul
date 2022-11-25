@@ -15,10 +15,7 @@ export default function Footer() {
       <p>
         <a href="https://icons8.com">icons8</a>에서 아이콘 제공
       </p>
-      <p>
-        This site[내일전시] is designed to share information about Seoul
-        cultural event.
-      </p>
+      <p>This site[내일전시] is designed to share information about Seoul cultural event.</p>
       <p>ⓒ 내일전시 2022 All Rights Reserved.</p>
       <Link href="/blog" as={`/blog`}>
         <a>

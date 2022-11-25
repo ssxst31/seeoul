@@ -15,7 +15,7 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: any) {
   const filePath = path.join(process.cwd(), "pages/api/blog.json");
   const jsonData = (await fsPromises.readFile(filePath)) as any;
   const objectData = JSON.parse(jsonData);
@@ -26,14 +26,14 @@ export async function getStaticProps({ params }) {
   };
 }
 
-const Blog = ({ post }) => {
+const Blog = ({ post }: any) => {
   return (
     <>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <Header />
         <div style={{ padding: "80px 16px 0 16px", textAlign: "center" }}>
           <h1>{post.title}</h1>
-          {post.content.map((el) => (
+          {post.content.map((el: any) => (
             <p style={{ fontSize: 16, color: "#000000" }}>{el}</p>
           ))}
           <Link href="/blog" as={`/blog`}>

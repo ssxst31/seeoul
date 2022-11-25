@@ -21,11 +21,7 @@ export default function MainCarousel() {
           <Link href={`/detail/${randomCulturalEvent.id}`} passHref>
             <a>
               <Image
-                src={
-                  isMobile
-                    ? randomCulturalEvent.mainImg.slice(0, -1)
-                    : randomCulturalEvent.mainImg
-                }
+                src={isMobile ? randomCulturalEvent.mainImg.slice(0, -1) : randomCulturalEvent.mainImg}
                 height={300}
                 width={330}
                 alt={randomCulturalEvent.title}

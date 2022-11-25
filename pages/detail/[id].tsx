@@ -46,12 +46,8 @@ const Detail = ({ culturalEvent }: DetailProps) => {
     scr.async = "true";
     scr.type = "text/javascript";
     scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
-    isMobile
-      ? ins.setAttribute("data-ad-width", "300")
-      : ins.setAttribute("data-ad-width", "728");
-    isMobile
-      ? ins.setAttribute("data-ad-height", "250")
-      : ins.setAttribute("data-ad-height", "90");
+    isMobile ? ins.setAttribute("data-ad-width", "300") : ins.setAttribute("data-ad-width", "728");
+    isMobile ? ins.setAttribute("data-ad-height", "250") : ins.setAttribute("data-ad-height", "90");
     isMobile
       ? ins.setAttribute("data-ad-unit", "DAN-ncR6s1pAyuAZtN0w")
       : ins.setAttribute("data-ad-unit", "DAN-5fCtQtQI3q57O0n8");
@@ -64,8 +60,7 @@ const Detail = ({ culturalEvent }: DetailProps) => {
     return <div />;
   }
 
-  const { mainImg, title, date, useTrgt, useFee, place, orgLink } =
-    culturalEvent;
+  const { mainImg, title, date, useTrgt, useFee, place, orgLink } = culturalEvent;
 
   return (
     <>
@@ -73,16 +68,10 @@ const Detail = ({ culturalEvent }: DetailProps) => {
         <Header />
         <div className={s.mainLayout}>
           <div className={s.mobile}>
-            <img
-              alt={title}
-              src={mainImg}
-              style={{ objectFit: "contain", width: "100%", maxWidth: 500 }}
-            />
+            <img alt={title} src={mainImg} style={{ objectFit: "contain", width: "100%", maxWidth: 500 }} />
             <div>
               <div>
-                <span style={{ fontSize: isMobile ? 24 : 32, fontWeight: 700 }}>
-                  {title}
-                </span>
+                <span style={{ fontSize: isMobile ? 24 : 32, fontWeight: 700 }}>{title}</span>
               </div>
               <div style={{ height: 16, width: "100%" }} />
               <div>
@@ -172,9 +161,7 @@ const Detail = ({ culturalEvent }: DetailProps) => {
         />
       </div>
       <div style={{ maxWidth: isMobile ? "300px" : "728px", margin: "0 auto" }}>
-        <KakaoAdFit
-          unit={isMobile ? "DAN-ncR6s1pAyuAZtN0w" : "DAN-5fCtQtQI3q57O0n8"}
-        />
+        <KakaoAdFit unit={isMobile ? "DAN-ncR6s1pAyuAZtN0w" : "DAN-5fCtQtQI3q57O0n8"} />
       </div>
       <Footer />
     </>

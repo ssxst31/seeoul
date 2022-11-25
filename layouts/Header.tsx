@@ -80,8 +80,7 @@ export default function Header() {
                     style={{
                       fontSize: 15,
                       fontWeight: router.pathname === "/popular" ? 700 : 500,
-                      color:
-                        router.pathname === "/popular" ? "#222222" : "#333333",
+                      color: router.pathname === "/popular" ? "#222222" : "#333333",
                     }}
                     className={s.bold}
                   >
@@ -108,8 +107,7 @@ export default function Header() {
                     style={{
                       fontSize: 15,
                       fontWeight: router.pathname === "/review" ? 700 : 500,
-                      color:
-                        router.pathname === "/review" ? "#222222" : "#333333",
+                      color: router.pathname === "/review" ? "#222222" : "#333333",
                     }}
                     className={s.bold}
                   >
@@ -123,10 +121,7 @@ export default function Header() {
         <Slider />
       </div>
       {router.pathname === "/" && (
-        <div
-          style={{ borderTop: "1px #f5f5f5 solid", overflowX: "scroll" }}
-          className={s.dsa}
-        >
+        <div style={{ borderTop: "1px #f5f5f5 solid", overflowX: "scroll" }} className={s.dsa}>
           <div
             style={{
               display: "flex",
@@ -154,10 +149,7 @@ export default function Header() {
         </div>
       )}
       {router.pathname === "/review" && (
-        <div
-          style={{ borderTop: "1px #f5f5f5 solid", overflowX: "scroll" }}
-          className={s.dsa}
-        >
+        <div style={{ borderTop: "1px #f5f5f5 solid", overflowX: "scroll" }} className={s.dsa}>
           <div
             style={{
               display: "flex",

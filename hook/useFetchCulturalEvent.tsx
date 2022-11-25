@@ -10,11 +10,7 @@ interface FetchCulturalEventProps {
   search: string;
 }
 
-export default function useFetchCulturalEvent({
-  page = 1,
-  sort,
-  search,
-}: FetchCulturalEventProps): {
+export default function useFetchCulturalEvent({ page = 1, sort, search }: FetchCulturalEventProps): {
   totalCulturalEvent: CulturalEvent[];
   totalCount: any;
 } {

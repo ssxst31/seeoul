@@ -7,9 +7,7 @@ interface ResponsiveContainerProps {
   children: JSX.Element;
 }
 
-export default function ResponsiveContainer({
-  children,
-}: ResponsiveContainerProps) {
+export default function ResponsiveContainer({ children }: ResponsiveContainerProps) {
   return (
     <>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>

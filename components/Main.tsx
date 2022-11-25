@@ -44,15 +44,11 @@ export default function Main() {
 
   return (
     <div className={s.mainLayout}>
-      <span style={{ fontSize: "24px", fontWeight: 700 }}>
-        전시회를 생각 중이라면 👀
-      </span>
+      <span style={{ fontSize: "24px", fontWeight: 700 }}>전시회를 생각 중이라면 👀</span>
       <MainCarousel />
       <div style={{ height: 40, width: "100%" }} />
       <div className={s.mobile}>
-        <span style={{ fontSize: "24px", fontWeight: 700 }}>
-          여기서 바로 {sort === "전체" && ""} 골라보세요! 🫧
-        </span>
+        <span style={{ fontSize: "24px", fontWeight: 700 }}>여기서 바로 {sort === "전체" && ""} 골라보세요! 🫧</span>
         <div
           style={{
             display: "flex",
@@ -62,9 +58,7 @@ export default function Main() {
         >
           <div style={{ fontSize: 16 }}>
             총&nbsp;
-            <span style={{ color: "#BD26FF", fontWeight: 700 }}>
-              {totalCount}
-            </span>
+            <span style={{ color: "#BD26FF", fontWeight: 700 }}>{totalCount}</span>
             &nbsp;건
           </div>
           <Search
@@ -89,9 +83,7 @@ export default function Main() {
       </div>
       <div style={{ height: "20px" }} />
       <div className={s.kakaoAdFitContainer}>
-        <KakaoAdFit
-          unit={isMobile ? "DAN-NrbIqcNVQklTs9ND" : "DAN-zwtZjOswNyJO6kQA"}
-        />
+        <KakaoAdFit unit={isMobile ? "DAN-NrbIqcNVQklTs9ND" : "DAN-zwtZjOswNyJO6kQA"} />
       </div>
       <div style={{ height: "20px" }} />
     </div>

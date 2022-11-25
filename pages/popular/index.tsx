@@ -33,9 +33,7 @@ const Popular = ({ instagramFeed }: PopularProps) => {
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <Header />
         <div className={s.mainLayout}>
-          <span style={{ fontSize: "24px", fontWeight: 700 }}>
-            요즘 핫한 전시회 ! 🫧
-          </span>
+          <span style={{ fontSize: "24px", fontWeight: 700 }}>요즘 핫한 전시회 ! 🫧</span>
           <Row justify="center" gutter={[24, 24]}>
             {instagramFeed.map((i, index) => (
               <Col key={index}>

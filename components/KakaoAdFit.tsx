@@ -17,12 +17,8 @@ const KakaoAdFit = ({ unit }: any) => {
     scr.async = "true";
     scr.type = "text/javascript";
     scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
-    isMobile
-      ? ins.setAttribute("data-ad-width", "300")
-      : ins.setAttribute("data-ad-width", "728");
-    isMobile
-      ? ins.setAttribute("data-ad-height", "250")
-      : ins.setAttribute("data-ad-height", "90");
+    isMobile ? ins.setAttribute("data-ad-width", "300") : ins.setAttribute("data-ad-width", "728");
+    isMobile ? ins.setAttribute("data-ad-height", "250") : ins.setAttribute("data-ad-height", "90");
     ins.setAttribute("data-ad-unit", unit);
 
     document.querySelector(".adfit")?.appendChild(ins);

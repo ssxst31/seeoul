@@ -10,9 +10,7 @@ interface CulturalEventCardProps {
   culturalEvent: CulturalEvent;
 }
 
-export default function CulturalEventCard({
-  culturalEvent,
-}: CulturalEventCardProps) {
+export default function CulturalEventCard({ culturalEvent }: CulturalEventCardProps) {
   const { mainImg, title, date, id } = culturalEvent;
 
   const ewq = date.indexOf("~") + 1;
@@ -34,9 +32,7 @@ export default function CulturalEventCard({
           }}
           cover={<Image src={mainImg} height={500} width={500} alt={title} />}
         >
-          <p style={{ fontWeight: 700, fontSize: 20 }}>
-            {title.length > 33 ? `${title.substr(0, 33)}...` : title}
-          </p>
+          <p style={{ fontWeight: 700, fontSize: 20 }}>{title.length > 33 ? `${title.substr(0, 33)}...` : title}</p>
           <p style={{ fontSize: 15 }}>기간 : {date}</p>
           <div
             style={{
