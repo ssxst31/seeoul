@@ -19,17 +19,15 @@ const Review = () => {
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <Header />
         <div className={s.mainLayout}>
-          <span style={{ fontSize: "24px", fontWeight: 700 }}>
-            인스타그램 후기 😎
-          </span>
+          <span style={{ fontSize: "24px", fontWeight: 700 }}>인스타그램 후기 😎</span>
           <div>
             {totalInstagramReview?.map((a) => {
               if (a.children) {
-                return (
-                  <img src={a.children[0].media_url} width={200} height={200} />
-                );
+                return <img src={a.children[0].media_url} width={200} height={200} />;
               }
-              return <Image src={a.mediaUrl} width={200} height={200} />;
+              if (a.mediaUrl) {
+                return <img src={a.mediaUrl} width={200} height={200} />;
+              }
             })}
           </div>
         </div>
