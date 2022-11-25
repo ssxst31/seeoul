@@ -1,14 +1,25 @@
 import React, { useEffect } from "react";
-import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 import { isMobile } from "react-device-detect";
 import { DiscussionEmbed } from "disqus-react";
+import { GetServerSideProps } from "next";
 
 import { fetchDetailCulturalEvent } from "pages/api/index";
+import { Loader } from "components/Loader";
 import { CulturalEvent } from "type";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 import s from "./detail.module.css";
+
+const ComponentsWithNoSSR = dynamic(
+  () => import("components/Map"), // Component로 사용할 항목을 import합니다.
+  { ssr: false }, // ssr옵션을 false로 설정해줍니다.
+);
+
+const KakaoAdFit = dynamic(
+  () => import("components/KakaoAdFit"), // Component로 사용할 항목을 import합니다.
+  { ssr: false }, // ssr옵션을 false로 설정해줍니다.
+);
 
 export const getServerSideProps: GetServerSideProps<{
   culturalEvent: CulturalEvent;
@@ -23,15 +34,6 @@ export const getServerSideProps: GetServerSideProps<{
   };
 };
 
-const ComponentsWithNoSSR = dynamic(
-  () => import("components/Map"), // Component로 사용할 항목을 import합니다.
-  { ssr: false }, // ssr옵션을 false로 설정해줍니다.
-);
-
-const KakaoAdFit = dynamic(
-  () => import("components/KakaoAdFit"), // Component로 사용할 항목을 import합니다.
-  { ssr: false }, // ssr옵션을 false로 설정해줍니다.
-);
 interface DetailProps {
   culturalEvent: CulturalEvent;
 }
@@ -57,7 +59,7 @@ const Detail = ({ culturalEvent }: DetailProps) => {
   });
 
   if (!culturalEvent) {
-    return <div />;
+    return <Loader />;
   }
 
   const { mainImg, title, date, useTrgt, useFee, place, orgLink } = culturalEvent;

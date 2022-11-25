@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Row, Col } from "antd";
+import { GetServerSideProps } from "next";
 
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
@@ -13,7 +14,7 @@ interface PopularProps {
   instagramFeed: InstagramFeed[];
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const data = await fetchInstagramFeed();
 
   return {
