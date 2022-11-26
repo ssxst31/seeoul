@@ -58,10 +58,6 @@ const Detail = ({ culturalEvent }: DetailProps) => {
     document.querySelector(".adfit")?.appendChild(scr);
   });
 
-  if (!culturalEvent) {
-    return <Loader />;
-  }
-
   const { mainImg, title, date, useTrgt, useFee, place, orgLink } = culturalEvent;
 
   return (

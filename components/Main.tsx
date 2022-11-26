@@ -45,6 +45,7 @@ export default function Main() {
   return (
     <div className={s.mainLayout}>
       <span style={{ fontSize: "24px", fontWeight: 700 }}>전시회를 생각 중이라면 👀</span>
+      <div style={{ height: 16, width: "100%" }} />
       <MainCarousel />
       <div style={{ height: 40, width: "100%" }} />
       <div className={s.mobile}>

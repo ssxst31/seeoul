@@ -22,8 +22,8 @@ export default function MainCarousel() {
             <a>
               <Image
                 src={isMobile ? randomCulturalEvent.mainImg.slice(0, -1) : randomCulturalEvent.mainImg}
-                height={300}
-                width={330}
+                height={360}
+                width={360}
                 alt={randomCulturalEvent.title}
                 loading="eager"
               />
