@@ -4,6 +4,7 @@ import { isMobile } from "react-device-detect";
 import { DiscussionEmbed } from "disqus-react";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
+import Image from "next/image";
 
 import { fetchDetailCulturalEvent } from "pages/api/index";
 import { CulturalEvent } from "type";
@@ -71,7 +72,7 @@ const Detail = ({ culturalEvent }: DetailProps) => {
         <Header />
         <div className={s.mainLayout}>
           <div className={s.mobile}>
-            <img alt={title} src={mainImg} style={{ objectFit: "contain", width: "100%", maxWidth: 500 }} />
+            <Image alt={title} src={mainImg} style={{ objectFit: "contain", width: "100%", maxWidth: 500 }} />
             <div>
               <div>
                 <span style={{ fontSize: isMobile ? 24 : 32, fontWeight: 700 }}>{title}</span>
