@@ -66,6 +66,7 @@ const Detail = ({ culturalEvent }: DetailProps) => {
         <title>{title + " | 내일전시"}</title>
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
+        <meta property="og:image" content={mainImg} />
       </Head>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <Header />
