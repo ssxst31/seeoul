@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
-import Image from "next/image";
+import Link from "next/link";
+import { Row, Col } from "antd";
 
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
@@ -21,14 +22,28 @@ const Review = () => {
         <div className={s.mainLayout}>
           <span style={{ fontSize: "24px", fontWeight: 700 }}>인스타그램 후기 😎</span>
           <div>
-            {totalInstagramReview?.map((a) => {
-              if (a.children) {
-                return <img src={a.children[0].media_url} width={200} height={200} />;
-              }
-              if (a.mediaUrl) {
-                return <img src={a.mediaUrl} width={200} height={200} />;
-              }
-            })}
+            <Row justify="center" gutter={[8, 8]}>
+              {totalInstagramReview?.map((a) => {
+                if (a.children) {
+                  return (
+                    <Col key={a.id}>
+                      <Link href={a.permalink} passHref>
+                        <a target="_blank" rel="noopener noreferrer">
+                          <img src={a.children[0].media_url} width={237} height={237} />
+                        </a>
+                      </Link>
+                    </Col>
+                  );
+                }
+                if (a.mediaUrl) {
+                  return (
+                    <Col key={a.id}>
+                      <img src={a.mediaUrl} width={237} height={237} />
+                    </Col>
+                  );
+                }
+              })}
+            </Row>
           </div>
         </div>
       </div>

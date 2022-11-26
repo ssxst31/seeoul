@@ -12,6 +12,7 @@ interface InstagramReview {
   mediaType: string;
   mediaUrl: null | string;
   type: string;
+  permalink: string;
 }
 
 interface Data {
