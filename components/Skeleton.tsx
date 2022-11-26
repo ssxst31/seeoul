@@ -4,9 +4,11 @@ import { range } from "utils/array";
 
 interface SkeletonProps {
   row?: number;
+  width: string;
+  height: string;
 }
 
-export default function Skeleton({ row = 3 }: SkeletonProps) {
+export default function Skeleton({ row = 3, width, height }: SkeletonProps) {
   return (
     <div
       style={{
@@ -22,11 +24,11 @@ export default function Skeleton({ row = 3 }: SkeletonProps) {
           backgroundColor="#f3f3f3"
           foregroundColor="#ecebeb"
           style={{
-            width: "360",
-            height: "360",
+            width: width,
+            height: height,
           }}
         >
-          <rect x="0" y="0" rx="0" ry="0" width="100%" height="360" />
+          <rect x="0" y="0" rx="0" ry="0" width="100%" height={height} />
         </ContentLoader>
       ))}
     </div>

@@ -11,7 +11,7 @@ export default function MainCarousel() {
   const randomCulturalEventList = useRandomCulturalEvent();
 
   if (!randomCulturalEventList) {
-    return <Skeleton />;
+    return <Skeleton width="360" height="360" />;
   }
 
   return (

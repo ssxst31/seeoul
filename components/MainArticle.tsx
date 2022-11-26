@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col } from "antd";
 
 import CulturalEventCard from "components/CulturalEventCard";
+import Skeleton from "components/Skeleton";
 import { CulturalEvent } from "type";
 
 interface MainArticleProps {
@@ -10,7 +11,7 @@ interface MainArticleProps {
 
 export default function MainArticle({ totalCulturalEvent }: MainArticleProps) {
   if (!totalCulturalEvent) {
-    return <></>;
+    return <Skeleton width="23%" height="280" row={4} />;
   }
 
   return (
