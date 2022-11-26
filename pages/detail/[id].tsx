@@ -5,7 +5,6 @@ import { DiscussionEmbed } from "disqus-react";
 import { GetServerSideProps } from "next";
 
 import { fetchDetailCulturalEvent } from "pages/api/index";
-import { Loader } from "components/Loader";
 import { CulturalEvent } from "type";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
