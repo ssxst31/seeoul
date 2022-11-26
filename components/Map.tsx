@@ -6,7 +6,7 @@ interface MapProps {
   searchPlace: string;
 }
 
-const Map = ({ searchPlace }: MapProps) => {
+export default function Map({ searchPlace }: MapProps) {
   // 검색결과 배열에 담아줌
   const { kakao } = window as any;
   const [Places, setPlaces] = useState([]);
@@ -66,6 +66,4 @@ const Map = ({ searchPlace }: MapProps) => {
       ></div>
     </div>
   );
-};
-
-export default Map;
+}

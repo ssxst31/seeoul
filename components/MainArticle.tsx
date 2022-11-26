@@ -6,7 +6,7 @@ import Skeleton from "components/Skeleton";
 import { CulturalEvent } from "type";
 
 interface MainArticleProps {
-  totalCulturalEvent: CulturalEvent[];
+  totalCulturalEvent: CulturalEvent[] | null;
 }
 
 export default function MainArticle({ totalCulturalEvent }: MainArticleProps) {

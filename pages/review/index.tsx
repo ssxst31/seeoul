@@ -8,11 +8,11 @@ import Footer from "layouts/Footer";
 import s from "./popular.module.css";
 import useInstagramReview from "hook/useInstagramReview";
 
-const Review = () => {
+export default function Review() {
   const router = useRouter();
   const { tab } = router.query;
-
   const sort = (tab ?? "exhibition") as string;
+
   const { totalInstagramReview } = useInstagramReview({ sort });
 
   return (
@@ -50,6 +50,4 @@ const Review = () => {
       <Footer />
     </>
   );
-};
-
-export default Review;
+}

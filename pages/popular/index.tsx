@@ -3,10 +3,10 @@ import Link from "next/link";
 import { Row, Col } from "antd";
 import { GetServerSideProps } from "next";
 
+import { InstagramFeed } from "type";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 import s from "./popular.module.css";
-import { InstagramFeed } from "type";
 
 import { fetchInstagramFeed } from "pages/api/index";
 
@@ -24,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-const Popular = ({ instagramFeed }: PopularProps) => {
+export default function Popular({ instagramFeed }: PopularProps) {
   if (!instagramFeed) {
     return <></>;
   }
@@ -51,6 +51,4 @@ const Popular = ({ instagramFeed }: PopularProps) => {
       <Footer />
     </>
   );
-};
-
-export default Popular;
+}

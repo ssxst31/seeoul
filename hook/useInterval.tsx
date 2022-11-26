@@ -8,11 +8,11 @@ export default function useInterval(callback: () => void, interval: number): voi
   });
 
   useEffect(() => {
-    function tick() {
+    const tick = () => {
       if (savedCallback.current) {
         savedCallback.current();
       }
-    }
+    };
 
     let id = setInterval(tick, interval);
     return () => clearInterval(id);

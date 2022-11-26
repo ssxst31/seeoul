@@ -11,8 +11,8 @@ interface FetchCulturalEventProps {
 }
 
 export default function useFetchCulturalEvent({ page = 1, sort, search }: FetchCulturalEventProps): {
-  totalCulturalEvent: CulturalEvent[];
-  totalCount: any;
+  totalCulturalEvent: CulturalEvent[] | null;
+  totalCount: number;
 } {
   const [insteadData, setInsteadData] = useState(null);
 
@@ -33,7 +33,7 @@ export default function useFetchCulturalEvent({ page = 1, sort, search }: FetchC
   );
 
   const totalCulturalEvent = data?.data ?? insteadData;
-  const totalCount = data?.totalCount ?? null;
+  const totalCount = data?.totalCount ?? 0;
 
   return { totalCulturalEvent, totalCount };
 }

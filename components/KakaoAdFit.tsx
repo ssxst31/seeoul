@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { isMobile } from "react-device-detect";
 
-const KakaoAdFit = ({ unit }: any) => {
+function KakaoAdFit({ unit }: any) {
   const adRef = useRef<boolean>(false);
 
   useEffect(() => {
@@ -28,6 +28,6 @@ const KakaoAdFit = ({ unit }: any) => {
   }, []);
 
   return <div className="adfit" />;
-};
+}
 
 export default React.memo(KakaoAdFit);
