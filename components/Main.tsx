@@ -11,10 +11,7 @@ import MainCarousel from "components/MainCarousel";
 import MainArticle from "components/MainArticle";
 import s from "components/main.module.css";
 
-const KakaoAdFit = dynamic(
-  () => import("./KakaoAdFit"), // Component로 사용할 항목을 import합니다.
-  { ssr: false }, // ssr옵션을 false로 설정해줍니다.
-);
+const KakaoAdFit = dynamic(() => import("./KakaoAdFit"), { ssr: false });
 
 export default function Main() {
   const router = useRouter();
