@@ -1,9 +1,9 @@
 import React from "react";
 import { Row, Col } from "antd";
 
+import { CulturalEvent } from "type";
 import CulturalEventCard from "components/CulturalEventCard";
 import Skeleton from "components/Skeleton";
-import { CulturalEvent } from "type";
 
 interface MainArticleProps {
   totalCulturalEvent: CulturalEvent[] | null;
