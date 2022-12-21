@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Head from "next/head";
 import { Row, Col } from "antd";
 
 import Header from "layouts/Header";
@@ -17,6 +18,9 @@ export default function Review() {
 
   return (
     <>
+      <Head>
+        <title>후기 | 내일전시</title>
+      </Head>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <Header />
         <div className={s.mainLayout}>

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Head from "next/head";
 import { Row, Col } from "antd";
 import { GetServerSideProps } from "next";
 
@@ -31,6 +32,9 @@ export default function Popular({ instagramFeed }: PopularProps) {
 
   return (
     <>
+      <Head>
+        <title>인기전시회 | 내일전시</title>
+      </Head>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <Header />
         <div className={s.mainLayout}>

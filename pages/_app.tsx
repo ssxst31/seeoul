@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>내일전시</title>
+        <title>홈 | 내일전시</title>
       </Head>
       <RecoilRoot>
         <Component {...pageProps} />
