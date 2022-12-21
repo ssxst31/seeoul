@@ -20,7 +20,7 @@ export default function Review() {
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <Header />
         <div className={s.mainLayout}>
-          <span style={{ fontSize: "24px", fontWeight: 700 }}>인스타그램 후기 😎</span>
+          <h2 style={{ fontSize: "24px", fontWeight: 700 }}>인스타그램 후기 😎</h2>
           <div>
             <Row justify="center" gutter={[8, 8]}>
               {totalInstagramReview?.map((a) => {

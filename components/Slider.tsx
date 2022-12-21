@@ -15,21 +15,21 @@ export default function Slider() {
   }, 3000);
 
   const slides = [
-    { title: "서수영 개인전", link: "http://www.helenandjae.com" },
-    { title: "김미경 : Resonance", link: "http://www.galleryluan.com" },
+    { title: "디즈니 아트컬렉션", link: "https://mpx.co.kr" },
+    { title: "변용국 : 빛의 거울", link: "http://www.tongingallery.com/637" },
     {
-      title: "우주 백패킹",
-      link: "http://www.ddp.or.kr/index.html?menuno=230",
+      title: "하리보 기념전",
+      link: "https://hariboworld.modoo.at/",
     },
     {
-      title: "DDP-NFT 기획전",
-      link: "http://www.ddp.or.kr/index.html?menuno=244",
+      title: "Tape Seoul",
+      link: "https://www.kmcaseoul.org/",
     },
   ];
 
   return (
     <div style={{ overflowY: "hidden", height: 60 }}>
-      <div
+      <ul
         style={{
           transform: `translateY(${-count * 64}px)`,
           transition: "all ease 2s 0s",
@@ -37,13 +37,15 @@ export default function Slider() {
         }}
       >
         {slides.map((el, index) => (
-          <Link href={el.link} key={index} passHref>
-            <a target="_blank" rel="noopener noreferrer">
-              <div style={{ fontSize: 17, fontWeight: 700, color: "#000000" }}>{el.title}</div>
-            </a>
-          </Link>
+          <li>
+            <Link href={el.link} key={index} passHref>
+              <a target="_blank" rel="noopener noreferrer">
+                <strong style={{ fontSize: 17, fontWeight: 700, color: "#000000" }}>{el.title}</strong>
+              </a>
+            </Link>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }

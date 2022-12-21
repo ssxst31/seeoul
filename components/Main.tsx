@@ -42,14 +42,16 @@ export default function Main() {
   return (
     <main className={s.mainLayout}>
       <section>
-        <span style={{ fontSize: "24px", fontWeight: 700 }}>전시회를 생각 중이라면 👀</span>
+        <h2 style={{ fontSize: "24px", fontWeight: 700, margin: 0 }}>전시회를 생각 중이라면 👀</h2>
         <div style={{ height: 16, width: "100%" }} />
         <MainCarousel />
       </section>
       <div style={{ height: 40, width: "100%" }} />
       <section>
         <div className={s.mobile}>
-          <span style={{ fontSize: "24px", fontWeight: 700 }}>여기서 바로 {sort === "전체" && ""} 골라보세요! 🫧</span>
+          <h2 style={{ fontSize: "24px", fontWeight: 700, margin: 0 }}>
+            여기서 바로 {sort === "전체" && ""} 골라보세요! 🫧
+          </h2>
           <div
             style={{
               display: "flex",

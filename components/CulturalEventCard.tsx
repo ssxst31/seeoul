@@ -27,8 +27,10 @@ export default function CulturalEventCard({ culturalEvent }: CulturalEventCardPr
           }}
           cover={<Image src={mainImg} height={500} width={500} alt={title} />}
         >
-          <p style={{ fontWeight: 700, fontSize: 20 }}>{title.length > 33 ? `${title.substr(0, 33)}...` : title}</p>
-          <p style={{ fontSize: 15 }}>기간 : {date}</p>
+          <strong style={{ fontWeight: 700, fontSize: 20 }}>
+            {title.length > 30 ? `${title.substr(0, 30)}...` : title}
+          </strong>
+          <span style={{ fontSize: 15, display: "block" }}>기간 : {date}</span>
           <div
             style={{
               position: "absolute",
