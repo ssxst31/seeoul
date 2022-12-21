@@ -49,80 +49,88 @@ export default function Header() {
     >
       <div className={s.headerMain}>
         <div className={s.mobile}>
-          <a
-            style={{
-              fontSize: 32,
-              color: "#5553FF",
-              marginRight: 50,
-              display: "flex",
-              alignContent: "center",
-            }}
-            href="/"
-          >
-            <img
-              src="/logo.png"
+          <h1 style={{ margin: 0 }}>
+            <a
               style={{
-                width: 40,
-                height: 40,
-                position: "relative",
-                top: 10,
-                marginRight: 12,
+                fontSize: 32,
+                color: "#5553FF",
+                marginRight: 50,
+                display: "flex",
+                alignContent: "center",
               }}
-              alt="logo"
-            />
-            <div style={{ fontSize: 26 }}>내일 전시</div>
-          </a>
-          <div style={{ display: "flex" }}>
-            <Link href="/popular">
-              <a>
-                <div>
-                  <span
-                    style={{
-                      fontSize: 15,
-                      fontWeight: router.pathname === "/popular" ? 700 : 500,
-                      color: router.pathname === "/popular" ? "#222222" : "#333333",
-                    }}
-                    className={s.bold}
-                  >
-                    인기 전시회
-                  </span>
-                  <img
-                    src="/new.png"
-                    style={{
-                      width: 16,
-                      height: 16,
-                      position: "relative",
-                      top: 15,
-                      left: -5,
-                    }}
-                    alt="new"
-                  />
-                </div>
-              </a>
-            </Link>
-            <Link href="/review">
-              <a>
-                <div>
-                  <span
-                    style={{
-                      fontSize: 15,
-                      fontWeight: router.pathname === "/review" ? 700 : 500,
-                      color: router.pathname === "/review" ? "#222222" : "#333333",
-                    }}
-                    className={s.bold}
-                  >
-                    후기
-                  </span>
-                </div>
-              </a>
-            </Link>
-          </div>
+              href="/"
+            >
+              <img
+                src="/logo.png"
+                style={{
+                  width: 40,
+                  height: 40,
+                  position: "relative",
+                  top: 10,
+                  marginRight: 12,
+                }}
+                alt="logo"
+              />
+              <div style={{ fontSize: 26 }}>내일 전시</div>
+            </a>
+          </h1>
+          <nav>
+            <ul style={{ display: "flex" }}>
+              <li>
+                <Link href="/popular">
+                  <a>
+                    <div>
+                      <span
+                        style={{
+                          fontSize: 15,
+                          fontWeight: router.pathname === "/popular" ? 700 : 500,
+                          color: router.pathname === "/popular" ? "#222222" : "#333333",
+                        }}
+                        className={s.bold}
+                      >
+                        인기 전시회
+                      </span>
+                      <img
+                        src="/new.png"
+                        style={{
+                          width: 16,
+                          height: 16,
+                          position: "relative",
+                          top: 15,
+                          left: -5,
+                        }}
+                        alt="new"
+                      />
+                    </div>
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/review">
+                  <a>
+                    <div>
+                      <span
+                        style={{
+                          fontSize: 15,
+                          fontWeight: router.pathname === "/review" ? 700 : 500,
+                          color: router.pathname === "/review" ? "#222222" : "#333333",
+                        }}
+                        className={s.bold}
+                      >
+                        후기
+                      </span>
+                    </div>
+                  </a>
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
         <Slider />
       </div>
       {router.pathname === "/" && (
         <div style={{ borderTop: "1px #f5f5f5 solid", overflowX: "scroll" }} className={s.dsa}>
-          <div
+          <ul
             style={{
               display: "flex",
               margin: "0 auto",
@@ -131,26 +139,28 @@ export default function Header() {
             className={s.rea}
           >
             {TABS.map((t, index) => (
-              <Link href={`/?tab=${t.sort}`} key={index}>
-                <a
-                  style={{
-                    fontSize: 14,
-                    marginRight: 20,
-                    fontWeight: router.query.tab === t.sort ? 700 : 500,
-                    color: router.query.tab === t.sort ? "#000000" : "#333333",
-                    cursor: "pointer",
-                  }}
-                >
-                  {t.title}
-                </a>
-              </Link>
+              <li>
+                <Link href={`/?tab=${t.sort}`} key={index}>
+                  <a
+                    style={{
+                      fontSize: 14,
+                      marginRight: 20,
+                      fontWeight: router.query.tab === t.sort ? 700 : 500,
+                      color: router.query.tab === t.sort ? "#000000" : "#333333",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {t.title}
+                  </a>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       )}
       {router.pathname === "/review" && (
         <div style={{ borderTop: "1px #f5f5f5 solid", overflowX: "scroll" }} className={s.dsa}>
-          <div
+          <ul
             style={{
               display: "flex",
               margin: "0 auto",
@@ -173,7 +183,7 @@ export default function Header() {
                 </a>
               </Link>
             ))}
-          </div>
+          </ul>
         </div>
       )}
     </header>

@@ -40,50 +40,54 @@ export default function Main() {
   }
 
   return (
-    <div className={s.mainLayout}>
-      <span style={{ fontSize: "24px", fontWeight: 700 }}>전시회를 생각 중이라면 👀</span>
-      <div style={{ height: 16, width: "100%" }} />
-      <MainCarousel />
+    <main className={s.mainLayout}>
+      <section>
+        <span style={{ fontSize: "24px", fontWeight: 700 }}>전시회를 생각 중이라면 👀</span>
+        <div style={{ height: 16, width: "100%" }} />
+        <MainCarousel />
+      </section>
       <div style={{ height: 40, width: "100%" }} />
-      <div className={s.mobile}>
-        <span style={{ fontSize: "24px", fontWeight: 700 }}>여기서 바로 {sort === "전체" && ""} 골라보세요! 🫧</span>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-          }}
-          className={s.searchContainer}
-        >
-          <div style={{ fontSize: 16 }}>
-            총&nbsp;
-            <span style={{ color: "#BD26FF", fontWeight: 700 }}>{totalCount}</span>
-            &nbsp;건
+      <section>
+        <div className={s.mobile}>
+          <span style={{ fontSize: "24px", fontWeight: 700 }}>여기서 바로 {sort === "전체" && ""} 골라보세요! 🫧</span>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+            className={s.searchContainer}
+          >
+            <div style={{ fontSize: 16 }}>
+              총&nbsp;
+              <span style={{ color: "#BD26FF", fontWeight: 700 }}>{totalCount}</span>
+              &nbsp;건
+            </div>
+            <Search
+              placeholder="검색어를 입력해주세요."
+              style={{ width: 200 }}
+              onSearch={handleSubmit}
+              className={s.search}
+            />
           </div>
-          <Search
-            placeholder="검색어를 입력해주세요."
-            style={{ width: 200 }}
-            onSearch={handleSubmit}
-            className={s.search}
+        </div>
+        <div style={{ height: 16, width: "100%" }} />
+        <MainArticle totalCulturalEvent={totalCulturalEvent} />
+        <div style={{ height: "20px" }} />
+        <div style={{ textAlign: "center" }}>
+          <Pagination
+            current={Number(page)}
+            total={totalCount}
+            showSizeChanger={false}
+            defaultPageSize={DEFAULT_LIMIT}
+            itemRender={itemRender}
           />
         </div>
-      </div>
-      <div style={{ height: 16, width: "100%" }} />
-      <MainArticle totalCulturalEvent={totalCulturalEvent} />
-      <div style={{ height: "20px" }} />
-      <div style={{ textAlign: "center" }}>
-        <Pagination
-          current={Number(page)}
-          total={totalCount}
-          showSizeChanger={false}
-          defaultPageSize={DEFAULT_LIMIT}
-          itemRender={itemRender}
-        />
-      </div>
-      <div style={{ height: "20px" }} />
-      <div className={s.kakaoAdFitContainer}>
-        <KakaoAdFit unit={isMobile ? "DAN-NrbIqcNVQklTs9ND" : "DAN-zwtZjOswNyJO6kQA"} />
-      </div>
-      <div style={{ height: "20px" }} />
-    </div>
+        <div style={{ height: "20px" }} />
+        <div className={s.kakaoAdFitContainer}>
+          <KakaoAdFit unit={isMobile ? "DAN-NrbIqcNVQklTs9ND" : "DAN-zwtZjOswNyJO6kQA"} />
+        </div>
+        <div style={{ height: "20px" }} />
+      </section>
+    </main>
   );
 }
