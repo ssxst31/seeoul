@@ -11,15 +11,12 @@ export default function HomepageLayout() {
       __html: `{
         "@context": "http://schema.org",
         "@type": "Organization",
-        "name": "플렉스티비 - FLEXTV 공식 사이트",
-        "url": "https://www.flextv.co.kr",
+        "name": "홈 - 내일전시",
+        "url": "https://seeoul.netlify.app",
         "sameAs": [
-          "https://www.instagram.com/flextv_official/",
-          "https://www.youtube.com/@flex_tv",
-          "https://play.google.com/store/apps/details?id=com.flexenm.flextv",
-          "https://apps.apple.com/kr/app/%ED%94%8C%EB%A0%89%EC%8A%A4%ED%8B%B0%EB%B9%84/id1559837920",
-          "https://play.google.com/store/apps/details?id=kr.co.flextv.streamer",
-          "https://www.tiktok.com/@official_flextv"
+          "https://www.instagram.com/seeou1",
+          "https://twitter.com/seeou11",
+          "https://www.facebook.com/profile.php?id=100083987572734",
         ]
       }`,
     };
