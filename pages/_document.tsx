@@ -1,8 +1,6 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
-import { GA_TRACKING_ID } from "lib/gtag";
-
 export default class MyDocument extends Document {
   render() {
     return (
@@ -35,20 +33,6 @@ export default class MyDocument extends Document {
           <meta name="twitter:domain" content="내일전시" />
           <meta name="google-site-verification" content="uF5xvolIVD9TIzGeXD9vVLNvnwHNg_Ksi--3WgmZpiI" />
           <meta name="naver-site-verification" content="5b5b59ee6b2ffa4da4adfa1467e7b6321410a63b" />
-          {/* Global Site Tag (gtag.js) - Google Analytics */}
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
-            }}
-          />
         </Head>
         <body>
           <Main />
