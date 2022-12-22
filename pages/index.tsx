@@ -23,7 +23,6 @@ export default function HomepageLayout() {
       <DefaultLayout>
         <Head>
           <Script
-            id="app-ld-json"
             type="application/ld+json"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(content),
