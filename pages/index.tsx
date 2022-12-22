@@ -24,11 +24,10 @@ export default function HomepageLayout() {
             position: 2,
             name: "후기",
             description: "전시회 후기입니다.",
-            url: 'https://seeoul.netlify.app/review',
+            url: "https://seeoul.netlify.app/review",
           },
-        ]
-    }
-  `,
+        ],
+      }`,
     };
   }
   return (
