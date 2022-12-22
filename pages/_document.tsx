@@ -21,9 +21,12 @@ export default class MyDocument extends Document {
           <meta name="Yeti" content="All" />
           <meta name="Yeti" content="index,follow" />
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-          <meta name="author" content="ssxst31" />
+          <meta name="author" content="내일전시" />
           <meta name="description" content="서울 전시회 정보, 내일 전시에서 한눈에 확인해 보세요." />
-          <meta name="keywords" content="내일전시,전시회,문화예술,서울전시,서울전시회" />
+          <meta
+            name="keywords"
+            content="내일전시, 전시회, 문화예술, 서울전시, 서울전시회, 전시정보, 전시회 추천, exhibition"
+          />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="내일전시" />
           <meta property="og:description" content="서울 전시회 정보, 내일 전시에서 한눈에 확인해 보세요." />
