@@ -6,31 +6,34 @@ import Main from "components/Main";
 import DefaultLayout from "layouts/DefaultLayout";
 
 export default function HomepageLayout() {
-  const idJsonObject = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    itemListElement: [
-      {
-        "@type": "SiteNavigationElement",
-        position: 1,
-        name: "인기 전시회",
-        description: "인기 전시회입니다.",
-        url: "https://seeoul.netlify.app/popular",
-      },
-      {
-        "@type": "SiteNavigationElement",
-        position: 2,
-        name: "후기",
-        description: "전시회 후기입니다.",
-        url: `https://seeoul.netlify.app/review`,
-      },
-    ],
-  };
-
+  function addProductJsonLd() {
+    return {
+      __html: `{
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        itemListElement: [
+          {
+            "@type": "SiteNavigationElement",
+            position: 1,
+            name: "인기 전시회",
+            description: "인기 전시회입니다.",
+            url: "https://seeoul.netlify.app/popular",
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 2,
+            name: "후기",
+            description: "전시회 후기입니다.",
+            url: 'https://seeoul.netlify.app/review',
+          },
+    }
+  `,
+    };
+  }
   return (
     <>
       <Head>
-        <Script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(idJsonObject) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={addProductJsonLd()} key="product-jsonld" />
       </Head>
       <DefaultLayout>
         <Main />
