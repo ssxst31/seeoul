@@ -9,24 +9,18 @@ export default function HomepageLayout() {
   function addProductJsonLd() {
     return {
       __html: `{
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        itemListElement: [
-          {
-            "@type": "SiteNavigationElement",
-            position: 1,
-            name: "인기 전시회",
-            description: "인기 전시회입니다.",
-            url: "https://seeoul.netlify.app/popular",
-          },
-          {
-            "@type": "SiteNavigationElement",
-            position: 2,
-            name: "후기",
-            description: "전시회 후기입니다.",
-            url: "https://seeoul.netlify.app/review",
-          },
-        ],
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "플렉스티비 - FLEXTV 공식 사이트",
+        "url": "https://www.flextv.co.kr",
+        "sameAs": [
+          "https://www.instagram.com/flextv_official/",
+          "https://www.youtube.com/@flex_tv",
+          "https://play.google.com/store/apps/details?id=com.flexenm.flextv",
+          "https://apps.apple.com/kr/app/%ED%94%8C%EB%A0%89%EC%8A%A4%ED%8B%B0%EB%B9%84/id1559837920",
+          "https://play.google.com/store/apps/details?id=kr.co.flextv.streamer",
+          "https://www.tiktok.com/@official_flextv"
+        ]
       }`,
     };
   }
