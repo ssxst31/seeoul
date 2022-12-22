@@ -5,6 +5,7 @@ import Router, { useRouter } from "next/router";
 import NProgress from "nprogress";
 import { RecoilRoot } from "recoil";
 
+import { isProduction } from "utils/env";
 import type { AppProps } from "next/app";
 
 import * as gtag from "lib/gtag";
@@ -15,6 +16,7 @@ import "nprogress/nprogress.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
+  const isProd = isProduction();
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
@@ -47,12 +49,17 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`} />
-      <Script
-        id="gtag-init"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
+      {isProd ? (
+        <>
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+          />
+          <Script
+            id="gtag-init"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -60,8 +67,10 @@ function MyApp({ Component, pageProps }: AppProps) {
               page_path: window.location.pathname,
             });
           `,
-        }}
-      />
+            }}
+          />
+        </>
+      ) : null}
       <Head>
         <title>홈 | 내일전시</title>
       </Head>
