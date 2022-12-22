@@ -4,7 +4,7 @@ import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 
 interface ResponsiveContainerProps {
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 }
 
 export default function ResponsiveContainer({ children }: ResponsiveContainerProps) {

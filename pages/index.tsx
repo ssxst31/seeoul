@@ -20,16 +20,16 @@ export default function HomepageLayout() {
 
   return (
     <>
-      <Head>
-        <Script
-          id="app-ld-json"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(content),
-          }}
-        />
-      </Head>
       <DefaultLayout>
+        <Head>
+          <Script
+            id="app-ld-json"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(content),
+            }}
+          />
+        </Head>
         <Main />
       </DefaultLayout>
     </>
