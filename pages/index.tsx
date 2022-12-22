@@ -25,7 +25,7 @@ export default function HomepageLayout() {
           id="app-ld-json"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(content, null, "\t"),
+            __html: JSON.stringify(content),
           }}
         />
       </Head>
