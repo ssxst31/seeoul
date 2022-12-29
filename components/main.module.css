@@ -1,6 +1,11 @@
+.pointer {
+  width: 280px;
+}
+
 .pointer:hover {
   cursor: pointer;
 }
+
 
 .pointer:hover img {
   transform: scale(1.1);
@@ -38,6 +43,9 @@ margin-left: 10px;
 
 
 @media screen and (max-width: 763px) {
+  .pointer{
+    width: 100%;
+  }
   .mobile { 
     flex-direction: column;
   } 
