@@ -6,6 +6,7 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 
 import { fetchDetailCulturalEvent } from "pages/api/index";
+import DetailSEO from "pages/detail/DetailSEO";
 import { CulturalEvent } from "type";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
@@ -62,12 +63,7 @@ const Detail = ({ culturalEvent }: DetailProps) => {
 
   return (
     <>
-      <Head>
-        <title>{title + " | 내일전시"}</title>
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={title} />
-        <meta property="og:image" content={mainImg} />
-      </Head>
+      <DetailSEO title={title} mainImg={mainImg} />
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <Header />
         <div className={s.mainLayout}>
