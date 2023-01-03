@@ -8,6 +8,7 @@ import path from "path";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 import blog from "pages/api/blog.json";
+import BlogSEO from "pages/blog/BlogSEO";
 
 interface IParams extends ParsedUrlQuery {
   id: string;
@@ -36,6 +37,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 const Blog = ({ post }: any) => {
   return (
     <>
+      <BlogSEO title={post.title} />
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <Header />
         <div style={{ padding: "80px 16px 0 16px", textAlign: "center" }}>

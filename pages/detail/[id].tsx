@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import { isMobile } from "react-device-detect";
 import { DiscussionEmbed } from "disqus-react";
 import { GetServerSideProps } from "next";
-import Head from "next/head";
 
 import { fetchDetailCulturalEvent } from "pages/api/index";
 import DetailSEO from "pages/detail/DetailSEO";
