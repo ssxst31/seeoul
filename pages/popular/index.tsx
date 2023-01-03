@@ -8,6 +8,7 @@ import { InstagramFeed } from "type";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 import s from "./popular.module.css";
+import PopularSEO from "pages/popular/PopularSEO";
 
 import { fetchInstagramFeed } from "pages/api/index";
 
@@ -32,9 +33,7 @@ export default function Popular({ instagramFeed }: PopularProps) {
 
   return (
     <>
-      <Head>
-        <title>인기전시회 | 내일전시</title>
-      </Head>
+      <PopularSEO />
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <Header />
         <div className={s.mainLayout}>
