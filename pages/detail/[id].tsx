@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { isMobile } from "react-device-detect";
 import { DiscussionEmbed } from "disqus-react";
 import { GetServerSideProps } from "next";
+import Link from "next/link";
 
 import { fetchDetailCulturalEvent } from "pages/api/index";
 import DetailSEO from "pages/detail/DetailSEO";
@@ -67,79 +68,95 @@ const Detail = ({ culturalEvent }: DetailProps) => {
         <Header />
         <div className={s.mainLayout}>
           <div className={s.mobile}>
-            <img alt={title} src={mainImg} style={{ objectFit: "contain", width: "100%", maxWidth: 500 }} />
-            <div>
-              <div>
-                <span style={{ fontSize: isMobile ? 24 : 32, fontWeight: 700 }}>{title}</span>
+            <img className={s.detailImg} alt={title} src={mainImg} />
+            <div className={s.detailBox}>
+              <div className={s.detailText}>
+                <div>
+                  <span className={s.title}>{title}</span>
+                </div>
+                <div style={{ height: 16, width: "100%" }} />
+                <div>
+                  <span
+                    className={s.text}
+                    style={{
+                      color: "grey",
+                      fontWeight: 500,
+                    }}
+                  >
+                    장소 :
+                  </span>
+                  <span className={s.text}>{place}</span>
+                </div>
+                <div style={{ height: 16, width: "100%" }} />
+                <div>
+                  <span
+                    className={s.text}
+                    style={{
+                      color: "grey",
+                      fontWeight: 500,
+                    }}
+                  >
+                    기간 :
+                  </span>
+                  <span className={s.text}>{date}</span>
+                </div>
+                <div style={{ height: 16, width: "100%" }} />
+                <div>
+                  <span
+                    className={s.text}
+                    style={{
+                      color: "grey",
+                      fontWeight: 500,
+                    }}
+                  >
+                    대상 :
+                  </span>
+                  <span className={s.text}>{useTrgt}</span>
+                </div>
+                <div style={{ height: 8, width: "100%" }} />
+                <div>
+                  <span
+                    className={s.text}
+                    style={{
+                      color: "grey",
+                      fontWeight: 500,
+                    }}
+                  >
+                    요금 :
+                  </span>
+                  <span className={s.text}>{useFee}</span>
+                </div>
+                <div style={{ height: 8, width: "100%" }} />
+                <div>
+                  <span
+                    style={{
+                      fontSize: isMobile ? 16 : 20,
+                      color: "grey",
+                      fontWeight: 500,
+                    }}
+                  >
+                    <Link href={orgLink} passHref>
+                      <a target="_blank" rel="noopener noreferrer" style={{ color: "grey" }}>
+                        사이트 바로가기
+                      </a>
+                    </Link>
+                  </span>
+                </div>
               </div>
-              <div style={{ height: 16, width: "100%" }} />
-              <div>
-                <span
-                  style={{
-                    fontSize: isMobile ? 16 : 20,
-                    color: "grey",
-                    fontWeight: 500,
-                  }}
-                >
-                  장소 :
-                </span>
-                <span style={{ fontSize: isMobile ? 16 : 20 }}>{place}</span>
-              </div>
-              <div style={{ height: 16, width: "100%" }} />
-              <div>
-                <span
-                  style={{
-                    fontSize: isMobile ? 16 : 20,
-                    color: "grey",
-                    fontWeight: 500,
-                  }}
-                >
-                  기간 :
-                </span>
-                <span style={{ fontSize: isMobile ? 16 : 20 }}>{date}</span>
-              </div>
-              <div style={{ height: 16, width: "100%" }} />
-              <div>
-                <span
-                  style={{
-                    fontSize: isMobile ? 16 : 20,
-                    color: "grey",
-                    fontWeight: 500,
-                  }}
-                >
-                  대상 :
-                </span>
-                <span style={{ fontSize: isMobile ? 16 : 20 }}>{useTrgt}</span>
-              </div>
-              <div style={{ height: 8, width: "100%" }} />
-              <div>
-                <span
-                  style={{
-                    fontSize: isMobile ? 16 : 20,
-                    color: "grey",
-                    fontWeight: 500,
-                  }}
-                >
-                  요금 :
-                </span>
-                <span style={{ fontSize: isMobile ? 16 : 20 }}>{useFee}</span>
-              </div>
-              <div style={{ height: 8, width: "100%" }} />
-              <div>
-                <span
-                  style={{
-                    fontSize: isMobile ? 16 : 20,
-                    color: "grey",
-                    fontWeight: 500,
-                  }}
-                >
-                  <a href={orgLink}>사이트 바로가기</a>
-                </span>
-              </div>
+              <img className={s.detailMiniImg} alt={title} src={mainImg} />
             </div>
           </div>
           <div style={{ width: "100%", height: 60 }} />
           <ComponentsWithNoSSR searchPlace={place.split(" ")[0]} />
+        </div>
+        <div className={s.dd}>
+          <button style={{ width: "100%", backgroundColor: "#5553ff", height: 45, color: "white" }}>
+            <Link href={orgLink} passHref>
+              <a target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>
+                예매하러가기
+              </a>
+            </Link>
+          </button>
         </div>
       </div>
       <div

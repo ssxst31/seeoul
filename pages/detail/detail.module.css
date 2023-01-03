@@ -13,12 +13,76 @@
   width: 100%;
 }
 
+.dd{
+  display: none;
+}
+
+.detailImg{
+  object-fit: contain;
+  width: 100%;
+  max-width: 500px;
+}
+.title{
+  font-size: 32px;
+  font-weight: 700;
+}
+.detailMiniImg{
+display: none;
+}
+.text{
+  font-Size: 20px
+}
 @media screen and (max-width: 763px) {
   .mobile {
     display: block;
   }
   
   .mainLayout{
-    padding: 200px 16px 0 16px;
+    padding: 128px 16px 0 16px;
+  }
+
+  .dd{
+    display: block;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .detailImg{
+    object-fit: cover;
+    width : calc(100% + 32px);
+    max-width: none;
+    margin-left:-16px;
+    height: 360px;
+  }
+
+  .detailBox{
+    width : calc(100% + 32px);
+    display: flex;
+    margin: -50px 0 0 -16px;
+    position:relative;
+    background-color: white;
+    justify-content: space-between;
+  }
+
+  .detailMiniImg{
+    width: 100%;
+    object-fit: contain;
+    max-width: 120px;
+    margin-top: -50px;
+    display: block;
+    max-height: 120px;
+  }
+
+.detailText{
+    padding: 12px;
+  }
+
+  .title{
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .text{
+    font-Size: 16px
   }
 }
