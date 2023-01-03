@@ -1,14 +1,12 @@
 import React from "react";
-import Script from "next/script";
-import Head from "next/head";
+import { OrganizationJsonLd } from "next-seo";
 
 import Main from "components/Main";
 import DefaultLayout from "layouts/DefaultLayout";
 
-export default function HomepageLayout() {
-  const content = {
-    "@context": "http://schema.org",
-    "@type": "Organization",
+function MainSEO() {
+  const JSON_LD = {
+    type: "Organization",
     name: "홈 - 내일전시",
     url: "https://seeoul.netlify.app",
     sameAs: [
@@ -18,17 +16,14 @@ export default function HomepageLayout() {
     ],
   };
 
+  return <OrganizationJsonLd {...JSON_LD} />;
+}
+
+export default function HomepageLayout() {
   return (
     <>
+      <MainSEO />
       <DefaultLayout>
-        <Head>
-          <Script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(content),
-            }}
-          />
-        </Head>
         <Main />
       </DefaultLayout>
     </>
