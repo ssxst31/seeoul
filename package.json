@@ -20,6 +20,7 @@
     "fs": "^0.0.1-security",
     "globby": "^13.1.2",
     "next": "12.2.3",
+    "next-seo": "^5.15.0",
     "node-fetch": "^3.2.10",
     "nprogress": "^0.2.0",
     "react": "18.2.0",
