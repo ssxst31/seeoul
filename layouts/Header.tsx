@@ -139,7 +139,7 @@ export default function Header() {
             className={s.rea}
           >
             {TABS.map((t, index) => (
-              <li>
+              <li key={index}>
                 <Link href={`/?tab=${t.sort}`} key={index}>
                   <a
                     style={{

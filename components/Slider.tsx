@@ -37,7 +37,7 @@ export default function Slider() {
         }}
       >
         {slides.map((el, index) => (
-          <li>
+          <li key={index}>
             <Link href={el.link} key={index} passHref>
               <a target="_blank" rel="noopener noreferrer">
                 <strong style={{ fontSize: 17, fontWeight: 700, color: "#000000" }}>{el.title}</strong>
