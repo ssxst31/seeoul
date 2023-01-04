@@ -6,10 +6,6 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <script
-            type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=035efa5d385b322c6ad156a471745c81&libraries=services&autload=false"
-          />
           <meta name="NaverBot" content="All" />
           <meta name="NaverBot" content="index,follow" />
           <meta name="Yeti" content="All" />

@@ -5,60 +5,75 @@ import s from "components/main.module.css";
 interface MapProps {
   searchPlace: string;
 }
+declare global {
+  interface Window {
+    kakao: any;
+  }
+}
 
 export default function Map({ searchPlace }: MapProps) {
-  // 검색결과 배열에 담아줌
-  const { kakao } = window as any;
-  const [Places, setPlaces] = useState([]);
-
   useEffect(() => {
-    var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
-    var markers = [];
-    const container = document.getElementById("myMap");
-    const options = {
-      center: new kakao.maps.LatLng(33.450701, 126.570667),
-      level: 3,
-    };
-    const map = new kakao.maps.Map(container, options);
+    const mapScript = document.createElement("script");
 
-    const ps = new kakao.maps.services.Places();
+    mapScript.async = true;
+    mapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=035efa5d385b322c6ad156a471745c81&libraries=services&autoload=false`;
 
-    ps.keywordSearch(searchPlace, placesSearchCB);
+    document.head.appendChild(mapScript);
 
-    function placesSearchCB(data: any, status: any) {
-      if (status === kakao.maps.services.Status.OK) {
-        let bounds = new kakao.maps.LatLngBounds();
+    const onLoadKakaoMap = () => {
+      window.kakao.maps.load(() => {
+        var infowindow = new window.kakao.maps.InfoWindow({ zIndex: 1 });
+        const container = document.getElementById("map");
+        const options = {
+          center: new window.kakao.maps.LatLng(33.450701, 126.570667),
+          level: 3,
+        };
 
-        for (let i = 0; i < data.length; i++) {
-          displayMarker(data[i]);
-          bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+        const map = new window.kakao.maps.Map(container, options);
+        const ps = new window.kakao.maps.services.Places();
+        ps.keywordSearch(searchPlace, placesSearchCB);
+        function placesSearchCB(data: any, status: any) {
+          if (status === window.kakao.maps.services.Status.OK) {
+            let bounds = new window.kakao.maps.LatLngBounds();
+
+            for (let i = 0; i < data.length; i++) {
+              displayMarker(data[i]);
+              bounds.extend(new window.kakao.maps.LatLng(data[i].y, data[i].x));
+            }
+
+            map.setBounds(bounds);
+          }
+        }
+        function displayMarker(place: any) {
+          let marker = new window.kakao.maps.Marker({
+            map: map,
+            position: new window.kakao.maps.LatLng(place.y, place.x),
+          });
+
+          window.kakao.maps.event.addListener(marker, "click", function () {
+            infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + "</div>");
+            infowindow.open(map, marker);
+          });
         }
 
-        map.setBounds(bounds);
+        const markerPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
+        const marker = new window.kakao.maps.Marker({
+          position: markerPosition,
+        });
 
-        setPlaces(data);
-      }
-    }
-
-    // 검색결과 목록 하단에 페이지 번호 표시
-
-    function displayMarker(place: any) {
-      let marker = new kakao.maps.Marker({
-        map: map,
-        position: new kakao.maps.LatLng(place.y, place.x),
+        marker.setMap(map);
       });
+    };
 
-      kakao.maps.event.addListener(marker, "click", function () {
-        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + "</div>");
-        infowindow.open(map, marker);
-      });
-    }
-  }, [searchPlace]);
+    mapScript.addEventListener("load", onLoadKakaoMap);
+
+    return () => mapScript.removeEventListener("load", onLoadKakaoMap);
+  }, []);
 
   return (
     <div className={s.mobile}>
       <div
-        id="myMap"
+        id="map"
         style={{
           width: "100%",
         }}
