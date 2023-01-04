@@ -11,7 +11,7 @@ interface MainArticleProps {
 
 export default function MainArticle({ totalCulturalEvent }: MainArticleProps) {
   if (!totalCulturalEvent) {
-    return <Skeleton width="23%" height="280" row={4} />;
+    return <Skeleton width="273" height="420" row={16} />;
   }
 
   return (

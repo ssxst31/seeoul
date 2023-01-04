@@ -5,13 +5,13 @@ import Link from "next/link";
 import { isMobile } from "react-device-detect";
 
 import useRandomCulturalEvent from "hook/useRandomCulturalEvent";
-import Skeleton from "components/Skeleton";
+import CarouselSkeleton from "components/CarouselSkeleton";
 
 export default function MainCarousel() {
   const randomCulturalEventList = useRandomCulturalEvent();
 
   if (!randomCulturalEventList) {
-    return <Skeleton width="360" height="360" />;
+    return <CarouselSkeleton width="360" height="360" />;
   }
 
   return (

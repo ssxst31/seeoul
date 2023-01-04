@@ -1,24 +1,20 @@
 import React from "react";
 import ContentLoader from "react-content-loader";
 import { range } from "utils/array";
-import useWindowDimensions from "hook/useWindowDimensions";
 
-interface SkeletonProps {
+interface CarouselSkeletonProps {
   row?: number;
   width: string;
   height: string;
 }
 
-export default function Skeleton({ row = 3, width, height }: SkeletonProps) {
-  const { width2 } = useWindowDimensions();
-
+export default function CarouselSkeleton({ row = 3, width, height }: CarouselSkeletonProps) {
   return (
     <div
       style={{
         margin: "0 auto",
         display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
+        justifyContent: "space-between",
       }}
     >
       {range(row).map((r, index) => (
@@ -28,9 +24,8 @@ export default function Skeleton({ row = 3, width, height }: SkeletonProps) {
           backgroundColor="#f3f3f3"
           foregroundColor="#ecebeb"
           style={{
-            width: width2 > 763 ? width : "100%",
+            width: width,
             height: height,
-            margin: width2 > 763 ? "0 16px 32px 16px" : "0 0 16px 0",
           }}
         >
           <rect x="0" y="0" rx="0" ry="0" width="100%" height={height} />
