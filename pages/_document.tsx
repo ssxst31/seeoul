@@ -7,11 +7,6 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7947339856088209"
-            crossOrigin="anonymous"
-          />
-          <script
             type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=035efa5d385b322c6ad156a471745c81&libraries=services&autload=false"
           />
