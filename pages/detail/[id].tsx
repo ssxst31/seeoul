@@ -152,8 +152,8 @@ const Detail = ({ culturalEvent }: DetailProps) => {
         <div className={s.dd}>
           <button style={{ width: "100%", backgroundColor: "#5553ff", height: 45, color: "white" }}>
             <Link href={orgLink} passHref>
-              <a target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>
-                예매하러가기
+              <a target="_blank" rel="noopener noreferrer" style={{ color: "white", fontWeight: "bold" }}>
+                예매하기
               </a>
             </Link>
           </button>
