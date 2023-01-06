@@ -6,6 +6,11 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7947339856088209"
+            crossOrigin="anonymous"
+          ></script>
           <meta name="NaverBot" content="All" />
           <meta name="NaverBot" content="index,follow" />
           <meta name="Yeti" content="All" />
