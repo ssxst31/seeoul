@@ -42,6 +42,7 @@ export default function Header() {
         backgroundColor: "#fff",
         zIndex: 16,
         top: 0,
+        left: 0,
         borderBottom: "1px #f5f5f5 solid",
       }}
       className={s.header}
