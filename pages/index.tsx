@@ -1,28 +1,20 @@
 import React from "react";
-import { OrganizationJsonLd } from "next-seo";
+import { useRouter } from "next/router";
 
 import Main from "components/Main";
 import DefaultLayout from "layouts/DefaultLayout";
-
-function MainSEO() {
-  const JSON_LD = {
-    type: "Organization",
-    name: "홈 - 내일전시",
-    url: "https://seeoul.netlify.app",
-    sameAs: [
-      "https://www.instagram.com/seeou1",
-      "https://twitter.com/seeou11",
-      "https://www.facebook.com/profile.php?id=100083987572734",
-    ],
-  };
-
-  return <OrganizationJsonLd {...JSON_LD} />;
-}
+import { filterSort } from "utils/filterSort";
+import IndexSeo from "pages/indexSeo";
 
 export default function HomepageLayout() {
+  const router = useRouter();
+  const { tab } = router.query;
+
+  const sort = (tab ?? "total") as string;
+
   return (
     <>
-      <MainSEO />
+      <IndexSeo title={["전체", "total"].includes(sort) ? "홈" : filterSort(sort)} />
       <DefaultLayout>
         <Main />
       </DefaultLayout>
