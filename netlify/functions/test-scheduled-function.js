@@ -1,16 +1,13 @@
-import fetch from "node-fetch";
+const fetch = require("node-fetch");
 import { schedule } from "@netlify/functions";
 
-// This is a sample build hook URL
-const url = "https://all-exhibition-ssxst31.koyeb.app/total";
+const BUILD_HOOK = "https://api.netlify.com/build_hooks/63bb90ab0e674d226f545a62";
 
-// Schedules the handler function to run at midnight on
-// Mondays, Wednesday, and Friday
-const handler = schedule("0 0 * * *", async () => {
-  await fetch(url, {
-    method: "get",
-  }).then((res) => {
-    console.log(res);
+const handler = schedule("54 13 * * *", async () => {
+  await fetch(BUILD_HOOK, {
+    method: "POST",
+  }).then((response) => {
+    console.log("Build hook response:", response);
   });
 
   return {
