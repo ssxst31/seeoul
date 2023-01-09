@@ -41,7 +41,7 @@ const Blog = ({ post }: any) => {
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <Header />
         <div style={{ padding: "80px 16px 0 16px", textAlign: "center" }}>
-          <h1>{post.title}</h1>
+          <h2>{post.title}</h2>
           {post.content.map((el: any) => (
             <p style={{ fontSize: 16, color: "#000000" }}>{el}</p>
           ))}
