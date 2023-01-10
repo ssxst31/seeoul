@@ -47,7 +47,7 @@ export async function fetchDetailCulturalEvent({ id }: { id: number }) {
 export async function fetchInstagramFeed() {
   const resp = await axios
     .get(
-      `https://graph.instagram.com/me/media?fields=caption,id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=IGQVJWMEVEZA3VjeXdQZAUVYV0NTSmxfaDh6bEk1dW5TTldNdFgzd3oyeTBlY1FOU3lnbHVQOUVqbmRMeXFhSWpTZAXFSX1cydGM2Y1QwMi1Kank5dXUyUzJaWW9DVktwbVE1b0hkdmNvSWRyX2U1MENiRgZDZD`,
+      `https://graph.instagram.com/me/media?fields=caption,id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=IGQVJXWE1XYzhQcDNUSXZA2QmR3b25nbGdrNTZAQMGtub0ZAXR0NqT3NleWl3T19mNklCVGNMN3NOVUNOXzNCOXc3TFQ5QUdWaTU5eWlnQS1UWF9MMW5hVm9WMXZAoOUxtMWdmMC1ZANHN3QTRuRXFCNDBjaAZDZD`,
     )
     .catch((e) => ({
       data: {
