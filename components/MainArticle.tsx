@@ -1,5 +1,4 @@
 import React from "react";
-import { Row, Col } from "antd";
 
 import { CulturalEvent } from "type";
 import CulturalEventCard from "components/CulturalEventCard";
@@ -16,13 +15,11 @@ export default function MainArticle({ totalCulturalEvent }: MainArticleProps) {
 
   return (
     <article>
-      <Row justify="center" gutter={[32, 32]}>
+      <div className="grid grid-cols-1 gap-y-8 gap-x-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
         {totalCulturalEvent.map((culturalEvent) => (
-          <Col key={culturalEvent.id}>
-            <CulturalEventCard culturalEvent={culturalEvent} />
-          </Col>
+          <CulturalEventCard culturalEvent={culturalEvent} key={culturalEvent.id} />
         ))}
-      </Row>
+      </div>
     </article>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useSWR from "swr";
+import useSWR, { useSWRConfig } from "swr";
 
 import { fetchCulturalEvent } from "pages/api/index";
 import { CulturalEvent } from "type";
@@ -13,7 +13,10 @@ interface FetchCulturalEventProps {
 export default function useFetchCulturalEvent({ page = 1, sort, search }: FetchCulturalEventProps): {
   totalCulturalEvent: CulturalEvent[] | null;
   totalCount: number;
+  refresh: () => void;
 } {
+  const { mutate } = useSWRConfig();
+
   const [insteadData, setInsteadData] = useState(null);
 
   const { data } = useSWR(
@@ -32,8 +35,15 @@ export default function useFetchCulturalEvent({ page = 1, sort, search }: FetchC
     { revalidateIfStale: false },
   );
 
+  const refresh = () => {
+    mutate({
+      url: `/get`,
+      params: { page, sort, search },
+    });
+  };
+
   const totalCulturalEvent = data?.data ?? insteadData;
   const totalCount = data?.totalCount ?? 0;
 
-  return { totalCulturalEvent, totalCount };
+  return { totalCulturalEvent, totalCount, refresh };
 }

@@ -12,5 +12,5 @@ Backend project of service is at another Repo - [backend](https://github.com/ssx
 - Next
 - TypeScript
 - recoil
-- Antd
+- TailWind css
 - Netlify

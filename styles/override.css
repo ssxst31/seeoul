@@ -1,27 +1,3 @@
-.ant-carousel{
-  margin: 0px -30px;
-}
-
-.ant-carousel .slick-dots li{
-  background-color: #5553FF;
-}
-.slick-slide{
-  text-align: center;
-}
-#reactions__container {
-  display: none !important;
-}
-.ant-col-6 {
-  max-width: none;
-}
-.ant-pagination-item-active{
-  border-color: #5553FF;
-}
-.ant-pagination-item-active a{
-  color: #5553FF;
-}
-@media screen and (max-width: 763px) {
-  .ant-carousel{
-    margin: 0px;
-  }
+.slick-list {
+  margin: 0 -16px;
 }

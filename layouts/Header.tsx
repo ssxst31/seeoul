@@ -34,6 +34,11 @@ export default function Header() {
     { title: "연극", sort: "theater" },
   ];
 
+  const navItemList = [
+    { title: "인기 전시회", value: "popular" },
+    { title: "후기", value: "review" },
+  ];
+
   return (
     <header
       style={{
@@ -75,54 +80,27 @@ export default function Header() {
             </a>
           </h1>
           <nav>
-            <ul style={{ display: "flex" }}>
-              <li>
-                <Link href="/popular">
-                  <a>
-                    <div>
-                      <span
-                        style={{
-                          fontSize: 15,
-                          fontWeight: router.pathname === "/popular" ? 700 : 500,
-                          color: router.pathname === "/popular" ? "#222222" : "#333333",
-                        }}
-                        className={s.bold}
-                      >
-                        인기 전시회
-                      </span>
-                      <img
-                        src="/new.png"
-                        style={{
-                          width: 16,
-                          height: 16,
-                          position: "relative",
-                          top: 15,
-                          left: -5,
-                        }}
-                        alt="new"
-                      />
-                    </div>
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/review">
-                  <a>
-                    <div>
-                      <span
-                        style={{
-                          fontSize: 15,
-                          fontWeight: router.pathname === "/review" ? 700 : 500,
-                          color: router.pathname === "/review" ? "#222222" : "#333333",
-                        }}
-                        className={s.bold}
-                      >
-                        후기
-                      </span>
-                    </div>
-                  </a>
-                </Link>
-              </li>
+            <ul className="flex space-x-2">
+              {navItemList.map((navItem, index) => {
+                return (
+                  <li key={index}>
+                    <Link href={`/${navItem.value}`} passHref>
+                      <a>
+                        <span
+                          style={{
+                            fontSize: 15,
+                            fontWeight: router.pathname === `/${navItem.value}` ? 700 : 500,
+                            color: router.pathname === `/${navItem.value}` ? "#222222" : "#333333",
+                          }}
+                          className={s.bold}
+                        >
+                          {navItem.title}
+                        </span>
+                      </a>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
         </div>
