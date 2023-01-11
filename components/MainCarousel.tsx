@@ -11,7 +11,7 @@ export default function MainCarousel() {
   const randomCulturalEventList = useRandomCulturalEvent();
 
   if (!randomCulturalEventList) {
-    return <CarouselSkeleton width="360" height="360" />;
+    return <CarouselSkeleton width="379" height="360" />;
   }
 
   const settings = {
@@ -39,7 +39,7 @@ export default function MainCarousel() {
   };
   return (
     <Slider {...settings}>
-      {randomCulturalEventList.map((randomCulturalEvent) => (
+      {randomCulturalEventList?.map((randomCulturalEvent) => (
         <div key={randomCulturalEvent.id}>
           <Link href={`/detail/${randomCulturalEvent.id}`} passHref>
             <a>

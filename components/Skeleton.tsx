@@ -5,15 +5,16 @@ import useWindowDimensions from "hook/useWindowDimensions";
 
 interface SkeletonProps {
   row?: number;
-  width: string;
   height: string;
 }
 
-export default function Skeleton({ row = 3, width, height }: SkeletonProps) {
+export default function Skeleton({ row = 3, height }: SkeletonProps) {
   const { width2 } = useWindowDimensions();
 
+  const height2 = width2 > 763 ? height : "486px";
+
   return (
-    <div className="flex flex-wrap justify-center mx-auto">
+    <div className="grid grid-cols-1 gap-y-8 gap-x-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 -md:gap-y-4 -md:gap-x-4">
       {range(row).map((r, index) => (
         <ContentLoader
           key={index}
@@ -21,12 +22,11 @@ export default function Skeleton({ row = 3, width, height }: SkeletonProps) {
           backgroundColor="#f3f3f3"
           foregroundColor="#ecebeb"
           style={{
-            width: width2 > 763 ? width : "100%",
-            height: height,
-            margin: width2 > 763 ? "0 16px 32px 16px" : "0 0 16px 0",
+            width: "100%",
+            height: height2,
           }}
         >
-          <rect x="0" y="0" rx="0" ry="0" className="w-full" height={height} />
+          <rect x="0" y="0" rx="0" ry="0" className="w-full" height={height2} />
         </ContentLoader>
       ))}
     </div>
