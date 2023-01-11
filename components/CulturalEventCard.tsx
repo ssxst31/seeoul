@@ -14,11 +14,11 @@ export default function CulturalEventCard({ culturalEvent }: CulturalEventCardPr
   const { mainImg, title, date, id } = culturalEvent;
 
   return (
-    <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden xl:aspect-w-7 xl:aspect-h-8 border border-gray-200 shadow-gray-100 shadow-lg">
+    <div className="relative w-full overflow-hidden border border-gray-200 shadow-lg aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8 shadow-gray-100">
       <Link href={`/detail/${id}`} passHref>
         <a>
-          <div className="h-96 relative w-full sm:h-72 overflow-hidden">
-            <Image src={mainImg} alt={title} layout="fill" className="hover:scale-110 ease-linear duration-100" />
+          <div className="relative w-full overflow-hidden h-96 sm:h-72">
+            <Image src={mainImg} alt={title} layout="fill" className="duration-100 ease-linear hover:scale-110" />
           </div>
           <div className="p-6">
             <strong style={{ fontWeight: 700, fontSize: 20 }}>
