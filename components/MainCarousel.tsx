@@ -43,7 +43,7 @@ export default function MainCarousel() {
         <div key={randomCulturalEvent.id}>
           <Link href={`/detail/${randomCulturalEvent.id}`} passHref>
             <a>
-              <div className="min-h-[360px] mx-4 relative ">
+              <div className="min-h-[360px] mx-4 relative -md:mx-0">
                 <Image
                   src={isMobile ? randomCulturalEvent.mainImg.slice(0, -1) : randomCulturalEvent.mainImg}
                   layout="fill"

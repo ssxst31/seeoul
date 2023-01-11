@@ -1,3 +1,13 @@
 .slick-list {
   margin: 0 -16px;
 }
+
+.slick-arrow{
+  display: none !important;
+}
+
+@media screen and (max-width: 763px) {
+  .slick-list {
+    margin: 0px
+  }
+}
