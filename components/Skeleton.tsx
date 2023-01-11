@@ -13,14 +13,7 @@ export default function Skeleton({ row = 3, width, height }: SkeletonProps) {
   const { width2 } = useWindowDimensions();
 
   return (
-    <div
-      style={{
-        margin: "0 auto",
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-      }}
-    >
+    <div className="flex flex-wrap justify-center mx-auto">
       {range(row).map((r, index) => (
         <ContentLoader
           key={index}
@@ -33,7 +26,7 @@ export default function Skeleton({ row = 3, width, height }: SkeletonProps) {
             margin: width2 > 763 ? "0 16px 32px 16px" : "0 0 16px 0",
           }}
         >
-          <rect x="0" y="0" rx="0" ry="0" width="100%" height={height} />
+          <rect x="0" y="0" rx="0" ry="0" className="w-full" height={height} />
         </ContentLoader>
       ))}
     </div>

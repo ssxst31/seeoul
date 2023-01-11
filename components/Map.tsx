@@ -71,14 +71,14 @@ export default function Map({ searchPlace }: MapProps) {
   }, []);
 
   return (
-    <div className={s.mobile}>
+    <div className="flex justify-between -md:flex-col">
       <div
         id="map"
         style={{
           width: "100%",
         }}
         className={s.myMap}
-      ></div>
+      />
     </div>
   );
 }

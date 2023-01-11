@@ -28,19 +28,19 @@ export default function Slider() {
   ];
 
   return (
-    <div style={{ overflowY: "hidden", height: 60 }}>
+    <div className="overflow-y-hidden h-[60px]">
       <ul
+        className="text-center"
         style={{
           transform: `translateY(${-count * 64}px)`,
           transition: "all ease 2s 0s",
-          textAlign: "center",
         }}
       >
         {slides.map((el, index) => (
           <li key={index}>
             <Link href={el.link} key={index} passHref>
               <a target="_blank" rel="noopener noreferrer">
-                <strong style={{ fontSize: 17, fontWeight: 700, color: "#000000" }}>{el.title}</strong>
+                <strong className="text-lg font-bold text-black">{el.title}</strong>
               </a>
             </Link>
           </li>

@@ -1,5 +1,4 @@
 import React from "react";
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -21,22 +20,9 @@ export default function CulturalEventCard({ culturalEvent }: CulturalEventCardPr
             <Image src={mainImg} alt={title} layout="fill" className="duration-100 ease-linear hover:scale-110" />
           </div>
           <div className="p-6">
-            <strong style={{ fontWeight: 700, fontSize: 20 }}>
-              {title.length > 30 ? `${title.substr(0, 30)}...` : title}
-            </strong>
-            <span style={{ fontSize: 15, display: "block" }}>기간 : {date}</span>
-            <div
-              style={{
-                position: "absolute",
-                right: -1,
-                top: -1,
-                fontWeight: 700,
-                color: "#fc4c4c",
-                backgroundColor: "white",
-                width: 50,
-                textAlign: "center",
-              }}
-            >
+            <strong className="text-xl font-bold">{title.length > 30 ? `${title.substr(0, 30)}...` : title}</strong>
+            <span className="block text-base">기간 : {date}</span>
+            <div className="absolute right-[-1px] top-[-1px] font-bold text-red-500 bg-white w-12 text-center">
               {DDay(date)}
             </div>
           </div>

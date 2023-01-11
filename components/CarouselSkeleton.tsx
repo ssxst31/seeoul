@@ -10,13 +10,7 @@ interface CarouselSkeletonProps {
 
 export default function CarouselSkeleton({ row = 3, width, height }: CarouselSkeletonProps) {
   return (
-    <div
-      style={{
-        margin: "0 auto",
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
+    <div className="flex justify-between mx-auto">
       {range(row).map((r, index) => (
         <ContentLoader
           key={index}
@@ -28,7 +22,7 @@ export default function CarouselSkeleton({ row = 3, width, height }: CarouselSke
             height: height,
           }}
         >
-          <rect x="0" y="0" rx="0" ry="0" width="100%" height={height} />
+          <rect x="0" y="0" rx="0" ry="0" height={height} className="w-full" />
         </ContentLoader>
       ))}
     </div>
