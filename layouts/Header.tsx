@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import Slider from "components/Slider";
-import s from "layouts/layout.module.css";
 
 export default function Header() {
   const router = useRouter();
@@ -40,43 +39,13 @@ export default function Header() {
   ];
 
   return (
-    <header
-      style={{
-        position: "fixed",
-        width: "100%",
-        backgroundColor: "#fff",
-        zIndex: 16,
-        top: 0,
-        left: 0,
-        borderBottom: "1px #f5f5f5 solid",
-      }}
-      className={s.header}
-    >
-      <div className={s.headerMain}>
-        <div className={s.mobile}>
-          <h1 style={{ margin: 0 }}>
-            <a
-              style={{
-                fontSize: 32,
-                color: "#5553FF",
-                marginRight: 50,
-                display: "flex",
-                alignContent: "center",
-              }}
-              href="/"
-            >
-              <img
-                src="/logo.png"
-                style={{
-                  width: 40,
-                  height: 40,
-                  position: "relative",
-                  top: 10,
-                  marginRight: 12,
-                }}
-                alt="logo"
-              />
-              <div style={{ fontSize: 26 }}>내일 전시</div>
+    <header className="fixed top-0 left-0 z-20 w-full bg-white border-b border-gray-100 border-solid">
+      <div className="flex justify-between mx-auto px-7 max-w-7xl leading-[64px] -md:px-4">
+        <div className="flex -md:block">
+          <h1 className="inline-flex h-16">
+            <a className="flex items-center mr-12 text-3xl text-indigo-500" href="/">
+              <img src="/logo.png" className="w-10 h-10 mr-3" alt="logo" />
+              <div className="text-2xl">내일 전시</div>
             </a>
           </h1>
           <nav>
@@ -87,12 +56,11 @@ export default function Header() {
                     <Link href={`/${navItem.value}`} passHref>
                       <a>
                         <span
-                          style={{
-                            fontSize: 15,
-                            fontWeight: router.pathname === `/${navItem.value}` ? 700 : 500,
-                            color: router.pathname === `/${navItem.value}` ? "#222222" : "#333333",
-                          }}
-                          className={s.bold}
+                          className={`hover:font-bold ${
+                            router.pathname === "/" + navItem.value
+                              ? "font-bold  hover:font-bold"
+                              : "font-medium hover:font-bold"
+                          } `}
                         >
                           {navItem.title}
                         </span>
@@ -107,15 +75,8 @@ export default function Header() {
         <Slider />
       </div>
       {router.pathname === "/" && (
-        <div style={{ borderTop: "1px #f5f5f5 solid", overflowX: "scroll" }} className={s.dsa}>
-          <ul
-            style={{
-              display: "flex",
-              margin: "0 auto",
-              lineHeight: "40px",
-            }}
-            className={s.rea}
-          >
+        <div className="overflow-x-scroll border-t border-gray-100 border-solid scrollbar-hide">
+          <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[733px] -md:px-4 flex mx-auto leading-10">
             {TABS.map((t, index) => (
               <li key={index}>
                 <Link href={`/?tab=${t.sort}`} key={index}>
@@ -137,25 +98,14 @@ export default function Header() {
         </div>
       )}
       {router.pathname === "/review" && (
-        <div style={{ borderTop: "1px #f5f5f5 solid", overflowX: "scroll" }} className={s.dsa}>
-          <ul
-            style={{
-              display: "flex",
-              margin: "0 auto",
-              lineHeight: "40px",
-            }}
-            className={s.rea}
-          >
+        <div className="overflow-x-scroll scrollbar-hide">
+          <ul className=" max-w-7xl px-7 -md:max-w-none -md:w-[733px] -md:px-4 flex mx-auto leading-10">
             {TABS2.map((t, index) => (
               <Link key={index} href={`review/?tab=${t.sort}`}>
                 <a
-                  style={{
-                    fontSize: 14,
-                    marginRight: 20,
-                    fontWeight: router.query.tab === t.sort ? 700 : 500,
-                    color: router.query.tab === t.sort ? "#000000" : "#333333",
-                    cursor: "pointer",
-                  }}
+                  className={`mr-5 text-sm cursor-pointer ${
+                    router.query.tab === t.sort ? "font-bold text-black" : "font-medium text-gray-600"
+                  } `}
                 >
                   {t.title}
                 </a>

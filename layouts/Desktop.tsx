@@ -10,7 +10,7 @@ interface ResponsiveContainerProps {
 export default function ResponsiveContainer({ children }: ResponsiveContainerProps) {
   return (
     <>
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+      <div className="mx-auto max-w-7xl">
         <Header />
         {children}
       </div>
