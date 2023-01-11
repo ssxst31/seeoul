@@ -9,7 +9,6 @@ body {
 ::before,
 ::after {
   box-sizing: border-box;
-  font-family: 'Noto Sans KR', sans-serif;
 }
 
 img {

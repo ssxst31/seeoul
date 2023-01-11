@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 
-* { 
-  font-family: 'NanumSquare';
-}
+
+* { font-family: 'NanumSquare', sans-serif }
