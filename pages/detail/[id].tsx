@@ -10,7 +10,6 @@ import DetailSEO from "pages/detail/DetailSEO";
 import { CulturalEvent } from "type";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
-import s from "./detail.module.css";
 
 const ComponentsWithNoSSR = dynamic(
   () => import("components/Map"), // Component로 사용할 항목을 import합니다.
@@ -64,108 +63,73 @@ const Detail = ({ culturalEvent }: DetailProps) => {
   return (
     <>
       <DetailSEO title={title} mainImg={mainImg} />
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+      <div className="mx-auto max-w-7xl">
         <Header />
-        <div className={s.mainLayout}>
-          <div className={s.mobile}>
-            <img className={s.detailImg} alt={title} src={mainImg} />
-            <div className={s.detailBox}>
-              <div className={s.detailText}>
+        <div className="px-[30px] w-full pt-20 -md:pt-36 -md:px-4">
+          <div className="flex justify-between -md:block">
+            <img
+              className="object-contain w-full max-w-[500px] -md:object-cover -md:w-[calc(100%+32px)] -md:max-w-none -md:ml-[-16px] -md:h-[360px]"
+              alt={title}
+              src={mainImg}
+            />
+            <div className="-md:flex -md:w-[calc(100%+32px)] -md:mt-[-50px] -md:ml-[-16px] -md:relative -md:bg-white -md:justify-between">
+              <div className="p-3">
                 <div>
-                  <span className={s.title}>{title}</span>
+                  <span className="text-3xl font-bold">{title}</span>
                 </div>
-                <div style={{ height: 16, width: "100%" }} />
+                <div className="w-full h-2" />
                 <div>
-                  <span
-                    className={s.text}
-                    style={{
-                      color: "grey",
-                      fontWeight: 500,
-                    }}
-                  >
-                    장소 :
-                  </span>
-                  <span className={s.text}>{place}</span>
+                  <span className="text-xl font-medium text-gray-400 -md:text-base">장소 :</span>
+                  <span className="text-xl -md:text-base">{place}</span>
                 </div>
-                <div style={{ height: 16, width: "100%" }} />
+                <div className="w-full h-2" />
                 <div>
-                  <span
-                    className={s.text}
-                    style={{
-                      color: "grey",
-                      fontWeight: 500,
-                    }}
-                  >
-                    기간 :
-                  </span>
-                  <span className={s.text}>{date}</span>
+                  <span className="text-xl font-medium text-gray-400 -md:text-base">기간 :</span>
+                  <span className="text-xl -md:text-base">{date}</span>
                 </div>
-                <div style={{ height: 16, width: "100%" }} />
+                <div className="w-full h-2" />
                 <div>
-                  <span
-                    className={s.text}
-                    style={{
-                      color: "grey",
-                      fontWeight: 500,
-                    }}
-                  >
-                    대상 :
-                  </span>
-                  <span className={s.text}>{useTrgt}</span>
+                  <span className="text-xl font-medium text-gray-400 -md:text-base">대상 :</span>
+                  <span className="text-xl -md:text-base">{useTrgt}</span>
                 </div>
-                <div style={{ height: 8, width: "100%" }} />
+                <div className="w-full h-2" />
                 <div>
-                  <span
-                    className={s.text}
-                    style={{
-                      color: "grey",
-                      fontWeight: 500,
-                    }}
-                  >
-                    요금 :
-                  </span>
-                  <span className={s.text}>{useFee}</span>
+                  <span className="text-xl font-medium text-gray-400 -md:text-base">요금 :</span>
+                  <span className="text-xl -md:text-base">{useFee}</span>
                 </div>
-                <div style={{ height: 8, width: "100%" }} />
+                <div className="w-full h-2" />
                 <div>
-                  <span
-                    style={{
-                      fontSize: isMobile ? 16 : 20,
-                      color: "grey",
-                      fontWeight: 500,
-                    }}
-                  >
+                  <span className="text-xl font-medium text-gray-400 -md:text-base">
                     <Link href={orgLink} passHref>
-                      <a target="_blank" rel="noopener noreferrer" style={{ color: "grey" }}>
+                      <a target="_blank" rel="noopener noreferrer" className="text-gray-400">
                         사이트 바로가기
                       </a>
                     </Link>
                   </span>
                 </div>
               </div>
-              <img className={s.detailMiniImg} alt={title} src={mainImg} />
+              <img
+                className="hidden -md:mt-[-50px] -md:block -md:max-h-[120px] -md:object-contain -md:w-full -md:max-w-[120px]"
+                alt={title}
+                src={mainImg}
+              />
             </div>
           </div>
-          <div style={{ width: "100%", height: 60 }} />
+          <div className="w-full h-[60px]" />
           <ComponentsWithNoSSR searchPlace={place.split(" ")[0]} />
         </div>
-        <div className={s.dd}>
-          <button style={{ width: "100%", backgroundColor: "#5553ff", height: 45, color: "white" }}>
+        <div className="-md:bottom-0 hidden -md:block -md:fixed -md:w-full -md:z-[999999999]">
+          <button className="w-full text-white bg-indigo-600 h-11">
             <Link href={orgLink} passHref>
-              <a target="_blank" rel="noopener noreferrer" style={{ color: "white", fontWeight: "bold" }}>
+              <a target="_blank" rel="noopener noreferrer" className="font-bold text-white">
                 예매하기
               </a>
             </Link>
           </button>
         </div>
       </div>
-      <div
-        style={{
-          maxWidth: isMobile ? "300px" : "1250px",
-          margin: "0 auto",
-          width: "100%",
-        }}
-      >
+      <div className="w-full h-2" />
+      <div className="mx-auto max-w-[1280px] px-[30px] -md:px-[16px]">
         <DiscussionEmbed
           shortname="seeoul"
           config={{
@@ -176,7 +140,7 @@ const Detail = ({ culturalEvent }: DetailProps) => {
           }}
         />
       </div>
-      <div style={{ maxWidth: isMobile ? "300px" : "728px", margin: "0 auto" }}>
+      <div className="mx-auto -md:max-w-[300px] max-w-[728px]">
         <KakaoAdFit unit={isMobile ? "DAN-ncR6s1pAyuAZtN0w" : "DAN-5fCtQtQI3q57O0n8"} />
       </div>
       <Footer />
