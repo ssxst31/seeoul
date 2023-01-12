@@ -34,7 +34,7 @@ const makePaginationHref = (totalCount: number, page: number, tab: string) => {
 
   for (let i = startIndex; i <= endIndex; i++) {
     pageNumbersArray.push(
-      <Link href={`?tab=${tab}&page=${i}`} passHref>
+      <Link href={`?tab=${tab}&page=${i}`} passHref shallow={true}>
         <a>
           <div
             className={
