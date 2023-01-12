@@ -30,14 +30,14 @@ export default function Slider() {
   return (
     <div className="overflow-y-hidden h-[60px]">
       <ul
-        className="text-center"
+        className="inline-flex flex-col text-center"
         style={{
           transform: `translateY(${-count * 64}px)`,
           transition: "all ease 2s 0s",
         }}
       >
         {slides.map((el, index) => (
-          <li key={index}>
+          <li key={index} className="inline-flex items-center h-16">
             <Link href={el.link} key={index} passHref>
               <a target="_blank" rel="noopener noreferrer">
                 <strong className="text-lg font-bold text-black">{el.title}</strong>

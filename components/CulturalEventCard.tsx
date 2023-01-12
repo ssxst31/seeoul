@@ -7,9 +7,10 @@ import { DDay } from "utils/date";
 
 interface CulturalEventCardProps {
   culturalEvent: CulturalEvent;
+  index: number;
 }
 
-export default function CulturalEventCard({ culturalEvent }: CulturalEventCardProps) {
+export default function CulturalEventCard({ culturalEvent, index }: CulturalEventCardProps) {
   const { mainImg, title, date, id } = culturalEvent;
 
   return (
@@ -17,7 +18,13 @@ export default function CulturalEventCard({ culturalEvent }: CulturalEventCardPr
       <Link href={`/detail/${id}`} passHref>
         <a>
           <div className="relative w-full overflow-hidden h-96 sm:h-72">
-            <Image src={mainImg} alt={title} layout="fill" className="duration-100 ease-linear hover:scale-110" />
+            <Image
+              src={mainImg}
+              alt={title}
+              layout="fill"
+              className="duration-100 ease-linear hover:scale-110"
+              priority={index < 3}
+            />
           </div>
           <div className="p-6">
             <strong className="text-xl font-bold">{title.length > 30 ? `${title.substr(0, 30)}...` : title}</strong>

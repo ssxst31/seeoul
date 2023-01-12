@@ -40,16 +40,16 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 z-20 w-full bg-white border-b border-gray-100 border-solid">
-      <div className="flex justify-between mx-auto px-7 max-w-7xl leading-[64px] -md:px-4">
+      <div className="flex justify-between mx-auto px-7 max-w-7xl -md:px-4">
         <div className="flex -md:block">
-          <h1 className="inline-flex h-16">
-            <a className="flex items-center mr-12 text-3xl text-indigo-500" href="/">
+          <h1 className="inline-flex mr-12">
+            <a className="flex items-center -md:h-16" href="/">
               <img src="/logo.png" className="w-10 h-10 mr-3" alt="logo" />
-              <div className="text-2xl">내일 전시</div>
+              <div className="text-2xl text-indigo-600">내일 전시</div>
             </a>
           </h1>
-          <nav>
-            <ul className="flex space-x-2">
+          <nav className="inline-flex items-center -md:block">
+            <ul className="flex items-center space-x-2 -md:h-11">
               {navItemList.map((navItem, index) => {
                 return (
                   <li key={index}>
@@ -57,9 +57,7 @@ export default function Header() {
                       <a>
                         <span
                           className={`hover:font-bold ${
-                            router.pathname === "/" + navItem.value
-                              ? "font-bold  hover:font-bold"
-                              : "font-medium hover:font-bold"
+                            router.pathname === "/" + navItem.value ? "font-bold" : "font-medium"
                           } `}
                         >
                           {navItem.title}
@@ -76,20 +74,18 @@ export default function Header() {
       </div>
       {router.pathname === "/" && (
         <div className="overflow-x-scroll border-t border-gray-100 border-solid scrollbar-hide">
-          <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[733px] -md:px-4 flex mx-auto leading-10">
+          <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[734px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
             {TABS.map((t, index) => (
               <li key={index}>
                 <Link href={`/?tab=${t.sort}`} key={index}>
-                  <a
-                    style={{
-                      fontSize: 14,
-                      marginRight: 20,
-                      fontWeight: router.query.tab === t.sort ? 700 : 500,
-                      color: router.query.tab === t.sort ? "#000000" : "#333333",
-                      cursor: "pointer",
-                    }}
-                  >
-                    {t.title}
+                  <a>
+                    <span
+                      className={`text-sm cursor-pointer hover:font-bold hover:text-black ${
+                        router.query.tab === t.sort ? "font-bold text-black" : "font-medium text-neutral-400"
+                      }`}
+                    >
+                      {t.title}
+                    </span>
                   </a>
                 </Link>
               </li>
