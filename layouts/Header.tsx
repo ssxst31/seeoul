@@ -77,7 +77,7 @@ export default function Header() {
           <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[734px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
             {TABS.map((t, index) => (
               <li key={index}>
-                <Link href={`/?tab=${t.sort}`} key={index} shallow={true}>
+                <Link href={`/?tab=${t.sort}`} key={index} shallow={true} scroll={true}>
                   <a>
                     <span
                       className={`text-sm cursor-pointer hover:font-bold hover:text-black ${

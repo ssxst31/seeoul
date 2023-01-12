@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import useSWR, { useSWRConfig } from "swr";
+import React from "react";
+import useSWR from "swr";
 
 import { fetchCulturalEvent } from "pages/api/index";
 import { CulturalEvent } from "type";
@@ -23,7 +23,7 @@ export default function useFetchCulturalEvent({ page = 1, sort, search }: FetchC
     },
     { revalidateIfStale: false },
   );
-  console.log(data);
+
   const totalCulturalEvent = data?.data ?? null;
   const totalCount = data?.totalCount ?? 0;
 

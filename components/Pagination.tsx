@@ -22,7 +22,7 @@ const makePaginationHref = (totalCount: number, page: number, tab: string) => {
 
   if (startIndex > 1) {
     pageNumbersArray.push(
-      <Link href={`?tab=${tab}&page=${page - 1}`} passHref>
+      <Link href={`?tab=${tab}&page=${page - 1}`} passHref shallow={true} scroll={true}>
         <a>
           <div className="inline-flex items-center justify-center w-10 h-10 text-gray-500 border border-gray-200 rounded-md -md:w-8 -md:h-8">
             &lt;
@@ -34,7 +34,7 @@ const makePaginationHref = (totalCount: number, page: number, tab: string) => {
 
   for (let i = startIndex; i <= endIndex; i++) {
     pageNumbersArray.push(
-      <Link href={`?tab=${tab}&page=${i}`} passHref shallow={true}>
+      <Link href={`?tab=${tab}&page=${i}`} passHref shallow={true} scroll={true}>
         <a>
           <div
             className={
@@ -52,7 +52,7 @@ const makePaginationHref = (totalCount: number, page: number, tab: string) => {
 
   if (endIndex < totalCount) {
     pageNumbersArray.push(
-      <Link href={`?tab=${tab}&page=${page + 1}`} passHref>
+      <Link href={`?tab=${tab}&page=${page + 1}`} passHref shallow={true} scroll={true}>
         <a>
           <div className="inline-flex items-center justify-center w-10 h-10 text-gray-500 border border-gray-200 rounded-md -md:w-8 -md:h-8">
             &gt;

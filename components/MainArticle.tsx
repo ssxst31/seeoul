@@ -2,7 +2,6 @@ import React from "react";
 
 import { CulturalEvent } from "type";
 import CulturalEventCard from "components/CulturalEventCard";
-import Skeleton from "components/Skeleton";
 
 interface MainArticleProps {
   totalCulturalEvent: CulturalEvent[] | [] | null;
