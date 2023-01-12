@@ -7,43 +7,25 @@ import { CulturalEvent } from "type";
 interface FetchCulturalEventProps {
   page: number;
   sort: string;
-  search: string;
+  search: string | undefined;
 }
 
 export default function useFetchCulturalEvent({ page = 1, sort, search }: FetchCulturalEventProps): {
-  totalCulturalEvent: CulturalEvent[] | null;
+  totalCulturalEvent: CulturalEvent[] | [] | null;
   totalCount: number;
-  refresh: () => void;
 } {
-  const { mutate } = useSWRConfig();
-
-  const [insteadData, setInsteadData] = useState(null);
-
   const { data } = useSWR(
-    {
-      url: `/get`,
-      params: { page, sort, search },
-    },
-
-    async ({ params }) => {
+    `/get?offset=${(page - 1) * 20}&limit=20&option=${sort === "전체" ? "all" : sort}&search=${search}`,
+    async () => {
+      const params = { page, sort, search };
       const response = await fetchCulturalEvent(params);
-
-      setInsteadData(response.data);
-
       return response;
     },
     { revalidateIfStale: false },
   );
-
-  const refresh = () => {
-    mutate({
-      url: `/get`,
-      params: { page, sort, search },
-    });
-  };
-
-  const totalCulturalEvent = data?.data ?? insteadData;
+  console.log(data);
+  const totalCulturalEvent = data?.data ?? null;
   const totalCount = data?.totalCount ?? 0;
 
-  return { totalCulturalEvent, totalCount, refresh };
+  return { totalCulturalEvent, totalCount };
 }

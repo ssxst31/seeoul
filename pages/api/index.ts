@@ -3,25 +3,11 @@ import axios from "axios";
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_APP_HOST_NAME;
 
 export async function fetchCulturalEvent({ page, sort, search }: { page: number; sort: string; search?: string }) {
-  if (search) {
-    const resp = await axios.get(`/get?offset=${(page - 1) * 20}&limit=20&search=${search}`).catch((e) => ({
-      data: {
-        error: e.response.data,
-      },
-    }));
+  const resp = await axios.get(
+    `/get?offset=${(page - 1) * 20}&limit=20&option=${sort === "전체" ? "all" : sort}&search=${search}`,
+  );
 
-    return resp.data;
-  } else {
-    const resp = await axios
-      .get(`/get?offset=${(page - 1) * 20}&limit=20&option=${sort === "전체" ? "all" : sort}`)
-      .catch((e) => ({
-        data: {
-          error: e.response.data,
-        },
-      }));
-
-    return resp.data;
-  }
+  return resp.data;
 }
 
 export async function fetchRandomCulturalEvent() {

@@ -20,8 +20,9 @@ export default function Main() {
 
   const sort = filterSort((query.tab as string) ?? "total");
 
-  const [search, setSearch] = useState<string>("");
-  const { totalCulturalEvent, totalCount, refresh } = useFetchCulturalEvent({
+  const [search, setSearch] = useState<string | undefined>(undefined);
+
+  const { totalCulturalEvent, totalCount } = useFetchCulturalEvent({
     page,
     sort,
     search,
