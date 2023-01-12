@@ -42,7 +42,7 @@ export default function Popular({ instagramFeed }: PopularProps) {
               >
                 <Link href={i.permalink} passHref>
                   <a target="_blank" rel="noopener noreferrer">
-                    <img src={i.media_url} height={390} width={390} />
+                    <img src={i.media_url} className="w-full h-full" />
                   </a>
                 </Link>
               </div>
