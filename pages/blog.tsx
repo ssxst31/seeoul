@@ -8,24 +8,14 @@ import blog from "pages/api/blog.json";
 export default function Blog() {
   return (
     <div>
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+      <div className="mx-auto max-w-7xl">
         <Header />
-        <div style={{ padding: "80px 16px 0 16px", textAlign: "center" }}>
-          <ul style={{ cursor: "pointer" }}>
+        <div className="px-4 pt-20 text-center">
+          <ul className="cursor-pointer">
             {blog.posts.map((el) => (
-              <Link href="/blog/[id]" as={`/blog/${el.id}`}>
+              <Link href="/blog/[id]" as={`/blog/${el.id}`} passHref key={el.id}>
                 <a>
-                  <li
-                    key={el.id}
-                    style={{
-                      borderBottom: "1px solid grey",
-                      fontSize: 16,
-                      padding: "8px 0",
-                      color: "#000000",
-                    }}
-                  >
-                    {el.title}
-                  </li>
+                  <li className="py-2 text-base text-black border border-b border-gray-400 border-solid">{el.title}</li>
                 </a>
               </Link>
             ))}

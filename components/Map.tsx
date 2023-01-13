@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-
-import s from "components/main.module.css";
+import React, { useEffect } from "react";
 
 interface MapProps {
   searchPlace: string;
@@ -72,13 +70,7 @@ export default function Map({ searchPlace }: MapProps) {
 
   return (
     <div className="flex justify-between -md:flex-col">
-      <div
-        id="map"
-        style={{
-          width: "100%",
-        }}
-        className={s.myMap}
-      />
+      <div id="map" className="w-full h-[500px] -md:h-[300px]" />
     </div>
   );
 }

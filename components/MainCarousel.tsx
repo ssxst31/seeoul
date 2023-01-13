@@ -1,9 +1,9 @@
 import React from "react";
-
 import Image from "next/image";
 import Link from "next/link";
 import { isMobile } from "react-device-detect";
 import Slider from "react-slick";
+
 import useRandomCulturalEvent from "hook/useRandomCulturalEvent";
 import CarouselSkeleton from "components/CarouselSkeleton";
 

@@ -16,20 +16,9 @@ export default function Error404() {
         </div>
         <div className="w-full h-5" />
         <Link href="/">
-          <button
-            style={{
-              fontSize: 30,
-              backgroundColor: "purple",
-              borderRadius: 12,
-              color: "#ffffff",
-              width: 300,
-              height: 80,
-            }}
-          >
-            Go HOME
-          </button>
+          <button className="text-3xl text-white bg-indigo-600 rounded-xl w-[300px] h-20">Go HOME</button>
         </Link>
-        <div style={{ height: 20, width: "100%" }} />
+        <div className="w-full h-5" />
       </div>
     </>
   );

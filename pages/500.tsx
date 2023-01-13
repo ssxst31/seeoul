@@ -7,27 +7,16 @@ export default function Error500() {
   return (
     <>
       <Header />
-      <div style={{ textAlign: "center", paddingTop: 200 }}>
+      <div className="text-center pt-[200px]">
         <img src="/404.png" />
-        <div style={{ fontSize: 120, color: "#5553FF" }}>404</div>
-        <div style={{ fontSize: 30 }}>서비스 이용에 불편을 드려 죄송합니다.</div>
-        <div style={{ fontSize: 20 }}>시스템 에러가 발생하여 페이지를 표시할 수 없습니다.</div>
-        <div style={{ height: 20, width: "100%" }} />
+        <div className="text-indigo-400 text-9xl">404</div>
+        <div className="text-3xl ">서비스 이용에 불편을 드려 죄송합니다.</div>
+        <div className="text-xl">시스템 에러가 발생하여 페이지를 표시할 수 없습니다.</div>
+        <div className="w-full h-5" />
         <Link href="/">
-          <button
-            style={{
-              fontSize: 30,
-              backgroundColor: "purple",
-              borderRadius: 12,
-              color: "#ffffff",
-              width: 300,
-              height: 80,
-            }}
-          >
-            Go HOME
-          </button>
+          <button className="text-3xl text-white bg-indigo-600 rounded-xl w-[300px] h-20">Go HOME</button>
         </Link>
-        <div style={{ height: 20, width: "100%" }} />
+        <div className="w-full h-5" />
       </div>
     </>
   );

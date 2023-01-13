@@ -38,16 +38,16 @@ const Blog = ({ post }: any) => {
   return (
     <>
       <BlogSEO title={post.title} />
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+      <div className="mx-auto max-w-7xl">
         <Header />
-        <div style={{ padding: "80px 16px 0 16px", textAlign: "center" }}>
+        <div className="px-4 pt-20 text-center">
           <h2>{post.title}</h2>
           {post.content.map((el: any) => (
-            <p style={{ fontSize: 16, color: "#000000" }}>{el}</p>
+            <p className="text-base text-black">{el}</p>
           ))}
           <Link href="/blog" as={`/blog`}>
             <a>
-              <button style={{ fontSize: 16 }}>목록으로 돌아가기</button>
+              <button className="text-base">목록으로 돌아가기</button>
             </a>
           </Link>
         </div>

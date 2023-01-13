@@ -7,7 +7,6 @@ import { filterSort } from "utils/filterSort";
 import useFetchCulturalEvent from "hook/useFetchCulturalEvent";
 import MainCarousel from "components/MainCarousel";
 import MainArticle from "components/MainArticle";
-import s from "components/main.module.css";
 import Pagination from "components/Pagination";
 
 const KakaoAdFit = dynamic(() => import("./KakaoAdFit"), { ssr: false });
@@ -39,7 +38,7 @@ export default function Main() {
   }
 
   return (
-    <main className={s.mainLayout}>
+    <main className="pt-[160px] px-[30px] w-full -md:px-4 -md:pt-[200px]">
       <section>
         <h2 className="m-0 text-2xl font-bold">전시회를 생각 중이라면 👀</h2>
         <div className="w-full h-4" />
@@ -49,13 +48,7 @@ export default function Main() {
       <section>
         <div className="flex justify-between -md:flex-col">
           <h2 className="m-0 text-2xl font-bold">여기서 바로 {sort === "전체" && ""} 골라보세요! 🫧</h2>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-            }}
-            className={s.searchContainer}
-          >
+          <div className="flex items-center -md:justify-between">
             <div className="text-base">
               총&nbsp;
               <span className="font-bold text-indigo-600">{totalCount}</span>
@@ -89,7 +82,7 @@ export default function Main() {
           <Pagination totalPages={totalCount} page={page} tab={tab} />
         </div>
         <div className="h-5" />
-        <div className={s.kakaoAdFitContainer}>
+        <div className="max-w-[728px] mx-auto overflow-x-hidden -md:max-w-[300px]">
           <KakaoAdFit unit={isMobile ? "DAN-NrbIqcNVQklTs9ND" : "DAN-zwtZjOswNyJO6kQA"} />
         </div>
         <div className="w-5" />
