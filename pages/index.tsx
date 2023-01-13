@@ -14,9 +14,9 @@ export async function getServerSideProps(context: any) {
   page = Number(page ?? 1) as number;
 
   const sort = filterSort((tab as string) ?? "total");
-  const params = { page, sort };
-  const data = await fetchCulturalEvent(params);
   const search = undefined;
+  const params = { page, sort, search };
+  const data = await fetchCulturalEvent(params);
   const apiKey = `/get?offset=${(page - 1) * 20}&limit=20&option=${sort === "전체" ? "all" : sort}&search=${search}`;
 
   return {

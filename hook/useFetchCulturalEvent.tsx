@@ -15,12 +15,8 @@ export default function useFetchCulturalEvent({ page = 1, sort, search }: FetchC
   totalCount: number;
 } {
   const { data } = useSWR(
-    `/get?offset=${(page - 1) * 20}&limit=20&option=${sort === "전체" ? "all" : sort}&search=${search}`,
-    async () => {
-      const params = { page, sort, search };
-      const response = await fetchCulturalEvent(params);
-      return response;
-    },
+    [`/get?offset=${(page - 1) * 20}&limit=20&option=${sort === "전체" ? "all" : sort}&search=${search}`],
+    () => fetchCulturalEvent({ page, sort, search }),
     { revalidateIfStale: false },
   );
 
