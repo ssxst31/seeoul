@@ -15,7 +15,7 @@ export default function Blog() {
             {blog.posts.map((el) => (
               <Link href="/blog/[id]" as={`/blog/${el.id}`} passHref key={el.id}>
                 <a>
-                  <li className="py-2 text-base text-black border-b border-gray-400 border-solid">{el.title}</li>
+                  <li className="py-2 text-base text-black border-b border-gray-200 border-solid">{el.title}</li>
                 </a>
               </Link>
             ))}
