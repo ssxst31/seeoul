@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="w-full py-10 text-center bg-gray-50">
       <p>출처 - 서울특별시, 서울문화포털(culture.seoul.go.kr)</p>
       <Link href="https://icons8.com" passHref>
-        <a>icons8</a>에서 아이콘 제공
+        <a>icons8에서 아이콘 제공</a>
       </Link>
       <p>This site[내일전시] is designed to share information about Seoul cultural event.</p>
       <p>ⓒ 내일전시 2022 All Rights Reserved.</p>
