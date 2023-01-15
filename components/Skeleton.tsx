@@ -2,7 +2,7 @@ import React from "react";
 import ContentLoader from "react-content-loader";
 
 import { range } from "utils/array";
-import useWindowDimensions from "hook/useWindowDimensions";
+import useWindowDimensions from "hooks/useWindowDimensions";
 
 interface SkeletonProps {
   row?: number;

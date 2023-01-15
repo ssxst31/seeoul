@@ -4,7 +4,7 @@ import Link from "next/link";
 import { isMobile } from "react-device-detect";
 import Slider from "react-slick";
 
-import useRandomCulturalEvent from "hook/useRandomCulturalEvent";
+import useRandomCulturalEvent from "hooks/useRandomCulturalEvent";
 import CarouselSkeleton from "components/CarouselSkeleton";
 
 export default function MainCarousel() {

@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { isMobile } from "react-device-detect";
 
 import { filterSort } from "utils/filterSort";
-import useFetchCulturalEvent from "hook/useFetchCulturalEvent";
+import useFetchCulturalEvent from "hooks/useFetchCulturalEvent";
 import MainCarousel from "components/MainCarousel";
 import MainArticle from "components/MainArticle";
 import Pagination from "components/Pagination";

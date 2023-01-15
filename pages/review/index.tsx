@@ -5,7 +5,7 @@ import Head from "next/head";
 
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
-import useInstagramReview from "hook/useInstagramReview";
+import useInstagramReview from "hooks/useInstagramReview";
 
 export default function Review() {
   const router = useRouter();
