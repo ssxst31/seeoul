@@ -33,8 +33,10 @@ export default function Popular({ instagramFeed }: PopularProps) {
       <PopularSEO />
       <div className="mx-auto max-w-7xl">
         <Header />
-        <div className="pt-40 px-[30px] -md:pt-[200px] -md:px-4">
+        <div className="pt-[60px] px-[30px] -md:pt-[108px] -md:px-4">
+          <div className="w-full h-8 -md:h-4" />
           <span className="text-2xl font-bold">요즘 핫한 전시회 ! 🫧</span>
+          <div className="w-full h-8 -md:h-4" />
           <div className="grid grid-cols-1 gap-y-8 gap-x-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 -md:gap-y-4 -md:gap-x-4">
             {instagramFeed.map((i, index) => (
               <div className="shadow-lg aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8 shadow-gray-100" key={index}>

@@ -7,7 +7,7 @@ export default function Error500() {
   return (
     <>
       <Header />
-      <div className="text-center pt-[200px]">
+      <div className="text-center pt-[165px]">
         <img src="/404.png" />
         <div className="text-indigo-400 text-9xl">404</div>
         <div className="text-3xl ">서비스 이용에 불편을 드려 죄송합니다.</div>

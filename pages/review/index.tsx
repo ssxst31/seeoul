@@ -1,11 +1,11 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Head from "next/head";
 
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 import useInstagramReview from "hooks/useInstagramReview";
+import ReviewSEO from "pages/review/ReviewSEO";
 
 export default function Review() {
   const router = useRouter();
@@ -16,12 +16,10 @@ export default function Review() {
 
   return (
     <>
-      <Head>
-        <title>후기 | 내일전시</title>
-      </Head>
+      <ReviewSEO />
       <div className="mx-auto max-w-7xl">
         <Header />
-        <div className="pt-40 px-[30px] -md:pt-[200px] -md:px-4">
+        <div className="pt-[60px] px-[30px] -md:pt-[108px] -md:px-4">
           <h2 className="text-2xl font-bold">인스타그램 후기 😎</h2>
           <div>
             <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">

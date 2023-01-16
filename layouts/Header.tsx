@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 import Slider from "components/Slider";
@@ -42,9 +43,11 @@ export default function Header() {
     <header className="fixed top-0 left-0 z-20 w-full bg-white border-b border-gray-100 border-solid">
       <div className="flex justify-between mx-auto px-7 max-w-7xl -md:px-4">
         <div className="flex -md:block">
-          <h1 className="inline-flex mr-12">
+          <h1 className="inline-flex mr-12 -md:mr-0">
             <a className="flex items-center -md:h-16" href="/">
-              <img src="/logo.png" className="w-10 h-10 mr-3" alt="logo" />
+              <div className="relative w-10 h-10 mr-3">
+                <Image src="/logo.png" width={40} height={40} alt="logo" layout="fill" objectFit="contain" />
+              </div>
               <div className="text-2xl text-indigo-600">내일 전시</div>
             </a>
           </h1>
@@ -77,7 +80,7 @@ export default function Header() {
           <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[734px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
             {TABS.map((t, index) => (
               <li key={index}>
-                <Link href={`/?tab=${t.sort}`} key={index} shallow={true} scroll={true}>
+                <Link href={`/?tab=${t.sort}`} key={index} shallow={true} scroll={true} passHref>
                   <a>
                     <span
                       className={`text-sm cursor-pointer hover:font-bold hover:text-black ${
@@ -94,16 +97,18 @@ export default function Header() {
         </div>
       )}
       {router.pathname === "/review" && (
-        <div className="overflow-x-scroll scrollbar-hide">
-          <ul className=" max-w-7xl px-7 -md:max-w-none -md:w-[733px] -md:px-4 flex mx-auto leading-10">
+        <div className="overflow-x-scroll border-t border-gray-100 border-solid scrollbar-hide">
+          <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[734px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
             {TABS2.map((t, index) => (
-              <Link key={index} href={`review/?tab=${t.sort}`}>
-                <a
-                  className={`mr-5 text-sm cursor-pointer ${
-                    router.query.tab === t.sort ? "font-bold text-black" : "font-medium text-gray-600"
-                  } `}
-                >
-                  {t.title}
+              <Link href={`review/?tab=${t.sort}`} key={index} shallow={true} scroll={true} passHref>
+                <a>
+                  <span
+                    className={`text-sm cursor-pointer hover:font-bold hover:text-black ${
+                      router.query.tab === t.sort ? "font-bold text-black" : "font-medium text-neutral-400"
+                    }`}
+                  >
+                    {t.title}
+                  </span>
                 </a>
               </Link>
             ))}

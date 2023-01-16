@@ -39,16 +39,17 @@ export default function Main() {
   }
 
   return (
-    <main className="pt-[160px] px-[30px] w-full -md:px-4 -md:pt-[200px]">
+    <main className="pt-[132px] px-[30px] w-full -md:px-4 -md:pt-[165px]">
       <section>
         <h2 className="m-0 text-2xl font-bold">전시회를 생각 중이라면 👀</h2>
-        <div className="w-full h-4" />
+        <div className="w-full h-8 -md:h-4" />
         <MainCarousel />
       </section>
       <div className="w-full h-10" />
       <section>
         <div className="flex justify-between -md:flex-col">
           <h2 className="m-0 text-2xl font-bold">여기서 바로 {sort === "전체" && ""} 골라보세요! 🫧</h2>
+          <div className="hidden w-full -md:h-4 -md:block" />
           <div className="flex items-center -md:justify-between">
             <div className="text-base">
               총&nbsp;
@@ -60,17 +61,17 @@ export default function Main() {
             </div>
           </div>
         </div>
-        <div className="w-full h-4" />
+        <div className="w-full h-8 -md:h-4" />
         <MainArticle totalCulturalEvent={totalCulturalEvent} />
-        <div className="h-5" />
+        <div className="w-full h-8" />
         <div className="text-center">
           <Pagination totalPages={totalCount} page={page} tab={tab} />
         </div>
-        <div className="h-5" />
+        <div className="w-full h-8" />
         <div className="max-w-[728px] mx-auto overflow-x-hidden -md:max-w-[300px]">
           <KakaoAdFit unit={isMobile ? "DAN-NrbIqcNVQklTs9ND" : "DAN-zwtZjOswNyJO6kQA"} />
         </div>
-        <div className="w-5" />
+        <div className="w-full h-8" />
       </section>
     </main>
   );

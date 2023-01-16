@@ -7,7 +7,7 @@ export default function Error404() {
   return (
     <>
       <Header />
-      <div className="text-center pt-[200px]">
+      <div className="text-center pt-[165px]">
         <img src="/404.png" className="mx-auto" />
         <div className="text-indigo-600 text-9xl">404</div>
         <div className="text-3xl ">죄송합니다. 현재 찾을 수 없는 페이지를 요청하셨습니다.</div>
