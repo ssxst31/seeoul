@@ -5,7 +5,7 @@ import { DiscussionEmbed } from "disqus-react";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 
-import { fetchDetailCulturalEvent } from "pages/api/index";
+import { fetchDetailCulturalEvent } from "pages/api";
 import DetailSEO from "pages/detail/DetailSEO";
 import { CulturalEvent } from "type";
 import Header from "layouts/Header";

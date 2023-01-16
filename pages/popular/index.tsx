@@ -7,7 +7,7 @@ import { InstagramFeed } from "type";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 import PopularSEO from "pages/popular/PopularSEO";
-import { fetchInstagramFeed } from "pages/api/index";
+import { fetchInstagramFeed } from "pages/api";
 
 interface PopularProps {
   instagramFeed: InstagramFeed[];

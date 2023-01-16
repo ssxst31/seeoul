@@ -1,7 +1,7 @@
 import React from "react";
 import useSWR from "swr";
 
-import { fetchCulturalEvent } from "pages/api/index";
+import { fetchCulturalEvent } from "pages/api";
 import { CulturalEvent } from "type";
 
 interface FetchCulturalEventProps {

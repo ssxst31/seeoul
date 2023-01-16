@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { fetchRandomCulturalEvent } from "pages/api/index";
+import { fetchRandomCulturalEvent } from "pages/api";
 import { CulturalEvent } from "type";
 
 export default function useRandomCulturalEvent(): CulturalEvent[] | null {
