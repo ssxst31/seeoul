@@ -15,15 +15,15 @@ export default function Slider() {
   }, 3000);
 
   const slides = [
-    { title: "디즈니 아트컬렉션", link: "https://mpx.co.kr" },
-    { title: "변용국 : 빛의 거울", link: "http://www.tongingallery.com/637" },
+    { title: "한국소년 개인전", link: "https://www.arthub.co.kr/sub01/board05_view.htm?No=47045" },
+    { title: "이재석 : 창끝의 궤적", link: "http://chapterii.org" },
     {
-      title: "하리보 기념전",
-      link: "https://hariboworld.modoo.at/",
+      title: "박기웅 : 48 VILLAINS",
+      link: "https://seoulsky.lotteworld.com/ko/main/index.do",
     },
     {
-      title: "Tape Seoul",
-      link: "https://www.kmcaseoul.org/",
+      title: "두 개의 시선",
+      link: "https://www.facebook.com/gkartina",
     },
   ];
 
