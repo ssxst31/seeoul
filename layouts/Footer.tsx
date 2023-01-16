@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex justify-between ">
           <small>ⓒ 내일전시 2022 All Rights Reserved.</small>
           <div className="flex flex-col text-sm">
-            <span>출처 - 서울특별시, 서울문화포털(culture.seoul.go.kr)</span>
+            <span className="text-right">출처 - 서울특별시, 서울문화포털(culture.seoul.go.kr)</span>
             <Link href="https://icons8.com" passHref>
               <a className="text-right" target="_blank" rel="noopener noreferrer">
                 icons8에서 아이콘 제공
