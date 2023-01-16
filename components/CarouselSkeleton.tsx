@@ -22,6 +22,7 @@ export default function CarouselSkeleton({ row = 3, width, height }: CarouselSke
             width: width,
             height: height,
           }}
+          title=""
         >
           <rect x="0" y="0" rx="0" ry="0" height={height} className="w-full" />
         </ContentLoader>
