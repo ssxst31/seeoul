@@ -3,6 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer() {
+  const snsList = [
+    { img: "/instagram.svg", link: "https://www.instagram.com/seeou1" },
+    { img: "/twitter.png", link: "https://twitter.com/seeou11" },
+    { img: "/facebook.png", link: "https://www.facebook.com/profile.php?id=100083987572734" },
+  ];
+
   return (
     <footer className="w-full py-8 text-center bg-gray-50 flex-column">
       <div className="mx-auto max-w-7xl px-[30px] -md:px-4 -md:mx-0">
@@ -18,21 +24,15 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex pt-12 space-x-2">
-          <Link href="https://www.instagram.com/seeou1" passHref>
-            <a target="_blank" rel="noopener noreferrer">
-              <Image width={20} height={20} src="/instagram.svg" />
-            </a>
-          </Link>
-          <Link href="https://twitter.com/seeou11" passHref>
-            <a target="_blank" rel="noopener noreferrer">
-              <Image width={20} height={20} src="/twitter.png" />
-            </a>
-          </Link>
-          <Link href="https://www.facebook.com/profile.php?id=100083987572734" passHref>
-            <a target="_blank" rel="noopener noreferrer">
-              <Image width={20} height={20} src="/facebook.png" />
-            </a>
-          </Link>
+          {snsList.map((sns) => {
+            return (
+              <Link href={sns.link} passHref>
+                <a target="_blank" rel="noopener noreferrer">
+                  <Image width={20} height={20} src={sns.img} />
+                </a>
+              </Link>
+            );
+          })}
           <Link href="/blog" passHref>
             <a>
               <Image width={20} height={20} src="/blog.png" />
