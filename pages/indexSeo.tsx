@@ -19,6 +19,7 @@ export default function indexSEO({ title }: indexSEOProps) {
 
   const NEXT_SEO = {
     title: `${title} | 내일전시`,
+    description: "서울 전시회 정보, 내일 전시에서 한눈에 확인해 보세요.",
   };
 
   return (
