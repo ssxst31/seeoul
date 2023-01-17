@@ -29,7 +29,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 z-20 w-full bg-white border-b border-gray-100 border-solid dark:bg-dark-100">
+    <header className="fixed top-0 left-0 z-20 w-full bg-white border-b border-gray-100 border-solid dark:bg-dark-100 dark:border-dark-200">
       <div className="flex justify-between mx-auto px-7 max-w-7xl -md:px-4">
         <div className="flex -md:block">
           <h1 className="inline-flex mr-12 -md:mr-0">
@@ -66,7 +66,7 @@ export default function Header() {
         <Slider />
       </div>
       {router.pathname === "/" && (
-        <div className="overflow-x-scroll border-t border-gray-100 border-solid scrollbar-hide">
+        <div className="overflow-x-scroll border-t border-gray-100 border-solid scrollbar-hide dark:border-dark-200">
           <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[717px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
             {TABS.map((t, index) => (
               <li key={index}>

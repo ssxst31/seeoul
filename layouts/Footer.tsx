@@ -10,7 +10,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full py-8 text-center bg-gray-50 flex-column dark:bg-dark-100">
+    <footer className="w-full py-8 text-center bg-gray-50 flex-column dark:bg-dark-200">
       <div className="mx-auto max-w-7xl px-[30px] -md:px-4 -md:mx-0">
         <div className="flex justify-between ">
           <small>ⓒ 내일전시 2022 All Rights Reserved.</small>
