@@ -27,7 +27,9 @@ export default function CulturalEventCard({ culturalEvent, index }: CulturalEven
             />
           </div>
           <div className="p-6">
-            <strong className="text-xl font-bold">{title.length > 30 ? `${title.substr(0, 30)}...` : title}</strong>
+            <strong className="block w-full overflow-x-hidden text-xl font-bold text-ellipsis webkit-box webkit-line-clamp-2 webkit-box-vertical">
+              {title}
+            </strong>
             <span className="block text-base">기간 : {date}</span>
             <div className="absolute py-1 text-sm font-bold text-center text-white bg-red-400 rounded-sm w-14 right-2 top-2">
               {DDay(date)}
