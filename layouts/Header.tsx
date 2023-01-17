@@ -51,7 +51,7 @@ export default function Header() {
               <div className="relative w-10 h-10 mr-3">
                 <Image src="/logo.png" width={40} height={40} alt="logo" layout="fill" objectFit="contain" />
               </div>
-              <div className="text-2xl text-indigo-600">내일 전시</div>
+              <div className="text-2xl text-indigo-600">내일전시</div>
             </a>
           </h1>
           <nav className="inline-flex items-center -md:block">

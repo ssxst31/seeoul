@@ -17,7 +17,7 @@ export default function CulturalEventCard({ culturalEvent, index }: CulturalEven
     <div className="relative w-full overflow-hidden border border-gray-200 shadow-lg aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8 shadow-gray-100">
       <Link href={`/detail/${id}`} passHref shallow={true}>
         <a>
-          <div className="relative w-full overflow-hidden h-96 sm:h-72">
+          <div className="relative w-full overflow-hidden h-96 -md:h-72">
             <Image
               src={mainImg}
               alt={title}
@@ -29,7 +29,7 @@ export default function CulturalEventCard({ culturalEvent, index }: CulturalEven
           <div className="p-6">
             <strong className="text-xl font-bold">{title.length > 30 ? `${title.substr(0, 30)}...` : title}</strong>
             <span className="block text-base">기간 : {date}</span>
-            <div className="absolute right-[-1px] top-[-1px] font-bold text-red-500 bg-white w-12 text-center">
+            <div className="absolute py-1 text-sm font-bold text-center text-white bg-red-400 rounded-sm w-14 right-2 top-2">
               {DDay(date)}
             </div>
           </div>
