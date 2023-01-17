@@ -80,7 +80,7 @@ export default function Header() {
       </div>
       {router.pathname === "/" && (
         <div className="overflow-x-scroll border-t border-gray-100 border-solid scrollbar-hide">
-          <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[734px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
+          <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[717px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
             {TABS.map((t, index) => (
               <li key={index}>
                 <Link href={`/?tab=${t.sort}`} key={index} shallow={true} scroll={true} passHref>
@@ -101,7 +101,7 @@ export default function Header() {
       )}
       {router.pathname === "/review" && (
         <div className="overflow-x-scroll border-t border-gray-100 border-solid scrollbar-hide">
-          <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[734px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
+          <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[672px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
             {TABS2.map((t, index) => (
               <Link href={`review/?tab=${t.sort}`} key={index} shallow={true} scroll={true} passHref>
                 <a>
