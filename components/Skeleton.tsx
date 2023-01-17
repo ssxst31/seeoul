@@ -10,9 +10,9 @@ interface SkeletonProps {
 }
 
 export default function Skeleton({ row = 3, height }: SkeletonProps) {
-  const { width2 } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
-  const height2 = width2 > 763 ? height : "486px";
+  const height2 = width > 763 ? height : "486px";
 
   return (
     <div className="grid grid-cols-1 gap-y-8 gap-x-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 -md:gap-y-4 -md:gap-x-4">

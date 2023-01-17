@@ -23,20 +23,6 @@ export default function Header() {
     { title: "기타", sort: "etc" },
   ];
 
-  const TABS2 = [
-    { title: "전시/미술", sort: "exhibition" },
-    { title: "클래식", sort: "classic" },
-    { title: "콘서트", sort: "concert" },
-    { title: "축제", sort: "festival" },
-    { title: "국악", sort: "music" },
-    { title: "교육/체험", sort: "education" },
-    { title: "뮤지컬/오페라", sort: "opera" },
-    { title: "무용", sort: "dancing" },
-    { title: "연극", sort: "theater" },
-    { title: "독주/독창회", sort: "solo" },
-    { title: "기타", sort: "etc" },
-  ];
-
   const navItemList = [
     { title: "인기 전시회", value: "popular" },
     { title: "후기", value: "review" },
@@ -102,7 +88,7 @@ export default function Header() {
       {router.pathname === "/review" && (
         <div className="overflow-x-scroll border-t border-gray-100 border-solid scrollbar-hide">
           <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[672px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
-            {TABS2.map((t, index) => (
+            {TABS.filter((t) => t.sort !== "total").map((t, index) => (
               <Link href={`review/?tab=${t.sort}`} key={index} shallow={true} scroll={true} passHref>
                 <a>
                   <span

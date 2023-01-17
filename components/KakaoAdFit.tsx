@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { isMobile } from "react-device-detect";
 
-function KakaoAdFit({ unit }: any) {
+interface KakaoAdFitProps {
+  unit: string;
+}
+
+function KakaoAdFit({ unit }: KakaoAdFitProps) {
   const adRef = useRef<boolean>(false);
 
   useEffect(() => {

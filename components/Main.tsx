@@ -10,7 +10,7 @@ import MainArticle from "components/MainArticle";
 import Pagination from "components/Pagination";
 import InputBox from "components/molecules/InputBox";
 
-const KakaoAdFit = dynamic(() => import("./KakaoAdFit"), { ssr: false });
+const KakaoAdFit = dynamic(() => import("components/KakaoAdFit"), { ssr: false });
 
 export default function Main() {
   const router = useRouter();
