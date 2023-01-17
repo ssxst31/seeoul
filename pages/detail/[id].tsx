@@ -59,18 +59,20 @@ const Detail = ({ culturalEvent }: DetailProps) => {
   });
 
   const { mainImg, title, date, useTrgt, useFee, place, orgLink } = culturalEvent;
+  const image = culturalEvent.mainImg.replace("&thumb=Y", "");
 
   return (
     <>
       <DetailSEO title={title} mainImg={mainImg} />
+      <img src={image} className="object-cover w-full h-72 mt-[61px] -md:hidden" />
       <div className="mx-auto max-w-7xl">
         <Header />
-        <div className="px-[30px] w-full pt-20 -md:pt-36 -md:px-4">
-          <div className="flex justify-between -md:block">
+        <div className="px-[30px] w-full -md:pt-36 -md:px-4">
+          <div className="flex -md:block">
             <img
-              className="object-contain w-full max-w-[500px] -md:object-cover -md:w-[calc(100%+32px)] -md:max-w-none -md:ml-[-16px] -md:h-[360px]"
+              className="object-contain w-full max-w-[500px] -md:object-cover -md:w-[calc(100%+32px)] -md:max-w-none -md:ml-[-16px] -md:h-[360px] -mt-[50px] mr-10"
               alt={title}
-              src={mainImg}
+              src={image}
             />
             <div className="-md:flex -md:w-[calc(100%+32px)] -md:mt-[-50px] -md:ml-[-16px] -md:relative -md:bg-white -md:justify-between">
               <div className="p-3">
@@ -111,7 +113,7 @@ const Detail = ({ culturalEvent }: DetailProps) => {
               <img
                 className="hidden -md:mt-[-50px] -md:block -md:max-h-[120px] -md:object-contain -md:w-full -md:max-w-[120px]"
                 alt={title}
-                src={mainImg}
+                src={image}
               />
             </div>
           </div>
