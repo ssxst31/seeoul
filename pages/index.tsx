@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { SWRConfig } from "swr";
 
@@ -36,6 +36,15 @@ export default function HomepageLayout({ fallback }: any) {
   const { tab } = router.query;
   const sort = (tab ?? "total") as string;
   const { theme, setTheme } = useTheme();
+  const [btnText, setBtnText] = useState<any>("");
+
+  useEffect(() => {
+    if (theme === "light") {
+      return setBtnText("🌝");
+    }
+    setBtnText("🌚");
+  }, [theme]);
+
   return (
     <>
       <IndexSeo title={["전체", "total"].includes(sort) ? "홈" : filterSort(sort)} />
@@ -48,7 +57,7 @@ export default function HomepageLayout({ fallback }: any) {
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           className="fixed w-14 h-14 bg-white rounded-[50%] bottom-4 right-3 dark:bg-dark-200 shadow-lg"
         >
-          {theme === "light" ? <div className="text-2xl">🌝</div> : <div className="text-2xl">🌚 </div>}
+          <div className="text-2xl">{btnText}</div>
         </button>
       </DefaultLayout>
     </>

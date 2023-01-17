@@ -28,14 +28,18 @@ export default function Footer() {
             return (
               <Link href={sns.link} passHref>
                 <a target="_blank" rel="noopener noreferrer">
-                  <Image width={20} height={20} src={sns.img} alt={sns.alt} />
+                  <div className="inline-flex bg-white rounded-[50%]">
+                    <Image width={20} height={20} src={sns.img} alt={sns.alt} />
+                  </div>
                 </a>
               </Link>
             );
           })}
           <Link href="/blog" passHref>
             <a>
-              <Image width={20} height={20} src="/blog.png" alt="blogLogo" />
+              <div className="inline-flex bg-white rounded-[50%]">
+                <Image width={20} height={20} src="/blog.png" alt="blogLogo" />
+              </div>
             </a>
           </Link>
         </div>
