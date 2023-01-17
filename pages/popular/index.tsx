@@ -43,11 +43,10 @@ export default function Popular({ instagramFeed }: PopularProps) {
                 <Link href={i.permalink} passHref>
                   <a target="_blank" rel="noopener noreferrer">
                     <div className="relative w-full overflow-hidden h-96">
-                      <Image
+                      <img
                         src={i.media_url}
                         alt={i.caption}
-                        layout="fill"
-                        className="duration-100 ease-linear hover:scale-110"
+                        className="w-full h-full duration-100 ease-linear hover:scale-110"
                       />
                     </div>
                   </a>
