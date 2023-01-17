@@ -48,7 +48,7 @@ export default class MyDocument extends Document {
             href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css"
           />
         </Head>
-        <body className="dark:bg-dark-100">
+        <body className="bg-white dark:bg-dark-100">
           <Main />
           <NextScript />
         </body>

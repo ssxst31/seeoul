@@ -27,3 +27,6 @@
   -webkit-box-orient: vertical;
 }
 
+* {
+  transition: 200ms linear;
+}

@@ -41,17 +41,19 @@ export default function Main() {
   return (
     <main className="pt-[132px] px-[30px] w-full -md:px-4 -md:pt-[165px]">
       <section>
-        <h2 className="m-0 text-2xl font-bold">전시회를 생각 중이라면 👀</h2>
+        <h2 className="m-0 text-2xl font-bold text-black dark:text-white">전시회를 생각 중이라면 👀</h2>
         <div className="w-full h-8 -md:h-4" />
         <MainCarousel />
       </section>
       <div className="w-full h-10" />
       <section>
         <div className="flex justify-between -md:flex-col">
-          <h2 className="m-0 text-2xl font-bold">여기서 바로 {sort === "전체" && ""} 골라보세요! 🫧</h2>
+          <h2 className="m-0 text-2xl font-bold text-black dark:text-white">
+            여기서 바로 {sort === "전체" && ""} 골라보세요! 🫧
+          </h2>
           <div className="hidden w-full -md:h-4 -md:block" />
           <div className="flex items-center -md:justify-between">
-            <div className="text-base">
+            <div className="text-base text-black dark:text-white">
               총&nbsp;
               <span className="font-bold text-indigo-600">{totalCount}</span>
               &nbsp;건

@@ -12,9 +12,9 @@ export default function Footer() {
   return (
     <footer className="w-full py-8 text-center bg-gray-50 flex-column dark:bg-dark-200">
       <div className="mx-auto max-w-7xl px-[30px] -md:px-4 -md:mx-0">
-        <div className="flex justify-between ">
+        <div className="flex justify-between text-black dark:text-white">
           <small>ⓒ 내일전시 2022 All Rights Reserved.</small>
-          <div className="flex flex-col text-sm">
+          <div className="flex flex-col text-sm text-black dark:text-white">
             <span className="text-right">출처 - 서울특별시, 서울문화포털(culture.seoul.go.kr)</span>
             <Link href="https://icons8.com" passHref>
               <a className="text-right" target="_blank" rel="noopener noreferrer">
