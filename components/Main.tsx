@@ -65,7 +65,7 @@ export default function Main() {
         <MainArticle totalCulturalEvent={totalCulturalEvent} />
         <div className="w-full h-8" />
         <div className="text-center">
-          <Pagination totalPages={totalCount} page={page} tab={tab} />
+          <Pagination totalPages={Math.ceil(totalCount / 20)} page={page} tab={tab} />
         </div>
         <div className="w-full h-8" />
         <div className="max-w-[728px] mx-auto overflow-x-hidden -md:max-w-[300px]">
