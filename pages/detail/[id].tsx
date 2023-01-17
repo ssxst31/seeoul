@@ -64,17 +64,25 @@ const Detail = ({ culturalEvent }: DetailProps) => {
   return (
     <>
       <DetailSEO title={title} mainImg={mainImg} />
-      <img src={image} className="object-cover w-full h-72 mt-[61px] -md:hidden" />
+      <div className="relative">
+        <img src={image} className="object-cover w-full h-72 mt-[61px] -md:hidden" />
+        <div
+          className="absolute top-0 w-full h-72 -md:hidden"
+          style={{
+            backdropFilter: "blur(10px)",
+          }}
+        />
+      </div>
       <div className="mx-auto max-w-7xl">
         <Header />
         <div className="px-[30px] w-full -md:pt-36 -md:px-4">
           <div className="flex -md:block">
             <img
-              className="object-contain w-full max-w-[500px] -md:object-cover -md:w-[calc(100%+32px)] -md:max-w-none -md:ml-[-16px] -md:h-[360px] -mt-[50px] mr-5"
+              className="object-contain w-full max-w-[500px] -md:object-cover -md:w-[calc(100%+32px)] -md:max-w-none -md:ml-[-16px] -md:h-[360px] -mt-[35px] mr-5 z-10"
               alt={title}
               src={image}
             />
-            <div className="-md:flex -md:w-[calc(100%+32px)] -md:mt-[-50px] -md:ml-[-16px] -md:relative -md:bg-white -md:justify-between mt-5">
+            <div className="-md:flex -md:w-[calc(100%+32px)] -md:mt-[-50px] -md:ml-[-16px] -md:relative bg-white -md:justify-between mt-5 dark:bg-dark-100">
               <div className="p-3">
                 <div>
                   <span className="text-3xl font-bold">{title}</span>
