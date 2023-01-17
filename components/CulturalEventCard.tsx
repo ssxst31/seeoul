@@ -17,7 +17,7 @@ export default function CulturalEventCard({ culturalEvent, index }: CulturalEven
     <div className="relative w-full overflow-hidden border border-gray-200 shadow-lg aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8 shadow-gray-100">
       <Link href={`/detail/${id}`} passHref shallow={true}>
         <a>
-          <div className="relative w-full overflow-hidden h-96 -md:h-72">
+          <div className="relative w-full overflow-hidden h-96 sm:h-72">
             <Image
               src={mainImg}
               alt={title}

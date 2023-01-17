@@ -22,7 +22,7 @@ export default function Review() {
         <div className="pt-[60px] px-[30px] -md:pt-[108px] -md:px-4">
           <h2 className="text-2xl font-bold">인스타그램 후기 😎</h2>
           <div>
-            <div className="grid grid-cols-1 gap-y-10 gap-x-6 -md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+            <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
               {totalInstagramReview?.map((a) => {
                 if (a.children) {
                   return (
