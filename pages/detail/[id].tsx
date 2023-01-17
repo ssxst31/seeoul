@@ -70,11 +70,11 @@ const Detail = ({ culturalEvent }: DetailProps) => {
         <div className="px-[30px] w-full -md:pt-36 -md:px-4">
           <div className="flex -md:block">
             <img
-              className="object-contain w-full max-w-[500px] -md:object-cover -md:w-[calc(100%+32px)] -md:max-w-none -md:ml-[-16px] -md:h-[360px] -mt-[50px] mr-10"
+              className="object-contain w-full max-w-[500px] -md:object-cover -md:w-[calc(100%+32px)] -md:max-w-none -md:ml-[-16px] -md:h-[360px] -mt-[50px] mr-5"
               alt={title}
               src={image}
             />
-            <div className="-md:flex -md:w-[calc(100%+32px)] -md:mt-[-50px] -md:ml-[-16px] -md:relative -md:bg-white -md:justify-between">
+            <div className="-md:flex -md:w-[calc(100%+32px)] -md:mt-[-50px] -md:ml-[-16px] -md:relative -md:bg-white -md:justify-between mt-5">
               <div className="p-3">
                 <div>
                   <span className="text-3xl font-bold">{title}</span>
