@@ -29,7 +29,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 z-20 w-full bg-white border-b border-gray-100 border-solid">
+    <header className="fixed top-0 left-0 z-20 w-full bg-white border-b border-gray-100 border-solid dark:bg-dark-100">
       <div className="flex justify-between mx-auto px-7 max-w-7xl -md:px-4">
         <div className="flex -md:block">
           <h1 className="inline-flex mr-12 -md:mr-0">
@@ -62,6 +62,7 @@ export default function Header() {
             </ul>
           </nav>
         </div>
+
         <Slider />
       </div>
       {router.pathname === "/" && (
@@ -72,7 +73,7 @@ export default function Header() {
                 <Link href={`/?tab=${t.sort}`} key={index} shallow={true} scroll={true} passHref>
                   <a>
                     <span
-                      className={`text-sm cursor-pointer hover:font-bold hover:text-black ${
+                      className={`text-sm cursor-pointer hover:font-bold hover:text-black dark:hover:text-white ${
                         router.query.tab === t.sort ? "font-bold text-black" : "font-medium text-neutral-400"
                       }`}
                     >

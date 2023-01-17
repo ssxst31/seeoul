@@ -8,8 +8,13 @@ module.exports = {
     "./stories/**/*.{js,ts,jsx,tsx}",
     "src/**/*.{js,jsx,ts,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
+      colors: {
+        "dark-100": "#202020",
+        "dark-200": "#121212",
+      },
       screens: {
         "-2xl": { max: "1535px" },
         // => @media (min-width: 640px) { ... }

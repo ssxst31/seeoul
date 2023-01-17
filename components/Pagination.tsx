@@ -2,8 +2,9 @@ import React from "react";
 import Link from "next/link";
 
 const makePaginationHref = (totalCount: number, page: number, tab: string) => {
-  let pageNumbersArray = [];
-  var startIndex, endIndex;
+  const pageNumbersArray = [];
+  let startIndex, endIndex;
+
   if (totalCount <= 5) {
     startIndex = 1;
     endIndex = totalCount;

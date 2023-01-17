@@ -4,6 +4,7 @@ import Script from "next/script";
 import Router, { useRouter } from "next/router";
 import NProgress from "nprogress";
 import { RecoilRoot } from "recoil";
+import { ThemeProvider } from "next-themes";
 
 import { isProduction } from "utils/env";
 import type { AppProps } from "next/app";
@@ -74,9 +75,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>홈 | 내일전시</title>
       </Head>
-      <RecoilRoot>
-        <Component {...pageProps} />
-      </RecoilRoot>
+      <ThemeProvider enableSystem={true} attribute="class">
+        <RecoilRoot>
+          <Component {...pageProps} />
+        </RecoilRoot>
+      </ThemeProvider>
     </>
   );
 }

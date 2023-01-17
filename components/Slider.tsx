@@ -40,7 +40,7 @@ export default function Slider() {
           <li key={index} className="inline-flex items-center justify-end h-16">
             <Link href={el.link} passHref>
               <a target="_blank" rel="noopener noreferrer">
-                <strong className="text-lg font-bold text-black">{el.title}</strong>
+                <strong className="text-lg font-bold text-black dark:text-white">{el.title}</strong>
               </a>
             </Link>
           </li>

@@ -9,7 +9,7 @@ interface InputBoxProps {
 export default function InputBox({ enterkey }: InputBoxProps) {
   return (
     <div className="flex">
-      <div className="flex items-center justify-center w-10 p-5 bg-white border-r border-gray-200 rounded-tl-lg rounded-bl-lg">
+      <div className="flex items-center justify-center w-10 p-5 bg-white border-r border-gray-200 rounded-tl-lg rounded-bl-lg dark:bg-dark-100">
         <svg
           viewBox="0 0 20 20"
           aria-hidden="true"
@@ -22,12 +22,13 @@ export default function InputBox({ enterkey }: InputBoxProps) {
         type="text"
         placeholder="검색어를 입력해주세요."
         onKeyUp={enterkey}
-        fontColor="text-black"
+        fontColor="text-black dark:text-white"
         bgColor="bg-white"
         paddingSize="pl-2"
         width="w-full"
         textSize="text-base"
         outline="outline-0"
+        className="dark:bg-dark-100"
       />
     </div>
   );
