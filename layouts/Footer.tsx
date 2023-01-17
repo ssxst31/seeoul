@@ -4,9 +4,9 @@ import Image from "next/image";
 
 export default function Footer() {
   const snsList = [
-    { img: "/instagram.svg", link: "https://www.instagram.com/seeou1" },
-    { img: "/twitter.png", link: "https://twitter.com/seeou11" },
-    { img: "/facebook.png", link: "https://www.facebook.com/profile.php?id=100083987572734" },
+    { img: "/instagram.svg", link: "https://www.instagram.com/seeou1", alt: "instagramLogo" },
+    { img: "/twitter.png", link: "https://twitter.com/seeou11", alt: "twitterLogo" },
+    { img: "/facebook.png", link: "https://www.facebook.com/profile.php?id=100083987572734", alt: "facebookLogo" },
   ];
 
   return (
@@ -28,14 +28,14 @@ export default function Footer() {
             return (
               <Link href={sns.link} passHref>
                 <a target="_blank" rel="noopener noreferrer">
-                  <Image width={20} height={20} src={sns.img} />
+                  <Image width={20} height={20} src={sns.img} alt={sns.alt} />
                 </a>
               </Link>
             );
           })}
           <Link href="/blog" passHref>
             <a>
-              <Image width={20} height={20} src="/blog.png" />
+              <Image width={20} height={20} src="/blog.png" alt="blogLogo" />
             </a>
           </Link>
         </div>
