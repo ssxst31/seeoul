@@ -4,14 +4,16 @@ axios.defaults.baseURL = process.env.NEXT_PUBLIC_APP_HOST_NAME;
 
 export async function fetchCulturalEvent({ page, sort, search }: { page: number; sort: string; search?: string }) {
   const resp = await axios.get(
-    `/get?offset=${(page - 1) * 20}&limit=20&option=${sort === "전체" ? "all" : encodeURI(sort)}&search=${search}`,
+    `/culturalEvents?offset=${(page - 1) * 20}&limit=20&option=${
+      sort === "전체" ? "all" : encodeURI(sort)
+    }&search=${search}`,
   );
 
   return resp.data;
 }
 
 export async function fetchRandomCulturalEvent() {
-  const resp = await axios.get(`/random`).catch((e) => ({
+  const resp = await axios.get(`/culturalEvents/random`).catch((e) => ({
     data: {
       error: e.response.data,
     },
@@ -21,7 +23,7 @@ export async function fetchRandomCulturalEvent() {
 }
 
 export async function fetchDetailCulturalEvent({ id }: { id: number }) {
-  const resp = await axios.get(`/detail/${id}`).catch((e) => ({
+  const resp = await axios.get(`/culturalEvents/${id}`).catch((e) => ({
     data: {
       error: e.response.data,
     },
@@ -45,7 +47,7 @@ export async function fetchInstagramFeed() {
 }
 
 export async function fetchInstagramReview(sort: { sort: string }) {
-  const resp = await axios.get(`/instaget?option=${sort}`).catch((e) => ({
+  const resp = await axios.get(`/instagramFeeds?option=${sort}`).catch((e) => ({
     data: {
       error: e.response.data,
     },

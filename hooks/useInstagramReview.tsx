@@ -24,7 +24,7 @@ export default function useInstagramReview({ sort }: FetchCulturalEventProps) {
 
   const { data }: SWRResponse<Data, any> = useSWR(
     {
-      url: `/get`,
+      url: `/culturalEvents`,
       params: { sort },
     },
 

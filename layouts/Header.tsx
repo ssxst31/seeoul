@@ -13,12 +13,13 @@ export default function Header() {
     { title: "전시/미술", sort: "exhibition" },
     { title: "클래식", sort: "classic" },
     { title: "콘서트", sort: "concert" },
-    { title: "축제-문화/예술", sort: "festival" },
+    { title: "축제", sort: "festival" },
     { title: "국악", sort: "music" },
-    { title: "문화교양/강좌", sort: "culture" },
+    { title: "교육/체험", sort: "education" },
     { title: "뮤지컬/오페라", sort: "opera" },
     { title: "무용", sort: "dancing" },
     { title: "연극", sort: "theater" },
+    { title: "독주/독창회", sort: "solo" },
     { title: "기타", sort: "etc" },
   ];
 
@@ -26,12 +27,14 @@ export default function Header() {
     { title: "전시/미술", sort: "exhibition" },
     { title: "클래식", sort: "classic" },
     { title: "콘서트", sort: "concert" },
-    { title: "축제-문화/예술", sort: "festival" },
+    { title: "축제", sort: "festival" },
     { title: "국악", sort: "music" },
-    { title: "문화교양/강좌", sort: "culture" },
+    { title: "교육/체험", sort: "education" },
     { title: "뮤지컬/오페라", sort: "opera" },
     { title: "무용", sort: "dancing" },
     { title: "연극", sort: "theater" },
+    { title: "독주/독창회", sort: "solo" },
+    { title: "기타", sort: "etc" },
   ];
 
   const navItemList = [
