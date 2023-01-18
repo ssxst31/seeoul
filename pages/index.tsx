@@ -55,7 +55,7 @@ export default function HomepageLayout({ fallback }: any) {
         <button
           type="button"
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="fixed w-14 h-14 bg-white rounded-[50%] bottom-4 right-3 dark:bg-dark-200 shadow-lg"
+          className="fixed w-14 h-14 bg-white rounded-[50%] bottom-6 right-6 dark:bg-dark-200 shadow-lg"
         >
           <div className="text-2xl">{btnText}</div>
         </button>
