@@ -27,6 +27,28 @@
   -webkit-box-orient: vertical;
 }
 
-* {
-  transition: 200ms linear;
+.gradient {
+  background: linear-gradient(90deg,#ab6bff,#9ad5f9 15%,#575df0 35%,#ab6bff 50%,#9ad5f9 65%,#575df0 85%,#ab6bff);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient 2s linear infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+.linear2 {
+  display: inline;
+  background-image: 
+    linear-gradient(to right, rgb(93, 84, 254), rgb(148, 40, 255));
+  background-size: 100% 15%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
 }
