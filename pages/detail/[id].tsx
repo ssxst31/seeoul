@@ -131,7 +131,11 @@ const Detail = ({ culturalEvent }: DetailProps) => {
         <div className="-md:bottom-0 hidden -md:block -md:fixed -md:w-full -md:z-[999999999]">
           <button className="w-full text-white bg-indigo-600 h-11">
             <Link href={orgLink} passHref>
-              <a target="_blank" rel="noopener noreferrer" className="font-bold text-white">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full h-full font-bold text-white"
+              >
                 예매하기
               </a>
             </Link>
