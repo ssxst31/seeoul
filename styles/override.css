@@ -6,6 +6,10 @@
   display: none !important;
 }
 
+.slick-slider {
+  overflow-x: hidden;
+}
+
 @media screen and (max-width: 763px) {
   .slick-list {
     margin: 0px
