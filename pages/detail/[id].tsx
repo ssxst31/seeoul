@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
+import Image from "next/image";
 import { isMobile } from "react-device-detect";
 import { DiscussionEmbed } from "disqus-react";
+
 import { GetServerSideProps } from "next";
-import Link from "next/link";
 
 import { fetchDetailCulturalEvent } from "pages/api";
 import DetailSEO from "pages/detail/DetailSEO";
@@ -65,7 +67,9 @@ const Detail = ({ culturalEvent }: DetailProps) => {
     <>
       <DetailSEO title={title} mainImg={mainImg} />
       <div className="relative">
-        <img src={image} className="object-cover w-full h-72 mt-[61px] -md:hidden" />
+        <div className="object-cover h-72 mt-[61px] -md:hidden relative">
+          <Image src={image} alt={title} objectFit="cover" layout="fill" />
+        </div>
         <div
           className="absolute top-0 w-full h-72 -md:hidden"
           style={{
@@ -77,11 +81,9 @@ const Detail = ({ culturalEvent }: DetailProps) => {
         <Header />
         <div className="px-[30px] w-full -md:pt-36 -md:px-4">
           <div className="flex -md:block">
-            <img
-              className="object-contain w-full max-w-[500px] -md:object-cover -md:w-[calc(100%+32px)] -md:max-w-none -md:ml-[-16px] -md:h-[360px] -mt-[35px] mr-5 z-10"
-              alt={title}
-              src={image}
-            />
+            <div className="object-contain w-full max-w-[500px] -md:object-cover -md:w-[calc(100%+32px)] -md:max-w-none -md:ml-[-16px] -md:h-[360px] -mt-[35px] mr-5 relative">
+              <Image src={image} alt={title} objectFit="cover" layout="fill" />
+            </div>
             <div className="-md:flex -md:w-[calc(100%+32px)] -md:mt-[-50px] -md:ml-[-16px] -md:relative bg-white -md:justify-between mt-5 dark:bg-dark-100">
               <div className="p-3">
                 <div>
@@ -118,11 +120,9 @@ const Detail = ({ culturalEvent }: DetailProps) => {
                   </span>
                 </div>
               </div>
-              <img
-                className="hidden -md:mt-[-50px] -md:block -md:max-h-[120px] -md:object-contain -md:w-full -md:max-w-[120px]"
-                alt={title}
-                src={image}
-              />
+              <div className="hidden -md:mt-[-50px] -md:block -md:max-h-[120px] -md:object-contain -md:w-full -md:max-w-[120px] relative">
+                <Image src={image} alt={title} objectFit="contain" layout="fill" />
+              </div>
             </div>
           </div>
           <div className="w-full h-[60px]" />
