@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Head from "next/head";
 import Script from "next/script";
 import Router, { useRouter } from "next/router";
 import NProgress from "nprogress";
@@ -8,6 +7,7 @@ import { ThemeProvider } from "next-themes";
 
 import { isProduction } from "utils/env";
 import type { AppProps } from "next/app";
+import DefaultSEO from "./DefaultSEO";
 
 import * as gtag from "lib/gtag";
 import "styles/globals.css";
@@ -72,9 +72,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           />
         </>
       ) : null}
-      <Head>
-        <title>홈 | 내일전시</title>
-      </Head>
+      <DefaultSEO canonical={router?.asPath} />
       <ThemeProvider enableSystem={true} attribute="class">
         <RecoilRoot>
           <Component {...pageProps} />
