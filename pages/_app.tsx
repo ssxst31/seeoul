@@ -72,7 +72,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           />
         </>
       ) : null}
-      <DefaultSEO canonical={router?.asPath} />
+      <DefaultSEO />
       <ThemeProvider enableSystem={true} attribute="class">
         <RecoilRoot>
           <Component {...pageProps} />
