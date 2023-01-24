@@ -22,6 +22,12 @@ export async function getServerSideProps(context: any) {
     sort === "전체" ? "all" : sort
   }&search=${search}`;
 
+  if (data === undefined) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       fallback: {
