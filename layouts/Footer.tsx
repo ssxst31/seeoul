@@ -4,9 +4,14 @@ import Image from "next/image";
 
 export default function Footer() {
   const snsList = [
-    { img: "/instagram.svg", link: "https://www.instagram.com/seeou1", alt: "instagramLogo" },
-    { img: "/twitter.png", link: "https://twitter.com/seeou11", alt: "twitterLogo" },
-    { img: "/facebook.png", link: "https://www.facebook.com/profile.php?id=100083987572734", alt: "facebookLogo" },
+    { id: 1, img: "/instagram.svg", link: "https://www.instagram.com/seeou1", alt: "instagramLogo" },
+    { id: 2, img: "/twitter.png", link: "https://twitter.com/seeou11", alt: "twitterLogo" },
+    {
+      id: 3,
+      img: "/facebook.png",
+      link: "https://www.facebook.com/profile.php?id=100083987572734",
+      alt: "facebookLogo",
+    },
   ];
 
   return (
@@ -26,10 +31,10 @@ export default function Footer() {
         <div className="flex pt-12 space-x-2">
           {snsList.map((sns) => {
             return (
-              <Link href={sns.link} passHref>
+              <Link href={sns.link} passHref key={sns.id}>
                 <a target="_blank" rel="noopener noreferrer">
                   <div className="inline-flex bg-white rounded-[50%]">
-                    <Image width={20} height={20} src={sns.img} alt={sns.alt} />
+                    <Image width={25} height={25} src={sns.img} alt={sns.alt} />
                   </div>
                 </a>
               </Link>
@@ -38,7 +43,7 @@ export default function Footer() {
           <Link href="/blog" passHref>
             <a>
               <div className="inline-flex bg-white rounded-[50%]">
-                <Image width={20} height={20} src="/blog.png" alt="blogLogo" />
+                <Image width={25} height={25} src="/blog.png" alt="blogLogo" />
               </div>
             </a>
           </Link>
