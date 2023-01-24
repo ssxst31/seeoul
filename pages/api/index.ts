@@ -2,56 +2,82 @@ import axios from "axios";
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_APP_HOST_NAME;
 
-export async function fetchCulturalEvent({ page, sort, search }: { page: number; sort: string; search?: string }) {
-  const resp = await axios.get(
-    `/culturalEvents?offset=${(page - 1) * 20}&limit=20&option=${
-      sort === "전체" ? "all" : encodeURI(sort)
-    }&search=${search}`,
-  );
+interface CulturalEventRequest {
+  page: number;
+  sort: string;
+  search?: string;
+}
 
-  return resp.data;
+export async function fetchCulturalEvent({ page, sort, search }: CulturalEventRequest) {
+  try {
+    const resp = await axios.get(
+      `/culturalEvents?offset=${(page - 1) * 20}&limit=20&option=${
+        sort === "전체" ? "all" : encodeURI(sort)
+      }&search=${search}`,
+    );
+
+    return resp.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.log(error);
+    }
+  }
 }
 
 export async function fetchRandomCulturalEvent() {
-  const resp = await axios.get(`/culturalEvents/random`).catch((e) => ({
-    data: {
-      error: e.response.data,
-    },
-  }));
+  try {
+    const resp = await axios.get(`/culturalEvents/random`);
 
-  return resp.data;
+    return resp.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.log(error);
+    }
+  }
 }
 
-export async function fetchDetailCulturalEvent({ id }: { id: number }) {
-  const resp = await axios.get(`/culturalEvents/${id}`).catch((e) => ({
-    data: {
-      error: e.response.data,
-    },
-  }));
+interface DetailCulturalEventRequest {
+  id: number;
+}
 
-  return resp.data;
+export async function fetchDetailCulturalEvent({ id }: DetailCulturalEventRequest) {
+  try {
+    const resp = await axios.get(`/culturalEvents/${id}`);
+
+    return resp.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.log(error);
+    }
+  }
 }
 
 export async function fetchInstagramFeed() {
-  const resp = await axios
-    .get(
+  try {
+    const resp = await axios.get(
       `https://graph.instagram.com/me/media?fields=caption,id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=IGQVJXWE1XYzhQcDNUSXZA2QmR3b25nbGdrNTZAQMGtub0ZAXR0NqT3NleWl3T19mNklCVGNMN3NOVUNOXzNCOXc3TFQ5QUdWaTU5eWlnQS1UWF9MMW5hVm9WMXZAoOUxtMWdmMC1ZANHN3QTRuRXFCNDBjaAZDZD`,
-    )
-    .catch((e) => ({
-      data: {
-        error: e.response.data,
-      },
-    }));
+    );
 
-  return resp.data;
+    return resp.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.log(error);
+    }
+  }
 }
 
-export async function fetchInstagramReview(sort: { sort: string }) {
-  const resp = await axios.get(`/instagramFeeds?option=${sort}`).catch((e) => ({
-    data: {
-      error: e.response.data,
-    },
-  }));
+interface InstagramReviewRequest {
+  sort: string;
+}
 
-  return resp.data;
+export async function fetchInstagramReview(sort: InstagramReviewRequest) {
+  try {
+    const resp = await axios.get(`/instagramFeeds?option=${sort}`);
+
+    return resp.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.log(error);
+    }
+  }
 }
