@@ -10,17 +10,19 @@ https://seeoul.netlify.app
 # 🏗️ 페이지 소개
 
 ## 메인페이지
-
-- tailwind css로 전반적인 레이아웃을 잡았습니다.
-- 다크모드
+[![2023-01-25-21-52-12.png](https://i.postimg.cc/1R8XJvWQ/2023-01-25-21-52-12.png)](https://postimg.cc/qgdp7xVb)
+- Tailwind CSS로 전반적인 레이아웃을 잡았습니다.
+- 모바일 유저 고려 모든 페이지를 반응형 웹 페이지로 제작하였습니다.
+- Tailwind CSS class를 이용해 다크모드를 구현하였습니다.
 
 ## 상세페이지
-
-- 카카오맵
+[![Jan-25-2023-22-04-14.gif](https://i.postimg.cc/3rLtXxkR/Jan-25-2023-22-04-14.gif)](https://postimg.cc/9z7PVVt5)
+- 위치를 한눈에 보기 쉽게 카카오맵을 구현하였습니다.
+- disqus이용 댓글 서비스를 구현하였습니다.
 
 ## 인기전시회
-
-- 카카오맵
+[![2023-01-25-21-57-19.png](https://i.postimg.cc/FRBRhSH8/2023-01-25-21-57-19.png)](https://postimg.cc/JDjmqGJ5)
+- 내일 전시 인스타그램 계정의 피드를 가져와 인기 전시회 탭을 구현하였습니다.
 
 # 👟 실행 방법
 
