@@ -8,9 +8,9 @@ export default class MyDocument extends Document {
         <Head>
           <script
             async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7947339856088209"
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`}
             crossOrigin="anonymous"
-          ></script>
+          />
           <meta name="NaverBot" content="All" />
           <meta name="NaverBot" content="index,follow" />
           <meta name="Yeti" content="All" />
@@ -21,8 +21,8 @@ export default class MyDocument extends Document {
             name="keywords"
             content="내일전시, 전시회, 문화예술, 서울전시, 서울전시회, 전시정보, 전시회 추천, exhibition"
           />
-          <meta name="google-site-verification" content="uF5xvolIVD9TIzGeXD9vVLNvnwHNg_Ksi--3WgmZpiI" />
-          <meta name="naver-site-verification" content="5b5b59ee6b2ffa4da4adfa1467e7b6321410a63b" />
+          <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_ADSENSE_ID} />
+          <meta name="naver-site-verification" content={process.env.NEXT_PUBLIC_NAVER_ID} />
           <link
             rel="stylesheet"
             type="text/css"

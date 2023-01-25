@@ -55,7 +55,7 @@ export async function fetchDetailCulturalEvent({ id }: DetailCulturalEventReques
 export async function fetchInstagramFeed() {
   try {
     const resp = await axios.get(
-      `https://graph.instagram.com/me/media?fields=caption,id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=IGQVJXWE1XYzhQcDNUSXZA2QmR3b25nbGdrNTZAQMGtub0ZAXR0NqT3NleWl3T19mNklCVGNMN3NOVUNOXzNCOXc3TFQ5QUdWaTU5eWlnQS1UWF9MMW5hVm9WMXZAoOUxtMWdmMC1ZANHN3QTRuRXFCNDBjaAZDZD`,
+      `https://graph.instagram.com/me/media?fields=caption,id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN}`,
     );
 
     return resp.data;
