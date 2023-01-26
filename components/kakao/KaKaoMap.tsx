@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-export default function Map({ searchPlace }: MapProps) {
+export default function KaKaoMap({ searchPlace }: MapProps) {
   useEffect(() => {
     const mapScript = document.createElement("script");
 

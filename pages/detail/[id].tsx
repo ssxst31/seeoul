@@ -13,8 +13,8 @@ import { CulturalEvent } from "type";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 
-const ComponentsWithNoSSR = dynamic(() => import("components/Map"), { ssr: false });
-const KakaoAdFit = dynamic(() => import("components/KakaoAdFit"), { ssr: false });
+const ComponentsWithNoSSR = dynamic(() => import("components/kakao/KaKaoMap"), { ssr: false });
+const KakaoAdFit = dynamic(() => import("components/kakao/KakaoAdFit"), { ssr: false });
 
 export const getServerSideProps: GetServerSideProps<{
   culturalEvent: CulturalEvent;
