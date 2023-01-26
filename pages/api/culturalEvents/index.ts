@@ -37,9 +37,5 @@ interface DetailCulturalEventRequest {
 }
 
 export async function fetchDetailCulturalEvent({ id }: DetailCulturalEventRequest) {
-  try {
-    return await customAxios.get<null, CulturalEvent[]>(`/culturalEvents/${id}`);
-  } catch (error) {
-    console.log(error);
-  }
+  return await customAxios.get<null, CulturalEvent[]>(`/culturalEvents/${id}`);
 }
