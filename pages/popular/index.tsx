@@ -1,13 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 import { GetServerSideProps } from "next";
 import { InstagramFeed } from "type";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 import PopularSEO from "pages/popular/PopularSEO";
-import { fetchInstagramFeed } from "pages/api";
+import { fetchInstagramFeed } from "pages/api/instagram";
 
 interface PopularProps {
   instagramFeed: InstagramFeed[];

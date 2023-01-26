@@ -1,83 +1,28 @@
-import axios from "axios";
+import Axios, { AxiosResponse } from "axios";
 
-axios.defaults.baseURL = process.env.NEXT_PUBLIC_APP_HOST_NAME;
+export const createApi = () => {
+  const _customAxios = Axios.create({
+    baseURL: process.env.NEXT_PUBLIC_APP_HOST_NAME,
+    validateStatus: (status) => status >= 200 && status < 400,
+  });
 
-interface CulturalEventRequest {
-  page: number;
-  sort: string;
-  search?: string;
-}
+  _customAxios.interceptors.response.use(
+    (response) => {
+      return Promise.resolve(response.data) as unknown as AxiosResponse;
+    },
 
-export async function fetchCulturalEvent({ page, sort, search }: CulturalEventRequest) {
-  try {
-    const resp = await axios.get(
-      `/culturalEvents?offset=${(page - 1) * 20}&limit=20&option=${
-        sort === "전체" ? "all" : encodeURI(sort)
-      }&search=${search}`,
-    );
+    async (error) => {
+      return Promise.reject(error);
+    },
+  );
 
-    return resp.data;
-  } catch (error) {
-    if (axios.isAxiosError(error)) {
-      console.log(error);
-    }
-  }
-}
+  _customAxios.interceptors.request.use((config) => {
+    return config;
+  });
 
-export async function fetchRandomCulturalEvent() {
-  try {
-    const resp = await axios.get(`/culturalEvents/random`);
+  return _customAxios;
+};
 
-    return resp.data;
-  } catch (error) {
-    if (axios.isAxiosError(error)) {
-      console.log(error);
-    }
-  }
-}
+const customAxios = createApi();
 
-interface DetailCulturalEventRequest {
-  id: number;
-}
-
-export async function fetchDetailCulturalEvent({ id }: DetailCulturalEventRequest) {
-  try {
-    const resp = await axios.get(`/culturalEvents/${id}`);
-
-    return resp.data;
-  } catch (error) {
-    if (axios.isAxiosError(error)) {
-      console.log(error);
-    }
-  }
-}
-
-export async function fetchInstagramFeed() {
-  try {
-    const resp = await axios.get(
-      `https://graph.instagram.com/me/media?fields=caption,id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN}`,
-    );
-
-    return resp.data;
-  } catch (error) {
-    if (axios.isAxiosError(error)) {
-      console.log(error);
-    }
-  }
-}
-
-interface InstagramReviewRequest {
-  sort: string;
-}
-
-export async function fetchInstagramReview(sort: InstagramReviewRequest) {
-  try {
-    const resp = await axios.get(`/instagramFeeds?option=${sort}`);
-
-    return resp.data;
-  } catch (error) {
-    if (axios.isAxiosError(error)) {
-      console.log(error);
-    }
-  }
-}
+export default customAxios;

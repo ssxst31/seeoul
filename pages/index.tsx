@@ -1,41 +1,49 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { SWRConfig } from "swr";
+import { useTheme } from "next-themes";
 
 import Main from "components/Main";
 import DefaultLayout from "layouts/DefaultLayout";
 import { filterSort } from "utils/filterSort";
 import IndexSeo from "pages/indexSeo";
-import { fetchCulturalEvent } from "pages/api";
-import { useTheme } from "next-themes";
+import { fetchCulturalEvent } from "pages/api/culturalEvents";
+import type { GetServerSideProps } from "next";
 
-export async function getServerSideProps(context: any) {
-  let { tab, page } = context.query;
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  try {
+    let { tab, page } = context.query;
 
-  page = Number(page ?? 1) as number;
+    page = page ?? "1";
 
-  const sort = filterSort((tab as string) ?? "total");
-  const search = undefined;
-  const params = { page, sort, search };
-  const data = await fetchCulturalEvent(params);
-  const apiKey = `/culturalEvents?offset=${(page - 1) * 20}&limit=20&option=${
-    sort === "전체" ? "all" : sort
-  }&search=${search}`;
+    const sort = filterSort((tab as string) ?? "total");
+    const search = undefined;
+    const params = { page, sort, search };
+    const data = await fetchCulturalEvent(params);
+    const apiKey = `/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
+      sort === "전체" ? "all" : sort
+    }&search=${search}`;
 
-  if (data === undefined) {
+    if (data === undefined) {
+      return {
+        notFound: true,
+      };
+    }
+
     return {
-      notFound: true,
+      props: {
+        fallback: {
+          [apiKey]: data,
+        },
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {},
     };
   }
-
-  return {
-    props: {
-      fallback: {
-        [apiKey]: data,
-      },
-    },
-  };
-}
+};
 
 export default function HomepageLayout({ fallback }: any) {
   const router = useRouter();

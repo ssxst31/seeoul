@@ -1,21 +1,23 @@
 import React from "react";
 import useSWR from "swr";
 
-import { fetchCulturalEvent } from "pages/api";
+import { fetchCulturalEvent } from "pages/api/culturalEvents";
 import { CulturalEvent } from "type";
 
 interface FetchCulturalEventProps {
-  page: number;
+  page: string | string[] | undefined;
   sort: string;
   search: string | undefined;
 }
 
-export default function useFetchCulturalEvent({ page = 1, sort, search }: FetchCulturalEventProps): {
+export default function useFetchCulturalEvent({ page = "1", sort, search }: FetchCulturalEventProps): {
   totalCulturalEvent: CulturalEvent[] | [] | null;
   totalCount: number;
 } {
   const { data } = useSWR(
-    `/culturalEvents?offset=${(page - 1) * 20}&limit=20&option=${sort === "전체" ? "all" : sort}&search=${search}`,
+    `/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
+      sort === "전체" ? "all" : sort
+    }&search=${search}`,
     () => fetchCulturalEvent({ page, sort, search }),
     { revalidateIfStale: false },
   );

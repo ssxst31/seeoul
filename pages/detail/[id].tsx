@@ -7,26 +7,19 @@ import { DiscussionEmbed } from "disqus-react";
 
 import { GetServerSideProps } from "next";
 
-import { fetchDetailCulturalEvent } from "pages/api";
+import { fetchDetailCulturalEvent } from "pages/api/culturalEvents";
 import DetailSEO from "pages/detail/DetailSEO";
 import { CulturalEvent } from "type";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 
-const ComponentsWithNoSSR = dynamic(
-  () => import("components/Map"), // Component로 사용할 항목을 import합니다.
-  { ssr: false }, // ssr옵션을 false로 설정해줍니다.
-);
-
-const KakaoAdFit = dynamic(
-  () => import("components/KakaoAdFit"), // Component로 사용할 항목을 import합니다.
-  { ssr: false }, // ssr옵션을 false로 설정해줍니다.
-);
+const ComponentsWithNoSSR = dynamic(() => import("components/Map"), { ssr: false });
+const KakaoAdFit = dynamic(() => import("components/KakaoAdFit"), { ssr: false });
 
 export const getServerSideProps: GetServerSideProps<{
   culturalEvent: CulturalEvent;
-}> = async ({ params }: any) => {
-  const id = params.id;
+}> = async (context) => {
+  const id = context.params?.id;
   const data = await fetchDetailCulturalEvent({ id });
 
   return {
