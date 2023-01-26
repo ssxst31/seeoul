@@ -5,7 +5,7 @@ import Link from "next/link";
 import { NextPage } from "next";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
-import useInstagramReview from "hooks/useInstagramReview";
+import { useInstagramReview } from "hooks/useInstagramReview";
 import ReviewSEO from "pages/review/ReviewSEO";
 
 const Review: NextPage = () => {
