@@ -48,7 +48,7 @@ export default function Header() {
                     <Link href={`/${navItem.value}`} passHref>
                       <a>
                         <span
-                          className={`hover:font-bold ${
+                          className={`hover:font-bold hover:leading-3 ${
                             router.pathname === "/" + navItem.value ? "font-bold" : "font-medium"
                           } `}
                         >
