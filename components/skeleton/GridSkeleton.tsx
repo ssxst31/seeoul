@@ -9,7 +9,7 @@ interface SkeletonProps {
   height: string;
 }
 
-export default function Skeleton({ row = 3, height }: SkeletonProps) {
+export default function GridSkeleton({ row = 3, height }: SkeletonProps) {
   const { width } = useWindowDimensions();
 
   const height2 = width > 763 ? height : "486px";

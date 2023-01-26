@@ -2,7 +2,7 @@ import React from "react";
 
 import { CulturalEvent } from "type";
 import CulturalEventCard from "components/CulturalEventCard";
-import Skeleton from "components/Skeleton";
+import GridSkeleton from "components/skeleton/GridSkeleton";
 
 interface MainArticleProps {
   totalCulturalEvent: CulturalEvent[] | [] | null;
@@ -10,7 +10,7 @@ interface MainArticleProps {
 
 export default function MainArticle({ totalCulturalEvent }: MainArticleProps) {
   if (!totalCulturalEvent) {
-    return <Skeleton height="418" row={16} />;
+    return <GridSkeleton height="418" row={16} />;
   }
 
   if (totalCulturalEvent?.length === 0) {

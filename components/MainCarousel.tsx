@@ -5,7 +5,7 @@ import { isMobile } from "react-device-detect";
 import Slider from "react-slick";
 
 import { useRandomCulturalEvent } from "hooks/useRandomCulturalEvent";
-import CarouselSkeleton from "components/CarouselSkeleton";
+import CarouselSkeleton from "components/skeleton/CarouselSkeleton";
 
 export default function MainCarousel() {
   const randomCulturalEventList = useRandomCulturalEvent();
