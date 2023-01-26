@@ -2,12 +2,13 @@ import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+import { NextPage } from "next";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 import useInstagramReview from "hooks/useInstagramReview";
 import ReviewSEO from "pages/review/ReviewSEO";
 
-export default function Review() {
+const Review: NextPage = () => {
   const router = useRouter();
   const { tab } = router.query;
   const sort = (tab ?? "exhibition") as string;
@@ -56,4 +57,6 @@ export default function Review() {
       <Footer />
     </>
   );
-}
+};
+
+export default Review;

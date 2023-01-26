@@ -1,7 +1,7 @@
 import React from "react";
 import { DefaultSeo } from "next-seo";
 
-export default function DefaultSEO() {
+const DefaultSEO = () => {
   return (
     <DefaultSeo
       title="내일전시 | 홈"
@@ -18,4 +18,6 @@ export default function DefaultSEO() {
       }}
     />
   );
-}
+};
+
+export default DefaultSEO;

@@ -10,10 +10,14 @@ interface FetchCulturalEventProps {
   search: string | undefined;
 }
 
-export default function useFetchCulturalEvent({ page = "1", sort, search }: FetchCulturalEventProps): {
+export const useFetchCulturalEvent = ({
+  page = "1",
+  sort,
+  search,
+}: FetchCulturalEventProps): {
   totalCulturalEvent: CulturalEvent[] | [] | null;
   totalCount: number;
-} {
+} => {
   const { data } = useSWR(
     `/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
       sort === "전체" ? "all" : sort
@@ -26,4 +30,4 @@ export default function useFetchCulturalEvent({ page = "1", sort, search }: Fetc
   const totalCount = data?.totalCount ?? 0;
 
   return { totalCulturalEvent, totalCount };
-}
+};

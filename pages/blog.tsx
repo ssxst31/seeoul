@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
+import { NextPage } from "next";
 
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 import blog from "pages/api/blog.json";
 
-export default function Blog() {
+const Blog: NextPage = () => {
   return (
     <div>
       <div className="mx-auto max-w-7xl">
@@ -25,4 +26,6 @@ export default function Blog() {
       <Footer />
     </div>
   );
-}
+};
+
+export default Blog;

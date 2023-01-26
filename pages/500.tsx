@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import Header from "layouts/Header";
 
-export default function Error500() {
+const Error500 = () => {
   return (
     <>
       <Header />
@@ -20,4 +20,6 @@ export default function Error500() {
       </div>
     </>
   );
-}
+};
+
+export default Error500;

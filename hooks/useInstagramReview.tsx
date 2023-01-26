@@ -19,7 +19,7 @@ interface Data {
   data: InstagramReview[];
 }
 
-export default function useInstagramReview({ sort }: FetchCulturalEventProps) {
+export const useInstagramReview = ({ sort }: FetchCulturalEventProps) => {
   const [dummyData, setDummyData] = useState<InstagramReview[] | null>(null);
 
   const { data }: SWRResponse<Data, any> = useSWR(
@@ -47,4 +47,4 @@ export default function useInstagramReview({ sort }: FetchCulturalEventProps) {
     }) ?? dummyData;
 
   return { totalInstagramReview };
-}
+};

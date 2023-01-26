@@ -6,7 +6,7 @@ interface DetailSEOProps {
   mainImg: string;
 }
 
-export default function DetailSEO({ title, mainImg }: DetailSEOProps) {
+const DetailSEO = ({ title, mainImg }: DetailSEOProps) => {
   const NEXT_SEO = {
     title: `${title} | 내일전시`,
     description: `${title} 서울 전시회 정보, 내일 전시에서 한눈에 확인해 보세요.`,
@@ -32,4 +32,6 @@ export default function DetailSEO({ title, mainImg }: DetailSEOProps) {
   };
 
   return <NextSeo {...NEXT_SEO} />;
-}
+};
+
+export default DetailSEO;

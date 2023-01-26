@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import { InstagramFeed } from "type";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
@@ -22,7 +22,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default function Popular({ instagramFeed }: PopularProps) {
+const Popular: NextPage<PopularProps> = ({ instagramFeed }) => {
   if (!instagramFeed) {
     return <></>;
   }
@@ -58,4 +58,6 @@ export default function Popular({ instagramFeed }: PopularProps) {
       <Footer />
     </>
   );
-}
+};
+
+export default Popular;

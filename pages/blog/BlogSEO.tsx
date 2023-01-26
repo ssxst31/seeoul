@@ -5,10 +5,12 @@ interface BlogSEOProps {
   title: string;
 }
 
-export default function BlogSEO({ title }: BlogSEOProps) {
+const BlogSEO = ({ title }: BlogSEOProps) => {
   const NEXT_SEO = {
     title: `${title} | 내일전시`,
   };
 
   return <NextSeo {...NEXT_SEO} />;
-}
+};
+
+export default BlogSEO;

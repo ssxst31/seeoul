@@ -5,7 +5,7 @@ import Image from "next/image";
 import { isMobile } from "react-device-detect";
 import { DiscussionEmbed } from "disqus-react";
 
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, NextPage } from "next";
 
 import { fetchDetailCulturalEvent } from "pages/api/culturalEvents";
 import DetailSEO from "pages/detail/DetailSEO";
@@ -33,7 +33,7 @@ interface DetailProps {
   culturalEvent: CulturalEvent;
 }
 
-const Detail = ({ culturalEvent }: DetailProps) => {
+const Detail: NextPage<DetailProps> = ({ culturalEvent }) => {
   useEffect(() => {
     let ins = document.createElement("ins") as any;
     let scr = document.createElement("script") as any;

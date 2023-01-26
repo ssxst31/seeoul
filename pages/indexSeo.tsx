@@ -5,7 +5,7 @@ interface indexSEOProps {
   title: string;
 }
 
-export default function indexSEO({ title }: indexSEOProps) {
+const indexSEO = ({ title }: indexSEOProps) => {
   const JSON_LD = {
     type: "Organization",
     name: "홈 - 내일전시",
@@ -28,4 +28,6 @@ export default function indexSEO({ title }: indexSEOProps) {
       <NextSeo {...NEXT_SEO} />
     </>
   );
-}
+};
+
+export default indexSEO;

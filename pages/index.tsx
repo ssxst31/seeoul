@@ -8,7 +8,7 @@ import DefaultLayout from "layouts/DefaultLayout";
 import { filterSort } from "utils/filterSort";
 import IndexSeo from "pages/indexSeo";
 import { fetchCulturalEvent } from "pages/api/culturalEvents";
-import type { GetServerSideProps } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
@@ -45,7 +45,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 };
 
-export default function HomepageLayout({ fallback }: any) {
+interface HomeProps {
+  fallback: any;
+}
+
+const Home: NextPage<HomeProps> = ({ fallback }) => {
   const router = useRouter();
   const { tab } = router.query;
   const sort = (tab ?? "total") as string;
@@ -76,4 +80,6 @@ export default function HomepageLayout({ fallback }: any) {
       </DefaultLayout>
     </>
   );
-}
+};
+
+export default Home;

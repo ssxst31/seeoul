@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import Header from "layouts/Header";
 
-export default function Error404() {
+const Error404 = () => {
   return (
     <>
       <Header />
@@ -22,4 +22,6 @@ export default function Error404() {
       </div>
     </>
   );
-}
+};
+
+export default Error404;
