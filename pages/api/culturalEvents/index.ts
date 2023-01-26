@@ -13,15 +13,23 @@ interface CulturalEventResponse {
 }
 
 export async function fetchCulturalEvent({ page, sort, search }: CulturalEventRequest) {
-  return await customAxios.get<null, CulturalEventResponse>(
-    `/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
-      sort === "전체" ? "all" : encodeURI(sort)
-    }&search=${search}`,
-  );
+  try {
+    return await customAxios.get<null, CulturalEventResponse>(
+      `/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
+        sort === "전체" ? "all" : encodeURI(sort)
+      }&search=${search}`,
+    );
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function fetchRandomCulturalEvent() {
-  return await customAxios.get<null, CulturalEvent[]>(`/culturalEvents/random`);
+  try {
+    return await customAxios.get<null, CulturalEvent[]>(`/culturalEvents/random`);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 interface DetailCulturalEventRequest {
@@ -29,5 +37,9 @@ interface DetailCulturalEventRequest {
 }
 
 export async function fetchDetailCulturalEvent({ id }: DetailCulturalEventRequest) {
-  return await customAxios.get<null, CulturalEvent[]>(`/culturalEvents/${id}`);
+  try {
+    return await customAxios.get<null, CulturalEvent[]>(`/culturalEvents/${id}`);
+  } catch (error) {
+    console.log(error);
+  }
 }

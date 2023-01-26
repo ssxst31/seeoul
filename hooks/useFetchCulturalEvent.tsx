@@ -3,6 +3,7 @@ import useSWR from "swr";
 
 import { fetchCulturalEvent } from "pages/api/culturalEvents";
 import { CulturalEvent } from "type";
+import { getAxiosError, isAxiosError } from "utils/errors";
 
 interface FetchCulturalEventProps {
   page: string | string[] | undefined;
@@ -23,7 +24,16 @@ export const useFetchCulturalEvent = ({
       sort === "전체" ? "all" : sort
     }&search=${search}`,
     () => fetchCulturalEvent({ page, sort, search }),
-    { revalidateIfStale: false },
+    {
+      revalidateIfStale: false,
+      onError: (err) => {
+        if (isAxiosError(err)) {
+          const errorMessage = getAxiosError(err).message;
+
+          console.log(errorMessage);
+        }
+      },
+    },
   );
 
   const totalCulturalEvent = data?.data ?? null;
