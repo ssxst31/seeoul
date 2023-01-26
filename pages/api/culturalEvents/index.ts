@@ -25,11 +25,7 @@ export async function fetchCulturalEvent({ page, sort, search }: CulturalEventRe
 }
 
 export async function fetchRandomCulturalEvent() {
-  try {
-    return await customAxios.get<null, CulturalEvent[]>(`/culturalEvents/random`);
-  } catch (error) {
-    console.log(error);
-  }
+  return await customAxios.get<null, CulturalEvent[]>(`/culturalEvents/random`);
 }
 
 interface DetailCulturalEventRequest {
