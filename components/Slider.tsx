@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-import useInterval from "hooks/useInterval";
+import { useInterval } from "hooks/useInterval";
 
 export default function Slider() {
   const [count, setCount] = useState<number>(0);

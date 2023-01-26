@@ -65,12 +65,12 @@ const makePaginationHref = (totalCount: number, page: number, tab: string) => {
 
 interface PaginationProps {
   totalPages: number;
-  page: number;
+  page: string | string[] | undefined;
   tab: string;
 }
 
 function Pagination({ totalPages, page, tab }: PaginationProps) {
-  return <div className="flex justify-center space-x-2">{makePaginationHref(totalPages, page, tab)}</div>;
+  return <div className="flex justify-center space-x-2">{makePaginationHref(totalPages, Number(page), tab)}</div>;
 }
 
 export default Pagination;

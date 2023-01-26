@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { isMobile } from "react-device-detect";
 
 import { filterSort } from "utils/filterSort";
-import useFetchCulturalEvent from "hooks/useFetchCulturalEvent";
+import { useFetchCulturalEvent } from "hooks/useFetchCulturalEvent";
 import MainCarousel from "components/MainCarousel";
 import MainArticle from "components/MainArticle";
 import Pagination from "components/Pagination";
@@ -15,7 +15,7 @@ const KakaoAdFit = dynamic(() => import("components/KakaoAdFit"), { ssr: false }
 export default function Main() {
   const router = useRouter();
   const { query } = router;
-  const page = Number(query.page ?? 1) as number;
+  const page = query.page ?? "1";
   const tab = (query.tab ?? "total") as string;
 
   const sort = filterSort((query.tab as string) ?? "total");
