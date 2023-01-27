@@ -9,7 +9,7 @@ import MainCarousel from "components/MainCarousel";
 import MainArticle from "components/MainArticle";
 import Pagination from "components/Pagination";
 import InputBox from "components/molecules/InputBox";
-
+import ApiErrorBoundary from "../pages/ApiErrorBoundary";
 const KakaoAdFit = dynamic(() => import("components/kakao/KakaoAdFit"), { ssr: false });
 
 export default function Main() {
@@ -43,7 +43,9 @@ export default function Main() {
       <section>
         <h2 className="m-0 text-2xl font-bold text-black dark:text-white linear2">전시회를 생각 중이라면 👀</h2>
         <div className="w-full h-8 -md:h-4" />
-        <MainCarousel />
+        <ApiErrorBoundary>
+          <MainCarousel />
+        </ApiErrorBoundary>
       </section>
       <div className="w-full h-10" />
       <section>

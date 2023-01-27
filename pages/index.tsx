@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { useRouter } from "next/router";
 import { SWRConfig } from "swr";
 import { useTheme } from "next-themes";
@@ -9,41 +9,29 @@ import { filterSort } from "utils/filterSort";
 import IndexSeo from "pages/indexSeo";
 import { fetchCulturalEvent } from "pages/api/culturalEvents";
 import type { GetServerSideProps, NextPage } from "next";
+import withGetServerSideProps from "./withServerSideProps";
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  try {
-    let { tab, page } = context.query;
+export const getServerSideProps: GetServerSideProps = withGetServerSideProps(async (context) => {
+  let { tab, page } = context.query;
 
-    page = page ?? "1";
+  page = page ?? "1";
 
-    const sort = filterSort((tab as string) ?? "total");
-    const search = undefined;
-    const params = { page, sort, search };
-    const data = await fetchCulturalEvent(params);
-    const apiKey = `/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
-      sort === "전체" ? "all" : sort
-    }&search=${search}`;
+  const sort = filterSort((tab as string) ?? "total");
+  const search = undefined;
+  const params = { page, sort, search };
+  const data = await fetchCulturalEvent(params);
+  const apiKey = `/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
+    sort === "전체" ? "all" : sort
+  }&search=${search}`;
 
-    if (data === undefined) {
-      return {
-        notFound: true,
-      };
-    }
-
-    return {
-      props: {
-        fallback: {
-          [apiKey]: data,
-        },
+  return {
+    props: {
+      fallback: {
+        [apiKey]: data,
       },
-    };
-  } catch (error) {
-    console.log(error);
-    return {
-      props: {},
-    };
-  }
-};
+    },
+  };
+});
 
 interface HomeProps {
   fallback: any;
