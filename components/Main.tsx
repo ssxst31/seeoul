@@ -93,11 +93,7 @@ export default function Main() {
           </ul>
         </div>
         <div className="w-full h-7 -md:h-4" />
-        <div className="overflow-x-scroll scrollbar-hide dark:border-dark-200">
-          <div className="-2xl:w-[1220px] flex items-center justify-between">
-            <District location={location} />
-          </div>
-        </div>
+        <District location={location} />
         <div className="w-full h-8 -md:h-4" />
         <div className="flex justify-between -md:flex-col">
           <h2 className="m-0 text-2xl font-bold text-black dark:text-white linear2 h-[29px] self-start">
