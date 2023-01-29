@@ -7,12 +7,13 @@ import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 import PopularSEO from "pages/popular/PopularSEO";
 import { fetchInstagramFeed } from "pages/api/instagram";
+import withGetServerSideProps from "components/withServerSideProps";
 
 interface PopularProps {
   instagramFeed: InstagramFeed[];
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = withGetServerSideProps(async () => {
   const data = await fetchInstagramFeed();
 
   return {
@@ -20,7 +21,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       instagramFeed: data.data,
     },
   };
-};
+});
 
 const Popular: NextPage<PopularProps> = ({ instagramFeed }) => {
   if (!instagramFeed) {
