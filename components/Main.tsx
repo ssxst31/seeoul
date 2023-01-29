@@ -81,7 +81,11 @@ export default function Main() {
             ].map((t, index) => (
               <li key={index}>
                 <span
-                  className="px-3 py-2 text-sm text-white bg-[#645CBB] cursor-pointer rounded-xl"
+                  className={`${
+                    location === t
+                      ? "bg-[#645CBB] border border-solid border-[#645CBB]"
+                      : "border border-solid border-[#645CBB] text-black"
+                  } px-3 py-2 text-sm text-white  cursor-pointer rounded-xl`}
                   onClick={() => {
                     setLocation(t);
                   }}
