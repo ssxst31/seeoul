@@ -26,14 +26,14 @@ export default function District({ location }: any) {
   return (
     <div className="overflow-x-scroll scrollbar-hide">
       <div className="-2xl:w-[1220px] flex items-center justify-between">
-        {totalCulturalEvent?.slice(0, 5)?.map((el: any, index: number) => {
+        {totalCulturalEvent?.slice(0, 5).map((culturalEvent) => {
           return (
-            <div className="relative w-48 overflow-hidden h-72">
-              <Link href={`/detail/${el.id}`} passHref shallow={true}>
+            <div className="relative w-48 overflow-hidden h-72" key={culturalEvent.id}>
+              <Link href={`/detail/${culturalEvent.id}`} passHref shallow={true}>
                 <a>
                   <Image
-                    src={el.mainImg}
-                    alt={el.title}
+                    src={culturalEvent.mainImg}
+                    alt={culturalEvent.title}
                     layout="fill"
                     className="duration-100 ease-linear hover:scale-110"
                     priority={true}
