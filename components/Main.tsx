@@ -83,8 +83,8 @@ export default function Main() {
                 <span
                   className={`${
                     location === t
-                      ? "bg-[#645CBB] border border-solid border-[#645CBB]"
-                      : "border border-solid border-[#645CBB] text-black"
+                      ? "bg-[#645CBB] border border-solid border-[#645CBB] dark:text-black"
+                      : "border border-solid border-[#645CBB] text-black dark:text-white"
                   } px-3 py-2 text-sm text-white  cursor-pointer rounded-xl`}
                   onClick={() => {
                     setLocation(t);
