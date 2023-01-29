@@ -9,7 +9,7 @@ import { filterSort } from "utils/filterSort";
 import IndexSeo from "pages/indexSeo";
 import { fetchCulturalEvent } from "pages/api/culturalEvents";
 import type { GetServerSideProps, NextPage } from "next";
-import withGetServerSideProps from "./withServerSideProps";
+import withGetServerSideProps from "components/withServerSideProps";
 
 export const getServerSideProps: GetServerSideProps = withGetServerSideProps(async (context) => {
   let { tab, page } = context.query;

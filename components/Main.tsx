@@ -9,7 +9,7 @@ import MainCarousel from "components/MainCarousel";
 import MainArticle from "components/MainArticle";
 import Pagination from "components/Pagination";
 import InputBox from "components/molecules/InputBox";
-import ApiErrorBoundary from "../pages/ApiErrorBoundary";
+import ApiErrorBoundary from "components/ApiErrorBoundary";
 import DistrictCulturalEventList from "components/DistrictCulturalEventList";
 import DistrictList from "components/DistrictList";
 const KakaoAdFit = dynamic(() => import("components/kakao/KakaoAdFit"), { ssr: false });
@@ -57,7 +57,9 @@ export default function Main() {
         <div className="w-full h-7 -md:h-4" />
         <DistrictList setLocation={setLocation} location={location} />
         <div className="w-full h-7 -md:h-4" />
-        <DistrictCulturalEventList location={location} />
+        <ApiErrorBoundary>
+          <DistrictCulturalEventList location={location} />
+        </ApiErrorBoundary>
         <div className="w-full h-8 -md:h-4" />
         <div className="flex justify-between -md:flex-col">
           <h2 className="m-0 text-2xl font-bold text-black dark:text-white linear2 h-[29px] self-start">
