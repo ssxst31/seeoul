@@ -62,7 +62,6 @@ export default function Header() {
             </ul>
           </nav>
         </div>
-
         <Slider />
       </div>
       {router.pathname === "/" && (
@@ -74,7 +73,9 @@ export default function Header() {
                   <a>
                     <span
                       className={`text-sm cursor-pointer hover:font-bold hover:text-black dark:hover:text-white ${
-                        router.query.tab === t.sort ? "font-bold text-black" : "font-medium text-neutral-400"
+                        router.query.tab === t.sort
+                          ? "font-bold text-black dark:text-white"
+                          : "font-medium text-neutral-400 "
                       }`}
                     >
                       {t.title}
