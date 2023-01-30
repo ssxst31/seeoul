@@ -21,8 +21,8 @@ export default class MyDocument extends Document {
             name="keywords"
             content="내일전시, 전시회, 문화예술, 서울전시, 서울전시회, 전시정보, 전시회 추천, exhibition"
           />
-          <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_ADSENSE_ID} />
-          <meta name="naver-site-verification" content={process.env.NEXT_PUBLIC_NAVER_ID} />
+          <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE} />
+          <meta name="naver-site-verification" content={process.env.NEXT_PUBLIC_NAVER_SITE} />
           <link
             rel="stylesheet"
             type="text/css"
