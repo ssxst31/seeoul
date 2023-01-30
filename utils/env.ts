@@ -3,5 +3,5 @@ export const isServer = () => {
 };
 
 export const isProduction = () => {
-  return process.env.NEXT_PUBLIC_APP_ENV === "production";
+  return process.env.NEXT_PUBLIC_ENV === "production";
 };
