@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     if (shallow) return;
     NProgress.done();
   };
-  console.log(isProd);
+
   return (
     <>
       {isProd ? (
