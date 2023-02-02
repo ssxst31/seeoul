@@ -29,8 +29,8 @@ export default function DistrictCulturalEventList({ location }: DistrictCultural
   return (
     <div className="overflow-x-scroll scrollbar-hide">
       <div className="-2xl:w-[1220px] flex items-center justify-between">
-        {totalCulturalEvent?.slice(0, 5).map((culturalEvent) => (
-          <DistrictCulturalEvent culturalEvent={culturalEvent} />
+        {totalCulturalEvent?.slice(0, 5).map((culturalEvent, index) => (
+          <DistrictCulturalEvent culturalEvent={culturalEvent} key={index} />
         ))}
       </div>
     </div>
