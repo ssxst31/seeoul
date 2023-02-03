@@ -56,6 +56,13 @@ const Detail: NextPage<DetailProps> = ({ culturalEvent }) => {
   const { mainImg, title, date, useTrgt, useFee, place, orgLink } = culturalEvent;
   const image = culturalEvent.mainImg.replace("&thumb=Y", "");
 
+  const descriptionList = [
+    { title: "장소", value: place },
+    { title: "기간", value: date },
+    { title: "대상", value: useTrgt },
+    { title: "요금", value: useFee },
+  ];
+
   return (
     <>
       <DetailSEO title={title} mainImg={mainImg} />
@@ -83,26 +90,13 @@ const Detail: NextPage<DetailProps> = ({ culturalEvent }) => {
                   <span className="text-3xl font-bold">{title}</span>
                 </div>
                 <div className="w-full h-2" />
-                <div>
-                  <span className="text-xl font-medium text-gray-400 -md:text-base">장소 :</span>
-                  <span className="text-xl -md:text-base">{place}</span>
-                </div>
-                <div className="w-full h-2" />
-                <div>
-                  <span className="text-xl font-medium text-gray-400 -md:text-base">기간 :</span>
-                  <span className="text-xl -md:text-base">{date}</span>
-                </div>
-                <div className="w-full h-2" />
-                <div>
-                  <span className="text-xl font-medium text-gray-400 -md:text-base">대상 :</span>
-                  <span className="text-xl -md:text-base">{useTrgt}</span>
-                </div>
-                <div className="w-full h-2" />
-                <div>
-                  <span className="text-xl font-medium text-gray-400 -md:text-base">요금 :</span>
-                  <span className="text-xl -md:text-base">{useFee}</span>
-                </div>
-                <div className="w-full h-2" />
+                {descriptionList.map((description) => (
+                  <div>
+                    <span className="text-xl font-medium text-gray-400 -md:text-base">{description.title} :</span>
+                    <span className="text-xl -md:text-base">{description.value}</span>
+                    <div className="w-full h-2" />
+                  </div>
+                ))}
                 <div>
                   <span className="text-xl font-medium text-gray-400 -md:text-base">
                     <Link href={orgLink} passHref>
