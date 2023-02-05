@@ -2,7 +2,6 @@ import React from "react";
 import Script from "next/script";
 import Router from "next/router";
 import NProgress from "nprogress";
-import { RecoilRoot } from "recoil";
 import { ThemeProvider } from "next-themes";
 
 import { isProduction } from "utils/env";
@@ -63,9 +62,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       ) : null}
       <DefaultSEO />
       <ThemeProvider enableSystem={true} attribute="class">
-        <RecoilRoot>
-          <Component {...pageProps} />
-        </RecoilRoot>
+        <Component {...pageProps} />
       </ThemeProvider>
     </>
   );
