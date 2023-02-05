@@ -1,12 +1,12 @@
 # 내일전시 프로젝트
 
 https://seeoul.netlify.app
-
+<br/><br/>
 # 📋 프로젝트 개요
 
 - 서울시 문화행사 정보를 제공해 주는 웹 서비스입니다.
 - 지속적으로 개선 및 최신 기술을 학습할 수 있는 프로젝트입니다.
-
+<br/><br/>
 # 🏗️ 페이지 소개
 
 ## 메인페이지
@@ -23,7 +23,7 @@ https://seeoul.netlify.app
 ## 인기전시회
 [![2023-01-25-21-57-19.png](https://i.postimg.cc/FRBRhSH8/2023-01-25-21-57-19.png)](https://postimg.cc/JDjmqGJ5)
 - 내일 전시 인스타그램 계정의 피드를 가져와 인기 전시회 탭을 구현하였습니다.
-
+<br/><br/>
 # 👟 실행 방법
 
 ### 코드 실행 방법
@@ -39,18 +39,25 @@ npm dev start
 npm install
 npm dev start
 ```
-
+<br/><br/>
 # 👷 기능 구현사항
 - 반응형
+- 다크모드
+- SEO 최적화
+- 문화행사 검색기능
+- 페이지네이션 
+- 카테고리 필터기능
+
+<br/>
+
 # ⚙️ 기술스택
 
-### Typescript, eslint, prettier
+### TypeScript, React, Next.js
+### eslint, prettier
+### postcss, tailwind CSS
 
-- 코드 퀄리티와 잠재적인 위험을 줄이기 위해 사용했습니다.
 
-### React, TailWindCSS
-
-- 선언적인 프론트엔드 컴포넌트 프로그래밍을 위해 사용했습니다.
+<br/>
 
 # 📁 폴더 구조
 
@@ -161,6 +168,7 @@ npm dev start
  ┣ 📜tailwind.config.js
  ┗ 📜tsconfig.json
 ```
+<br/>
 
 # 🚀 미해결 이슈 & 개선 가능 사항
 
