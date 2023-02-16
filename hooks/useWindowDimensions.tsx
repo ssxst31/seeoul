@@ -9,14 +9,14 @@ function getWindowDimensions() {
 }
 
 export const useWindowDimensions = () => {
-  const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 }); // <-- don't invoke here
+  const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     function handleResize() {
       setWindowDimensions(getWindowDimensions());
     }
 
-    handleResize(); // <-- invoke this on component mount
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => {
