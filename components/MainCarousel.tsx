@@ -48,7 +48,7 @@ export default function MainCarousel() {
                   src={isMobile ? randomCulturalEvent.mainImg.slice(0, -1) : randomCulturalEvent.mainImg}
                   layout="fill"
                   alt={randomCulturalEvent.title}
-                  priority={index < 3}
+                  priority={true}
                 />
               </div>
             </a>
