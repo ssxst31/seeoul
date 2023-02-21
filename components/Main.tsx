@@ -43,7 +43,7 @@ export default function Main() {
   return (
     <main className="pt-[132px] px-[30px] w-full -md:px-4 -md:pt-[165px]">
       <section>
-        <h2 className="m-0 text-2xl font-bold text-black dark:text-white linear2">전시회를 생각 중이라면 👀</h2>
+        <h2 className="pb-1 text-2xl font-bold text-black dark:text-white linear2">전시회를 생각 중이라면 👀</h2>
         <div className="w-full h-8 -md:h-4" />
         <ApiErrorBoundary>
           <MainCarousel />
@@ -51,7 +51,7 @@ export default function Main() {
       </section>
       <div className="w-full h-10" />
       <section>
-        <h2 className="m-0 text-2xl font-bold text-black dark:text-white linear2 h-[29px] self-start">
+        <h2 className="pb-1 text-2xl font-bold text-black dark:text-white linear2 h-[29px] self-start">
           어디서 구경할까요? 🤔
         </h2>
         <div className="w-full h-7 -md:h-4" />
