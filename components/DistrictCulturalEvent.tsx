@@ -11,7 +11,7 @@ interface DistrictCulturalEventProps {
 export default function DistrictCulturalEvent({ culturalEvent }: DistrictCulturalEventProps) {
   return (
     <div className="relative w-48 overflow-hidden h-72" key={culturalEvent.id}>
-      <Link href={`/detail/${culturalEvent.id}`} passHref shallow={true}>
+      <Link href={`/detail/${culturalEvent.title}`} passHref shallow={true}>
         <a>
           <Image
             src={culturalEvent.mainImg}

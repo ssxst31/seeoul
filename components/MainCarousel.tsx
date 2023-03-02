@@ -41,7 +41,7 @@ export default function MainCarousel() {
     <Slider {...settings}>
       {randomCulturalEventList.map((randomCulturalEvent, index) => (
         <div key={randomCulturalEvent.id}>
-          <Link href={`/detail/${randomCulturalEvent.id}`} passHref>
+          <Link href={`/detail/${randomCulturalEvent.title}`} passHref>
             <a>
               <div className="min-h-[360px] mx-4 relative -md:mx-0">
                 <Image

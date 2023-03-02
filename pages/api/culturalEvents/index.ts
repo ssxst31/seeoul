@@ -25,9 +25,9 @@ export async function fetchRandomCulturalEvent() {
 }
 
 interface DetailCulturalEventRequest {
-  id: string | string[] | undefined;
+  title: string | string[] | undefined;
 }
 
-export async function fetchDetailCulturalEvent({ id }: DetailCulturalEventRequest) {
-  return await customAxios.get<null, CulturalEvent[]>(`/culturalEvents/${id}`);
+export async function fetchDetailCulturalEvent({ title }: DetailCulturalEventRequest) {
+  return await customAxios.get<null, CulturalEvent[]>(encodeURI(`/culturalEvents/${title}`));
 }

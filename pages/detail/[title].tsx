@@ -19,8 +19,9 @@ const KakaoAdFit = dynamic(() => import("components/kakao/KakaoAdFit"), { ssr: f
 export const getServerSideProps: GetServerSideProps<{
   culturalEvent: CulturalEvent;
 }> = async (context) => {
-  const id = context.params?.id;
-  const data = await fetchDetailCulturalEvent({ id });
+  const title = context.params?.title;
+
+  const data = await fetchDetailCulturalEvent({ title });
 
   return {
     props: {
