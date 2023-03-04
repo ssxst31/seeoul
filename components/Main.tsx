@@ -62,7 +62,7 @@ export default function Main() {
         </ApiErrorBoundary>
         <div className="w-full h-8 -md:h-4" />
         <div className="flex justify-between -md:flex-col">
-          <h2 className="m-0 text-2xl font-bold text-black dark:text-white linear2 h-[29px] self-start">
+          <h2 className="pb-[34px] text-2xl font-bold text-black dark:text-white linear2 h-[29px] self-start">
             여기서 골라보세요! 🫧
           </h2>
           <div className="hidden w-full -md:h-4 -md:block" />
