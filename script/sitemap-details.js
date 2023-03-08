@@ -13,14 +13,14 @@ const formatted = (sitemap) => prettier.format(sitemap, { parser: "html" });
   const fruits = jsonData.DATA;
 
   const postList = [];
-  fruits.forEach((post, index) => postList.push(index));
+  fruits.forEach((post) => postList.push(post.title));
 
   const postListSitemap = `
     ${postList
-      .map((id) => {
+      .map((title) => {
         return `
           <url>
-            <loc>${`${YOUR_AWESOME_DOMAIN}/detail/${id}`}</loc>
+            <loc>${`${YOUR_AWESOME_DOMAIN}/detail/${encodeURI(title)}`}</loc>
             <lastmod>${getDate}</lastmod>
           </url>`;
       })
@@ -40,9 +40,5 @@ const formatted = (sitemap) => prettier.format(sitemap, { parser: "html" });
 
   const formattedSitemap = [formatted(generatedSitemap)];
 
-  fs.writeFileSync(
-    "../public/sitemap-details.xml",
-    formattedSitemap.toString(),
-    "utf8",
-  );
+  fs.writeFileSync("../public/sitemap-details.xml", formattedSitemap.toString(), "utf8");
 })();
