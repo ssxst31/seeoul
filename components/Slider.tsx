@@ -15,15 +15,18 @@ export default function Slider() {
   }, 3000);
 
   const slides = [
-    { title: "한국소년 개인전", link: "https://www.arthub.co.kr/sub01/board05_view.htm?No=47045" },
-    { title: "이재석 : 창끝의 궤적", link: "http://chapterii.org" },
+    { title: "마우리치오 카텔란 : WE", link: "https://ticket.leeum.org/leeum/personal/personalStep.do" },
     {
-      title: "박기웅 : 48 VILLAINS",
-      link: "https://seoulsky.lotteworld.com/ko/main/index.do",
+      title: "어노니머스 프로젝트",
+      link: "https://groundseesaw.co.kr/product/%ec%96%b4%eb%85%b8%eb%8b%88%eb%a8%b8%ec%8a%a4-%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8",
     },
     {
-      title: "두 개의 시선",
-      link: "https://www.facebook.com/gkartina",
+      title: "마리오 폰테의 트웰브",
+      link: "https://www.instagram.com/mario_pontes_12",
+    },
+    {
+      title: "마틴 마르지엘라",
+      link: "https://www.lottemuseum.com",
     },
   ];
 
