@@ -3,7 +3,7 @@ import Script from "next/script";
 import Router from "next/router";
 import NProgress from "nprogress";
 import { ThemeProvider } from "next-themes";
-
+import localFont from "next/font/local";
 import { isProduction } from "utils/env";
 import type { AppProps } from "next/app";
 import DefaultSEO from "./DefaultSEO";
@@ -13,6 +13,8 @@ import "styles/globals.css";
 import "styles/reset.css";
 import "styles/override.css";
 import "nprogress/nprogress.css";
+
+const myFont = localFont({ src: "./NanumSquareR.woff2" });
 
 function MyApp({ Component, pageProps }: AppProps) {
   useGoogleAnalytics();
@@ -62,7 +64,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       ) : null}
       <DefaultSEO />
       <ThemeProvider enableSystem={true} attribute="class">
-        <Component {...pageProps} />
+        <main className={myFont.className}>
+          <Component {...pageProps} />
+        </main>
       </ThemeProvider>
     </>
   );
