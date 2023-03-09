@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { isMobile } from "react-device-detect";
 import { DiscussionEmbed } from "disqus-react";
 
