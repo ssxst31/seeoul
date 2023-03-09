@@ -2,9 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'NanumSquareR';
+  src: url('/fonts/NanumSquareR.woff2'); 
+}
 
+* { 
+  font-family: 'NanumSquareR';
+}
 
-* { font-family: 'NanumSquare', sans-serif }
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;

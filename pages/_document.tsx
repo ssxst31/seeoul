@@ -34,11 +34,6 @@ export default class MyDocument extends Document {
             type="text/css"
             href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
           />
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css"
-          />
         </Head>
         <body className="bg-white dark:bg-dark-100">
           <Main />
