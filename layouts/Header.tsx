@@ -35,7 +35,7 @@ export default function Header() {
           <h1 className="inline-flex mr-12 -md:mr-0">
             <a className="flex items-center -md:h-16" href="/">
               <div className="relative w-10 h-10 mr-3">
-                <Image src="/logo.png" width={40} height={40} alt="logo" layout="fill" objectFit="contain" />
+                <Image src="/logo.png" width={40} height={40} alt="logo" />
               </div>
               <div className="text-2xl text-indigo-600">내일전시</div>
             </a>
@@ -45,16 +45,14 @@ export default function Header() {
               {navItemList.map((navItem, index) => {
                 return (
                   <li key={index}>
-                    <Link href={`/${navItem.value}`} passHref>
-                      <a>
-                        <span
-                          className={`hover:font-bold hover:leading-3 ${
-                            router.pathname === "/" + navItem.value ? "font-bold" : "font-medium"
-                          } `}
-                        >
-                          {navItem.title}
-                        </span>
-                      </a>
+                    <Link href={`/${navItem.value}`}>
+                      <span
+                        className={`hover:font-bold hover:leading-3 ${
+                          router.pathname === "/" + navItem.value ? "font-bold" : "font-medium"
+                        } `}
+                      >
+                        {navItem.title}
+                      </span>
                     </Link>
                   </li>
                 );
@@ -70,17 +68,15 @@ export default function Header() {
             {TABS.map((t, index) => (
               <li key={index}>
                 <Link href={`/?tab=${t.sort}`} key={index} shallow={true} scroll={true} passHref>
-                  <a>
-                    <span
-                      className={`text-sm cursor-pointer hover:font-bold hover:text-black dark:hover:text-white ${
-                        router.query.tab === t.sort
-                          ? "font-bold text-black dark:text-white"
-                          : "font-medium text-neutral-400 "
-                      }`}
-                    >
-                      {t.title}
-                    </span>
-                  </a>
+                  <span
+                    className={`text-sm cursor-pointer hover:font-bold hover:text-black dark:hover:text-white ${
+                      router.query.tab === t.sort
+                        ? "font-bold text-black dark:text-white"
+                        : "font-medium text-neutral-400 "
+                    }`}
+                  >
+                    {t.title}
+                  </span>
                 </Link>
               </li>
             ))}
@@ -92,15 +88,13 @@ export default function Header() {
           <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[672px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
             {TABS.filter((t) => t.sort !== "total").map((t, index) => (
               <Link href={`review/?tab=${t.sort}`} key={index} shallow={true} scroll={true} passHref>
-                <a>
-                  <span
-                    className={`text-sm cursor-pointer hover:font-bold hover:text-black ${
-                      router.query.tab === t.sort ? "font-bold text-black" : "font-medium text-neutral-400"
-                    }`}
-                  >
-                    {t.title}
-                  </span>
-                </a>
+                <span
+                  className={`text-sm cursor-pointer hover:font-bold hover:text-black ${
+                    router.query.tab === t.sort ? "font-bold text-black" : "font-medium text-neutral-400"
+                  }`}
+                >
+                  {t.title}
+                </span>
               </Link>
             ))}
           </ul>

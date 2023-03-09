@@ -31,10 +31,8 @@ const Review: NextPage = () => {
                       className="w-full overflow-hidden border border-gray-200 shadow-lg aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8 shadow-gray-100"
                       key={a.id}
                     >
-                      <Link href={a.permalink} passHref>
-                        <a target="_blank" rel="noopener noreferrer">
-                          <img src={a.children[0].media_url} width={237} height={237} />
-                        </a>
+                      <Link href={a.permalink} target="_blank" rel="noopener noreferrer">
+                        <img src={a.children[0].media_url} width={237} height={237} />
                       </Link>
                     </div>
                   );

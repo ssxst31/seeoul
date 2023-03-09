@@ -41,17 +41,15 @@ export default function MainCarousel() {
     <Slider {...settings}>
       {randomCulturalEventList.map((randomCulturalEvent, index) => (
         <div key={randomCulturalEvent.id}>
-          <Link href={`/detail/${randomCulturalEvent.title}`} passHref>
-            <a>
-              <div className="min-h-[360px] mx-4 relative -md:mx-0">
-                <Image
-                  src={isMobile ? randomCulturalEvent.mainImg.slice(0, -1) : randomCulturalEvent.mainImg}
-                  layout="fill"
-                  alt={randomCulturalEvent.title}
-                  priority={true}
-                />
-              </div>
-            </a>
+          <Link href={`/detail/${randomCulturalEvent.title}`}>
+            <div className="min-h-[360px] mx-4 relative -md:mx-0">
+              <Image
+                src={isMobile ? randomCulturalEvent.mainImg.slice(0, -1) : randomCulturalEvent.mainImg}
+                layout="fill"
+                alt={randomCulturalEvent.title}
+                priority={true}
+              />
+            </div>
           </Link>
         </div>
       ))}

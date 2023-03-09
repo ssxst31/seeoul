@@ -23,12 +23,10 @@ const makePaginationHref = (totalCount: number, page: number, tab: string) => {
 
   if (startIndex > 1) {
     pageNumbersArray.push(
-      <Link href={`?tab=${tab}&page=${page - 1}`} passHref shallow={true} scroll={true}>
-        <a>
-          <div className="inline-flex items-center justify-center w-10 h-10 text-gray-500 border border-gray-200 rounded-md -md:w-8 -md:h-8 hover:border-indigo-600 ">
-            &lt;
-          </div>
-        </a>
+      <Link href={`?tab=${tab}&page=${page - 1}`} shallow={true} scroll={true}>
+        <div className="inline-flex items-center justify-center w-10 h-10 text-gray-500 border border-gray-200 rounded-md -md:w-8 -md:h-8 hover:border-indigo-600 ">
+          &lt;
+        </div>
       </Link>,
     );
   }
@@ -36,14 +34,12 @@ const makePaginationHref = (totalCount: number, page: number, tab: string) => {
   for (let i = startIndex; i <= endIndex; i++) {
     pageNumbersArray.push(
       <Link href={`?tab=${tab}&page=${i}`} passHref shallow={true} scroll={true}>
-        <a>
-          <div
-            className={`-md:w-8 -md:h-8 rounded-md inline-flex justify-center items-center border w-10 h-10 hover:border-indigo-600 
+        <div
+          className={`-md:w-8 -md:h-8 rounded-md inline-flex justify-center items-center border w-10 h-10 hover:border-indigo-600 
             ${page === i ? "border-indigo-600 text-indigo-600" : "border-gray-200 text-gray-500 "}`}
-          >
-            {i}
-          </div>
-        </a>
+        >
+          {i}
+        </div>
       </Link>,
     );
   }
@@ -51,11 +47,9 @@ const makePaginationHref = (totalCount: number, page: number, tab: string) => {
   if (endIndex < totalCount) {
     pageNumbersArray.push(
       <Link href={`?tab=${tab}&page=${page + 1}`} passHref shallow={true} scroll={true}>
-        <a>
-          <div className="inline-flex items-center justify-center w-10 h-10 text-gray-500 border border-gray-200 rounded-md -md:w-8 -md:h-8 hover:border-indigo-600">
-            &gt;
-          </div>
-        </a>
+        <div className="inline-flex items-center justify-center w-10 h-10 text-gray-500 border border-gray-200 rounded-md -md:w-8 -md:h-8 hover:border-indigo-600">
+          &gt;
+        </div>
       </Link>,
     );
   }

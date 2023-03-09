@@ -100,10 +100,8 @@ const Detail: NextPage<DetailProps> = ({ culturalEvent }) => {
                 ))}
                 <div>
                   <span className="text-xl font-medium text-gray-400 -md:text-base">
-                    <Link href={orgLink} passHref>
-                      <a target="_blank" rel="noopener noreferrer" className="text-gray-400">
-                        사이트 바로가기
-                      </a>
+                    <Link href={orgLink} target="_blank" rel="noopener noreferrer">
+                      <span className="text-gray-400">사이트 바로가기</span>
                     </Link>
                   </span>
                 </div>
@@ -119,13 +117,7 @@ const Detail: NextPage<DetailProps> = ({ culturalEvent }) => {
         <div className="-md:bottom-0 hidden -md:block -md:fixed -md:w-full -md:z-[999999999]">
           <button className="w-full text-white bg-indigo-600 h-11">
             <Link href={orgLink} passHref>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full h-full font-bold text-white"
-              >
-                예매하기
-              </a>
+              예매하기
             </Link>
           </button>
         </div>

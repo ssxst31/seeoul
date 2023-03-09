@@ -50,9 +50,7 @@ const Blog = ({ post }: any) => {
           </div>
           <div className="w-full h-10" />
           <Link href="/blog" as={`/blog`}>
-            <a>
-              <button className="w-48 h-12 text-xl text-white bg-indigo-600 rounded-xl">목록으로 이동</button>
-            </a>
+            <button className="w-48 h-12 text-xl text-white bg-indigo-600 rounded-xl">목록으로 이동</button>
           </Link>
           <div className="w-full h-10" />
         </div>

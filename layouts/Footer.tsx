@@ -21,10 +21,8 @@ export default function Footer() {
           <small>ⓒ 내일전시 2022 All Rights Reserved.</small>
           <div className="flex flex-col text-sm text-black dark:text-white">
             <span className="text-right">출처 - 서울특별시, 서울문화포털(culture.seoul.go.kr)</span>
-            <Link href="https://icons8.com" passHref>
-              <a className="text-right" target="_blank" rel="noopener noreferrer">
-                icons8에서 아이콘 제공
-              </a>
+            <Link href="https://icons8.com" target="_blank" rel="noopener noreferrer">
+              <span className="text-right">icons8에서 아이콘 제공</span>
             </Link>
           </div>
         </div>
@@ -32,20 +30,16 @@ export default function Footer() {
           {snsList.map((sns) => {
             return (
               <Link href={sns.link} passHref key={sns.id}>
-                <a target="_blank" rel="noopener noreferrer">
-                  <div className="inline-flex bg-white rounded-[50%]">
-                    <Image width={25} height={25} src={sns.img} alt={sns.alt} />
-                  </div>
-                </a>
+                <div className="inline-flex bg-white rounded-[50%]">
+                  <Image width={25} height={25} src={sns.img} alt={sns.alt} />
+                </div>
               </Link>
             );
           })}
           <Link href="/blog" passHref>
-            <a>
-              <div className="inline-flex bg-white rounded-[50%]">
-                <Image width={25} height={25} src="/blog.png" alt="blogLogo" />
-              </div>
-            </a>
+            <div className="inline-flex bg-white rounded-[50%]">
+              <Image width={25} height={25} src="/blog.png" alt="blogLogo" />
+            </div>
           </Link>
         </div>
       </div>
