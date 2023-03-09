@@ -7,6 +7,8 @@ const nextConfig = {
     defaultLocale: "ko",
   },
   images: {
+    deviceSizes: [640, 1024, 1280],
+    imageSizes: [16, 64, 96],
     domains: [
       "culture.seoul.go.kr",
       "localhost",
