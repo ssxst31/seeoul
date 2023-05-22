@@ -36,11 +36,11 @@ export default function Footer() {
               </Link>
             );
           })}
-          <Link href="/blog" passHref>
+          {/* <Link href="/blog" passHref>
             <div className="inline-flex bg-white rounded-[50%]">
               <Image width={25} height={25} src="/blog.png" alt="blogLogo" />
             </div>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </footer>
