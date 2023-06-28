@@ -7,6 +7,7 @@ import DistrictCulturalEventList from "app/_component/DistrictCulturalEventList"
 
 export default function Section() {
   const [location, setLocation] = useState("강동구");
+
   return (
     <>
       <DistrictList setLocation={setLocation} location={location} />

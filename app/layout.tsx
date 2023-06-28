@@ -1,11 +1,14 @@
 import { Metadata } from "next";
 import Header from "app/layouts/Header";
 import Footer from "app/layouts/Footer";
+import DefaultLayout from "app/layouts/DefaultLayout";
 import GoogleAnalytics from "app/_component/GoogleAnalytics";
 import { Providers } from "app/providers";
 import { isProduction } from "utils/env";
 
 import "styles/globals.css";
+import "styles/slick-theme.min.css";
+import "styles/slick.min.css";
 import "nprogress/nprogress.css";
 
 export const metadata: Metadata = {
@@ -40,23 +43,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE} />
         <meta name="naver-site-verification" content={process.env.NEXT_PUBLIC_NAVER_SITE} />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          charSet="UTF-8"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-        />
       </head>
       <body className="bg-white dark:bg-dark-100">
         <Header />
-        <Providers>
-          <div className="mx-auto max-w-7xl">{children}</div>
-        </Providers>
+        <DefaultLayout>
+          <div>{children}</div>
+        </DefaultLayout>
         <Footer />
       </body>
     </html>

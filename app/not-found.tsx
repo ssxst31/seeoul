@@ -1,13 +1,11 @@
-import React from "react";
 import Link from "next/link";
 
-import Header from "app/layouts/Header";
+import DefaultLayout from "app/layouts/DefaultLayout";
 
-const Error404 = () => {
+export default function NotFound() {
   return (
-    <>
-      <Header />
-      <div className="text-center pt-[165px]">
+    <DefaultLayout>
+      <div className="text-center">
         <img src="/404.png" className="mx-auto" />
         <div className="text-indigo-600 text-9xl">404</div>
         <div className="mb-4 text-3xl font-bold">현재 찾을 수 없는 페이지를 요청하셨습니다.</div>
@@ -24,8 +22,6 @@ const Error404 = () => {
         </Link>
         <div className="w-full h-5" />
       </div>
-    </>
+    </DefaultLayout>
   );
-};
-
-export default Error404;
+}

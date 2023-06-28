@@ -1,6 +1,5 @@
-"use client";
-
 import React, { useState, use } from "react";
+import type { NextRequest, NextResponse } from "next/server";
 
 import { filterSort } from "utils/filterSort";
 import MainArticle from "app/_component/MainArticle";
@@ -11,31 +10,22 @@ import InputBox from "components/molecules/InputBox";
 
 import { useSearchParams } from "next/navigation";
 
-export default function MainSection({ dsa }: any) {
-  console.log(dsa);
-  const searchParams = useSearchParams();
-  const page = searchParams.get("page") ?? "1";
-  const tab = (searchParams.get("tab") ?? "total") as string;
-  const sort = filterSort((tab as string) ?? "total");
+async function fetchCulturalEvents({ page, tab, sort }: any) {
+  const res = await fetch(
+    `http://localhost:5000/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
+      sort === "전체" ? "all" : sort
+    }&search=${undefined}`,
+    {
+      cache: "no-store",
+    },
+  );
+  return res.json();
+}
 
-  const [search, setSearch] = useState<string | undefined>(undefined);
+export default async function MainSection({ page, tab, sort }: any) {
+  const data = await fetchCulturalEvents({ page, tab, sort });
 
-  const { totalCulturalEvent, totalCount } = useFetchCulturalEvent({
-    page,
-    sort,
-    search,
-  });
-
-  const handleSubmit = (e: any) => {
-    setSearch(e.target.value);
-  };
-
-  function enterkey(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.keyCode == 13) {
-      handleSubmit(e);
-    }
-  }
-
+  function enterkey(e: React.KeyboardEvent<HTMLInputElement>) {}
   return (
     <>
       <div className="flex justify-between -md:flex-col">
@@ -46,19 +36,19 @@ export default function MainSection({ dsa }: any) {
         <div className="flex items-center -md:justify-between">
           <div className="gradient">
             총&nbsp;
-            <span className="font-bold ">{totalCount}</span>
+            <span className="font-bold ">{data.totalCount}</span>
             &nbsp;건
           </div>
           <div className="w-full ml-4 overflow-hidden border border-indigo-600 rounded-lg -md:w-auto">
-            <InputBox enterkey={enterkey} />
+            <InputBox />
           </div>
         </div>
       </div>
       <div className="w-full h-8 -md:h-4" />
-      <MainArticle totalCulturalEvent={totalCulturalEvent} />
+      <MainArticle totalCulturalEvent={data.data} />
       <div className="w-full h-8" />
       <div className="text-center">
-        <Pagination totalPages={Math.ceil(totalCount / 20)} page={page} tab={tab} />
+        <Pagination totalPages={Math.ceil(data.totalCount / 20)} page={page} tab={tab} />
       </div>
     </>
   );
