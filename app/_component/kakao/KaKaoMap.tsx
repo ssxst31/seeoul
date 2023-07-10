@@ -1,78 +1,60 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import Script from "next/script";
+import Head from "next/head";
 
-interface MapProps {
-  searchPlace: string;
+interface KakaoMapProps {
+  lat: number;
+  lng: number;
 }
+
 declare global {
   interface Window {
     kakao: any;
   }
+  const kakao: any;
 }
 
-export default function KaKaoMap({ searchPlace }: MapProps) {
-  useEffect(() => {
-    const mapScript = document.createElement("script");
+const NEXT_PUBLIC_KAKAO_KEY = process.env.NEXT_PUBLIC_KAKAO_APP_KEY;
 
-    mapScript.async = true;
-    mapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_APP_KEY}&libraries=services&autoload=false`;
+const KakaoMap = ({ lat, lng }: KakaoMapProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
 
-    document.head.appendChild(mapScript);
-
-    const onLoadKakaoMap = () => {
-      window.kakao.maps.load(() => {
-        var infowindow = new window.kakao.maps.InfoWindow({ zIndex: 1 });
-        const container = document.getElementById("map");
-        const options = {
-          center: new window.kakao.maps.LatLng(33.450701, 126.570667),
-          level: 3,
-        };
-
-        const map = new window.kakao.maps.Map(container, options);
-        const ps = new window.kakao.maps.services.Places();
-        ps.keywordSearch(searchPlace, placesSearchCB);
-        function placesSearchCB(data: any, status: any) {
-          if (status === window.kakao.maps.services.Status.OK) {
-            let bounds = new window.kakao.maps.LatLngBounds();
-
-            for (let i = 0; i < data.length; i++) {
-              displayMarker(data[i]);
-              bounds.extend(new window.kakao.maps.LatLng(data[i].y, data[i].x));
-            }
-
-            map.setBounds(bounds);
-          }
-        }
-        function displayMarker(place: any) {
-          let marker = new window.kakao.maps.Marker({
-            map: map,
-            position: new window.kakao.maps.LatLng(place.y, place.x),
-          });
-
-          window.kakao.maps.event.addListener(marker, "click", function () {
-            infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + "</div>");
-            infowindow.open(map, marker);
-          });
-        }
-
-        const markerPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
-        const marker = new window.kakao.maps.Marker({
-          position: markerPosition,
-        });
-
-        marker.setMap(map);
+  const initMap = () => {
+    if (containerRef.current) {
+      const map = new window.kakao.maps.Map(containerRef.current, {
+        center: new window.kakao.maps.LatLng(lat, lng),
+        level: 4,
       });
-    };
 
-    mapScript.addEventListener("load", onLoadKakaoMap);
+      var marker = new kakao.maps.Marker({
+        position: new kakao.maps.LatLng(lat, lng),
+        map: map,
+      });
+    }
+  };
 
-    return () => mapScript.removeEventListener("load", onLoadKakaoMap);
-  }, []);
+  useEffect(() => {
+    if (window?.kakao) {
+      initMap();
+    }
+  }, [initMap, lat, lng]);
 
   return (
-    <div className="flex justify-between -md:flex-col">
-      <div id="map" className="w-full h-[500px] -md:h-[300px]" />
-    </div>
+    <React.Fragment>
+      <Script
+        src={`https://dapi.kakao.com/v2/maps/sdk.js?appkey=${NEXT_PUBLIC_KAKAO_KEY}&autoload=false`}
+        onLoad={() => window.kakao.maps.load(initMap)}
+      />
+      <Head>
+        <link rel="preconnect" href="https://dapi.kakao.com" />
+        <link rel="dns-prefetch" href="https://dapi.kakao.com" />
+      </Head>
+
+      <div id="map" ref={containerRef} className="shadow-md h-[500px] -lg:h-96 w-full" />
+    </React.Fragment>
   );
-}
+};
+
+export default React.memo(KakaoMap);
