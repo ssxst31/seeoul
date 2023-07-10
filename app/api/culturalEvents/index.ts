@@ -35,7 +35,7 @@ export async function fetchRandomCulturalEvent() {
   return await customAxios.get<null, CulturalEvent[]>(`/culturalEvents/random`);
 }
 export async function fetchRandomCulturalEvent2() {
-  const res = await fetch(`${getBaseUrl()}/culturalEvents/random`, {
+  const res = await fetch(`${getBaseUrl}/culturalEvents/random`, {
     cache: "no-cache",
   });
   const data = await res.json();
