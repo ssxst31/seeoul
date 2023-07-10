@@ -1,5 +1,1 @@
-import { cache } from "react";
-
-export const getBaseUrl = cache(() =>
-  process.env.VERCEL_URL ? `https://app-dir.vercel.app` : `http://localhost:${process.env.PORT ?? 5000}`,
-);
+export const getBaseUrl = process.env.NEXT_PUBLIC_APP_HOST_NAME;
