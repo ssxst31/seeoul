@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
+    "@netlify/plugin-nextjs": "^4.29.5-appdir.0",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addon-interactions": "^6.5.15",
