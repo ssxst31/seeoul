@@ -1,13 +1,18 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { isMobile } from "react-device-detect";
 import Slider from "react-slick";
 
 import { useRandomCulturalEvent } from "app/hooks/useRandomCulturalEvent";
+
 import CarouselSkeleton from "components/skeleton/CarouselSkeleton";
 
 export default function MainCarousel() {
+  const router = useRouter();
+  const moving = useRef(false);
   const randomCulturalEventList = useRandomCulturalEvent();
 
   if (!randomCulturalEventList) {
@@ -37,20 +42,34 @@ export default function MainCarousel() {
       },
     ],
   };
+
   return (
-    <Slider {...settings}>
-      {randomCulturalEventList.map((randomCulturalEvent, index) => (
+    <Slider
+      {...settings}
+      beforeChange={(current) => {
+        moving.current = true;
+      }}
+      afterChange={(current) => {
+        moving.current = false;
+      }}
+    >
+      {randomCulturalEventList.map((randomCulturalEvent) => (
         <div key={randomCulturalEvent.id}>
-          <Link href={`/detail/${randomCulturalEvent.title}`}>
-            <div className="min-h-[360px] mx-4 relative -md:mx-0">
-              <Image
-                src={isMobile ? randomCulturalEvent.mainImg.slice(0, -1) : randomCulturalEvent.mainImg}
-                layout="fill"
-                alt={randomCulturalEvent.title}
-                priority={true}
-              />
-            </div>
-          </Link>
+          <div
+            className="min-h-[360px] mx-4 relative -md:mx-0 cursor-pointer"
+            onClick={() => {
+              if (!moving.current) {
+                router.push(`/detail/${randomCulturalEvent.title}`);
+              }
+            }}
+          >
+            <Image
+              src={isMobile ? randomCulturalEvent.mainImg.slice(0, -1) : randomCulturalEvent.mainImg}
+              fill
+              alt={randomCulturalEvent.title}
+              priority={true}
+            />
+          </div>
         </div>
       ))}
     </Slider>

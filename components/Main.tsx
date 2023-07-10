@@ -4,15 +4,15 @@ import dynamic from "next/dynamic";
 import { isMobile } from "react-device-detect";
 
 import { filterSort } from "utils/filterSort";
-import { useFetchCulturalEvent } from "hooks/useFetchCulturalEvent";
+import { useFetchCulturalEvent } from "app/hooks/useFetchCulturalEvent";
 import MainCarousel from "components/MainCarousel";
 import MainArticle from "components/MainArticle";
 import Pagination from "components/Pagination";
 import InputBox from "components/molecules/InputBox";
 import ApiErrorBoundary from "components/ApiErrorBoundary";
-import DistrictCulturalEventList from "components/DistrictCulturalEventList";
-import DistrictList from "components/DistrictList";
-const KakaoAdFit = dynamic(() => import("components/kakao/KakaoAdFit"), { ssr: false });
+import DistrictCulturalEventList from "app/_component/DistrictCulturalEventList";
+import DistrictList from "app/_component/DistrictList";
+const KakaoAdFit = dynamic(() => import("app/_component/kakao/KakaoAdFit"), { ssr: false });
 
 export default function Main() {
   const router = useRouter();
@@ -23,12 +23,6 @@ export default function Main() {
   const sort = filterSort((query.tab as string) ?? "total");
 
   const [search, setSearch] = useState<string | undefined>(undefined);
-
-  const { totalCulturalEvent, totalCount } = useFetchCulturalEvent({
-    page,
-    sort,
-    search,
-  });
 
   const handleSubmit = (e: any) => {
     setSearch(e.target.value);

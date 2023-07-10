@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-import { useInterval } from "hooks/useInterval";
+import { useInterval } from "app/hooks/useInterval";
 
 export default function Slider() {
   const [count, setCount] = useState<number>(0);
@@ -21,12 +21,12 @@ export default function Slider() {
       link: "https://groundseesaw.co.kr/product/%ec%96%b4%eb%85%b8%eb%8b%88%eb%a8%b8%ec%8a%a4-%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8",
     },
     {
-      title: "마리오 폰테의 트웰브",
-      link: "https://www.instagram.com/mario_pontes_12",
+      title: "티보의 그림 정원",
+      link: "https://www.ehyundai.com/newCulture/EH/EH000001_V.do?seq=2080148&eventState=POST&bbsCd=210&sitemapId=01020100000000&list_page=1&imgLink=/attachfiles/event/20230428013217427.png",
     },
     {
-      title: "마틴 마르지엘라",
-      link: "https://www.lottemuseum.com",
+      title: "목향(木香)",
+      link: "https://blog.naver.com/forloveofgod",
     },
   ];
 
