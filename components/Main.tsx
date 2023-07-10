@@ -7,7 +7,7 @@ import { filterSort } from "utils/filterSort";
 import { useFetchCulturalEvent } from "app/hooks/useFetchCulturalEvent";
 import MainCarousel from "components/MainCarousel";
 import MainArticle from "components/MainArticle";
-import Pagination from "components/Pagination";
+import Pagination from "app/_component/Pagination";
 import InputBox from "components/molecules/InputBox";
 import ApiErrorBoundary from "components/ApiErrorBoundary";
 import DistrictCulturalEventList from "app/_component/DistrictCulturalEventList";
