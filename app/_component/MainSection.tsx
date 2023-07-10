@@ -1,20 +1,12 @@
-import React, { useState, use } from "react";
-import type { NextRequest, NextResponse } from "next/server";
-
-import { filterSort } from "utils/filterSort";
 import MainArticle from "app/_component/MainArticle";
 import Pagination from "app/_component/Pagination";
-import { useFetchCulturalEvent } from "app/hooks/useFetchCulturalEvent";
-
 import InputBox from "components/molecules/InputBox";
 
-import { useSearchParams } from "next/navigation";
-
-async function fetchCulturalEvents({ page, tab, sort }: any) {
+async function fetchCulturalEvents({ page, tab, sort, search }: any) {
   const res = await fetch(
     `http://localhost:5000/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
       sort === "전체" ? "all" : sort
-    }&search=${undefined}`,
+    }&search=${search}`,
     {
       cache: "no-store",
     },
@@ -22,10 +14,9 @@ async function fetchCulturalEvents({ page, tab, sort }: any) {
   return res.json();
 }
 
-export default async function MainSection({ page, tab, sort }: any) {
-  const data = await fetchCulturalEvents({ page, tab, sort });
+export default async function MainSection({ page, tab, sort, search }: any) {
+  const data = await fetchCulturalEvents({ page, tab, sort, search });
 
-  function enterkey(e: React.KeyboardEvent<HTMLInputElement>) {}
   return (
     <>
       <div className="flex justify-between -md:flex-col">

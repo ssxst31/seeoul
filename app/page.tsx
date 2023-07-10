@@ -8,6 +8,7 @@ export default async function Page({ searchParams }: any) {
   const page = searchParams.page ?? "1";
   const tab = (searchParams.tab ?? "total") as string;
   const sort = filterSort((tab as string) ?? "total");
+  const search = searchParams.search ?? undefined;
 
   return (
     <main className="pt-[71px] px-[30px] w-full -md:px-4 -md:pt-[104px]">
@@ -25,7 +26,7 @@ export default async function Page({ searchParams }: any) {
         <Section />
         <div className="w-full h-8 -md:h-4" />
         {/* @ts-expect-error Async Server Component */}
-        <MainSection page={page} tab={tab} sort={sort} />
+        <MainSection page={page} tab={tab} sort={sort} search={search} />
         <div className="w-full h-8" />
         <div className="text-center"></div>
         <div className="w-full h-8" />

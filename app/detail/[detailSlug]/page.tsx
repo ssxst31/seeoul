@@ -10,20 +10,20 @@ export default async function Page({ params }: any) {
 
   const culturalEvent = await fetchDetailCulturalEvent({ title });
 
-  const { mainImg, date, useTrgt, useFee, place, orgLink } = culturalEvent;
+  const { mainImg, date, useTrgt, useFee, place, orgLink, lng, lat } = culturalEvent;
   const descriptionList = [
     { title: "장소", value: place },
     { title: "기간", value: date },
     { title: "대상", value: useTrgt },
     { title: "요금", value: useFee },
   ];
-
+  console.log(culturalEvent);
   const image = mainImg.replace("&thumb=Y", "");
 
   return (
     <main>
       <div className="relative">
-        <div className="object-cover h-72 mt-[61px] -md:hidden relative w-screen ml-[calc(-50vw+50%)]">
+        <div className="object-cover h-72 -md:hidden relative w-screen ml-[calc(-50vw+50%)]">
           <Image src={image} alt={culturalEvent.title} fill />
         </div>
         <div
@@ -47,15 +47,15 @@ export default async function Page({ params }: any) {
                 <div className="w-full h-2" />
                 {descriptionList.map((description) => (
                   <div>
-                    <span className="text-xl font-medium text-gray-400 -md:text-base">{description.title} :</span>
+                    <span className="text-xl font-medium text-gray-500 -md:text-base">{description.title} : </span>
                     <span className="text-xl -md:text-base">{description.value}</span>
                     <div className="w-full h-2" />
                   </div>
                 ))}
-                <div>
+                <div className="-md:hidden">
                   <span className="text-xl font-medium text-gray-400 -md:text-base">
                     <Link href={orgLink} target="_blank" rel="noopener noreferrer">
-                      <span className="text-gray-400">사이트 바로가기</span>
+                      <button className="bg-indigo-600 py-2 px-5 rounded-lg text-white text-sm">예매하기</button>
                     </Link>
                   </span>
                 </div>
@@ -66,7 +66,7 @@ export default async function Page({ params }: any) {
             </div>
           </div>
           <div className="w-full h-[60px]" />
-          <KaKaoMap searchPlace={place.split(" ")[0]} />
+          <KaKaoMap lat={Number(lat)} lng={Number(lng)} />
         </div>
         <div className="-md:bottom-0 hidden -md:block -md:fixed -md:w-full -md:z-[999999999]">
           <button className="w-full text-white bg-indigo-600 h-11">

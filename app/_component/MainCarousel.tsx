@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { isMobile } from "react-device-detect";
@@ -12,7 +12,7 @@ import CarouselSkeleton from "components/skeleton/CarouselSkeleton";
 
 export default function MainCarousel() {
   const router = useRouter();
-
+  const moving = useRef(false);
   const randomCulturalEventList = useRandomCulturalEvent();
 
   if (!randomCulturalEventList) {
@@ -44,13 +44,23 @@ export default function MainCarousel() {
   };
 
   return (
-    <Slider {...settings}>
+    <Slider
+      {...settings}
+      beforeChange={(current) => {
+        moving.current = true;
+      }}
+      afterChange={(current) => {
+        moving.current = false;
+      }}
+    >
       {randomCulturalEventList.map((randomCulturalEvent) => (
         <div key={randomCulturalEvent.id}>
           <div
-            className="min-h-[360px] mx-4 relative -md:mx-0 "
+            className="min-h-[360px] mx-4 relative -md:mx-0 cursor-pointer"
             onClick={() => {
-              router.push(`/detail/${randomCulturalEvent.title}`);
+              if (!moving.current) {
+                router.push(`/detail/${randomCulturalEvent.title}`);
+              }
             }}
           >
             <Image

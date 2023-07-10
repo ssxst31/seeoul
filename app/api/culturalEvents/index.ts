@@ -47,7 +47,7 @@ interface DetailCulturalEventRequest {
 }
 
 export async function fetchDetailCulturalEvent({ title }: DetailCulturalEventRequest) {
-  const res = await fetch(`${getBaseUrl()}/culturalEvents/${decodeURIComponent(title)}`, {
+  const res = await fetch(`http://localhost:5000/culturalEvents/${decodeURIComponent(title)}`, {
     cache: "no-cache",
   });
 

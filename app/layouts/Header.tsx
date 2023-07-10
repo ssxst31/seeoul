@@ -5,12 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { usePathname } from "next/navigation";
+
 import Slider from "components/Slider";
 
 export default function Header() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const tab = searchParams.get("tab") as any;
+  const tab = (searchParams.get("tab") ?? "total") as string;
 
   const TABS = [
     { title: "전체", sort: "total" },
@@ -25,11 +26,6 @@ export default function Header() {
     { title: "연극", sort: "theater" },
     { title: "독주/독창회", sort: "solo" },
     { title: "기타", sort: "etc" },
-  ];
-
-  const navItemList = [
-    { title: "인기 전시회", value: "popular" },
-    { title: "후기", value: "review" },
   ];
 
   return (

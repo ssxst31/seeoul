@@ -1,12 +1,19 @@
+"use client";
+
 import React from "react";
+import { useRouter } from "next/navigation";
 
 import Input from "components/atoms/Input";
 
-interface InputBoxProps {
-  enterkey?: ((e: React.KeyboardEvent<HTMLInputElement>) => any) | undefined;
-}
+export default function InputBox() {
+  const router = useRouter();
 
-export default function InputBox({ enterkey }: InputBoxProps) {
+  function enterkey(e: React.KeyboardEvent) {
+    if (e.keyCode == 13) {
+      router.push(`/?search=${(e.target as HTMLInputElement).value}`);
+    }
+  }
+
   return (
     <div className="flex">
       <div className="flex items-center justify-center w-10 p-5 bg-white border-r border-gray-200 rounded-tl-lg rounded-bl-lg dark:bg-dark-100 dark:border-gray-800">
