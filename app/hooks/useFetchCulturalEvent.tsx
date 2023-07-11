@@ -1,7 +1,6 @@
-import React from "react";
 import useSWR from "swr";
 
-import { fetchCulturalEvent } from "app/api/culturalEvents";
+import { fetchCulturalEvents } from "app/api/culturalEvents";
 import { CulturalEvent } from "type";
 import { getAxiosError, isAxiosError } from "utils/errors";
 
@@ -23,7 +22,7 @@ export const useFetchCulturalEvent = ({
     `/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
       sort === "전체" ? "all" : sort
     }&search=${search}`,
-    () => fetchCulturalEvent({ page, sort, search }),
+    () => fetchCulturalEvents({ page, sort, search }),
     {
       revalidateIfStale: false,
       onError: (err) => {

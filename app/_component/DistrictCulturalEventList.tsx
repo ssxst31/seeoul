@@ -6,7 +6,6 @@ import { useSearchParams } from "next/navigation";
 import { useFetchCulturalEvent } from "app/hooks/useFetchCulturalEvent";
 import DistrictSkeleton from "components/skeleton/DistrictSkeleton";
 import DistrictCulturalEvent from "app/_component/DistrictCulturalEvent";
-import { fetchCulturalEvent } from "app/api/culturalEvents";
 
 interface DistrictCulturalEventListProps {
   location: string;
