@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import MainCarousel from "app/_component/MainCarousel";
 import Section from "app/_component/Section";
 import MainSection from "app/_component/MainSection";
@@ -15,7 +17,9 @@ export default async function Page({ searchParams }: any) {
       <section>
         <h2 className="pb-1 text-2xl font-bold text-black dark:text-white linear2">전시회를 생각 중이라면 👀</h2>
         <div className="w-full h-8 -md:h-4" />
-        <MainCarousel />
+        <Suspense fallback={<div className="bg-red-500">das</div>}>
+          <MainCarousel />
+        </Suspense>
       </section>
       <div className="w-full h-10" />
       <section>
@@ -23,10 +27,14 @@ export default async function Page({ searchParams }: any) {
           어디서 구경할까요? 🤔
         </h2>
         <div className="w-full h-7 -md:h-4" />
-        <Section />
+        <Suspense fallback={<div className="bg-red-500">das</div>}>
+          <Section />
+        </Suspense>
         <div className="w-full h-8 -md:h-4" />
-        {/* @ts-expect-error */}
-        <MainSection page={page} tab={tab} sort={sort} search={search} />
+        <Suspense fallback={<div className="bg-red-500">das</div>}>
+          {/* @ts-expect-error */}
+          <MainSection page={page} tab={tab} sort={sort} search={search} />
+        </Suspense>
         <div className="w-full h-8" />
         <div className="text-center"></div>
         <div className="w-full h-8" />
