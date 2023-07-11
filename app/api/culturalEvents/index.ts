@@ -13,22 +13,16 @@ interface CulturalEventResponse {
   totalCount: number;
 }
 
-export async function fetchCulturalEvent({ page, sort, search }: CulturalEventRequest) {
-  return await customAxios.get<null, CulturalEventResponse>(
-    `/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
-      sort === "전체" ? "all" : encodeURI(sort)
-    }&search=${search}`,
-  );
-}
-
-export async function fetchCulturalEvent2({ page, sort, search }: CulturalEventRequest) {
+export async function fetchCulturalEvents({ page, tab, sort, search }: any) {
   const res = await fetch(
-    `/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
-      sort === "전체" ? "all" : encodeURI(sort)
+    `${getBaseUrl}/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
+      sort === "전체" ? "all" : sort
     }&search=${search}`,
-    { next: { revalidate: 10 } },
+    {
+      cache: "no-store",
+    },
   );
-  return await res.json();
+  return res.json();
 }
 
 export async function fetchRandomCulturalEvent() {

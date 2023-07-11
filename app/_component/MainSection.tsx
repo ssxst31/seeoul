@@ -1,18 +1,7 @@
 import MainArticle from "app/_component/MainArticle";
 import Pagination from "app/_component/Pagination";
 import InputBox from "components/molecules/InputBox";
-
-async function fetchCulturalEvents({ page, tab, sort, search }: any) {
-  const res = await fetch(
-    `http://localhost:5000/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
-      sort === "전체" ? "all" : sort
-    }&search=${search}`,
-    {
-      cache: "no-store",
-    },
-  );
-  return res.json();
-}
+import { fetchCulturalEvents } from "app/api/culturalEvents";
 
 export default async function MainSection({ page, tab, sort, search }: any) {
   const data = await fetchCulturalEvents({ page, tab, sort, search });
