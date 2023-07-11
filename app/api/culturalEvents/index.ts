@@ -28,9 +28,7 @@ export async function fetchRandomCulturalEvent() {
   return await customAxios.get<null, CulturalEvent[]>(`/culturalEvents/random`);
 }
 export async function fetchRandomCulturalEvent2() {
-  const res = await fetch(`${getBaseUrl}/culturalEvents/random`, {
-    cache: "no-cache",
-  });
+  const res = await fetch(`${getBaseUrl}/culturalEvents/random`, { next: { revalidate: 60 * 60 * 24 } });
   const data = await res.json();
 
   return data[0];
@@ -41,7 +39,7 @@ interface DetailCulturalEventRequest {
 
 export async function fetchDetailCulturalEvent({ title }: DetailCulturalEventRequest) {
   const res = await fetch(`${getBaseUrl}/culturalEvents/${decodeURIComponent(title)}`, {
-    cache: "no-cache",
+    next: { revalidate: 60 * 60 * 24 },
   });
 
   const data = await res.json();
