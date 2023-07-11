@@ -18,10 +18,9 @@ export async function fetchCulturalEvents({ page, tab, sort, search }: any) {
     `${getBaseUrl}/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
       sort === "전체" ? "all" : sort
     }&search=${search}`,
-    {
-      cache: "no-store",
-    },
+    { next: { revalidate: 60 * 60 * 24 } },
   );
+
   return res.json();
 }
 
