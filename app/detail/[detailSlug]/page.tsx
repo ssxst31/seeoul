@@ -17,7 +17,7 @@ export default async function Page({ params }: any) {
     { title: "대상", value: useTrgt },
     { title: "요금", value: useFee },
   ];
-  console.log(culturalEvent);
+
   const image = mainImg.replace("&thumb=Y", "");
 
   return (

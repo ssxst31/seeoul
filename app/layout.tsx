@@ -12,11 +12,9 @@ import "styles/slick.min.css";
 import "nprogress/nprogress.css";
 
 export const metadata: Metadata = {
-  title: {
-    default: "내일전시",
-    template: "%s | Next.js App Router",
-  },
+  title: "내일전시",
   description: "서울 전시회 정보, 내일 전시에서 한눈에 확인해 보세요.",
+  keywords: "전시회, 서울 전시, 전시회 추천, 내일전시,문화행사",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
