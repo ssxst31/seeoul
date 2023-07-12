@@ -8,7 +8,7 @@ import Slider from "react-slick";
 
 import { useRandomCulturalEvent } from "app/hooks/useRandomCulturalEvent";
 
-import CarouselSkeleton from "components/skeleton/CarouselSkeleton";
+import CarouselSkeleton from "app/_component/skeleton/CarouselSkeleton";
 
 export default function MainCarousel() {
   const router = useRouter();
@@ -66,6 +66,7 @@ export default function MainCarousel() {
             <Image
               src={isMobile ? randomCulturalEvent.mainImg.slice(0, -1) : randomCulturalEvent.mainImg}
               fill
+              sizes="100%"
               alt={randomCulturalEvent.title}
               priority={true}
             />

@@ -23,7 +23,8 @@ export default function DistrictCulturalEvent({ culturalEvent }: DistrictCultura
       <Image
         src={culturalEvent.mainImg}
         alt={culturalEvent.title}
-        layout="fill"
+        fill
+        sizes="100%"
         className="duration-100 ease-linear hover:scale-110"
         priority={true}
       />

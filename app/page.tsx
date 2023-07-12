@@ -27,7 +27,7 @@ export default async function Page({ searchParams }: any) {
         <div className="w-full h-7 -md:h-4" />
         <Section />
         <div className="w-full h-8 -md:h-4" />
-        <Suspense fallback={<div className="bg-red-500 text-2xl">das321</div>}>
+        <Suspense>
           {/* @ts-expect-error */}
           <MainSection page={page} tab={tab} sort={sort} search={search} />
         </Suspense>

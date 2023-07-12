@@ -1,6 +1,6 @@
 import MainArticle from "app/_component/MainArticle";
 import Pagination from "app/_component/Pagination";
-import InputBox from "components/molecules/InputBox";
+import InputBox from "app/_component/molecules/InputBox";
 import { fetchCulturalEvents } from "app/api/culturalEvents";
 
 export default async function MainSection({ page, tab, sort, search }: any) {

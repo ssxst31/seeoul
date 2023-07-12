@@ -4,7 +4,7 @@ import React from "react";
 import { useSearchParams } from "next/navigation";
 
 import { useFetchCulturalEvent } from "app/hooks/useFetchCulturalEvent";
-import DistrictSkeleton from "components/skeleton/DistrictSkeleton";
+import DistrictSkeleton from "app/_component/skeleton/DistrictSkeleton";
 import DistrictCulturalEvent from "app/_component/DistrictCulturalEvent";
 
 interface DistrictCulturalEventListProps {

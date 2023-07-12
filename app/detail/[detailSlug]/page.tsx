@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { fetchDetailCulturalEvent } from "app/api/culturalEvents";
 import KaKaoMap from "app/_component/kakao/KaKaoMap";
@@ -9,6 +10,10 @@ export default async function Page({ params }: any) {
   const title = params.detailSlug;
 
   const culturalEvent = await fetchDetailCulturalEvent({ title });
+
+  if (!culturalEvent) {
+    notFound();
+  }
 
   const { mainImg, date, useTrgt, useFee, place, orgLink, lng, lat } = culturalEvent;
   const descriptionList = [
