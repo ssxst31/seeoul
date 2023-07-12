@@ -1,3 +1,5 @@
+import Script from "next/script";
+
 import { Metadata } from "next";
 import Header from "app/layouts/Header";
 import Footer from "app/layouts/Footer";
@@ -22,9 +24,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="ko">
-      {isProd ? <GoogleAnalytics /> : null}
       <head>
-        <script
+        <Script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`}
           crossOrigin="anonymous"
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE} />
         <meta name="naver-site-verification" content={process.env.NEXT_PUBLIC_NAVER_SITE} />
       </head>
+      {isProd ? <GoogleAnalytics /> : <></>}
       <body className="bg-white dark:bg-dark-100">
         <Header />
         <DefaultLayout>
