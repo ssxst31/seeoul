@@ -13,9 +13,9 @@ interface CulturalEventResponse {
   totalCount: number;
 }
 
-export async function fetchCulturalEvents({ page, tab, sort, search }: any) {
+export async function fetchCulturalEvents({ page, tab, sort, search, limit = 20 }: any) {
   const res = await fetch(
-    `${getBaseUrl}/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=20&option=${
+    `${getBaseUrl}/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=${limit}&option=${
       sort === "전체" ? "all" : sort
     }&search=${search}`,
     { next: { revalidate: 60 * 60 * 24 } },

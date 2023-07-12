@@ -32,26 +32,8 @@ const KakaoMap = ({ lat, lng }: KakaoMapProps) => {
         position: new kakao.maps.LatLng(lat, lng),
         map: map,
       });
-      var infowindow = new kakao.maps.InfoWindow({
-        content: "1",
-      });
-
-      kakao.maps.event.addListener(marker, "mouseover", makeOverListener(map, marker, infowindow));
-      kakao.maps.event.addListener(marker, "mouseout", makeOutListener(infowindow));
     }
   };
-
-  function makeOverListener(map: any, marker: any, infowindow: any) {
-    return function () {
-      infowindow.open(map, marker);
-    };
-  }
-
-  function makeOutListener(infowindow: any) {
-    return function () {
-      infowindow.close();
-    };
-  }
 
   useEffect(() => {
     if (window?.kakao) {
