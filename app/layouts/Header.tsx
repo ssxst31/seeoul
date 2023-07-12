@@ -28,6 +28,8 @@ export default function Header() {
     { title: "기타", sort: "etc" },
   ];
 
+  const navItemList = [{ title: "인기 전시회", value: "popular" }];
+
   return (
     <header className="fixed top-0 left-0 z-20 w-full bg-white border-b border-gray-100 border-solid dark:bg-dark-100 dark:border-dark-200">
       <div className="flex justify-between mx-auto px-7 max-w-7xl -md:px-4">
@@ -42,7 +44,7 @@ export default function Header() {
           </h1>
           <nav className="inline-flex items-center -md:block">
             <ul className="flex items-center space-x-2 -md:h-11">
-              {/* {navItemList.map((navItem, index) => {
+              {navItemList.map((navItem, index) => {
                 return (
                   <li key={index}>
                     <Link href={`/${navItem.value}`}>
@@ -56,7 +58,7 @@ export default function Header() {
                     </Link>
                   </li>
                 );
-              })} */}
+              })}
             </ul>
           </nav>
         </div>
