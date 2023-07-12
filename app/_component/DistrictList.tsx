@@ -32,7 +32,7 @@ const districts = [
 export default function DistrictList({ setLocation, location }: DistrictListProps) {
   return (
     <div className="overflow-x-scroll scrollbar-hide dark:border-dark-200 ">
-      <ul className="flex mx-auto h-9 items-center justify-between w-[1450px]">
+      <ul className="flex mx-auto h-9 items-center justify-between w-[1565px]">
         {districts.map((district, index) => (
           <li key={index}>
             <span

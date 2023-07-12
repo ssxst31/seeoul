@@ -1,4 +1,5 @@
 import Script from "next/script";
+import { Nanum_Gothic } from "next/font/google";
 
 import { Metadata } from "next";
 import Header from "app/layouts/Header";
@@ -13,6 +14,12 @@ import "styles/slick-theme.min.css";
 import "styles/slick.min.css";
 import "nprogress/nprogress.css";
 
+const NanumGothic = Nanum_Gothic({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "내일전시",
   description: "서울 전시회 정보, 내일 전시에서 한눈에 확인해 보세요.",
@@ -23,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const isProd = isProduction();
 
   return (
-    <html lang="ko">
+    <html lang="ko" className={NanumGothic.className}>
       <head>
         <Script
           async

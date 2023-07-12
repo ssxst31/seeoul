@@ -64,7 +64,7 @@ export default function Header() {
       </div>
       {pathname === "/" && (
         <div className="overflow-x-scroll border-t border-gray-100 border-solid scrollbar-hide dark:border-dark-200">
-          <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[746px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
+          <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[760px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
             {TABS.map((t, index) => (
               <li key={index}>
                 <Link href={`/?tab=${t.sort}`} key={index} shallow={true} scroll={true} passHref>
