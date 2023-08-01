@@ -5,5 +5,5 @@ export async function generateMetadata() {
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return <div className="-md:pt-[53px]">{children}</div>;
 }
