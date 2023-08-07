@@ -7,8 +7,6 @@ import BlackButton from "app/_component/BlackButton";
 import { filterSort } from "utils/filterSort";
 import { fetchCulturalEvents } from "app/api/culturalEvents";
 
-export const dynamic = "force-static";
-
 export default async function Page({ searchParams }: any) {
   const page = searchParams.page ?? "1";
   const tab = (searchParams.tab ?? "total") as string;
