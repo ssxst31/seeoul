@@ -5,12 +5,14 @@ import Section from "app/_component/Section";
 import MainSection from "app/_component/MainSection";
 import BlackButton from "app/_component/BlackButton";
 import { filterSort } from "utils/filterSort";
+import { fetchCulturalEvents } from "app/api/culturalEvents";
 
 export default async function Page({ searchParams }: any) {
   const page = searchParams.page ?? "1";
   const tab = (searchParams.tab ?? "total") as string;
   const sort = filterSort((tab as string) ?? "total");
   const search = searchParams.search ?? undefined;
+  const data = await fetchCulturalEvents({ page, tab, sort, search });
 
   return (
     <main className="pt-[71px] px-[30px] w-full -md:px-4 -md:pt-[104px]">
@@ -29,7 +31,7 @@ export default async function Page({ searchParams }: any) {
         <div className="w-full h-8 -md:h-4" />
         <Suspense>
           {/* @ts-expect-error */}
-          <MainSection page={page} tab={tab} sort={sort} search={search} />
+          <MainSection page={page} tab={tab} data={data} />
         </Suspense>
         <div className="w-full h-8" />
         <div className="text-center"></div>
