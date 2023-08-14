@@ -1,4 +1,4 @@
-import { fetchCulturalEvents } from "app/api/culturalEvents";
+import { fetchCulturalEvents } from "api/culturalEvents";
 import Container from "app/cultural-event-map/_component/Container";
 
 export default async function Page() {

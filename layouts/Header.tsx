@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { usePathname } from "next/navigation";
 
-import Slider from "app/_component/Slider";
+import Slider from "components/Slider";
 
 export default function Header() {
   const pathname = usePathname();

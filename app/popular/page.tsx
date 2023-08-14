@@ -1,4 +1,4 @@
-import { fetchInstagramFeed } from "app/api/instagram";
+import { fetchInstagramFeed } from "api/instagram";
 
 import Container from "app/popular/_component/Container";
 

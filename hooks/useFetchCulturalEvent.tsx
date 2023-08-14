@@ -1,6 +1,6 @@
 import useSWR from "swr";
 
-import { fetchCulturalEvents } from "app/api/culturalEvents";
+import { fetchCulturalEvents } from "api/culturalEvents";
 import { CulturalEvent } from "type";
 import { getAxiosError, isAxiosError } from "utils/errors";
 

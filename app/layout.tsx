@@ -2,10 +2,10 @@ import Script from "next/script";
 import { Nanum_Gothic } from "next/font/google";
 
 import { Metadata } from "next";
-import Header from "app/layouts/Header";
-import Footer from "app/layouts/Footer";
-import DefaultLayout from "app/layouts/DefaultLayout";
-import GoogleAnalytics from "app/_component/GoogleAnalytics";
+import Header from "layouts/Header";
+import Footer from "layouts/Footer";
+import DefaultLayout from "layouts/DefaultLayout";
+import GoogleAnalytics from "components/GoogleAnalytics";
 import { Providers } from "app/providers";
 import { isProduction } from "utils/env";
 

@@ -6,9 +6,9 @@ import { useRouter } from "next/navigation";
 import { isMobile } from "react-device-detect";
 import Slider from "react-slick";
 
-import { useRandomCulturalEvent } from "app/hooks/useRandomCulturalEvent";
+import { useRandomCulturalEvent } from "hooks/useRandomCulturalEvent";
 
-import CarouselSkeleton from "app/_component/skeleton/CarouselSkeleton";
+import CarouselSkeleton from "components/skeleton/CarouselSkeleton";
 
 export default function MainCarousel() {
   const router = useRouter();

@@ -1,7 +1,7 @@
 import React from "react";
 import Router from "next/router";
 
-import ApiError from "app/_component/ApiError";
+import ApiError from "components/ApiError";
 
 type ErrorBoundaryProps = React.PropsWithChildren<{}>;
 

@@ -1,6 +1,6 @@
-import MainArticle from "app/_component/MainArticle";
-import Pagination from "app/_component/Pagination";
-import InputBox from "app/_component/molecules/InputBox";
+import MainArticle from "components/MainArticle";
+import Pagination from "components/Pagination";
+import InputBox from "components/molecules/InputBox";
 
 export default async function MainSection({ page, tab, data }: any) {
   return (

@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-import Input from "app/_component/atoms/Input";
+import Input from "components/atoms/Input";
 
 export default function InputBox() {
   const router = useRouter();

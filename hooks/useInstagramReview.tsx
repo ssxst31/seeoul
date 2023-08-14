@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useSWR, { SWRResponse } from "swr";
 
-import { fetchInstagramReview } from "app/api/instagram";
+import { fetchInstagramReview } from "api/instagram";
 
 interface FetchCulturalEventProps {
   sort: string;

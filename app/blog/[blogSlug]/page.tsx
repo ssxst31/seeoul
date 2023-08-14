@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { fetchDetailCulturalEvent } from "app/api/culturalEvents";
-import KaKaoMap from "app/_component/kakao/KaKaoMap";
-import Discussion from "app/_component/Discussion";
-import blog from "app/api/blog.json";
+import { fetchDetailCulturalEvent } from "api/culturalEvents";
+import KaKaoMap from "components/kakao/KaKaoMap";
+import Discussion from "components/Discussion";
+import blog from "api/blog.json";
 
 export default async function Page({ params }: any) {
   const { blogSlug } = params;

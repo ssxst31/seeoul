@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 
-import DistrictList from "app/_component/DistrictList";
-import DistrictCulturalEventList from "app/_component/DistrictCulturalEventList";
+import DistrictList from "components/DistrictList";
+import DistrictCulturalEventList from "components/DistrictCulturalEventList";
 
 export default function Section() {
   const [location, setLocation] = useState("강동구");

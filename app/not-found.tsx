@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import DefaultLayout from "app/layouts/DefaultLayout";
+import DefaultLayout from "layouts/DefaultLayout";
 
 export default function NotFound() {
   return (

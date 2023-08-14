@@ -1,4 +1,4 @@
-import customAxios from "app/api";
+import customAxios from "api";
 import { CulturalEvent } from "type";
 import { getBaseUrl } from "utils/getBaseUrl";
 

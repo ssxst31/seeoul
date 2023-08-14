@@ -3,8 +3,8 @@
 import React from "react";
 
 import { CulturalEvent } from "type";
-import CulturalEventCard from "app/_component/CulturalEventCard";
-import GridSkeleton from "app/_component/skeleton/GridSkeleton";
+import CulturalEventCard from "components/CulturalEventCard";
+import GridSkeleton from "components/skeleton/GridSkeleton";
 
 interface MainArticleProps {
   totalCulturalEvent: CulturalEvent[] | [] | null;

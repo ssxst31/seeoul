@@ -1,11 +1,11 @@
 import { Suspense } from "react";
 
-import MainCarousel from "app/_component/MainCarousel";
-import Section from "app/_component/Section";
-import MainSection from "app/_component/MainSection";
-import BlackButton from "app/_component/BlackButton";
+import MainCarousel from "components/MainCarousel";
+import Section from "components/Section";
+import MainSection from "components/MainSection";
+import BlackButton from "components/BlackButton";
 import { filterSort } from "utils/filterSort";
-import { fetchCulturalEvents } from "app/api/culturalEvents";
+import { fetchCulturalEvents } from "api/culturalEvents";
 
 export default async function Page({ searchParams }: any) {
   const page = searchParams.page ?? "1";
