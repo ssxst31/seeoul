@@ -6,18 +6,9 @@ import { useRouter } from "next/navigation";
 import { isMobile } from "react-device-detect";
 import Slider from "react-slick";
 
-import { useRandomCulturalEvent } from "hooks/useRandomCulturalEvent";
-
-import CarouselSkeleton from "components/skeleton/CarouselSkeleton";
-
-export default function MainCarousel() {
+export default function MainCarousel({ randomCulturalEventList }: any) {
   const router = useRouter();
   const moving = useRef(false);
-  const randomCulturalEventList = useRandomCulturalEvent();
-
-  if (!randomCulturalEventList) {
-    return <CarouselSkeleton width="386" height="360" />;
-  }
 
   const settings = {
     dots: true,
@@ -53,7 +44,7 @@ export default function MainCarousel() {
         moving.current = false;
       }}
     >
-      {randomCulturalEventList.map((randomCulturalEvent) => (
+      {randomCulturalEventList.map((randomCulturalEvent: any) => (
         <div key={randomCulturalEvent.id}>
           <div
             className="min-h-[360px] mx-4 relative -md:mx-0 cursor-pointer"
