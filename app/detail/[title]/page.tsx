@@ -5,9 +5,24 @@ import { notFound } from "next/navigation";
 import { fetchDetailCulturalEvent } from "api/culturalEvents";
 import KaKaoMap from "components/kakao/KaKaoMap";
 import Discussion from "components/Discussion";
+import { fetchCulturalEvents } from "api/culturalEvents";
+
+export async function generateStaticParams() {
+  const page = 1;
+  const tab = "total";
+  const sort = "전체";
+  const search = undefined;
+  const limit = 50000;
+
+  const culturalEventList = await fetchCulturalEvents({ page, tab, sort, search, limit });
+
+  return culturalEventList.data.map((culturalEvent: any) => ({
+    title: culturalEvent.title,
+  }));
+}
 
 export default async function Page({ params }: any) {
-  const title = params.detailSlug;
+  const { title } = params;
 
   const culturalEvent = await fetchDetailCulturalEvent({ title });
 
@@ -85,9 +100,7 @@ export default async function Page({ params }: any) {
       <div className="mx-auto max-w-[1280px] px-[30px] -md:px-[16px]">
         <Discussion title={title} />
       </div>
-      <div className="mx-auto -md:max-w-[300px] max-w-[728px]">
-        {/* <KakaoAdFit unit={isMobile ? "DAN-ncR6s1pAyuAZtN0w" : "DAN-5fCtQtQI3q57O0n8"} /> */}
-      </div>
+      <div className="mx-auto -md:max-w-[300px] max-w-[728px]"></div>
     </main>
   );
 }
