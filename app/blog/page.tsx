@@ -1,5 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 
+import { fetchDetailCulturalEvent } from "api/culturalEvents";
+import KaKaoMap from "components/kakao/KaKaoMap";
+import Discussion from "components/Discussion";
 import blog from "api/blog.json";
 
 export default async function Page() {

@@ -4,20 +4,22 @@ import MainCarousel from "components/MainCarousel";
 import Section from "components/Section";
 import MainSection from "components/MainSection";
 import BlackButton from "components/BlackButton";
-import CarouselSkeleton from "components/skeleton/CarouselSkeleton";
-import { fetchRandomCulturalEvent } from "api/culturalEvents";
+import { filterSort } from "utils/filterSort";
+import { fetchCulturalEvents } from "api/culturalEvents";
 
 export default async function Page({ searchParams }: any) {
-  const randomCulturalEventList = await fetchRandomCulturalEvent();
+  const page = searchParams.page ?? "1";
+  const tab = (searchParams.tab ?? "total") as string;
+  const sort = filterSort((tab as string) ?? "total");
+  const search = searchParams.search ?? undefined;
+  const data = await fetchCulturalEvents({ page, tab, sort, search });
 
   return (
     <main className="pt-[71px] px-[30px] w-full -md:px-4 -md:pt-[104px]">
       <section>
         <h2 className="pb-1 text-2xl font-bold text-black dark:text-white linear2">전시회를 생각 중이라면 👀</h2>
         <div className="w-full h-8 -md:h-4" />
-        <Suspense fallback={<CarouselSkeleton width="386" height="360" />}>
-          <MainCarousel randomCulturalEventList={randomCulturalEventList} />
-        </Suspense>
+        <MainCarousel />
       </section>
       <div className="w-full h-10" />
       <section>
@@ -29,7 +31,7 @@ export default async function Page({ searchParams }: any) {
         <div className="w-full h-8 -md:h-4" />
         <Suspense>
           {/* @ts-expect-error */}
-          <MainSection searchParams={searchParams} />
+          <MainSection page={page} tab={tab} data={data} />
         </Suspense>
         <div className="w-full h-8" />
         <div className="text-center"></div>

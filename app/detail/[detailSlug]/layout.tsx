@@ -1,6 +1,6 @@
 export async function generateMetadata({ params }: any) {
   return {
-    title: decodeURIComponent(params.title) + "| 내일전시",
+    title: decodeURIComponent(params.detailSlug) + "| 내일전시",
   };
 }
 

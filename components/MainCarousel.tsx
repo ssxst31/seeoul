@@ -1,12 +1,23 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { isMobile } from "react-device-detect";
 import Slider from "react-slick";
 
-import RandomCulturalEvent from "components/RandomCulturalEvent";
+import { useRandomCulturalEvent } from "hooks/useRandomCulturalEvent";
 
-export default function MainCarousel({ randomCulturalEventList }: any) {
+import CarouselSkeleton from "components/skeleton/CarouselSkeleton";
+
+export default function MainCarousel() {
+  const router = useRouter();
   const moving = useRef(false);
+  const randomCulturalEventList = useRandomCulturalEvent();
+
+  if (!randomCulturalEventList) {
+    return <CarouselSkeleton width="386" height="360" />;
+  }
 
   const settings = {
     dots: true,
@@ -42,8 +53,25 @@ export default function MainCarousel({ randomCulturalEventList }: any) {
         moving.current = false;
       }}
     >
-      {randomCulturalEventList.map((randomCulturalEvent: any) => (
-        <RandomCulturalEvent key={randomCulturalEvent.id} moving={moving} randomCulturalEvent={randomCulturalEvent} />
+      {randomCulturalEventList.map((randomCulturalEvent) => (
+        <div key={randomCulturalEvent.id}>
+          <div
+            className="min-h-[360px] mx-4 relative -md:mx-0 cursor-pointer"
+            onClick={() => {
+              if (!moving.current) {
+                router.push(`/detail/${randomCulturalEvent.title}`);
+              }
+            }}
+          >
+            <Image
+              src={isMobile ? randomCulturalEvent.mainImg.slice(0, -1) : randomCulturalEvent.mainImg}
+              fill
+              sizes="100%"
+              alt={randomCulturalEvent.title}
+              priority={true}
+            />
+          </div>
+        </div>
       ))}
     </Slider>
   );

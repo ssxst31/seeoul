@@ -1,26 +1,15 @@
+import Image from "next/image";
 import Link from "next/link";
 
+import { fetchDetailCulturalEvent } from "api/culturalEvents";
+import KaKaoMap from "components/kakao/KaKaoMap";
+import Discussion from "components/Discussion";
 import blog from "api/blog.json";
 
-export async function generateStaticParams() {
-  return [
-    { id: "1" },
-    { id: "2" },
-    { id: "3" },
-    { id: "4" },
-    { id: "5" },
-    { id: "6" },
-    { id: "7" },
-    { id: "8" },
-    { id: "9" },
-    { id: "10" },
-  ];
-}
+export default async function Page({ params }: any) {
+  const { blogSlug } = params;
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const { id } = params;
-
-  const post = blog.posts.find((el: any) => el.id === Number(id)) as any;
+  const post = blog.posts.find((el: any) => el.id === Number(blogSlug)) as any;
 
   return (
     <div className="px-[30px] w-full -md:pt-36 -md:px-4 pt-20 text-center">

@@ -1,19 +1,8 @@
-import { Suspense } from "react";
-
 import MainArticle from "components/MainArticle";
 import Pagination from "components/Pagination";
 import InputBox from "components/molecules/InputBox";
-import { filterSort } from "utils/filterSort";
-import { fetchCulturalEvents } from "api/culturalEvents";
-import GridSkeleton from "components/skeleton/GridSkeleton";
 
-export default async function MainSection({ searchParams }: any) {
-  const page = searchParams.page ?? "1";
-  const tab = (searchParams.tab ?? "total") as string;
-  const sort = filterSort((tab as string) ?? "total");
-  const search = searchParams.search ?? undefined;
-  const data = await fetchCulturalEvents({ page, tab, sort, search });
-
+export default async function MainSection({ page, tab, data }: any) {
   return (
     <>
       <div className="flex justify-between -md:flex-col">
@@ -33,10 +22,7 @@ export default async function MainSection({ searchParams }: any) {
         </div>
       </div>
       <div className="w-full h-8 -md:h-4" />
-      <Suspense fallback={<GridSkeleton height="418" row={16} />}>
-        {/* @ts-expect-error Async Server Component */}
-        <MainArticle totalCulturalEvent={data.data} />
-      </Suspense>
+      <MainArticle totalCulturalEvent={data.data} />
       <div className="w-full h-8" />
       <div className="text-center">
         <Pagination totalPages={Math.ceil(data.totalCount / 20)} page={page} tab={tab} />

@@ -1,14 +1,21 @@
+"use client";
+
 import React from "react";
 
 import { CulturalEvent } from "type";
 import CulturalEventCard from "components/CulturalEventCard";
+import GridSkeleton from "components/skeleton/GridSkeleton";
 
 interface MainArticleProps {
-  totalCulturalEvent: CulturalEvent[];
+  totalCulturalEvent: CulturalEvent[] | [] | null;
 }
 
-export default async function MainArticle({ totalCulturalEvent }: MainArticleProps) {
-  if (totalCulturalEvent.length === 0) {
+export default function MainArticle({ totalCulturalEvent }: MainArticleProps) {
+  if (!totalCulturalEvent) {
+    return <GridSkeleton height="418" row={16} />;
+  }
+
+  if (totalCulturalEvent?.length === 0) {
     return <div className="inline-flex items-center justify-center w-full h-20">검색 결과가 없습니다.</div>;
   }
 

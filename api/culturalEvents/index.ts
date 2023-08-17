@@ -1,3 +1,4 @@
+import customAxios from "api";
 import { CulturalEvent } from "type";
 import { getBaseUrl } from "utils/getBaseUrl";
 
@@ -12,21 +13,25 @@ interface CulturalEventResponse {
   totalCount: number;
 }
 
-export async function fetchCulturalEvents({ page, sort, search, limit = 20 }: any) {
+export async function fetchCulturalEvents({ page, tab, sort, search, limit = 20 }: any) {
   const res = await fetch(
     `${getBaseUrl}/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=${limit}&option=${
       sort === "전체" ? "all" : sort
     }&search=${search}`,
+    { next: { revalidate: 60 * 60 * 24 } },
   );
 
   return res.json();
 }
 
 export async function fetchRandomCulturalEvent() {
-  const res = await fetch(`${getBaseUrl}/culturalEvents/random`, { cache: "no-store" });
+  return await customAxios.get<null, CulturalEvent[]>(`/culturalEvents/random`);
+}
+export async function fetchRandomCulturalEvent2() {
+  const res = await fetch(`${getBaseUrl}/culturalEvents/random`, { next: { revalidate: 60 * 60 * 24 } });
   const data = await res.json();
 
-  return data;
+  return data[0];
 }
 interface DetailCulturalEventRequest {
   title: string;
