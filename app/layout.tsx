@@ -6,7 +6,6 @@ import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 import DefaultLayout from "layouts/DefaultLayout";
 import GoogleAnalytics from "components/GoogleAnalytics";
-import { Providers } from "app/providers";
 import { isProduction } from "utils/env";
 
 import "styles/globals.css";
@@ -50,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE} />
         <meta name="naver-site-verification" content={process.env.NEXT_PUBLIC_NAVER_SITE} />
       </head>
-      {isProd ? <GoogleAnalytics /> : <></>}
+      <GoogleAnalytics />
       <body className="bg-white dark:bg-dark-100">
         <Header />
         <DefaultLayout>
