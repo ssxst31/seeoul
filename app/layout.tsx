@@ -49,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE} />
         <meta name="naver-site-verification" content={process.env.NEXT_PUBLIC_NAVER_SITE} />
       </head>
-      <GoogleAnalytics />
+      {isProd ? <GoogleAnalytics /> : <></>}
       <body className="bg-white dark:bg-dark-100">
         <Header />
         <DefaultLayout>
