@@ -50,7 +50,7 @@ export default function Header() {
               {navItemList.map((navItem, index) => {
                 return (
                   <li key={index}>
-                    <Link href={`/${navItem.value}`}>
+                    <Link href={`/${navItem.value}`} prefetch={false}>
                       <span
                         className={`hover:font-bold hover:leading-3 ${
                           pathname === "/" + navItem.value ? "font-bold" : "font-medium"
