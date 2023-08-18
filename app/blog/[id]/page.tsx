@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { getBaseUrl } from "utils/getBaseUrl";
+
 export async function generateStaticParams() {
   return [
     { id: "1" },
@@ -22,7 +24,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     notFound();
   }
 
-  const res = await fetch(`http://localhost:3001/api/blogs/${id}`, { cache: "force-cache" });
+  const res = await fetch(`${getBaseUrl}/api/blogs/${id}`, { cache: "force-cache" });
 
   const post = (await res.json()) as any;
 
