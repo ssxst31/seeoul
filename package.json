@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node prebuild.js",
     "build": "CI= next build",
     "start": "next start",
     "lint": "next lint",
