@@ -1,6 +1,5 @@
 import Link from "next/link";
-
-import blog from "api/blog.json";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   return [
@@ -19,15 +18,20 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
+  if (Number(id) > 10) {
+    notFound();
+  }
 
-  const post = blog.posts.find((el: any) => el.id === Number(id)) as any;
+  const res = await fetch(`http://localhost:3001/api/blogs/${id}`, { cache: "force-cache" });
+
+  const post = (await res.json()) as any;
 
   return (
     <div className="px-[30px] w-full -md:pt-36 -md:px-4 pt-20 text-center">
       <h2 className="text-4xl ">{post.title}</h2>
       <div className="w-full h-10" />
       <div className="text-left">
-        {post.content?.map((el: any) => (
+        {post.content.map((el: any) => (
           <p className="mb-4 text-base text-black dark:text-white">{el}</p>
         ))}
       </div>
