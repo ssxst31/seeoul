@@ -6,6 +6,10 @@ import { fetchDetailCulturalEvent } from "api/culturalEvents";
 import KaKaoMap from "components/kakao/KaKaoMap";
 import Discussion from "components/Discussion";
 
+export async function generateStaticParams() {
+  return [{ detailSlug: "1" }];
+}
+
 export default async function Page({ params }: any) {
   const title = params.detailSlug;
 
