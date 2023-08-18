@@ -25,13 +25,10 @@ export async function fetchCulturalEvents({ page, tab, sort, search, limit = 20 
 }
 
 export async function fetchRandomCulturalEvent() {
-  return await customAxios.get<null, CulturalEvent[]>(`/culturalEvents/random`);
-}
-export async function fetchRandomCulturalEvent2() {
-  const res = await fetch(`${getBaseUrl}/culturalEvents/random`, { next: { revalidate: 60 * 60 * 24 } });
+  const res = await fetch(`${getBaseUrl}/culturalEvents/random`, { cache: "no-store" });
   const data = await res.json();
 
-  return data[0];
+  return data;
 }
 interface DetailCulturalEventRequest {
   title: string;
