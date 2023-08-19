@@ -5,10 +5,10 @@ import Image from "next/image";
 export default function Footer() {
   const snsList = [
     { id: 1, img: "/instagram.svg", link: "https://www.instagram.com/seeou1", alt: "instagramLogo" },
-    { id: 2, img: "/twitter.png", link: "https://twitter.com/seeou11", alt: "twitterLogo" },
+    { id: 2, img: "/twitter.svg", link: "https://twitter.com/seeou11", alt: "twitterLogo" },
     {
       id: 3,
-      img: "/facebook.png",
+      img: "/facebook.svg",
       link: "https://www.facebook.com/profile.php?id=100083987572734",
       alt: "facebookLogo",
     },
@@ -38,7 +38,7 @@ export default function Footer() {
           })}
           <Link href="/blog" passHref>
             <div className="inline-flex bg-white rounded-[50%]">
-              <Image width={25} height={25} src="/blog.png" alt="blogLogo" />
+              <Image width={25} height={25} src="/blog.svg" alt="blogLogo" />
             </div>
           </Link>
         </div>
