@@ -9,7 +9,7 @@ interface ContainerProps {
 
 export default function Container({ instagramFeeds }: ContainerProps) {
   return (
-    <div>
+    <div className="px-[30px] w-full -md:px-4 -md:pt-[52px]">
       <div className="w-full h-8 -md:h-4" />
       <span className="text-2xl font-bold">요즘 핫한 전시회 ! 🫧</span>
       <div className="w-full h-8 -md:h-4" />
@@ -19,7 +19,7 @@ export default function Container({ instagramFeeds }: ContainerProps) {
             <Link href={i.permalink} target="_blank" rel="noopener noreferrer">
               <div className="relative w-full overflow-hidden h-96">
                 <img
-                  src={i.media_url}
+                  src={"/defaultImg.png"}
                   alt={i.caption}
                   className="w-full h-full duration-100 ease-linear hover:scale-110"
                 />
