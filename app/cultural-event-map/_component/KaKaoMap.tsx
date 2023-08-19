@@ -72,7 +72,7 @@ const KakaoMap = ({ data }: KakaoMapProps) => {
         <link rel="dns-prefetch" href="https://dapi.kakao.com" />
       </Head>
 
-      <div id="map" ref={containerRef} className="shadow-md h-[500px] -lg:h-96 w-full" />
+      <div id="map" ref={containerRef} className="shadow-md h-[calc(100vh-360px)]  w-full" />
     </React.Fragment>
   );
 };
