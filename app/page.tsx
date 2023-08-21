@@ -6,6 +6,7 @@ import MainSection from "components/MainSection";
 import BlackButton from "components/BlackButton";
 import CarouselSkeleton from "components/skeleton/CarouselSkeleton";
 import { fetchRandomCulturalEvent } from "api/culturalEvents";
+import UnderscoreTitle from "components/UnderscoreTitle";
 
 export default async function Page({ searchParams }: any) {
   const randomCulturalEventList = await fetchRandomCulturalEvent();
@@ -13,7 +14,7 @@ export default async function Page({ searchParams }: any) {
   return (
     <main className="pt-[71px] px-[30px] w-full -md:px-4 -md:pt-[104px]">
       <section>
-        <h2 className="pb-1 text-2xl font-bold text-black dark:text-white linear2">전시회를 생각 중이라면 👀</h2>
+        <UnderscoreTitle title="전시회를 생각 중이라면 👀" />
         <div className="w-full h-8 -md:h-4" />
         <Suspense fallback={<CarouselSkeleton width="386" height="360" />}>
           <MainCarousel randomCulturalEventList={randomCulturalEventList} />
@@ -21,7 +22,7 @@ export default async function Page({ searchParams }: any) {
       </section>
       <div className="w-full h-10" />
       <section>
-        <h2 className="pb-1 text-2xl font-bold text-black dark:text-white linear2">어디서 구경할까요? 🤔</h2>
+        <UnderscoreTitle title="어디서 구경할까요? 🤔" />
         <div className="w-full h-7 -md:h-4" />
         <Section />
         <div className="w-full h-8 -md:h-4" />

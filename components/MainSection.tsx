@@ -6,6 +6,7 @@ import InputBox from "components/molecules/InputBox";
 import { filterSort } from "utils/filterSort";
 import { fetchCulturalEvents } from "api/culturalEvents";
 import GridSkeleton from "components/skeleton/GridSkeleton";
+import UnderscoreTitle from "components/UnderscoreTitle";
 
 export default async function MainSection({ searchParams }: any) {
   const page = searchParams.page ?? "1";
@@ -17,7 +18,7 @@ export default async function MainSection({ searchParams }: any) {
   return (
     <>
       <div className="flex justify-between -md:flex-col">
-        <h2 className="text-2xl font-bold text-black dark:text-white linear2">여기서 골라보세요! 🫧</h2>
+        <UnderscoreTitle title="여기서 골라보세요! 🫧" />
         <div className="hidden w-full -md:h-4 -md:block" />
         <div className="flex items-center -md:justify-between">
           <div className="gradient">
