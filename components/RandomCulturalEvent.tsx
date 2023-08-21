@@ -4,7 +4,14 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { isMobile } from "react-device-detect";
 
-export default function RandomCulturalEvent({ randomCulturalEvent, moving }: any) {
+import { CulturalEvent } from "type";
+
+interface RandomCulturalEventProps {
+  randomCulturalEvent: CulturalEvent;
+  moving: any;
+}
+
+export default function RandomCulturalEvent({ randomCulturalEvent, moving }: RandomCulturalEventProps) {
   const router = useRouter();
 
   return (

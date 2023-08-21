@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { getHostName } from "utils/getHostName";
+import { Blog } from "type";
 
 export async function generateStaticParams() {
   return [
@@ -18,23 +19,28 @@ export async function generateStaticParams() {
   ];
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+interface Props {
+  params: { id: string };
+}
+
+export default async function Page({ params }: Props) {
   const { id } = params;
+
   if (Number(id) > 10) {
     notFound();
   }
 
   const res = await fetch(`${getHostName}/api/blogs/${id}`, { cache: "force-cache" });
 
-  const post = (await res.json()) as any;
+  const post = (await res.json()) as Blog;
 
   return (
     <div className="px-[30px] w-full -md:pt-36 -md:px-4 pt-20 text-center">
       <h2 className="text-4xl ">{post.title}</h2>
       <div className="w-full h-10" />
       <div className="text-left">
-        {post.content.map((el: any) => (
-          <p className="mb-4 text-base text-black dark:text-white">{el}</p>
+        {post.content.map((content) => (
+          <p className="mb-4 text-base text-black dark:text-white">{content}</p>
         ))}
       </div>
       <div className="w-full h-10" />

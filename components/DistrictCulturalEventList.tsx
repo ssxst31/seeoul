@@ -1,8 +1,3 @@
-"use client";
-
-import React from "react";
-import { useSearchParams } from "next/navigation";
-
 import { useFetchCulturalEvent } from "hooks/useFetchCulturalEvent";
 import DistrictSkeleton from "components/skeleton/DistrictSkeleton";
 import DistrictCulturalEvent from "components/DistrictCulturalEvent";
@@ -12,9 +7,7 @@ interface DistrictCulturalEventListProps {
 }
 
 export default function DistrictCulturalEventList({ location }: DistrictCulturalEventListProps) {
-  const searchParams = useSearchParams();
-  const search2 = searchParams.get("page") as any;
-  const page = search2?.page ?? "1";
+  const page = "1";
 
   const search = undefined;
   const sort = location;

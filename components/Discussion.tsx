@@ -2,7 +2,11 @@
 
 import { DiscussionEmbed } from "disqus-react";
 
-export default function Discussion({ title }: any) {
+interface DiscussionProps {
+  title: string;
+}
+
+export default function Discussion({ title }: DiscussionProps) {
   return (
     <DiscussionEmbed
       shortname="seeoul"

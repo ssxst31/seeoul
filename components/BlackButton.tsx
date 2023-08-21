@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 
 export default function BlackButton() {
   const { theme, setTheme } = useTheme();
-  const [btnText, setBtnText] = useState<any>("");
+  const [btnText, setBtnText] = useState<string>("");
 
   useEffect(() => {
     if (theme === "light") {

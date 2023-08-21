@@ -5,7 +5,7 @@ import { CulturalEvent } from "type";
 import { getAxiosError, isAxiosError } from "utils/errors";
 
 interface FetchCulturalEventProps {
-  page: string | string[] | undefined;
+  page: string;
   sort: string;
   search: string | undefined;
 }

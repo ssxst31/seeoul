@@ -1,4 +1,10 @@
-export async function generateMetadata({ params }: any) {
+import { Metadata } from "next";
+
+interface Props {
+  params: { detailSlug: string };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: decodeURIComponent(params.detailSlug) + "| 내일전시",
   };

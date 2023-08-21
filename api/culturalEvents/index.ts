@@ -13,7 +13,17 @@ interface CulturalEventResponse {
   totalCount: number;
 }
 
-export async function fetchCulturalEvents({ page, tab, sort, search, limit = 20 }: any) {
+export async function fetchCulturalEvents({
+  page,
+  sort,
+  search,
+  limit = 20,
+}: {
+  page: string;
+  sort: string;
+  search: undefined | string;
+  limit?: number;
+}) {
   const res = await fetch(
     `${getBaseUrl}/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=${limit}&option=${
       sort === "전체" ? "all" : sort

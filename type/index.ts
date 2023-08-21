@@ -29,3 +29,9 @@ export interface InstagramFeed {
   timestamp: string;
   username: string;
 }
+
+export interface Blog {
+  id: number;
+  title: string;
+  content: string[];
+}

@@ -8,7 +8,15 @@ import CarouselSkeleton from "components/skeleton/CarouselSkeleton";
 import { fetchRandomCulturalEvent } from "api/culturalEvents";
 import UnderscoreTitle from "components/UnderscoreTitle";
 
-export default async function Page({ searchParams }: any) {
+interface Props {
+  searchParams: {
+    page: string;
+    tab: string;
+    search: undefined | string;
+  };
+}
+
+export default async function Page({ searchParams }: Props) {
   const randomCulturalEventList = await fetchRandomCulturalEvent();
 
   return (

@@ -10,7 +10,13 @@ export async function generateStaticParams() {
   return [{ detailSlug: "1" }];
 }
 
-export default async function Page({ params }: any) {
+interface Props {
+  params: {
+    detailSlug: string;
+  };
+}
+
+export default async function Page({ params }: Props) {
   const title = params.detailSlug;
 
   const culturalEvent = await fetchDetailCulturalEvent({ title });

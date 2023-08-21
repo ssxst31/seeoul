@@ -8,12 +8,20 @@ import { fetchCulturalEvents } from "api/culturalEvents";
 import GridSkeleton from "components/skeleton/GridSkeleton";
 import UnderscoreTitle from "components/UnderscoreTitle";
 
-export default async function MainSection({ searchParams }: any) {
+interface MainSectionProps {
+  searchParams: {
+    page: string;
+    tab: string;
+    search: undefined | string;
+  };
+}
+
+export default async function MainSection({ searchParams }: MainSectionProps) {
   const page = searchParams.page ?? "1";
-  const tab = (searchParams.tab ?? "total") as string;
+  const tab = searchParams.tab ?? "total";
   const sort = filterSort((tab as string) ?? "total");
   const search = searchParams.search ?? undefined;
-  const data = await fetchCulturalEvents({ page, tab, sort, search });
+  const data = await fetchCulturalEvents({ page, sort, search });
 
   return (
     <>
