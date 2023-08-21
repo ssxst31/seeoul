@@ -21,9 +21,7 @@ export default async function Page({ searchParams }: any) {
       </section>
       <div className="w-full h-10" />
       <section>
-        <h2 className="pb-1 text-2xl font-bold text-black dark:text-white linear2 h-[29px] self-start">
-          어디서 구경할까요? 🤔
-        </h2>
+        <h2 className="pb-1 text-2xl font-bold text-black dark:text-white linear2">어디서 구경할까요? 🤔</h2>
         <div className="w-full h-7 -md:h-4" />
         <Section />
         <div className="w-full h-8 -md:h-4" />

@@ -30,7 +30,7 @@ export default async function Page({ params }: any) {
   const image = mainImg.replace("&thumb=Y", "");
 
   return (
-    <main>
+    <>
       <div className="relative">
         <div className="object-cover h-72 -md:hidden relative w-screen ml-[calc(-50vw+50%)]">
           <Image src={image} alt={culturalEvent.title} fill />
@@ -50,9 +50,7 @@ export default async function Page({ params }: any) {
             </div>
             <div className="-md:flex -md:w-[calc(100%+32px)] -md:mt-[-50px] -md:ml-[-16px] -md:relative bg-white -md:justify-between mt-5 dark:bg-dark-100">
               <div className="p-3">
-                <div>
-                  <span className="text-3xl font-bold">{culturalEvent.title}</span>
-                </div>
+                <h2 className="text-3xl font-bold">{culturalEvent.title}</h2>
                 <div className="w-full h-2" />
                 {descriptionList.map((description) => (
                   <div>
@@ -92,6 +90,6 @@ export default async function Page({ params }: any) {
       <div className="mx-auto -md:max-w-[300px] max-w-[728px]">
         {/* <KakaoAdFit unit={isMobile ? "DAN-ncR6s1pAyuAZtN0w" : "DAN-5fCtQtQI3q57O0n8"} /> */}
       </div>
-    </main>
+    </>
   );
 }

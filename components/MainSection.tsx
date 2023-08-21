@@ -17,9 +17,7 @@ export default async function MainSection({ searchParams }: any) {
   return (
     <>
       <div className="flex justify-between -md:flex-col">
-        <h2 className="pb-[34px] text-2xl font-bold text-black dark:text-white linear2 h-[29px] self-start">
-          여기서 골라보세요! 🫧
-        </h2>
+        <h2 className="text-2xl font-bold text-black dark:text-white linear2">여기서 골라보세요! 🫧</h2>
         <div className="hidden w-full -md:h-4 -md:block" />
         <div className="flex items-center -md:justify-between">
           <div className="gradient">

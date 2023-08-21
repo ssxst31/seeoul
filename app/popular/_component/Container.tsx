@@ -9,7 +9,7 @@ interface ContainerProps {
 
 export default function Container({ instagramFeeds }: ContainerProps) {
   return (
-    <div className="px-[30px] w-full -md:px-4 -md:pt-[52px]">
+    <>
       <div className="w-full h-8 -md:h-4" />
       <span className="text-2xl font-bold">요즘 핫한 전시회 ! 🫧</span>
       <div className="w-full h-8 -md:h-4" />
@@ -28,6 +28,6 @@ export default function Container({ instagramFeeds }: ContainerProps) {
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }

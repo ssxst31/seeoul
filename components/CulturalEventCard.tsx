@@ -18,7 +18,7 @@ export default function CulturalEventCard({ culturalEvent }: CulturalEventCardPr
   const { mainImg, title, date } = culturalEvent;
 
   return (
-    <div
+    <article
       className="relative w-full overflow-hidden shadow-lg cursor-pointer shadow-gray-200 dark:shadow-gray-900"
       onClick={() => {
         router.push(`/detail/${title}`);
@@ -36,6 +36,6 @@ export default function CulturalEventCard({ culturalEvent }: CulturalEventCardPr
           {DDay(date)}
         </div>
       </div>
-    </div>
+    </article>
   );
 }
