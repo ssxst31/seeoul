@@ -48,7 +48,7 @@ export default function MainCarousel({ randomCulturalEventList }: MainCarouselPr
       }}
     >
       {randomCulturalEventList.map((randomCulturalEvent) => (
-        <RandomCulturalEvent key={randomCulturalEvent.id} randomCulturalEvent={randomCulturalEvent} />
+        <RandomCulturalEvent key={randomCulturalEvent.id} randomCulturalEvent={randomCulturalEvent} moving={moving} />
       ))}
     </Slider>
   );
