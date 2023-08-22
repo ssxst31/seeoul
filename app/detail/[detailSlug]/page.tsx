@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { fetchDetailCulturalEvent } from "api/culturalEvents";
 import KaKaoMap from "components/kakao/KaKaoMap";
 import Discussion from "components/Discussion";
+import { RenderedTimeAgo } from "components/RenderedTimeAgo";
 
 export async function generateStaticParams() {
   return [{ detailSlug: "1" }];
@@ -90,6 +91,7 @@ export default async function Page({ params }: Props) {
         </div>
       </div>
       <div className="w-full h-2" />
+      <RenderedTimeAgo timestamp={Date.now()} />
       <div className="mx-auto max-w-[1280px] px-[30px] -md:px-[16px]">
         <Discussion title={title} />
       </div>
