@@ -1,7 +1,9 @@
-import React from "react";
-import Router from "next/router";
+"use client";
 
-import ApiError from "components/ApiError";
+import React from "react";
+import Router from "next/navigation";
+
+import ApiError from "components/common/ApiError";
 
 type ErrorBoundaryProps = React.PropsWithChildren<{}>;
 
@@ -47,15 +49,11 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
   componentDidMount() {
     window.addEventListener("error", this.handleError);
     window.addEventListener("unhandledrejection", this.handleRejectedPromise);
-
-    Router.events.on("routeChangeStart", this.resetState);
   }
 
   componentWillUnmount() {
     window.removeEventListener("error", this.handleError);
     window.removeEventListener("unhandledrejection", this.handleRejectedPromise);
-
-    Router.events.off("routeChangeStart", this.resetState);
   }
 
   componentDidCatch(error: Error) {

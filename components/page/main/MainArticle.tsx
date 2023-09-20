@@ -1,7 +1,7 @@
 import React from "react";
 
 import { CulturalEvent } from "type";
-import CulturalEventCard from "components/CulturalEventCard";
+import CulturalEventCard from "components/page/main/CulturalEventCard";
 
 interface MainArticleProps {
   totalCulturalEvent: CulturalEvent[];

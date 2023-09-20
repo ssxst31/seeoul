@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 import { fetchDetailCulturalEvent } from "api/culturalEvents";
 import KaKaoMap from "components/kakao/KaKaoMap";
-import Discussion from "components/Discussion";
+import Discussion from "components/common/Discussion";
 import { RenderedTimeAgo } from "components/RenderedTimeAgo";
 
 export async function generateStaticParams() {

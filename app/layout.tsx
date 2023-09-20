@@ -5,13 +5,12 @@ import { Metadata } from "next";
 import Header from "layouts/Header";
 import Footer from "layouts/Footer";
 import DefaultLayout from "layouts/DefaultLayout";
-import GoogleAnalytics from "components/GoogleAnalytics";
+import GoogleAnalytics from "components/common/GoogleAnalytics";
 import { isProduction } from "utils/env";
 
 import "styles/globals.css";
 import "styles/slick-theme.min.css";
 import "styles/slick.min.css";
-import "nprogress/nprogress.css";
 
 const NanumGothic = Nanum_Gothic({
   weight: ["400", "700"],

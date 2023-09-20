@@ -1,12 +1,12 @@
 import { Suspense } from "react";
 
-import MainCarousel from "components/MainCarousel";
-import Section from "components/Section";
-import MainSection from "components/MainSection";
-import BlackButton from "components/BlackButton";
-import CarouselSkeleton from "components/skeleton/CarouselSkeleton";
+import MainCarousel from "components/page/main/MainCarousel";
+import Section from "components/page/main/Section";
+import MainSection from "components/page/main/MainSection";
+import CarouselSkeleton from "components/page/main/skeleton/CarouselSkeleton";
 import { fetchRandomCulturalEvent } from "api/culturalEvents";
-import UnderscoreTitle from "components/UnderscoreTitle";
+import UnderscoreTitle from "components/common/UnderscoreTitle";
+import ApiErrorBoundary from "components/common/ApiErrorBoundary";
 
 interface Props {
   searchParams: {
@@ -24,9 +24,11 @@ export default async function Page({ searchParams }: Props) {
       <section>
         <UnderscoreTitle title="전시회를 생각 중이라면 👀" />
         <div className="w-full h-8 -md:h-4" />
-        <Suspense fallback={<CarouselSkeleton width="386" height="360" />}>
-          <MainCarousel randomCulturalEventList={randomCulturalEventList} />
-        </Suspense>
+        <ApiErrorBoundary>
+          <Suspense fallback={<CarouselSkeleton width="386" height="360" />}>
+            <MainCarousel randomCulturalEventList={randomCulturalEventList} />
+          </Suspense>
+        </ApiErrorBoundary>
       </section>
       <div className="w-full h-10" />
       <section>
@@ -44,7 +46,6 @@ export default async function Page({ searchParams }: Props) {
         <div className="max-w-[728px] mx-auto overflow-x-hidden -md:max-w-[300px]"></div>
         <div className="w-full h-8" />
       </section>
-      <BlackButton />
     </main>
   );
 }

@@ -1,12 +1,12 @@
 import { Suspense } from "react";
 
-import MainArticle from "components/MainArticle";
-import Pagination from "components/Pagination";
+import MainArticle from "components/page/main/MainArticle";
+import Pagination from "components/common/Pagination";
 import InputBox from "components/molecules/InputBox";
 import { filterSort } from "utils/filterSort";
 import { fetchCulturalEvents } from "api/culturalEvents";
-import GridSkeleton from "components/skeleton/GridSkeleton";
-import UnderscoreTitle from "components/UnderscoreTitle";
+import GridSkeleton from "components/page/main/skeleton/GridSkeleton";
+import UnderscoreTitle from "components/common/UnderscoreTitle";
 
 interface MainSectionProps {
   searchParams: {

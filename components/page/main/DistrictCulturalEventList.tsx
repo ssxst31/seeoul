@@ -1,6 +1,6 @@
 import { useFetchCulturalEvent } from "hooks/useFetchCulturalEvent";
-import DistrictSkeleton from "components/skeleton/DistrictSkeleton";
-import DistrictCulturalEvent from "components/DistrictCulturalEvent";
+import DistrictSkeleton from "components/page/main/skeleton/DistrictSkeleton";
+import DistrictCulturalEvent from "components/page/main/DistrictCulturalEvent";
 
 interface DistrictCulturalEventListProps {
   location: string;

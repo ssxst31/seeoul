@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import Slider from "react-slick";
 
-import RandomCulturalEvent from "components/RandomCulturalEvent";
+import RandomCulturalEvent from "components/page/main/RandomCulturalEvent";
 import { CulturalEvent } from "type";
 
 interface MainCarouselProps {
