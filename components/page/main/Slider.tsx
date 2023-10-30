@@ -15,18 +15,18 @@ export default function Slider() {
   }, 3000);
 
   const slides = [
-    { title: "마우리치오 카텔란 : WE", link: "https://ticket.leeum.org/leeum/personal/personalStep.do" },
+    { title: "반고흐 인 서울", link: "https://thart.co.kr/36" },
     {
-      title: "어노니머스 프로젝트",
-      link: "https://groundseesaw.co.kr/product/%ec%96%b4%eb%85%b8%eb%8b%88%eb%a8%b8%ec%8a%a4-%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8",
+      title: "안소현 : 수무한 바람",
+      link: "https://www.sohyunart.com",
     },
     {
-      title: "티보의 그림 정원",
-      link: "https://www.ehyundai.com/newCulture/EH/EH000001_V.do?seq=2080148&eventState=POST&bbsCd=210&sitemapId=01020100000000&list_page=1&imgLink=/attachfiles/event/20230428013217427.png",
+      title: "고의선 개인전",
+      link: "https://blog.naver.com/galleryjy/223235704806",
     },
     {
-      title: "목향(木香)",
-      link: "https://blog.naver.com/forloveofgod",
+      title: "바위가 되는 법",
+      link: "https://ticket.leeum.org/leeum/personal/exhibitList.do#none",
     },
   ];
 
