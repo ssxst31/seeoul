@@ -6,19 +6,9 @@ import { fetchDetailCulturalEvent } from "api/culturalEvents";
 import KaKaoMap from "components/kakao/KaKaoMap";
 import Discussion from "components/common/Discussion";
 import { RenderedTimeAgo } from "components/RenderedTimeAgo";
-import { fetchCulturalEvents } from "api/culturalEvents";
 
 export async function generateStaticParams() {
-  const page = "1";
-  const sort = "전체";
-  const search = undefined;
-  const limit = 20;
-
-  const data = await fetchCulturalEvents({ page, sort, search, limit });
-  const dsa = data.data.map((aa: any) => {
-    return { detailSlug: aa.title };
-  });
-  return dsa;
+  return [{ detailSlug: "1" }];
 }
 
 interface Props {
