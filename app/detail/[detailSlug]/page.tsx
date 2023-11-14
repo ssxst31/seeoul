@@ -8,47 +8,47 @@ import Discussion from "components/common/Discussion";
 import { RenderedTimeAgo } from "components/RenderedTimeAgo";
 import { fetchCulturalEvents } from "api/culturalEvents";
 
-// export async function generateStaticParams() {
-//   const page = "1";
-//   const sort = "전체";
-//   const search = undefined;
-//   const limit = 20;
+export async function generateStaticParams() {
+  const page = "1";
+  const sort = "전체";
+  const search = undefined;
+  const limit = 20;
 
-//   const data = await fetchCulturalEvents({ page, sort, search, limit });
-//   const dsa = data.data.map((aa: any) => {
-//     return { detailSlug: aa.title };
-//   });
-//   return dsa;
-// }
+  const data = await fetchCulturalEvents({ page, sort, search, limit });
+  const dsa = data.data.map((aa: any) => {
+    return { detailSlug: aa.title };
+  });
+  return dsa;
+}
 
-// interface Props {
-//   params: {
-//     detailSlug: string;
-//   };
-// }
+interface Props {
+  params: {
+    detailSlug: string;
+  };
+}
 
-export default async function Page() {
-  // const title = params.detailSlug;
+export default async function Page({ params }: Props) {
+  const title = params.detailSlug;
 
-  // const culturalEvent = await fetchDetailCulturalEvent({ title });
+  const culturalEvent = await fetchDetailCulturalEvent({ title });
 
-  // if (!culturalEvent) {
-  //   notFound();
-  // }
+  if (!culturalEvent) {
+    notFound();
+  }
 
-  // const { mainImg, date, useTrgt, useFee, place, orgLink, lng, lat } = culturalEvent;
-  // const descriptionList = [
-  //   { title: "장소", value: place },
-  //   { title: "기간", value: date },
-  //   { title: "대상", value: useTrgt },
-  //   { title: "요금", value: useFee },
-  // ];
+  const { mainImg, date, useTrgt, useFee, place, orgLink, lng, lat } = culturalEvent;
+  const descriptionList = [
+    { title: "장소", value: place },
+    { title: "기간", value: date },
+    { title: "대상", value: useTrgt },
+    { title: "요금", value: useFee },
+  ];
 
-  // const image = mainImg.replace("&thumb=Y", "");
+  const image = mainImg.replace("&thumb=Y", "");
 
   return (
     <>
-      {/* <div className="relative">
+      <div className="relative">
         <div className="object-cover h-72 -md:hidden relative w-screen ml-[calc(-50vw+50%)]">
           <Image src={image} alt={culturalEvent.title} fill />
         </div>
@@ -105,9 +105,9 @@ export default async function Page() {
       <div className="mx-auto max-w-[1280px] px-[30px] -md:px-[16px]">
         <Discussion title={title} />
       </div>
-      <div className="mx-auto -md:max-w-[300px] max-w-[728px]"> */}
-      {/* <KakaoAdFit unit={isMobile ? "DAN-ncR6s1pAyuAZtN0w" : "DAN-5fCtQtQI3q57O0n8"} /> */}
-      <div> </div>
+      <div className="mx-auto -md:max-w-[300px] max-w-[728px]">
+        {/* <KakaoAdFit unit={isMobile ? "DAN-ncR6s1pAyuAZtN0w" : "DAN-5fCtQtQI3q57O0n8"} /> */}
+      </div>
     </>
   );
 }
