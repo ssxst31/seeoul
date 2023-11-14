@@ -70,7 +70,7 @@ export default async function Page({ params }: Props) {
                 <h2 className="text-3xl font-bold">{culturalEvent.title}</h2>
                 <div className="w-full h-2" />
                 {descriptionList.map((description) => (
-                  <div>
+                  <div key={description.value}>
                     <span className="text-xl font-medium text-gray-500 -md:text-base">{description.title} : </span>
                     <span className="text-xl -md:text-base">{description.value}</span>
                     <div className="w-full h-2" />

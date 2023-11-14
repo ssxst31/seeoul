@@ -12,6 +12,7 @@ interface SkeletonProps {
 }
 
 export default function GridSkeleton({ row = 3, height }: SkeletonProps) {
+  console.log(123);
   const { width } = useWindowDimensions();
 
   const height2 = width > 763 ? height : "486px";

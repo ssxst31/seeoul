@@ -40,7 +40,9 @@ export default async function Page({ params }: Props) {
       <div className="w-full h-10" />
       <div className="text-left">
         {post.content.map((content) => (
-          <p className="mb-4 text-base text-black dark:text-white">{content}</p>
+          <p className="mb-4 text-base text-black dark:text-white" key={content}>
+            {content}
+          </p>
         ))}
       </div>
       <div className="w-full h-10" />

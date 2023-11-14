@@ -3,25 +3,17 @@ import { Suspense } from "react";
 import MainArticle from "components/page/main/MainArticle";
 import Pagination from "components/common/Pagination";
 import InputBox from "components/molecules/InputBox";
-import { filterSort } from "utils/filterSort";
-import { fetchCulturalEvents } from "api/culturalEvents";
-import GridSkeleton from "components/page/main/skeleton/GridSkeleton";
 import UnderscoreTitle from "components/common/UnderscoreTitle";
+import GridSkeleton from "components/page/main/skeleton/GridSkeleton";
 
 interface MainSectionProps {
-  searchParams: {
-    page: string;
-    tab: string;
-    search: undefined | string;
-  };
+  data2: any;
+  tab: string;
+  page: string;
 }
 
-export default async function MainSection({ searchParams }: MainSectionProps) {
-  const page = searchParams.page ?? "1";
-  const tab = searchParams.tab ?? "total";
-  const sort = filterSort((tab as string) ?? "total");
-  const search = searchParams.search ?? undefined;
-  const data = await fetchCulturalEvents({ page, sort, search });
+export default async function MainSection({ data2, tab, page }: MainSectionProps) {
+  const data = await data2.then((res: any) => res.json());
 
   return (
     <>
@@ -40,10 +32,8 @@ export default async function MainSection({ searchParams }: MainSectionProps) {
         </div>
       </div>
       <div className="w-full h-8 -md:h-4" />
-      <Suspense fallback={<GridSkeleton height="418" row={16} />}>
-        {/* @ts-expect-error Async Server Component */}
-        <MainArticle totalCulturalEvent={data.data} />
-      </Suspense>
+      {/* @ts-expect-error Async Server Component */}
+      <MainArticle totalCulturalEvent={data.data} />
       <div className="w-full h-8" />
       <div className="text-center">
         <Pagination totalPages={Math.ceil(data.totalCount / 20)} page={page} tab={tab} />

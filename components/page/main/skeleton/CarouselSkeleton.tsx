@@ -10,6 +10,7 @@ interface CarouselSkeletonProps {
 }
 
 export default function CarouselSkeleton({ row = 3, width, height }: CarouselSkeletonProps) {
+  console.log(5555);
   return (
     <div className="flex justify-between mx-auto">
       {range(row).map((r, index) => (
