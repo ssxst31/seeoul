@@ -29,10 +29,7 @@ export default function Header() {
     { title: "기타", sort: "etc" },
   ];
 
-  const navItemList = [
-    { title: "인기 전시회", value: "popular" },
-    { title: "문화 행사 지도", value: "cultural-event-map" },
-  ];
+  const navItemList = [{ title: "문화 행사 지도", value: "cultural-event-map" }];
 
   return (
     <header className="fixed top-0 left-0 z-20 w-full bg-white border-b border-gray-100 border-solid dark:bg-dark-100 dark:border-dark-200">
@@ -70,7 +67,7 @@ export default function Header() {
       </div>
       {pathname === "/" && (
         <div className="overflow-x-scroll border-t border-gray-100 border-solid scrollbar-hide dark:border-dark-200">
-          <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[761px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
+          <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[765px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
             {TABS.map((t, index) => (
               <li key={index}>
                 <Link href={`/?tab=${t.sort}`} key={index} shallow={true} scroll={true} passHref>
