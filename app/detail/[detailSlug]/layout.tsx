@@ -7,6 +7,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: decodeURIComponent(params.detailSlug) + "| 내일전시",
+    description: "내일전시" + decodeURIComponent(params.detailSlug) + "확인해보세요!",
   };
 }
 
