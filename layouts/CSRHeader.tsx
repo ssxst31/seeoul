@@ -24,6 +24,7 @@ export default function Header() {
     { title: "뮤지컬/오페라", sort: "opera" },
     { title: "무용", sort: "dancing" },
     { title: "연극", sort: "theater" },
+    { title: "영화", sort: "movie" },
     { title: "독주/독창회", sort: "solo" },
     { title: "기타", sort: "etc" },
   ];
@@ -69,7 +70,7 @@ export default function Header() {
       </div>
       {pathname === "/" && (
         <div className="overflow-x-scroll border-t border-gray-100 border-solid scrollbar-hide dark:border-dark-200">
-          <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[760px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
+          <ul className="max-w-7xl px-7 -md:max-w-none -md:w-[761px] -md:px-4 flex mx-auto h-10 items-center space-x-5">
             {TABS.map((t, index) => (
               <li key={index}>
                 <Link href={`/?tab=${t.sort}`} key={index} shallow={true} scroll={true} passHref>

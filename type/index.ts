@@ -18,6 +18,7 @@ export interface CulturalEvent {
   title: string;
   useFee: string;
   useTrgt: string;
+  isFree: string;
 }
 
 export interface InstagramFeed {

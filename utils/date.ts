@@ -1,9 +1,16 @@
-export const DDay = (date: string): string => {
-  const endDate = date.indexOf("~") + 1;
-  const fullEndDate = new Date(date.slice(endDate, 100));
-  const fullNowDate = new Date();
-  const distance = fullEndDate.getTime() - fullNowDate.getTime();
-  const day = Math.floor(distance / (1000 * 60 * 60 * 24)) + 1;
+export const getEventStatus = (dateRange: string): string => {
+  const dateArray = dateRange.split("~");
 
-  return distance > 0 ? "D-" + day : "종료";
+  const currentDate = new Date();
+
+  const startDate = new Date(dateArray[0]);
+  const endDate = new Date(dateArray[1]);
+
+  if (currentDate < startDate) {
+    return "진행예정";
+  } else if (currentDate >= startDate && currentDate <= endDate) {
+    return "진행중";
+  } else {
+    return "종료";
+  }
 };

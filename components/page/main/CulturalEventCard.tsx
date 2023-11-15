@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import { CulturalEvent } from "type";
-import { DDay } from "utils/date";
+import { getEventStatus } from "utils/date";
 
 interface CulturalEventCardProps {
   culturalEvent: CulturalEvent;
@@ -15,7 +15,7 @@ interface CulturalEventCardProps {
 export default function CulturalEventCard({ culturalEvent }: CulturalEventCardProps) {
   const router = useRouter();
 
-  const { mainImg, title, date } = culturalEvent;
+  const { mainImg, title, date, isFree } = culturalEvent;
 
   return (
     <article
@@ -32,8 +32,12 @@ export default function CulturalEventCard({ culturalEvent }: CulturalEventCardPr
           {title}
         </strong>
         <span className="block text-base text-black dark:text-white">기간 : {date}</span>
+        {isFree === "무료" && (
+          <span className="bg-gray-200 mt-1  text-gray-600 text-xs  inline-block rounded-md p-1">#무료</span>
+        )}
+
         <div className="absolute py-1 text-sm font-bold text-center text-white bg-red-400 rounded-sm w-14 right-2 top-2">
-          {DDay(date)}
+          {getEventStatus(date)}
         </div>
       </div>
     </article>

@@ -11,6 +11,7 @@ export const filterSort = (sort: string): string => {
   if (sort === "opera") return "뮤지컬/오페라";
   if (sort === "dancing") return "무용";
   if (sort === "theater") return "연극";
+  if (sort === "movie") return "영화";
   if (sort === "etc") return "기타";
 
   return "total";
