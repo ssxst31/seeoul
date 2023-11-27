@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -6,6 +7,7 @@ import { fetchDetailCulturalEvent } from "api/culturalEvents";
 import KaKaoMap from "components/kakao/KaKaoMap";
 import Discussion from "components/common/Discussion";
 import { RenderedTimeAgo } from "components/RenderedTimeAgo";
+import NaverBlogs from "app/detail/[detailSlug]/_components/NaverBlogs";
 
 export async function generateStaticParams() {
   return [{ detailSlug: "1" }];
@@ -81,6 +83,12 @@ export default async function Page({ params }: Props) {
           </div>
           <div className="w-full h-[60px]" />
           <KaKaoMap lat={Number(lat)} lng={Number(lng)} />
+          <Suspense fallback={<div />}>
+            <div className="mt-5">
+              {/* @ts-expect-error */}
+              <NaverBlogs title={culturalEvent.title} />
+            </div>
+          </Suspense>
         </div>
         <div className="-md:bottom-0 hidden -md:block -md:fixed -md:w-full -md:z-[999999999]">
           <button className="w-full text-white bg-indigo-600 h-11">
