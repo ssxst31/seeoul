@@ -17,8 +17,8 @@ export default function KakaoShare({ title, img }: any) {
         title: title,
         imageUrl: img,
         link: {
-          mobileWebUrl: img,
-          webUrl: img,
+          mobileWebUrl: `${process.env.NEXT_PUBLIC_APP_HOST_NAME}/detail/${title}`,
+          webUrl: `${process.env.NEXT_PUBLIC_APP_HOST_NAME}/detail/${title}`,
         },
       },
     });
