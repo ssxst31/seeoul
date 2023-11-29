@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 
 import { fetchDetailCulturalEvent } from "api/culturalEvents";
 import KaKaoMap from "components/kakao/KaKaoMap";
+import KakaoShare from "app/detail/[detailSlug]/_components/KakaoShare";
 import Discussion from "components/common/Discussion";
 import { RenderedTimeAgo } from "components/RenderedTimeAgo";
 import NaverBlogs from "app/detail/[detailSlug]/_components/NaverBlogs";
@@ -75,6 +76,7 @@ export default async function Page({ params }: Props) {
                     </Link>
                   </span>
                 </div>
+                <KakaoShare title={culturalEvent.title} img={image} />
               </div>
               <div className="hidden -md:mt-[-50px] -md:block -md:max-h-[120px] -md:object-contain -md:w-full -md:max-w-[120px] relative">
                 <Image src={image} alt={culturalEvent.title} fill />
