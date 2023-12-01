@@ -10,6 +10,10 @@ export default async function NaverBlogs({ title }: NaverBlogsProps) {
 
   const { items } = res;
 
+  if (!items) {
+    return <></>;
+  }
+
   return (
     <>
       <div className=" font-bold text-lg mb-2">관련 네이버 콘텐츠</div>
