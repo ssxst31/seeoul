@@ -29,7 +29,10 @@ export default function Header() {
     { title: "기타", sort: "etc" },
   ];
 
-  const navItemList = [{ title: "문화 행사 지도", value: "cultural-event-map" }];
+  const navItemList = [
+    { title: "문화 행사 지도", value: "cultural-event-map" },
+    { title: "전시회 예매", value: "cultural-event-shop" },
+  ];
 
   return (
     <header className="fixed top-0 left-0 z-20 w-full bg-white border-b border-gray-100 border-solid dark:bg-dark-100 dark:border-dark-200">
