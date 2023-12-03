@@ -21,6 +21,7 @@ const nextConfig = {
       "scontent-ssn1-1.cdninstagram.com",
       "video-ssn1-1.cdninstagram.com",
       "seeoul.netlify.app",
+      "shopping-phinf.pstatic.net",
     ],
   },
 };

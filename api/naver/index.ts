@@ -12,7 +12,7 @@ export async function fetchNaverBlogs(title: string) {
 }
 
 export async function fetchNaverShop(title: string) {
-  const res = await fetch(`https://openapi.naver.com/v1/search/shop?query=${title}`, {
+  const res = await fetch(`https://openapi.naver.com/v1/search/shop?query=${title}&display=100&start=1`, {
     headers: {
       "X-Naver-Client-Id": process.env.NEXT_PUBLIC_NAVER_CLIENT_ID ?? "",
       "X-Naver-Client-Secret": process.env.NEXT_PUBLIC_NAVER_SECRET_KEY ?? "",
