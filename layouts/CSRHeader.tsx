@@ -30,8 +30,9 @@ export default function Header() {
   ];
 
   const navItemList = [
-    { title: "문화 행사 지도", value: "cultural-event-map" },
+    { title: "홈", value: "" },
     { title: "전시회 예매", value: "cultural-event-shop" },
+    { title: "문화 행사 지도", value: "cultural-event-map" },
   ];
 
   return (
@@ -47,7 +48,7 @@ export default function Header() {
             </a>
           </h1>
           <nav className="inline-flex items-center -md:block">
-            <ul className="flex items-center space-x-2 -md:h-11">
+            <ul className="flex items-center space-x-4 -md:h-11">
               {navItemList.map((navItem, index) => {
                 return (
                   <li key={index}>
