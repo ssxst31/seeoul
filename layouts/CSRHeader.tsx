@@ -30,9 +30,9 @@ export default function Header() {
   ];
 
   const navItemList = [
-    { title: "홈", value: "" },
-    { title: "전시회 예매", value: "cultural-event-shop" },
-    { title: "문화 행사 지도", value: "cultural-event-map" },
+    { title: "홈", value: "", isNew: false },
+    { title: "전시회 예매", value: "cultural-event-shop", isNew: true },
+    { title: "문화 행사 지도", value: "cultural-event-map", isNew: false },
   ];
 
   return (
@@ -54,11 +54,12 @@ export default function Header() {
                   <li key={index}>
                     <Link href={`/${navItem.value}`} prefetch={false}>
                       <span
-                        className={`hover:font-bold hover:leading-3 ${
+                        className={`hover:font-bold hover:leading-3 relative ${
                           pathname === "/" + navItem.value ? "font-bold" : "font-medium"
                         } `}
                       >
                         {navItem.title}
+                        {navItem.isNew && <span className="w-1 h-1 bg-red-400 absolute rounded-[50%]" />}
                       </span>
                     </Link>
                   </li>
