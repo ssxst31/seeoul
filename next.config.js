@@ -24,6 +24,16 @@ const nextConfig = {
       "shopping-phinf.pstatic.net",
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "seeoul.netlify.app" }],
+        destination: "https://seeoul.vercel.app/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
