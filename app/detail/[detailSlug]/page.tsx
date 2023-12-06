@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
+import { getBaseUrl } from "utils/getBaseUrl";
 import { fetchDetailCulturalEvent, fetchCulturalEvents } from "api/culturalEvents";
 import KaKaoMap from "components/kakao/KaKaoMap";
 import KakaoShare from "app/detail/[detailSlug]/_components/KakaoShare";
@@ -16,7 +16,15 @@ export async function generateStaticParams() {
   const search = undefined;
   const limit = 20;
 
-  const data = await fetchCulturalEvents({ page, sort, search, limit });
+  const res = (await fetch(
+    `https://all-exhibition-ssxst31.koyeb.app/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=${limit}&option=${
+      sort === "전체" ? "all" : sort
+    }&search=${search}`,
+    { next: { revalidate: 10 } },
+  )) as any;
+
+  const data = (await res.json()) as any;
+
   const dsa = data.data.map((aa: any) => {
     return { detailSlug: aa.title };
   });
@@ -32,7 +40,11 @@ interface Props {
 export default async function Page({ params }: Props) {
   const title = params.detailSlug;
 
-  const culturalEvent = await fetchDetailCulturalEvent({ title });
+  const res = await fetch(`https://all-exhibition-ssxst31.koyeb.app/culturalEvents/${decodeURIComponent(title)}`);
+
+  const data = await res.json();
+
+  const culturalEvent = data[0];
 
   if (!culturalEvent) {
     notFound();

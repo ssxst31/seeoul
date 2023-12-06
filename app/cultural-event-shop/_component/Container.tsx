@@ -11,7 +11,7 @@ export default function Container({ data }: ContainerProps) {
       <span className="text-2xl font-bold">네이버 상품을 살펴보세요!</span>
       <div className="w-full h-8 -md:h-4" />
       <ul className="grid grid-cols-1 gap-y-8 gap-x-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 -md:gap-y-4 -md:gap-x-4">
-        {data.items.map((el: any) => (
+        {data?.items?.map((el: any) => (
           <li className="relative w-full overflow-hidden shadow-lg cursor-pointer shadow-gray-200 dark:shadow-gray-900">
             <a href={el.link} key={el.productId} className="inline-block w-full">
               <div className="relative w-full overflow-hidden h-96 sm:h-72">
