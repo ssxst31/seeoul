@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "node prebuild.js",
-    "build": "CI= next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006 -s ./public",
@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.18.9",
-    "@netlify/functions": "^1.3.0",
     "@next/font": "^13.4.9",
     "axios": "^0.27.2",
     "disqus-react": "^1.1.3",
@@ -35,7 +34,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
-    "@netlify/plugin-nextjs": "^4.39.0",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addon-interactions": "^6.5.15",

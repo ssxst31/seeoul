@@ -1,6 +1,6 @@
 # 내일전시 프로젝트
 
-https://seeoul.netlify.app
+https://seeoul.vercel.app
 <br/><br/>
 # 📋 프로젝트 개요
 

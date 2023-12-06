@@ -20,9 +20,18 @@ const nextConfig = {
       "scontent-gmp1-1.cdninstagram.com",
       "scontent-ssn1-1.cdninstagram.com",
       "video-ssn1-1.cdninstagram.com",
-      "seeoul.netlify.app",
+      "seeoul.vercel.app",
       "shopping-phinf.pstatic.net",
     ],
+  },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        destination: "https://seeoul.vercel.app/:path*",
+        permanent: true,
+      },
+    ];
   },
 };
 

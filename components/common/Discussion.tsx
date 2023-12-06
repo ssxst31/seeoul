@@ -11,7 +11,7 @@ export default function Discussion({ title }: DiscussionProps) {
     <DiscussionEmbed
       shortname="seeoul"
       config={{
-        url: "https://seeoul.netlify.app/",
+        url: "https://seeoul.vercel.app/",
         identifier: "1",
         title: title,
         language: "ko",

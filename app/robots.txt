@@ -1,4 +1,4 @@
 
 User-agent: *
 Allow: /
-Sitemap: https://seeoul.netlify.app/sitemap.xml
+Sitemap: https://seeoul.vercel.app/sitemap.xml

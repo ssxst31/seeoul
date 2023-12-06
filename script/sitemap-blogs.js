@@ -3,7 +3,7 @@ import fs from "fs";
 import prettier from "prettier";
 const getDate = new Date().toISOString();
 
-const YOUR_AWESOME_DOMAIN = "https://seeoul.netlify.app";
+const YOUR_AWESOME_DOMAIN = "https://seeoul.vercel.app";
 
 const formatted = (sitemap) => prettier.format(sitemap, { parser: "html" });
 
@@ -40,9 +40,5 @@ const formatted = (sitemap) => prettier.format(sitemap, { parser: "html" });
 
   const formattedSitemap = [formatted(generatedSitemap)];
 
-  fs.writeFileSync(
-    "../public/sitemap-blogs.xml",
-    formattedSitemap.toString(),
-    "utf8",
-  );
+  fs.writeFileSync("../public/sitemap-blogs.xml", formattedSitemap.toString(), "utf8");
 })();
