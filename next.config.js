@@ -27,7 +27,7 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/:path*",
+        source: "https://seeoul.netlify.app/:path*",
         destination: "https://seeoul.vercel.app/:path*",
         permanent: true,
       },
