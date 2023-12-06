@@ -49,9 +49,7 @@ export default async function Page({ searchParams }: Props) {
               `${getBaseUrl}/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=${limit}&option=${
                 sort === "전체" ? "all" : sort
               }&search=${search}`,
-              {
-                cache: "no-store",
-              },
+              { next: { revalidate: 60 * 60 * 24 } },
             )}
           />
         </Suspense>
