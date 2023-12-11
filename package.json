@@ -4,7 +4,7 @@
   "description": "클라이언트 서버입니다.",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "prebuild": "node prebuild.js",
     "build": "next build",
     "start": "next start",
@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.18.9",
-    "@next/font": "^13.4.9",
     "axios": "^0.27.2",
     "disqus-react": "^1.1.3",
     "fs": "^0.0.1-security",
