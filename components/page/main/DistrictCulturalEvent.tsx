@@ -14,7 +14,7 @@ export default function DistrictCulturalEvent({ culturalEvent }: DistrictCultura
 
   return (
     <div
-      className="relative w-48 overflow-hidden cursor-pointer h-72"
+      className="relative w-48 overflow-hidden cursor-pointer h-72 rounded"
       key={culturalEvent.id}
       onClick={() => {
         router.push(`/detail/${culturalEvent.title}`);

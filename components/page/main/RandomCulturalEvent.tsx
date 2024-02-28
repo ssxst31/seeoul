@@ -24,6 +24,7 @@ export default function RandomCulturalEvent({ randomCulturalEvent, moving }: Ran
       }}
     >
       <Image
+        className="rounded"
         src={isMobile ? randomCulturalEvent.mainImg.slice(0, -1) : randomCulturalEvent.mainImg}
         fill
         sizes="100%"

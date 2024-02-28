@@ -19,26 +19,30 @@ export default function CulturalEventCard({ culturalEvent }: CulturalEventCardPr
 
   return (
     <article
-      className="relative w-full overflow-hidden shadow-lg cursor-pointer shadow-gray-200 dark:shadow-gray-900"
+      className="relative w-full overflow-hidden cursor-pointer  dark:shadow-gray-900"
       onClick={() => {
         router.push(`/detail/${title}`);
       }}
     >
-      <div className="relative w-full overflow-hidden h-96 sm:h-72">
+      <div className="relative w-full overflow-hidden h-96 sm:h-72 rounded">
         <Image unoptimized src={mainImg} alt={title} fill className="duration-100 ease-linear hover:scale-110" />
       </div>
-      <div className="p-6">
-        <strong className="block w-full overflow-hidden text-xl font-bold text-black text-ellipsis webkit-box webkit-line-clamp-2 webkit-box-vertical dark:text-white">
+      <div className="p-2">
+        <strong className="block w-full overflow-hidden text-base font-bold text-black text-ellipsis webkit-box webkit-line-clamp-2 webkit-box-vertical dark:text-white">
           {title}
         </strong>
-        <span className="block text-base text-black dark:text-white">기간 : {date}</span>
+        <span className="block text-sm text-black dark:text-white">기간 : {date}</span>
         <div className="space-x-1">
           {isFree === "무료" && (
-            <span className="bg-gray-200 mt-1  text-gray-600 text-xs  inline-block rounded-md p-1">#무료</span>
+            <span className="bg-gray-100 mt-1 text-gray-700 text-xs font-medium inline-block rounded-md p-1">
+              #무료
+            </span>
           )}
-          <span className="bg-gray-200 mt-1  text-gray-600 text-xs  inline-block rounded-md p-1">#{guName}</span>
+          <span className="bg-gray-100 mt-1 text-gray-700 text-xs font-medium inline-block rounded-md p-1">
+            #{guName}
+          </span>
         </div>
-        <div className="absolute py-1 text-sm font-bold text-center text-white bg-red-400 rounded-sm w-14 right-2 top-2">
+        <div className="absolute p-1 text-sm font-medium text-center text-white bg-red-400 rounded-sm right-2 top-2">
           {getEventStatus(date)}
         </div>
       </div>
