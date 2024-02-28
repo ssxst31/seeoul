@@ -11,7 +11,7 @@ export default function Section() {
   return (
     <>
       <DistrictList setLocation={setLocation} location={location} />
-      <div className="w-full h-7 -md:h-4" />
+      <div className="w-full h-4" />
       <DistrictCulturalEventList location={location} />
     </>
   );

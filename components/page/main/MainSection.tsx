@@ -17,16 +17,18 @@ export default async function MainSection({ data2, tab, page }: MainSectionProps
 
   return (
     <>
-      <div className="flex justify-between -md:flex-col">
-        <UnderscoreTitle title="여기서 골라보세요! 🫧" />
+      <div className="flex justify-between -md:flex-col items-end">
+        <div className="h-6 w-full">
+          <UnderscoreTitle title="여기서 골라보세요! 🫧" />
+        </div>
         <div className="hidden w-full -md:h-4 -md:block" />
-        <div className="flex items-center -md:justify-between">
+        <div className="flex items-center -md:justify-between w-full justify-end">
           <div className="gradient">
             총&nbsp;
             <span className="font-bold ">{data.totalCount}</span>
             &nbsp;건
           </div>
-          <div className="w-full ml-4 overflow-hidden border border-indigo-600 rounded-lg -md:w-auto">
+          <div className="w-full max-w-[250px] ml-4 overflow-hidden border border-indigo-600 rounded-lg -md:w-auto">
             <InputBox />
           </div>
         </div>

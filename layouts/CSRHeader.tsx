@@ -54,7 +54,7 @@ export default function Header() {
                   <li key={index}>
                     <Link href={`/${navItem.value}`} prefetch={false}>
                       <span
-                        className={`hover:font-bold hover:leading-3 relative ${
+                        className={`hover:font-bold  -md:text-base text-lg hover:leading-3 relative ${
                           pathname === "/" + navItem.value ? "font-bold" : "font-medium"
                         } `}
                       >
@@ -77,7 +77,7 @@ export default function Header() {
               <li key={index}>
                 <Link href={`/?tab=${t.sort}`} key={index} shallow={true} scroll={true} passHref>
                   <span
-                    className={`text-sm cursor-pointer hover:font-bold hover:text-black dark:hover:text-white ${
+                    className={`text-base -md:text-sm cursor-pointer hover:font-bold hover:text-black dark:hover:text-white ${
                       tab === t.sort ? "font-bold text-black dark:text-white" : "font-medium text-neutral-400 "
                     }`}
                   >

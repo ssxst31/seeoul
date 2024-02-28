@@ -17,7 +17,7 @@ export default function DistrictList({ setLocation, location }: DistrictListProp
                 location === district
                   ? "bg-[#645CBB] border border-solid border-[#645CBB] dark:text-black text-white"
                   : "border border-solid border-[#645CBB] text-black dark:text-white"
-              } px-3 py-2 text-sm  cursor-pointer rounded-xl`}
+              } px-3 py-2 text-sm  cursor-pointer rounded-lg`}
               onClick={() => {
                 setLocation(district);
               }}

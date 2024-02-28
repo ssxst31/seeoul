@@ -3,5 +3,5 @@ interface UnderscoreTitleProps {
 }
 
 export default function UnderscoreTitle({ title }: UnderscoreTitleProps) {
-  return <h2 className="text-2xl font-bold text-black dark:text-white linear2">{title}</h2>;
+  return <h2 className="text-xl font-bold text-black dark:text-white linear2">{title}</h2>;
 }

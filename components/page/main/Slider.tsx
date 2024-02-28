@@ -42,7 +42,7 @@ export default function Slider() {
         {slides.map((el, index) => (
           <li key={index} className="inline-flex items-center justify-end h-16">
             <Link href={el.link} target="_blank" rel="noopener noreferrer">
-              <strong className="text-lg font-bold text-black dark:text-white">{el.title}</strong>
+              <strong className="text-base font-bold text-black dark:text-white">{el.title}</strong>
             </Link>
           </li>
         ))}

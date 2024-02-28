@@ -15,8 +15,8 @@ export default function InputBox() {
   }
 
   return (
-    <div className="flex">
-      <div className="flex items-center justify-center w-10 p-4 bg-white border-r border-gray-200 rounded-tl-lg rounded-bl-lg dark:bg-dark-100 dark:border-gray-800">
+    <div className="flex w-full">
+      <div className="flex items-center justify-center w-10 px-4 py-5 bg-white border-r border-gray-200 rounded-tl-lg rounded-bl-lg dark:bg-dark-100 dark:border-gray-800">
         <svg
           viewBox="0 0 20 20"
           aria-hidden="true"
