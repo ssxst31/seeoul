@@ -20,7 +20,6 @@ export async function generateStaticParams() {
     `https://all-exhibition-ssxst31.koyeb.app/culturalEvents?offset=${(Number(page) - 1) * 20}&limit=${limit}&option=${
       sort === "전체" ? "all" : sort
     }&search=${search}`,
-    { next: { revalidate: 10 } },
   )) as any;
 
   const data = (await res.json()) as any;
@@ -40,7 +39,9 @@ interface Props {
 export default async function Page({ params }: Props) {
   const title = params.detailSlug;
 
-  const res = await fetch(`https://all-exhibition-ssxst31.koyeb.app/culturalEvents/${decodeURIComponent(title)}`);
+  const res = await fetch(`https://all-exhibition-ssxst31.koyeb.app/culturalEvents/${decodeURIComponent(title)}`, {
+    next: { revalidate: 10 },
+  });
 
   const data = await res.json();
 
