@@ -31,7 +31,7 @@ export default function CulturalEventCard({ culturalEvent }: CulturalEventCardPr
         <strong className="block w-full overflow-hidden text-base font-bold text-black text-ellipsis webkit-box webkit-line-clamp-2 webkit-box-vertical dark:text-white">
           {title}
         </strong>
-        <span className="block text-sm text-black dark:text-white">기간 : {date}</span>
+        <span className="block text-sm text-black dark:text-white my-1">{date}</span>
         <div className="space-x-1">
           {isFree === "무료" && (
             <span className="bg-gray-100 mt-1 text-gray-700 text-xs font-medium inline-block rounded-md p-1">
