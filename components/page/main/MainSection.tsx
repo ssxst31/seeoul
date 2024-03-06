@@ -17,7 +17,7 @@ export default async function MainSection({ data2, tab, page }: MainSectionProps
 
   return (
     <>
-      <div className="flex justify-between -md:flex-col items-end">
+      <div className="flex justify-between -md:flex-col items-center">
         <div className="h-6 w-full">
           <UnderscoreTitle title="여기서 골라보세요! 🫧" />
         </div>
@@ -33,7 +33,7 @@ export default async function MainSection({ data2, tab, page }: MainSectionProps
           </div>
         </div>
       </div>
-      <div className="w-full h-8 -md:h-4" />
+      <div className="w-full h-4" />
       {/* @ts-expect-error Async Server Component */}
       <MainArticle totalCulturalEvent={data.data} />
       <div className="w-full h-8" />
